@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Loaders;
 
 use Illuminate\Support\Facades\App;
@@ -30,12 +32,10 @@ trait ProvidersLoaderTrait
             $files = File::allFiles($directory);
 
             foreach ($files as $file) {
-                if (File::isFile($file)) {
-                    // Check if this is the Main Service Provider
-                    if (Str::startsWith($file->getFilename(), $mainServiceProviderNameStartWith)) {
-                        $serviceProviderClass = Nuclear::getClassFullNameFromFile($file->getPathname());
-                        $this->loadProvider($serviceProviderClass);
-                    }
+                // Check if this is the Main Service Provider
+                if (File::isFile($file) && Str::startsWith($file->getFilename(), $mainServiceProviderNameStartWith)) {
+                    $serviceProviderClass = Nuclear::getClassFullNameFromFile($file->getPathname());
+                    $this->loadProvider($serviceProviderClass);
                 }
             }
         }
