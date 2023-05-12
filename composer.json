@@ -1,23 +1,19 @@
 {
   "name": "nucleus/core",
-  "description": "Core package for Apiato.",
+  "type": "library",
+  "description": "Core package for Nucleus.",
   "keywords": [
-    "apiato",
-    "apiato core",
+    "nucleus",
+    "nucleus core",
     "core",
     "Porto",
     "Porto SAP"
   ],
   "license": "MIT",
-  "homepage": "http://apiato.io/",
-  "support": {
-    "issues": "https://github.com/apiato/core/issues",
-    "source": "https://github.com/apiato/core"
-  },
   "authors": [
     {
-      "name": "Mahmoud Zalt",
-      "email": "mahmoud@zalt.me"
+      "name": "Artak Manukyan",
+      "email": "manukyan.artak.21@gmail.com"
     }
   ],
   "require": {
@@ -64,6 +60,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
+    "sort-packages": true,
     "allow-plugins": {
       "apiato/container-installer": true,
       "composer/package-versions-deprecated": true
