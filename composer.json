@@ -1,0 +1,72 @@
+{
+  "name": "apiato/core",
+  "description": "Core package for Apiato.",
+  "keywords": [
+    "apiato",
+    "apiato core",
+    "core",
+    "Porto",
+    "Porto SAP"
+  ],
+  "license": "MIT",
+  "homepage": "http://apiato.io/",
+  "support": {
+    "issues": "https://github.com/apiato/core/issues",
+    "source": "https://github.com/apiato/core"
+  },
+  "authors": [
+    {
+      "name": "Mahmoud Zalt",
+      "email": "mahmoud@zalt.me"
+    }
+  ],
+  "require": {
+    "php": "^8.2.0",
+    "ext-json": "*",
+    "ext-gettext": "*",
+    "vinkla/hashids": "^11.0.0",
+    "guzzlehttp/guzzle": "^7.0.0",
+    "laravel/framework": "^10.0.0"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "mockery/mockery": "^1.4.4",
+    "friendsofphp/php-cs-fixer": "^3.8.0",
+    "vimeo/psalm": "^4.22.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nucleus\\": ""
+    },
+    "files": [
+      "Helpers/helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {}
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Nucleus\\Providers\\NucleusServiceProvider",
+        "Nucleus\\Generator\\GeneratorsServiceProvider",
+        "Vinkla\\Hashids\\HashidsServiceProvider"
+      ],
+      "aliases": {
+        "Hashids": "Vinkla\\Hashids\\Facades\\Hashids",
+        "Fractal": "Spatie\\Fractal\\FractalFacade"
+      }
+    }
+  },
+  "scripts": {
+    "php-cs-fixer": "php-cs-fixer --config=./php_cs.dist.php"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "apiato/container-installer": true,
+      "composer/package-versions-deprecated": true
+    }
+  }
+}
