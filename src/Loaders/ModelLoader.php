@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Src\Loaders;
+namespace Nucleus\Loaders;
 
-use App\BaseModel;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Src\Loaders\Getters;
 
 trait ModelLoader
 {

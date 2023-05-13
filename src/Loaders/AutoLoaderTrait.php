@@ -5,9 +5,6 @@ declare(strict_types=1);
 namespace Nucleus\Loaders;
 
 use Nucleus\Foundation\Facades\Nuclear;
-use Src\Loaders\ModelLoader;
-use Src\Loaders\ObserverLoader;
-use Src\Loaders\RepositoryLoader;
 
 trait AutoLoaderTrait
 {

@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Src\Loaders;
+namespace Nucleus\Loaders;
 
 use DirectoryIterator;
-use Service\Repository\Provider;
 
 trait RepositoryLoader
 {
@@ -14,8 +13,6 @@ trait RepositoryLoader
      */
     public function loadContractRepo(): void
     {
-        $this->app->register(Provider::class);
-
         $_root_directory = base_path() . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'Repositories' . DIRECTORY_SEPARATOR;
         $dir = new DirectoryIterator($_root_directory);
 
