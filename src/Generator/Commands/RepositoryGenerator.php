@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Nucleus\Generator\Commands;
 
 use Illuminate\Support\Str;
-use Nucleus\src\Generator\GeneratorCommand;
+use Nucleus\Generator\GeneratorCommand;
 use Nucleus\Generator\Interfaces\ComponentsGenerator;
 
 class RepositoryGenerator extends GeneratorCommand implements ComponentsGenerator

@@ -2,7 +2,7 @@
 
 namespace Nucleus\Abstracts\Actions;
 
-use Nucleus\src\Abstracts\Actions\Action;
+use Nucleus\Abstracts\Actions\Action;
 
 abstract class SubAction extends Action
 {

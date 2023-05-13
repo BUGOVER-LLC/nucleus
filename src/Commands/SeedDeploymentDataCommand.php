@@ -3,7 +3,7 @@
 namespace Nucleus\Commands;
 
 use Illuminate\Support\Facades\Config;
-use Nucleus\src\Abstracts\Commands\ConsoleCommand;
+use Nucleus\Abstracts\Commands\ConsoleCommand;
 
 class SeedDeploymentDataCommand extends ConsoleCommand
 {

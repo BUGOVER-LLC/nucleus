@@ -2,7 +2,7 @@
 
 namespace Nucleus\Generator\Commands;
 
-use Nucleus\src\Generator\GeneratorCommand;
+use Nucleus\Generator\GeneratorCommand;
 use Nucleus\Generator\Interfaces\ComponentsGenerator;
 use Symfony\Component\Console\Input\InputOption;
 

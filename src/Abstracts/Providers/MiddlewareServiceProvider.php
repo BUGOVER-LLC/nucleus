@@ -4,7 +4,7 @@ namespace Nucleus\Abstracts\Providers;
 
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Nucleus\Loaders\MiddlewaresLoaderTrait;
-use Nucleus\src\Abstracts\Providers\MainServiceProvider;
+use Nucleus\Abstracts\Providers\MainServiceProvider;
 
 abstract class MiddlewareServiceProvider extends MainServiceProvider
 {

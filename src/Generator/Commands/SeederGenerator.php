@@ -3,7 +3,7 @@
 namespace Nucleus\Generator\Commands;
 
 use Illuminate\Support\Str;
-use Nucleus\src\Generator\GeneratorCommand;
+use Nucleus\Generator\GeneratorCommand;
 use Nucleus\Generator\Interfaces\ComponentsGenerator;
 
 class SeederGenerator extends GeneratorCommand implements ComponentsGenerator

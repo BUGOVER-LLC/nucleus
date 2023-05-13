@@ -2,7 +2,7 @@
 
 namespace Nucleus\Exceptions;
 
-use Nucleus\src\Abstracts\Exceptions\Exception;
+use Nucleus\Abstracts\Exceptions\Exception;
 use Symfony\Component\HttpFoundation\Response;
 
 class UndefinedMethodException extends Exception

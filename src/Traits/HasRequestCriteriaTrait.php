@@ -4,7 +4,7 @@ namespace Nucleus\Traits;
 
 use Exception;
 use Hashids\HashidsException;
-use Nucleus\src\Abstracts\Repositories\Repository;
+use Nucleus\Abstracts\Repositories\Repository;
 use Nucleus\Exceptions\CoreInternalErrorException;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Exceptions\RepositoryException;

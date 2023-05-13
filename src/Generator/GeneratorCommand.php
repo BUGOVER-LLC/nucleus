@@ -10,10 +10,10 @@ use Illuminate\Filesystem\Filesystem as IlluminateFilesystem;
 use Illuminate\Support\Str;
 use Nucleus\Exceptions\GeneratorErrorException;
 use Nucleus\Generator\Interfaces\ComponentsGenerator;
-use Nucleus\src\Generator\Traits\FileSystemTrait;
-use Nucleus\src\Generator\Traits\FormatterTrait;
-use Nucleus\src\Generator\Traits\ParserTrait;
-use Nucleus\src\Generator\Traits\PrinterTrait;
+use Nucleus\Generator\Traits\FileSystemTrait;
+use Nucleus\Generator\Traits\FormatterTrait;
+use Nucleus\Generator\Traits\ParserTrait;
+use Nucleus\Generator\Traits\PrinterTrait;
 use Symfony\Component\Console\Input\InputOption;
 
 abstract class GeneratorCommand extends Command

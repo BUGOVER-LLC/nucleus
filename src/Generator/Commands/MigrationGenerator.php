@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Pluralizer;
 use Illuminate\Support\Str;
-use Nucleus\src\Generator\GeneratorCommand;
+use Nucleus\Generator\GeneratorCommand;
 use Nucleus\Generator\Interfaces\ComponentsGenerator;
 use Symfony\Component\Console\Input\InputOption;
 

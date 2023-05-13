@@ -5,7 +5,7 @@ namespace Nucleus\Traits;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Pagination\AbstractPaginator;
 use Illuminate\Support\Collection;
-use Nucleus\src\Abstracts\Transformers\Transformer;
+use Nucleus\Abstracts\Transformers\Transformer;
 use Nucleus\Exceptions\InvalidTransformerException;
 use ReflectionClass;
 use ReflectionException;

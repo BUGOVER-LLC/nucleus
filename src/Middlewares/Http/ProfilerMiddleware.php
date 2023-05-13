@@ -5,7 +5,7 @@ namespace Nucleus\Middlewares\Http;
 use Closure;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Nucleus\src\Abstracts\Middlewares\Middleware;
+use Nucleus\Abstracts\Middlewares\Middleware;
 
 class ProfilerMiddleware extends Middleware
 {

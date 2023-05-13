@@ -2,8 +2,8 @@
 
 namespace Nucleus\Exceptions;
 
-use Nucleus\src\Abstracts\Exceptions\Exception;
-use Nucleus\src\Abstracts\Transformers\Transformer;
+use Nucleus\Abstracts\Exceptions\Exception;
+use Nucleus\Abstracts\Transformers\Transformer;
 use Symfony\Component\HttpFoundation\Response;
 
 class InvalidTransformerException extends Exception

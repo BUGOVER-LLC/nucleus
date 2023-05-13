@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Nucleus\Providers;
 
 use Illuminate\Support\Facades\Schema;
-use Nucleus\src\Abstracts\Providers\MainServiceProvider as AbstractMainServiceProvider;
+use Nucleus\Abstracts\Providers\MainServiceProvider as AbstractMainServiceProvider;
 use Nucleus\Foundation\Nuclear;
 use Nucleus\Loaders\AutoLoaderTrait;
 use Nucleus\Traits\ValidationTrait;

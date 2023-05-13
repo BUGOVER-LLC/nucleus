@@ -2,7 +2,7 @@
 
 namespace Nucleus\Abstracts\Controllers;
 
-use Nucleus\src\Abstracts\Controllers\Controller;
+use Nucleus\Abstracts\Controllers\Controller;
 
 abstract class WebController extends Controller
 {

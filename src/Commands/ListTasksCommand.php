@@ -3,7 +3,7 @@
 namespace Nucleus\Commands;
 
 use Illuminate\Support\Facades\File;
-use Nucleus\src\Abstracts\Commands\ConsoleCommand;
+use Nucleus\Abstracts\Commands\ConsoleCommand;
 use Nucleus\Foundation\Facades\Nuclear;
 use Symfony\Component\Console\Output\ConsoleOutput;
 

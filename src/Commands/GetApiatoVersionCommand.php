@@ -2,7 +2,7 @@
 
 namespace Nucleus\Commands;
 
-use Nucleus\src\Abstracts\Commands\ConsoleCommand;
+use Nucleus\Abstracts\Commands\ConsoleCommand;
 use Nucleus\Foundation\Nuclear;
 
 class GetApiatoVersionCommand extends ConsoleCommand

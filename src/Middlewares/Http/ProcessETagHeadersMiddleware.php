@@ -4,7 +4,7 @@ namespace Nucleus\Middlewares\Http;
 
 use Closure;
 use Illuminate\Http\Request;
-use Nucleus\src\Abstracts\Middlewares\Middleware;
+use Nucleus\Abstracts\Middlewares\Middleware;
 use Symfony\Component\HttpKernel\Exception\PreconditionFailedHttpException;
 
 class ProcessETagHeadersMiddleware extends Middleware
