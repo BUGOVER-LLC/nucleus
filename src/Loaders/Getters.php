@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Src\Loaders;
+namespace Nucleus\Loaders;
 
 trait Getters
 {
