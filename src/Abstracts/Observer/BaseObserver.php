@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Src\Core\Abstracts;
+namespace Nucleus\Abstracts\Observer;
 
 use Illuminate\Database\Eloquent\Model;
 

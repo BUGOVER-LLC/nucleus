@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Nucleus\Loaders;
 
 use Illuminate\Database\Eloquent\Relations\Relation;
-use Src\Loaders\Getters;
 
 trait ModelLoader
 {

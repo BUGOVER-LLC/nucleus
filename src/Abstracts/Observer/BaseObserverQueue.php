@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Src\Core\Abstracts;
+namespace Nucleus\Abstracts\Observer;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Nucleus\Abstracts\Observer\BaseObserver;
 
 abstract class BaseObserverQueue extends BaseObserver implements ShouldQueue
 {

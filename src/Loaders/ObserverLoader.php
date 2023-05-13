@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Nucleus\Loaders;
 
 use Illuminate\Support\Str;
-use Src\Loaders\Getters;
 
 trait ObserverLoader
 {
