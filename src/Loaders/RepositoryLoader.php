@@ -15,7 +15,7 @@ trait RepositoryLoader
     {
         $_root_directory = config(
                 'app.path'
-            ) . 'NoixContainers' . DIRECTORY_SEPARATOR . 'Vendor' . DIRECTORY_SEPARATOR . 'Repositories' . DIRECTORY_SEPARATOR;
+            ) . 'Containers' . DIRECTORY_SEPARATOR . 'Vendor' . DIRECTORY_SEPARATOR . 'Repositories' . DIRECTORY_SEPARATOR;
         $dir = new DirectoryIterator($_root_directory);
 
         $folders = [];
@@ -25,7 +25,7 @@ trait RepositoryLoader
             }
         }
 
-        $namespace = 'NoixContainers\Vendor';
+        $namespace = 'Containers\Vendor';
 
         foreach ($folders as $folder) {
             $contract_file = str_replace('.php', '', scandir($_root_directory . $folder)[2]);

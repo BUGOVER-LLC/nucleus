@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use AppModels\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Database\Eloquent\Model;
@@ -52,35 +51,7 @@ if (!function_exists('module_path')) {
      */
     function module_path(string $path = ''): string
     {
-        return app()->basePath() . DS . 'modules' . DS . $path;
-    }
-}
-
-if (!function_exists('get_user_id')) {
-    /**
-     * @return int|null
-     */
-    function get_user_id(): ?int
-    {
-        if (!Auth::guest()) {
-            return (int)Auth::user()->{Auth::user()->getKeyName()};
-        }
-
-        return null;
-    }
-}
-
-if (!function_exists('user')) {
-    /**
-     * @return User|Authenticatable|null
-     */
-    function user(): User|Authenticatable|null
-    {
-        if (!Auth::guest()) {
-            return Auth::user();
-        }
-
-        return null;
+        return app()->basePath() . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . $path;
     }
 }
 
@@ -307,7 +278,7 @@ if (!function_exists('get_numeric')) {
      */
     function get_numeric($value): array|string|null
     {
-        return preg_replace(CLEAN_SYMBOL, '', $value);
+        return preg_replace('/\D/', '', $value);
     }
 }
 
@@ -670,7 +641,7 @@ if (!function_exists('f_now')) {
      */
     function f_now(): string
     {
-        return now(now()->timezone)->format(DATE_FORMAT_STANDARD);
+        return now(now()->timezone)->format('Y-m-d H:i:s');
     }
 }
 
@@ -709,8 +680,10 @@ if (!function_exists('renderer')) {
             throw new HelperException(trans('validation.v8js_extension'));
         }
 
-        $renderer_source = File::get(base_path('node_modules' . DS . 'vue-server-renderer' . DS . 'basic.js'));
-        $app_source = File::get(public_path($folder . DS . 'js' . DS . $file));
+        $renderer_source = File::get(
+            base_path('node_modules' . DIRECTORY_SEPARATOR . 'vue-server-renderer' . DIRECTORY_SEPARATOR . 'basic.js')
+        );
+        $app_source = File::get(public_path($folder . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . $file));
         $v8 = new V8Js();
 
         ob_start();

@@ -10,8 +10,11 @@ class Nuclear
 {
     public const VERSION = '1.0.0';
     private const SHIP_NAME = 'Ship';
-    private const CONTAINERS_DIRECTORY_NAME = 'NoixContainers';
+    private const CONTAINERS_DIRECTORY_NAME = 'Containers';
 
+    /**
+     * @return array
+     */
     public function getShipFoldersNames(): array
     {
         $shipFoldersNames = [];
@@ -23,11 +26,18 @@ class Nuclear
         return $shipFoldersNames;
     }
 
+    /**
+     * @return array
+     */
     public function getShipPath(): array
     {
         return File::directories(app_path(self::SHIP_NAME));
     }
 
+    /**
+     * @param string $sectionName
+     * @return array
+     */
     public function getSectionContainerNames(string $sectionName): array
     {
         $containerNames = [];
@@ -38,6 +48,10 @@ class Nuclear
         return $containerNames;
     }
 
+    /**
+     * @param string $sectionName
+     * @return string
+     */
     private function getSectionPath(string $sectionName): string
     {
         return app_path(self::CONTAINERS_DIRECTORY_NAME . DIRECTORY_SEPARATOR . $sectionName);
@@ -155,6 +169,9 @@ class Nuclear
         return end($array);
     }
 
+    /**
+     * @return array
+     */
     public function getAllContainerNames(): array
     {
         $containersNames = [];
@@ -166,6 +183,9 @@ class Nuclear
         return $containersNames;
     }
 
+    /**
+     * @return array
+     */
     public function getAllContainerPaths(): array
     {
         $sectionNames = $this->getSectionNames();
@@ -180,6 +200,9 @@ class Nuclear
         return $containerPaths;
     }
 
+    /**
+     * @return array
+     */
     public function getSectionNames(): array
     {
         $sectionNames = [];
@@ -191,11 +214,18 @@ class Nuclear
         return $sectionNames;
     }
 
+    /**
+     * @return array
+     */
     public function getSectionPaths(): array
     {
         return File::directories(app_path(self::CONTAINERS_DIRECTORY_NAME));
     }
 
+    /**
+     * @param string $sectionName
+     * @return array
+     */
     public function getSectionContainerPaths(string $sectionName): array
     {
         return File::directories(app_path(self::CONTAINERS_DIRECTORY_NAME . DIRECTORY_SEPARATOR . $sectionName));
