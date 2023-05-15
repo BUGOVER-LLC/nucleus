@@ -36,7 +36,8 @@
       "Nucleus\\": "src/"
     },
     "files": [
-      "src/Helpers/helpers.php"
+      "src/Helpers/helpers.php",
+      "src/Helpers/_helpers.php"
     ]
   },
   "autoload-dev": {
