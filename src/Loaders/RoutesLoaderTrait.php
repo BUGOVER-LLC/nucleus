@@ -99,11 +99,11 @@ trait RoutesLoaderTrait
     {
         $rateLimitMiddleware = null;
 
-        if (Config::get('apiato.api.throttle.enabled')) {
+        if (Config::get('nucleus.php.api.throttle.enabled')) {
             RateLimiter::for('api', function (Request $request) {
                 return Limit::perMinutes(
-                    Config::get('apiato.api.throttle.expires'),
-                    Config::get('apiato.api.throttle.attempts')
+                    Config::get('nucleus.php.api.throttle.expires'),
+                    Config::get('nucleus.php.api.throttle.attempts')
                 )->by($request->user()?->id ?: $request->ip());
             });
 
@@ -118,7 +118,7 @@ trait RoutesLoaderTrait
      */
     private function getApiUrl()
     {
-        return Config::get('apiato.api.url');
+        return Config::get('nucleus.php.api.url');
     }
 
     /**
@@ -128,8 +128,8 @@ trait RoutesLoaderTrait
      */
     private function getApiVersionPrefix($file): string
     {
-        return Config::get('apiato.api.prefix') . (Config::get(
-                'apiato.api.enable_version_prefix'
+        return Config::get('nucleus.php.api.prefix') . (Config::get(
+                'nucleus.php.api.enable_version_prefix'
             ) ? $this->getRouteFileVersionFromFileName($file) : '');
     }
 
@@ -146,14 +146,14 @@ trait RoutesLoaderTrait
 
         end($fileNameWithoutExtensionExploded);
 
-        $apiVersion = prev($fileNameWithoutExtensionExploded); // get the array before the last one
+        $api_version = prev($fileNameWithoutExtensionExploded); // get the array before the last one
 
         // Skip versioning the API's root route
-        if ($apiVersion === 'ApisRoot') {
-            $apiVersion = '';
+        if ('ApisRoot' === $api_version) {
+            $api_version = '';
         }
 
-        return $apiVersion;
+        return $api_version;
     }
 
     /**
@@ -198,8 +198,6 @@ trait RoutesLoaderTrait
         Route::group([
             'namespace' => $controllerNamespace,
             'middleware' => ['web'],
-        ], function ($router) use ($file) {
-            require $file->getPathname();
-        });
+        ], fn($router) => require $file->getPathname());
     }
 }

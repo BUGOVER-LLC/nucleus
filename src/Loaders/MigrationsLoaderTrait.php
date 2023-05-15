@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Loaders;
 
 use Illuminate\Support\Facades\File;
@@ -28,7 +30,7 @@ trait MigrationsLoaderTrait
      */
     public function loadMigrationsFromShip(): void
     {
-        $shipMigrationDirectory = base_path('app/Ship/Migrations');
+        $shipMigrationDirectory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Migrations';
         $this->loadMigrations($shipMigrationDirectory);
     }
 }

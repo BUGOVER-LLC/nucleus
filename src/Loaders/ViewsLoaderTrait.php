@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Loaders;
 
 use Illuminate\Support\Facades\File;
@@ -34,9 +36,14 @@ trait ViewsLoaderTrait
         );
     }
 
+    /**
+     * @return void
+     */
     public function loadViewsFromShip(): void
     {
-        $shipMailTemplatesDirectory = base_path('app/Ship/Mails/Templates/');
+        $shipMailTemplatesDirectory = config(
+                'app.path'
+            ) . 'Ship' . DIRECTORY_SEPARATOR . 'Mails' . DIRECTORY_SEPARATOR . 'Templates' . DIRECTORY_SEPARATOR;
         $this->loadViews($shipMailTemplatesDirectory, 'ship'); // Ship views accessible via `ship::`.
     }
 }

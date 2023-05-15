@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Loaders;
 
 use Illuminate\Support\Facades\File;
@@ -7,12 +9,20 @@ use Nucleus\Foundation\Facades\Nuclear;
 
 trait CommandsLoaderTrait
 {
+    /**
+     * @param $containerPath
+     * @return void
+     */
     public function loadCommandsFromContainers($containerPath): void
     {
         $containerCommandsDirectory = $containerPath . '/UI/CLI/Commands';
         $this->loadTheConsoles($containerCommandsDirectory);
     }
 
+    /**
+     * @param $directory
+     * @return void
+     */
     private function loadTheConsoles($directory): void
     {
         if (File::isDirectory($directory)) {
@@ -30,17 +40,27 @@ trait CommandsLoaderTrait
         }
     }
 
+    /**
+     * @param $consoleFile
+     * @return bool
+     */
     private function isRouteFile($consoleFile): bool
     {
-        return $consoleFile->getFilename() === 'closures.php';
+        return 'closures.php' === $consoleFile->getFilename();
     }
 
+    /**
+     * @return void
+     */
     public function loadCommandsFromShip(): void
     {
-        $shipCommandsDirectory = base_path('app/Ship/Commands');
+        $shipCommandsDirectory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Commands';
         $this->loadTheConsoles($shipCommandsDirectory);
     }
 
+    /**
+     * @return void
+     */
     public function loadCommandsFromCore(): void
     {
         $coreCommandsDirectory = __DIR__ . '/../Commands';

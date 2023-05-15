@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Loaders;
 
 use Illuminate\Support\Collection;
@@ -20,6 +22,9 @@ trait SeederLoaderTrait
         $this->loadSeedersFromContainers();
     }
 
+    /**
+     * @return void
+     */
     private function loadSeedersFromContainers(): void
     {
         $seedersClasses = new Collection();

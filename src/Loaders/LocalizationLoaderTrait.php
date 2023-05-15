@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Loaders;
 
 use Illuminate\Support\Facades\File;
@@ -34,7 +36,7 @@ trait LocalizationLoaderTrait
 
     public function loadLocalsFromShip(): void
     {
-        $shipLocaleDirectory = base_path('app/Ship/Languages');
+        $shipLocaleDirectory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Languages';
         $this->loadLocals($shipLocaleDirectory, 'ship');
     }
 }

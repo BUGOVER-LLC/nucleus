@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Loaders;
 
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
@@ -29,7 +31,7 @@ trait HelpersLoaderTrait
 
     public function loadHelpersFromShip(): void
     {
-        $shipHelpersDirectory = base_path('app/Ship/Helpers');
+        $shipHelpersDirectory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Helpers';
         $this->loadHelpers($shipHelpersDirectory);
     }
 }
