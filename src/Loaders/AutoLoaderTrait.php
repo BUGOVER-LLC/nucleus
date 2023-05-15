@@ -18,7 +18,7 @@ trait AutoLoaderTrait
     use AliasesLoaderTrait;
     use HelpersLoaderTrait;
     use RepositoryLoader;
-    use ModelLoader;
+    use ModelMapLoader;
     use ObserverLoader;
 
     /**

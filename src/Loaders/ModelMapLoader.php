@@ -6,7 +6,7 @@ namespace Nucleus\Loaders;
 
 use Illuminate\Database\Eloquent\Relations\Relation;
 
-trait ModelLoader
+trait ModelMapLoader
 {
     use Getters;
 

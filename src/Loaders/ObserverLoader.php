@@ -8,7 +8,10 @@ use Illuminate\Support\Str;
 
 trait ObserverLoader
 {
-    use Getters;
+    /**
+     * @var array
+     */
+    private array $observers = [];
 
     /**
      * @return void
@@ -22,5 +25,18 @@ trait ObserverLoader
                 }
             }
         }
+    }
+
+    /**
+     * @return array
+     */
+    public function getObservers(): array
+    {
+        if (!$this->observers) {
+            $path = app_path('Observers' . DIRECTORY_SEPARATOR);
+            recursive_loader($path, $this->observers, true);
+        }
+
+        return $this->observers;
     }
 }
