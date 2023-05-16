@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Loaders;
 
 use Illuminate\Cache\RateLimiting\Limit;
@@ -19,11 +21,11 @@ trait RoutesLoaderTrait
      */
     public function runRoutesAutoLoader(): void
     {
-        $containersPaths = Nuclear::getAllContainerPaths();
+        $containers_paths = Nuclear::getAllContainerPaths();
 
-        foreach ($containersPaths as $containerPath) {
-            $this->loadApiContainerRoutes($containerPath);
-            $this->loadWebContainerRoutes($containerPath);
+        foreach ($containers_paths as $container_path) {
+            $this->loadApiContainerRoutes($container_path);
+            $this->loadWebContainerRoutes($container_path);
         }
     }
 
@@ -43,6 +45,7 @@ trait RoutesLoaderTrait
             $files = Arr::sort($files, function ($file) {
                 return $file->getFilename();
             });
+
             foreach ($files as $file) {
                 $this->loadApiRoute($file, $controllerNamespace);
             }
@@ -75,7 +78,7 @@ trait RoutesLoaderTrait
             'middleware' => $this->getMiddlewares(),
             'domain' => $this->getApiUrl(),
             // If $endpointFileOrPrefixString is a file then get the version name from the file name, else if string use that string as prefix
-            'prefix' => is_string(
+            'prefix' => \is_string(
                 $endpointFileOrPrefixString
             ) ? $endpointFileOrPrefixString : $this->getApiVersionPrefix($endpointFileOrPrefixString),
         ];
@@ -114,9 +117,9 @@ trait RoutesLoaderTrait
     }
 
     /**
-     * @return  mixed
+     * @return string|null
      */
-    private function getApiUrl()
+    private function getApiUrl(): ?string
     {
         return Config::get('nucleus.php.api.url');
     }
@@ -163,7 +166,7 @@ trait RoutesLoaderTrait
      */
     private function getRouteFileNameWithoutExtension(SplFileInfo $file): mixed
     {
-        return pathinfo($file->getFileName())['filename'];
+        return pathinfo($file->getFilename())['filename'];
     }
 
     /**
