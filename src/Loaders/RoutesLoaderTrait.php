@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Nucleus\Loaders;
 
 use Illuminate\Cache\RateLimiting\Limit;
@@ -35,7 +33,9 @@ trait RoutesLoaderTrait
      */
     private function loadApiContainerRoutes(string $container_path): void
     {
-        $api_routes_path = $container_path . DIRECTORY_SEPARATOR . 'UI' . DIRECTORY_SEPARATOR . 'API' . DIRECTORY_SEPARATOR . 'Routes';
+        // Build the container api routes path
+        $api_routes_path = $container_path . '/UI/API/Routes';
+        // Build the namespace from the path
         $controller_namespace = $container_path . '\\UI\API\Controllers';
 
         if (File::isDirectory($api_routes_path)) {
@@ -43,7 +43,6 @@ trait RoutesLoaderTrait
             $files = Arr::sort($files, function ($file) {
                 return $file->getFilename();
             });
-
             foreach ($files as $file) {
                 $this->loadApiRoute($file, $controller_namespace);
             }
@@ -76,7 +75,7 @@ trait RoutesLoaderTrait
             'middleware' => $this->getMiddlewares(),
             'domain' => $this->getApiUrl(),
             // If $endpointFileOrPrefixString is a file then get the version name from the file name, else if string use that string as prefix
-            'prefix' => \is_string(
+            'prefix' => is_string(
                 $endpointFileOrPrefixString
             ) ? $endpointFileOrPrefixString : $this->getApiVersionPrefix($endpointFileOrPrefixString),
         ];
@@ -98,7 +97,7 @@ trait RoutesLoaderTrait
      */
     private function getRateLimitMiddleware(): ?string
     {
-        $rate_limit_middleware = null;
+        $rateLimitMiddleware = null;
 
         if (Config::get('nucleus.php.api.throttle.enabled')) {
             RateLimiter::for('api', function (Request $request) {
@@ -108,16 +107,16 @@ trait RoutesLoaderTrait
                 )->by($request->user()?->id ?: $request->ip());
             });
 
-            $rate_limit_middleware = 'throttle:api';
+            $rateLimitMiddleware = 'throttle:api';
         }
 
-        return $rate_limit_middleware;
+        return $rateLimitMiddleware;
     }
 
     /**
-     * @return string|null
+     * @return  mixed
      */
-    private function getApiUrl(): ?string
+    private function getApiUrl()
     {
         return Config::get('nucleus.php.api.url');
     }
@@ -141,13 +140,13 @@ trait RoutesLoaderTrait
      */
     private function getRouteFileVersionFromFileName($file): string|bool
     {
-        $file_name_without_extension = $this->getRouteFileNameWithoutExtension($file);
+        $fileNameWithoutExtension = $this->getRouteFileNameWithoutExtension($file);
 
-        $file_name_without_extension_exploded = explode('.', $file_name_without_extension);
+        $fileNameWithoutExtensionExploded = explode('.', $fileNameWithoutExtension);
 
-        end($file_name_without_extension_exploded);
+        end($fileNameWithoutExtensionExploded);
 
-        $api_version = prev($file_name_without_extension_exploded); // get the array before the last one
+        $api_version = prev($fileNameWithoutExtensionExploded); // get the array before the last one
 
         // Skip versioning the API's root route
         if ('ApisRoot' === $api_version) {
@@ -164,26 +163,24 @@ trait RoutesLoaderTrait
      */
     private function getRouteFileNameWithoutExtension(SplFileInfo $file): mixed
     {
-        return pathinfo($file->getFilename())['filename'];
+        return pathinfo($file->getFileName())['filename'];
     }
 
     /**
      * Register the Containers WEB routes files
      *
-     * @param $containerPath
+     * @param $container_path
      */
-    private function loadWebContainerRoutes($containerPath): void
+    private function loadWebContainerRoutes($container_path): void
     {
         // build the container web routes path
-        $web_routes_path = $containerPath . DIRECTORY_SEPARATOR . 'UI' . DIRECTORY_SEPARATOR . 'WEB' . DIRECTORY_SEPARATOR . 'Routes';
+        $web_routes_path = $container_path . DIRECTORY_SEPARATOR . 'UI' . DIRECTORY_SEPARATOR . 'WEB' . DIRECTORY_SEPARATOR . 'Routes';
         // build the namespace from the path
-        $controller_namespace = $containerPath . '\\UI\WEB\Controllers';
+        $controller_namespace = str_replace(['/', '\\'], '\\', $container_path) . '\\UI\WEB\Controllers';
 
         if (File::isDirectory($web_routes_path)) {
             $files = File::allFiles($web_routes_path);
-            $files = Arr::sort($files, function ($file) {
-                return $file->getFilename();
-            });
+            $files = Arr::sort($files, fn($file) => $file->getFilename());
 
             foreach ($files as $file) {
                 $this->loadWebRoute($file, $controller_namespace);
@@ -193,13 +190,13 @@ trait RoutesLoaderTrait
 
     /**
      * @param $file
-     * @param $controllerNamespace
+     * @param $controller_namespace
      */
-    private function loadWebRoute($file, $controllerNamespace): void
+    private function loadWebRoute($file, $controller_namespace): void
     {
-        Route::group([
-            'namespace' => $controllerNamespace,
-            'middleware' => ['web'],
-        ], fn($router) => require $file->getPathname());
+        Route::group(
+            ['namespace' => $controller_namespace, 'middleware' => ['web']],
+            fn($router) => require $file->getPathname()
+        );
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Nucleus\Foundation;
 
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class Nuclear
 {
@@ -60,40 +61,40 @@ class Nuclear
     /**
      * Build and return an object of a class from its file path
      *
-     * @param string $filePathName
+     * @param string $file_path_name
      *
      * @return  mixed
      */
-    public function getClassObjectFromFile(string $filePathName): mixed
+    public function getClassObjectFromFile(string $file_path_name): mixed
     {
-        $classString = $this->getClassFullNameFromFile($filePathName);
+        $class_string = $this->getClassFullNameFromFile($file_path_name);
 
-        return new $classString();
+        return new $class_string();
     }
 
     /**
      * Get the full name (name \ namespace) of a class from its file path
      * result example: (string) "I\Am\The\Namespace\Of\This\Class"
      *
-     * @param string $filePathName
+     * @param string $file_path_name
      *
      * @return  string
      */
-    public function getClassFullNameFromFile(string $filePathName): string
+    public function getClassFullNameFromFile(string $file_path_name): string
     {
-        return "{$this->getClassNamespaceFromFile($filePathName)}\\{$this->getClassNameFromFile($filePathName)}";
+        return "{$this->getClassNamespaceFromFile($file_path_name)}\\{$this->getClassNameFromFile($file_path_name)}";
     }
 
     /**
      * Get the class namespace form file path using token
      *
-     * @param string $filePathName
+     * @param string $file_ath_name
      *
      * @return  null|string
      */
-    protected function getClassNamespaceFromFile(string $filePathName): ?string
+    protected function getClassNamespaceFromFile(string $file_ath_name): ?string
     {
-        $src = file_get_contents($filePathName);
+        $src = file_get_contents($file_ath_name);
 
         $tokens = token_get_all($src);
         $count = count($tokens);
@@ -183,21 +184,39 @@ class Nuclear
         return $containersNames;
     }
 
-    /**
+    /**@TODO fix Performance optimize
      * @return array
      */
     public function getAllContainerPaths(): array
     {
-        $sectionNames = $this->getSectionNames();
-        $containerPaths = [];
-        foreach ($sectionNames as $name) {
-            $sectionContainerPaths = $this->getSectionContainerPaths($name);
-            foreach ($sectionContainerPaths as $containerPath) {
-                $containerPaths[] = $containerPath;
+        $section_or_container_names = $this->getSectionNames();
+        $container_section_paths = [];
+        $container_names = [];
+
+        foreach ($section_or_container_names as $container_section_name) {
+            if (Str::contains($container_section_name, 'Section', false) && Str::endsWith(
+                    $container_section_name,
+                    'Section'
+                )) {
+                $section_container_paths = $this->getSectionContainerPaths($container_section_name);
+                foreach ($section_container_paths as $containerPath) {
+                    $container_section_paths[] = $containerPath;
+                }
+            } else {
+                $container_names[] = $container_section_name;
             }
         }
 
-        return $containerPaths;
+        foreach ($container_names as $container_name) {
+            $section_container_paths = $this->getContainerPaths($container_name);
+            foreach ($section_container_paths as $section_container_path) {
+                if (!Str::endsWith($section_container_path, 'Section')) {
+                    $container_section_paths[] = $section_container_path;
+                }
+            }
+        }
+
+        return $container_section_paths;
     }
 
     /**
@@ -205,13 +224,13 @@ class Nuclear
      */
     public function getSectionNames(): array
     {
-        $sectionNames = [];
+        $section_names = [];
 
         foreach ($this->getSectionPaths() as $sectionPath) {
-            $sectionNames[] = basename($sectionPath);
+            $section_names[] = basename($sectionPath);
         }
 
-        return $sectionNames;
+        return $section_names;
     }
 
     /**
@@ -229,5 +248,13 @@ class Nuclear
     public function getSectionContainerPaths(string $sectionName): array
     {
         return File::directories(app_path(self::CONTAINERS_DIRECTORY_NAME . DIRECTORY_SEPARATOR . $sectionName));
+    }
+
+    /**
+     * @return array
+     */
+    public function getContainerPaths(string $container_name): array
+    {
+        return File::directories(app_path(self::CONTAINERS_DIRECTORY_NAME . DIRECTORY_SEPARATOR));
     }
 }
