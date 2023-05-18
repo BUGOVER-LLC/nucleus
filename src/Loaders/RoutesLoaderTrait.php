@@ -200,8 +200,6 @@ trait RoutesLoaderTrait
         Route::group([
             'namespace' => $controllerNamespace,
             'middleware' => ['web'],
-        ], function ($router) use ($file) {
-            return require $file->getPathname();
-        });
+        ], fn($router) => require $file->getPathname());
     }
 }
