@@ -31,23 +31,21 @@ trait RoutesLoaderTrait
 
     /**
      * Register the Containers API routes files
-     * @param string $containerPath
+     * @param string $container_path
      */
-    private function loadApiContainerRoutes(string $containerPath): void
+    private function loadApiContainerRoutes(string $container_path): void
     {
-        // Build the container api routes path
-        $apiRoutesPath = $containerPath . '/UI/API/Routes';
-        // Build the namespace from the path
-        $controllerNamespace = $containerPath . '\\UI\API\Controllers';
+        $api_routes_path = $container_path . DIRECTORY_SEPARATOR . 'UI' . DIRECTORY_SEPARATOR . 'API' . DIRECTORY_SEPARATOR . 'Routes';
+        $controller_namespace = $container_path . '\\UI\API\Controllers';
 
-        if (File::isDirectory($apiRoutesPath)) {
-            $files = File::allFiles($apiRoutesPath);
+        if (File::isDirectory($api_routes_path)) {
+            $files = File::allFiles($api_routes_path);
             $files = Arr::sort($files, function ($file) {
                 return $file->getFilename();
             });
 
             foreach ($files as $file) {
-                $this->loadApiRoute($file, $controllerNamespace);
+                $this->loadApiRoute($file, $controller_namespace);
             }
         }
     }
@@ -100,7 +98,7 @@ trait RoutesLoaderTrait
      */
     private function getRateLimitMiddleware(): ?string
     {
-        $rateLimitMiddleware = null;
+        $rate_limit_middleware = null;
 
         if (Config::get('nucleus.php.api.throttle.enabled')) {
             RateLimiter::for('api', function (Request $request) {
@@ -110,10 +108,10 @@ trait RoutesLoaderTrait
                 )->by($request->user()?->id ?: $request->ip());
             });
 
-            $rateLimitMiddleware = 'throttle:api';
+            $rate_limit_middleware = 'throttle:api';
         }
 
-        return $rateLimitMiddleware;
+        return $rate_limit_middleware;
     }
 
     /**
@@ -143,13 +141,13 @@ trait RoutesLoaderTrait
      */
     private function getRouteFileVersionFromFileName($file): string|bool
     {
-        $fileNameWithoutExtension = $this->getRouteFileNameWithoutExtension($file);
+        $file_name_without_extension = $this->getRouteFileNameWithoutExtension($file);
 
-        $fileNameWithoutExtensionExploded = explode('.', $fileNameWithoutExtension);
+        $file_name_without_extension_exploded = explode('.', $file_name_without_extension);
 
-        end($fileNameWithoutExtensionExploded);
+        end($file_name_without_extension_exploded);
 
-        $api_version = prev($fileNameWithoutExtensionExploded); // get the array before the last one
+        $api_version = prev($file_name_without_extension_exploded); // get the array before the last one
 
         // Skip versioning the API's root route
         if ('ApisRoot' === $api_version) {
@@ -177,17 +175,18 @@ trait RoutesLoaderTrait
     private function loadWebContainerRoutes($containerPath): void
     {
         // build the container web routes path
-        $webRoutesPath = $containerPath . '/UI/WEB/Routes';
+        $web_routes_path = $containerPath . DIRECTORY_SEPARATOR . 'UI' . DIRECTORY_SEPARATOR . 'WEB' . DIRECTORY_SEPARATOR . 'Routes';
         // build the namespace from the path
-        $controllerNamespace = $containerPath . '\\UI\WEB\Controllers';
+        $controller_namespace = $containerPath . '\\UI\WEB\Controllers';
 
-        if (File::isDirectory($webRoutesPath)) {
-            $files = File::allFiles($webRoutesPath);
+        if (File::isDirectory($web_routes_path)) {
+            $files = File::allFiles($web_routes_path);
             $files = Arr::sort($files, function ($file) {
                 return $file->getFilename();
             });
+
             foreach ($files as $file) {
-                $this->loadWebRoute($file, $controllerNamespace);
+                $this->loadWebRoute($file, $controller_namespace);
             }
         }
     }
@@ -201,6 +200,8 @@ trait RoutesLoaderTrait
         Route::group([
             'namespace' => $controllerNamespace,
             'middleware' => ['web'],
-        ], fn($router) => require $file->getPathname());
+        ], function ($router) use ($file) {
+            return require $file->getPathname();
+        });
     }
 }

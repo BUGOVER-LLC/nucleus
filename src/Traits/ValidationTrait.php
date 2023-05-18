@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Traits;
 
 use Illuminate\Support\Facades\DB;
@@ -31,9 +33,9 @@ trait ValidationTrait
 
             $queryBuilder->where($parameters[2], $validator->getData()[$parameters[2]]);
 
-            $queryResult = $queryBuilder->get();
+            $query_result = $queryBuilder->get();
 
-            return $queryResult->isEmpty();
+            return $query_result->isEmpty();
         }, 'Duplicated record. This record has composite ID and it must be unique.');
     }
 }

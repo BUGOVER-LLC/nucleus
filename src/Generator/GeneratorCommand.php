@@ -24,13 +24,6 @@ abstract class GeneratorCommand extends Command
     use FormatterTrait;
 
     /**
-     * Root directory of all sections
-     *
-     * @var string
-     */
-    private const ROOT = 'app/Containers';
-
-    /**
      * Relative path for the stubs (relative to this directory / file)
      *
      * @var string
@@ -69,16 +62,34 @@ abstract class GeneratorCommand extends Command
      */
     protected string $fileName;
 
+    /**
+     * @var
+     */
     protected $userData;
 
+    /**
+     * @var
+     */
     protected $parsedFileName;
 
+    /**
+     * @var
+     */
     protected $stubContent;
 
+    /**
+     * @var
+     */
     protected $renderedStubContent;
 
+    /**
+     * @var IlluminateFilesystem
+     */
     private IlluminateFilesystem $fileSystem;
 
+    /**
+     * @var array|array[]
+     */
     private array $defaultInputs = [
         ['section', null, InputOption::VALUE_OPTIONAL, 'The name of the section'],
         ['container', null, InputOption::VALUE_OPTIONAL, 'The name of the container'],
@@ -244,13 +255,21 @@ abstract class GeneratorCommand extends Command
     {
         // Complete the missing parts of the path
         $path = base_path() . '/' .
-            str_replace('\\', '/', self::ROOT . '/' . $path) . '.' . $this->getDefaultFileExtension();
+            str_replace('\\', '/', self::getRootPath() . '/' . $path) . '.' . $this->getDefaultFileExtension();
 
         // Try to create directory
         $this->createDirectory($path);
 
         // Return full path
         return $path;
+    }
+
+    /**
+     * @return string
+     */
+    private static function getRootPath(): string
+    {
+        return config('nucleus.path') . config('nucleus.container_name');
     }
 
     /**

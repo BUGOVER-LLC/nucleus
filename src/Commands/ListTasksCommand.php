@@ -32,7 +32,9 @@ class ListTasksCommand extends ConsoleCommand
             foreach (Nuclear::getSectionContainerNames($sectionName) as $containerName) {
                 $this->console->writeln("<fg=yellow> [$containerName]</fg=yellow>");
 
-                $directory = base_path('app/Containers/' . $sectionName . '/' . $containerName . '/Tasks');
+                $directory = base_path(
+                    config('nucleus.path') . 'Containers/' . $sectionName . '/' . $containerName . '/Tasks'
+                );
 
                 if (File::isDirectory($directory)) {
                     $files = File::allFiles($directory);

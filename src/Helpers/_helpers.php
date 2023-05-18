@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;
@@ -12,7 +11,6 @@ use Illuminate\Routing\Router;
 use Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
@@ -831,7 +829,7 @@ if (!function_exists('async_loader')) {
      */
     function async_loader(): string
     {
-        return base_path('app/AsyncLoader/RuntimeAutoload.php');
+        return base_path(config('nucleus.path') . 'AsyncLoader/RuntimeAutoload.php');
     }
 }
 

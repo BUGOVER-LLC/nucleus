@@ -37,12 +37,12 @@ trait AutoLoaderTrait
 //        $this->loadObservers();
 
         // Iterate over all the containers folders and autoload most of the components
-        foreach (Nuclear::getAllContainerPaths() as $containerPath) {
-            $this->loadMigrationsFromContainers($containerPath);
-            $this->loadLocalsFromContainers($containerPath);
-            $this->loadViewsFromContainers($containerPath);
-            $this->loadHelpersFromContainers($containerPath);
-            $this->loadCommandsFromContainers($containerPath);
+        foreach (Nuclear::getAllContainerPaths() as $container_path) {
+            $this->loadMigrationsFromContainers($container_path);
+            $this->loadLocalsFromContainers($container_path);
+            $this->loadViewsFromContainers($container_path);
+            $this->loadHelpersFromContainers($container_path);
+            $this->loadCommandsFromContainers($container_path);
         }
     }
 
@@ -54,9 +54,9 @@ trait AutoLoaderTrait
         $this->loadConfigsFromShip();
         $this->loadOnlyShipProviderFromShip();
 
-        foreach (Nuclear::getAllContainerPaths() as $containerPath) {
-            $this->loadConfigsFromContainers($containerPath);
-            $this->loadOnlyMainProvidersFromContainers($containerPath);
+        foreach (Nuclear::getAllContainerPaths() as $container_path) {
+            $this->loadConfigsFromContainers($container_path);
+            $this->loadOnlyMainProvidersFromContainers($container_path);
         }
     }
 }

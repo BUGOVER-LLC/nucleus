@@ -20,20 +20,24 @@ trait ProvidersLoaderTrait
      */
     public function loadOnlyMainProvidersFromContainers($containerPath): void
     {
-        $containerProvidersDirectory = $containerPath . '/Providers';
-        $this->loadProviders($containerProvidersDirectory);
+        $container_providers_directory = $containerPath . '/Providers';
+        $this->loadProviders($container_providers_directory);
     }
 
+    /**
+     * @param $directory
+     * @return void
+     */
     private function loadProviders($directory): void
     {
-        $mainServiceProviderNameStartWith = 'Main';
+        $main_service_provider_name_start_with = 'Main';
 
         if (File::isDirectory($directory)) {
             $files = File::allFiles($directory);
 
             foreach ($files as $file) {
                 // Check if this is the Main Service Provider
-                if (File::isFile($file) && Str::startsWith($file->getFilename(), $mainServiceProviderNameStartWith)) {
+                if (File::isFile($file) && Str::startsWith($file->getFilename(), $main_service_provider_name_start_with)) {
                     $serviceProviderClass = Nuclear::getClassFullNameFromFile($file->getPathname());
                     $this->loadProvider($serviceProviderClass);
                 }
@@ -41,9 +45,13 @@ trait ProvidersLoaderTrait
         }
     }
 
-    private function loadProvider($providerFullName): void
+    /**
+     * @param $provider_full_name
+     * @return void
+     */
+    private function loadProvider($provider_full_name): void
     {
-        App::register($providerFullName);
+        App::register($provider_full_name);
     }
 
     /**
@@ -59,6 +67,9 @@ trait ProvidersLoaderTrait
         }
     }
 
+    /**
+     * @return void
+     */
     public function loadOnlyShipProviderFromShip(): void
     {
         $this->loadProvider('Ship\Providers\ShipProvider');

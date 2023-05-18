@@ -27,36 +27,41 @@ trait SeederLoaderTrait
      */
     private function loadSeedersFromContainers(): void
     {
-        $seedersClasses = new Collection();
+        $seeders_classes = new Collection();
 
-        $containersDirectories = [];
+        $containers_directories = [];
 
-        foreach (Nuclear::getSectionNames() as $sectionName) {
-            foreach (Nuclear::getSectionContainerNames($sectionName) as $containerName) {
-                $containersDirectories[] = base_path(
-                    'app/Containers/' . $sectionName . '/' . $containerName . $this->seedersPath
+        foreach (Nuclear::getSectionNames() as $section_name) {
+            foreach (Nuclear::getSectionContainerNames($section_name) as $container_name) {
+                $containers_directories[] = base_path(
+                    config('nucleus.path') . 'Containers/' . $section_name . '/' . $container_name . $this->seedersPath
                 );
             }
         }
 
-        $seedersClasses = $this->findSeedersClasses($containersDirectories, $seedersClasses);
-        $orderedSeederClasses = $this->sortSeeders($seedersClasses);
+        $seeders_classes = $this->findSeedersClasses($containers_directories, $seeders_classes);
+        $ordered_seeder_classes = $this->sortSeeders($seeders_classes);
 
-        $this->loadSeeders($orderedSeederClasses);
+        $this->loadSeeders($ordered_seeder_classes);
     }
 
-    private function findSeedersClasses(array $directories, $seedersClasses)
+    /**
+     * @param array $directories
+     * @param Collection $seeders_classes
+     * @return mixed
+     */
+    private function findSeedersClasses(array $directories, Collection $seeders_classes): mixed
     {
         foreach ($directories as $directory) {
             if (File::isDirectory($directory)) {
                 $files = File::allFiles($directory);
 
-                foreach ($files as $seederClass) {
-                    if (File::isFile($seederClass)) {
+                foreach ($files as $seeder_class) {
+                    if (File::isFile($seeder_class)) {
                         // do not seed the classes now, just store them in a collection and w
-                        $seedersClasses->push(
+                        $seeders_classes->push(
                             Nuclear::getClassFullNameFromFile(
-                                $seederClass->getPathname()
+                                $seeder_class->getPathname()
                             )
                         );
                     }
@@ -64,39 +69,43 @@ trait SeederLoaderTrait
             }
         }
 
-        return $seedersClasses;
+        return $seeders_classes;
     }
 
-    private function sortSeeders($seedersClasses): Collection
+    /**
+     * @param $seeders_classes
+     * @return Collection
+     */
+    private function sortSeeders($seeders_classes): Collection
     {
-        $orderedSeederClasses = new Collection();
+        $ordered_seeder_classes = new Collection();
 
-        if ($seedersClasses->isEmpty()) {
-            return $orderedSeederClasses;
+        if ($seeders_classes->isEmpty()) {
+            return $ordered_seeder_classes;
         }
 
-        foreach ($seedersClasses as $key => $seederFullClassName) {
+        foreach ($seeders_classes as $key => $seederFullClassName) {
             // if the class full namespace contain "_" it means it needs to be seeded in order
             if (str_contains($seederFullClassName, '_')) {
                 // move all the seeder classes that needs to be seeded in order to their own Collection
-                $orderedSeederClasses->push($seederFullClassName);
+                $ordered_seeder_classes->push($seederFullClassName);
                 // delete the moved classes from the original collection
-                $seedersClasses->forget($key);
+                $seeders_classes->forget($key);
             }
         }
 
         // sort the classes that needed to be ordered
-        $orderedSeederClasses = $orderedSeederClasses->sortBy(function ($seederFullClassName) {
+        $ordered_seeder_classes = $ordered_seeder_classes->sortBy(function ($seeder_full_class_name) {
             // get the order number form the end of each class name
-            return substr($seederFullClassName, strpos($seederFullClassName, '_') + 1);
+            return substr($seeder_full_class_name, strpos($seeder_full_class_name, '_') + 1);
         });
 
         // append the randomly ordered seeder classes to the end of the ordered seeder classes
-        foreach ($seedersClasses as $seederClass) {
-            $orderedSeederClasses->push($seederClass);
+        foreach ($seeders_classes as $seederClass) {
+            $ordered_seeder_classes->push($seederClass);
         }
 
-        return $orderedSeederClasses;
+        return $ordered_seeder_classes;
     }
 
     /**

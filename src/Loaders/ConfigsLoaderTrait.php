@@ -1,35 +1,47 @@
 <?php
 
-namespace Nucleus\Loaders;
+declare(strict_types=1);
 
+namespace Nucleus\Loaders;
 
 use Illuminate\Support\Facades\File;
 
 trait ConfigsLoaderTrait
 {
+    /**
+     * @return void
+     */
     public function loadConfigsFromShip(): void
     {
-        $shipConfigsDirectory = base_path('app/Ship/Configs');
-        $this->loadConfigs($shipConfigsDirectory);
+        $ship_configs_directory = base_path(config('nucleus.path') . 'Ship/Configs');
+        $this->loadConfigs($ship_configs_directory);
     }
 
-    private function loadConfigs($configFolder): void
+    /**
+     * @param $config_folder
+     * @return void
+     */
+    private function loadConfigs($config_folder): void
     {
-        if (File::isDirectory($configFolder)) {
-            $files = File::files($configFolder);
+        if (File::isDirectory($config_folder)) {
+            $files = File::files($config_folder);
 
             foreach ($files as $file) {
                 $name = File::name($file);
-                $path = $configFolder . '/' . $name . '.php';
+                $path = $config_folder . DIRECTORY_SEPARATOR . $name . '.php';
 
                 $this->mergeConfigFrom($path, $name);
             }
         }
     }
 
+    /**
+     * @param $containerPath
+     * @return void
+     */
     public function loadConfigsFromContainers($containerPath): void
     {
-        $containerConfigsDirectory = $containerPath . '/Configs';
-        $this->loadConfigs($containerConfigsDirectory);
+        $container_configs_directory = $containerPath . DIRECTORY_SEPARATOR . 'Configs';
+        $this->loadConfigs($container_configs_directory);
     }
 }
