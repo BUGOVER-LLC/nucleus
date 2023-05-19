@@ -12,6 +12,7 @@ class Nuclear
     public const VERSION = '1.0.0';
     private const SHIP_NAME = 'Ship';
     private const CONTAINERS_DIRECTORY_NAME = 'Containers';
+    private const SECTION_DIRECTORY_PREFIX = 'Section';
 
     /**
      * @return array
@@ -184,17 +185,16 @@ class Nuclear
         return $containersNames;
     }
 
-    /**@TODO fix Performance optimize
+    /**
      * @return array
      */
     public function getAllContainerPaths(): array
     {
         $section_or_container_names = $this->getSectionNames();
         $container_section_paths = [];
-        $container_names = [];
 
         foreach ($section_or_container_names as $container_section_name) {
-            if (Str::contains($container_section_name, 'Section', false) && Str::endsWith(
+            if (Str::contains($container_section_name, self::SECTION_DIRECTORY_PREFIX) && Str::endsWith(
                     $container_section_name,
                     'Section'
                 )) {
@@ -203,15 +203,11 @@ class Nuclear
                     $container_section_paths[] = $containerPath;
                 }
             } else {
-                $container_names[] = $container_section_name;
-            }
-        }
-
-        foreach ($container_names as $container_name) {
-            $section_container_paths = $this->getContainerPaths($container_name);
-            foreach ($section_container_paths as $section_container_path) {
-                if (!Str::endsWith($section_container_path, 'Section')) {
-                    $container_section_paths[] = $section_container_path;
+                $section_container_paths = $this->getContainerPaths();
+                foreach ($section_container_paths as $section_container_path) {
+                    if (!Str::endsWith($section_container_path, self::SECTION_DIRECTORY_PREFIX)) {
+                        $container_section_paths[] = $section_container_path;
+                    }
                 }
             }
         }
@@ -253,7 +249,7 @@ class Nuclear
     /**
      * @return array
      */
-    public function getContainerPaths(string $container_name): array
+    public function getContainerPaths(): array
     {
         return File::directories(app_path(self::CONTAINERS_DIRECTORY_NAME . DIRECTORY_SEPARATOR));
     }
