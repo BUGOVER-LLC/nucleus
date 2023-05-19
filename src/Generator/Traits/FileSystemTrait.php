@@ -22,7 +22,7 @@ trait FileSystemTrait
      *
      * @param $path
      */
-    public function createDirectory($path)
+    public function createDirectory($path): void
     {
         if ($this->alreadyExists($path)) {
             $this->printErrorMessage($this->fileType . ' already exists');
@@ -32,8 +32,8 @@ trait FileSystemTrait
         }
 
         try {
-            if (!$this->fileSystem->isDirectory(dirname($path))) {
-                $this->fileSystem->makeDirectory(dirname($path), 0777, true, true);
+            if (!$this->fileSystem->isDirectory(\dirname($path))) {
+                $this->fileSystem->makeDirectory(\dirname($path), 0777, true, true);
             }
         } catch (Exception $e) {
             $this->printErrorMessage('Could not create ' . $path);
@@ -47,7 +47,7 @@ trait FileSystemTrait
      *
      * @return bool
      */
-    protected function alreadyExists($path)
+    protected function alreadyExists($path): bool
     {
         return $this->fileSystem->exists($path);
     }

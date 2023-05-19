@@ -24,6 +24,13 @@ abstract class GeneratorCommand extends Command
     use FormatterTrait;
 
     /**
+     * Root directory of all sections
+     *
+     * @var string
+     */
+    private const DEFAULT_ROOT = 'app/Containers';
+
+    /**
      * Relative path for the stubs (relative to this directory / file)
      *
      * @var string
@@ -253,9 +260,17 @@ abstract class GeneratorCommand extends Command
      */
     protected function getFilePath($path): string
     {
-        // Complete the missing parts of the path
-        $path = base_path() . '/' .
-            str_replace('\\', '/', self::getRootPath() . '/' . $path) . '.' . $this->getDefaultFileExtension();
+        $path = self::getRootPath()
+            ? DIRECTORY_SEPARATOR . str_replace(
+                '\\',
+                '/',
+                self::getRootPath() . '/' . $path
+            ) . '.' . $this->getDefaultFileExtension()
+            : base_path() . '/' . str_replace(
+                '\\',
+                '/',
+                self::DEFAULT_ROOT . '/' . $path
+            ) . '.' . $this->getDefaultFileExtension();
 
         // Try to create directory
         $this->createDirectory($path);
@@ -269,7 +284,11 @@ abstract class GeneratorCommand extends Command
      */
     private static function getRootPath(): string
     {
-        return config('nucleus.path') . config('nucleus.container_name');
+        if (config('nucleus.path')) {
+            return config('nucleus.path') . config('nucleus.container_name');
+        }
+
+        return config('app.path') . config('app.container_name');
     }
 
     /**

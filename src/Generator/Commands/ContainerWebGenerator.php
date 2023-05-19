@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Generator\Commands;
 
 use Illuminate\Support\Pluralizer;
@@ -283,7 +285,7 @@ class ContainerWebGenerator extends GeneratorCommand implements ComponentsGenera
             }
         }
 
-        if ($controllertype === 'mac') {
+        if ('mac' === $controllertype) {
             $this->printInfoMessage('Generating Controller to wire everything together');
             $this->call('nucleus:generate:controller', [
                 '--section' => $sectionName,
@@ -329,6 +331,9 @@ class ContainerWebGenerator extends GeneratorCommand implements ComponentsGenera
         return 'composer';
     }
 
+    /**
+     * @return string
+     */
     public function getDefaultFileExtension(): string
     {
         return 'json';

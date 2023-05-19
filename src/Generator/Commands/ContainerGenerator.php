@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Generator\Commands;
 
 use Illuminate\Support\Str;
@@ -67,7 +69,7 @@ class ContainerGenerator extends GeneratorCommand implements ComponentsGenerator
         $containerName = $this->containerName;
         $_containerName = Str::lower($this->containerName);
 
-        if ($ui === 'api' || $ui === 'both') {
+        if ('api' === $ui || 'both' === $ui) {
             $this->call('nucleus:generate:container:api', [
                 '--section' => $sectionName,
                 '--container' => $containerName,
@@ -76,7 +78,7 @@ class ContainerGenerator extends GeneratorCommand implements ComponentsGenerator
             ]);
         }
 
-        if ($ui === 'web' || $ui === 'both') {
+        if ('web' === $ui || 'both' === $ui) {
             $this->call('nucleus:generate:container:web', [
                 '--section' => $sectionName,
                 '--container' => $containerName,
@@ -113,6 +115,9 @@ class ContainerGenerator extends GeneratorCommand implements ComponentsGenerator
         return 'composer';
     }
 
+    /**
+     * @return string
+     */
     public function getDefaultFileExtension(): string
     {
         return 'json';

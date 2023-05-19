@@ -32,7 +32,7 @@ trait AutoLoaderTrait
         $this->loadHelpersFromShip();
         $this->loadCommandsFromShip();
         $this->loadCommandsFromCore();
-        $this->loadContractRepo();
+//        $this->loadContractRepo();
 //        $this->loadMaps();
 //        $this->loadObservers();
 
