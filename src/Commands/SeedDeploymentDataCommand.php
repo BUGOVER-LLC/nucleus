@@ -25,7 +25,7 @@ class SeedDeploymentDataCommand extends ConsoleCommand
     public function handle(): void
     {
         $this->call('db:seed', [
-            '--class' => Config::get('apiato.seeders.deployment'),
+            '--class' => Config::get('nucleus.seeders.deployment'),
         ]);
 
         $this->info('Deployment Data Seeded Successfully.');

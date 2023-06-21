@@ -40,9 +40,8 @@ trait RoutesLoaderTrait
 
         if (File::isDirectory($api_routes_path)) {
             $files = File::allFiles($api_routes_path);
-            $files = Arr::sort($files, function ($file) {
-                return $file->getFilename();
-            });
+            $files = Arr::sort($files, fn ($file) => $file->getFilename());
+
             foreach ($files as $file) {
                 $this->loadApiRoute($file, $controller_namespace);
             }

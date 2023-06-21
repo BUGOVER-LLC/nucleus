@@ -70,8 +70,8 @@ trait TestsAuthHelperTrait
         bool $createUserAsAdmin = false
     ): UserModel {
         $this->createUserAsAdmin = $createUserAsAdmin;
-        $this->userClass = $this->userclass ?? Config::get('apiato.tests.user-class');
-        $this->userAdminState = Config::get('apiato.tests.user-admin-state');
+        $this->userClass = $this->userclass ?? Config::get('nucleus.tests.user-class');
+        $this->userAdminState = Config::get('nucleus.tests.user-admin-state');
 
         return is_null($userDetails) ? $this->findOrCreateTestingUser($userDetails, $access)
             : $this->createTestingUser($userDetails, $access);

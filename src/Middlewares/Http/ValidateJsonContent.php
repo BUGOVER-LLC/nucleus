@@ -19,7 +19,7 @@ class ValidateJsonContent extends Middleware
 
         // check if the accept header is set to application/json
         // if forcing users to have the accept header is enabled, then throw an exception
-        if (!str_contains($acceptHeader, $contentType) && config('apiato.requests.force-accept-header')) {
+        if (!str_contains($acceptHeader, $contentType) && config('nucleus.requests.force-accept-header')) {
             throw new MissingJSONHeaderException();
         }
 

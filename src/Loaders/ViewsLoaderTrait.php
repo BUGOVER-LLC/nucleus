@@ -11,29 +11,29 @@ trait ViewsLoaderTrait
 {
     public function loadViewsFromContainers($containerPath): void
     {
-        $containerViewDirectory = $containerPath . '/UI/WEB/Views/';
-        $containerMailTemplatesDirectory = $containerPath . '/Mails/Templates/';
+        $container_view_directory = $containerPath . '/UI/WEB/Views/';
+        $container_mail_templates_directory = $containerPath . '/Mails/Templates/';
 
-        $containerName = basename($containerPath);
-        $pathParts = explode(DIRECTORY_SEPARATOR, $containerPath);
-        $sectionName = $pathParts[count($pathParts) - 2];
+        $container_name = basename($containerPath);
+        $path_parts = explode(DIRECTORY_SEPARATOR, $containerPath);
+        $section_name = $path_parts[count($path_parts) - 2];
 
-        $this->loadViews($containerViewDirectory, $containerName, $sectionName);
-        $this->loadViews($containerMailTemplatesDirectory, $containerName, $sectionName);
+        $this->loadViews($container_view_directory, $container_name, $section_name);
+        $this->loadViews($container_mail_templates_directory, $container_name, $section_name);
     }
 
-    private function loadViews($directory, $containerName, $sectionName = null): void
+    private function loadViews($directory, $container_name, $section_name = null): void
     {
         if (File::isDirectory($directory)) {
-            $this->loadViewsFrom($directory, $this->buildViewNamespace($sectionName, $containerName));
+            $this->loadViewsFrom($directory, $this->buildViewNamespace($section_name, $container_name));
         }
     }
 
-    private function buildViewNamespace(?string $sectionName, string $containerName): string
+    private function buildViewNamespace(?string $section_name, string $container_name): string
     {
-        return $sectionName ? (Str::camel($sectionName) . '@' . Str::camel($containerName)) : Str::camel(
-            $containerName
-        );
+        return $section_name
+            ? (Str::camel($section_name) . '@' . Str::camel($container_name))
+            : Str::camel($container_name);
     }
 
     /**
@@ -41,9 +41,9 @@ trait ViewsLoaderTrait
      */
     public function loadViewsFromShip(): void
     {
-        $shipMailTemplatesDirectory = config(
+        $ship_mail_templates_directory = config(
                 'app.path'
             ) . 'Ship' . DIRECTORY_SEPARATOR . 'Mails' . DIRECTORY_SEPARATOR . 'Templates' . DIRECTORY_SEPARATOR;
-        $this->loadViews($shipMailTemplatesDirectory, 'ship'); // Ship views accessible via `ship::`.
+        $this->loadViews($ship_mail_templates_directory, 'ship'); // Ship views accessible via `ship::`.
     }
 }

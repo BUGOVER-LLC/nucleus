@@ -37,7 +37,7 @@ class ContainerApiGenerator extends GeneratorCommand implements ComponentsGenera
      *
      * @var string
      */
-    protected $description = 'Create a Container for apiato from scratch (API Part)';
+    protected $description = 'Create a Container for nucleus from scratch (API Part)';
     /**
      * The type of class being generated.
      */

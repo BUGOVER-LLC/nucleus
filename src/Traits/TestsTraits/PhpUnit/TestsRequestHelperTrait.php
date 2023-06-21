@@ -139,7 +139,7 @@ trait TestsRequestHelperTrait
             $uri = '/' . $uri;
         }
 
-        return Config::get('apiato.api.url') . $uri;
+        return Config::get('nucleus.api.url') . $uri;
     }
 
     private function dataArrayToQueryParam($data, $url): string
@@ -242,7 +242,7 @@ trait TestsRequestHelperTrait
 
     private function hashEndpointId($id, $skipEncoding = false): string
     {
-        return (Config::get('apiato.hash-id') && !$skipEncoding) ? Hashids::encode($id) : $id;
+        return (Config::get('nucleus.hash-id') && !$skipEncoding) ? Hashids::encode($id) : $id;
     }
 
     /**

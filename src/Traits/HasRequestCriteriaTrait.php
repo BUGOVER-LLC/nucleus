@@ -68,7 +68,7 @@ trait HasRequestCriteriaTrait
 
     private function hashIdEnabled(): bool
     {
-        return config('apiato.hash-id');
+        return config('nucleus.hash-id');
     }
 
     private function isSearching(array $query): bool

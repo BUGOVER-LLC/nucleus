@@ -29,7 +29,7 @@ class ContainerGenerator extends GeneratorCommand implements ComponentsGenerator
      *
      * @var string
      */
-    protected $description = 'Create a Container for apiato from scratch';
+    protected $description = 'Create a Container for nucleus from scratch';
     /**
      * The type of class being generated.
      *

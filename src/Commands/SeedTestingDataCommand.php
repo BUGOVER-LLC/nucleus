@@ -25,7 +25,7 @@ class SeedTestingDataCommand extends ConsoleCommand
     public function handle(): void
     {
         $this->call('db:seed', [
-            '--class' => Config::get('apiato.seeders.testing'),
+            '--class' => Config::get('nucleus.seeders.testing'),
         ]);
 
         $this->info('Testing Data Seeded Successfully.');

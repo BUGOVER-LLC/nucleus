@@ -20,7 +20,7 @@ class ProcessETagHeadersMiddleware extends Middleware
          */
 
         // the feature is disabled - so skip everything
-        if (!config('apiato.requests.use-etag', false)) {
+        if (!config('nucleus.requests.use-etag', false)) {
             return $next($request);
         }
 

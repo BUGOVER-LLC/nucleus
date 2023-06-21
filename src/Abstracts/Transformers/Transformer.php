@@ -95,7 +95,7 @@ abstract class Transformer extends JsonResource
         try {
             return parent::callIncludeMethod($scope, $includeName, $data);
         } catch (ErrorException $exception) {
-            if (Config::get('apiato.requests.force-valid-includes', true)) {
+            if (Config::get('nucleus.requests.force-valid-includes', true)) {
                 throw new UnsupportedFractalIncludeException($exception->getMessage());
             }
         } catch (Exception $exception) {

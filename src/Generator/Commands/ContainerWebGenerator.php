@@ -32,7 +32,7 @@ class ContainerWebGenerator extends GeneratorCommand implements ComponentsGenera
      *
      * @var string
      */
-    protected $description = 'Create a Container for apiato from scratch (WEB Part)';
+    protected $description = 'Create a Container for nucleus from scratch (WEB Part)';
     /**
      * The type of class being generated.
      */

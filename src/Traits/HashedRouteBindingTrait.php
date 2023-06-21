@@ -44,7 +44,7 @@ trait HashedRouteBindingTrait
     {
         return $query->where(
             $field ?? $this->getRouteKeyName(),
-            config('apiato.hash-id') ? Hashids::decode($value)[0] : $value
+            config('nucleus.hash-id') ? Hashids::decode($value)[0] : $value
         );
     }
 }

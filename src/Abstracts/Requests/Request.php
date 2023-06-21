@@ -95,7 +95,7 @@ abstract class Request extends LaravelRequest
         $user = $user ?: $this->user();
 
         if ($user) {
-            $autoAccessRoles = Config::get('apiato.requests.allow-roles-to-access-all-routes');
+            $autoAccessRoles = Config::get('nucleus.requests.allow-roles-to-access-all-routes');
             // there are some roles defined that will automatically grant access
             if (!empty($autoAccessRoles)) {
                 $hasAutoAccessByRole = $user->hasAnyRole($autoAccessRoles);
