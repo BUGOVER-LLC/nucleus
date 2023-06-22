@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Containers\{{section-name}}\{{container-name}}\Actions;
+namespace Containers\{{section-name}}\{{container-name}}\Actions;
 
-use App\Containers\{{section-name}}\{{container-name}}\Models\{{model}};
-use App\Containers\{{section-name}}\{{container-name}}\Tasks\Find{{model}}ByIdTask;
-use App\Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Requests\Find{{model}}ByIdRequest;
-use App\Ship\Exceptions\NotFoundException;
-use App\Ship\Parents\Actions\Action as ParentAction;
+use Containers\{{section-name}}\{{container-name}}\Models\{{model}};
+use Containers\{{section-name}}\{{container-name}}\Tasks\Find{{model}}ByIdTask;
+use Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Requests\Find{{model}}ByIdRequest;
+use Ship\Exceptions\NotFoundException;
+use Ship\Parents\Actions\Action as ParentAction;
 
 class {{class-name}} extends ParentAction
 {

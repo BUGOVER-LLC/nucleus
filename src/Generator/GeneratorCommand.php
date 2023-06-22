@@ -28,7 +28,7 @@ abstract class GeneratorCommand extends Command
      *
      * @var string
      */
-    private const DEFAULT_ROOT = 'app/Containers';
+    private const DEFAULT_ROOT = 'Containers';
 
     /**
      * Relative path for the stubs (relative to this directory / file)

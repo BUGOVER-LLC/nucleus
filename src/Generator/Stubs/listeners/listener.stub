@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Containers\{{section-name}}\{{container-name}}\Listeners;
+namespace Containers\{{section-name}}\{{container-name}}\Listeners;
 
-use App\Containers\{{section-name}}\{{container-name}}\Events\{{model}};
-use App\Ship\Parents\Listeners\Listener as ParentListener;
+use Containers\{{section-name}}\{{container-name}}\Events\{{model}};
+use Ship\Parents\Listeners\Listener as ParentListener;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class {{class-name}} extends ParentListener implements ShouldQueue

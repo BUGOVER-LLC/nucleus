@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests;
+namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests;
 
-use App\Ship\Parents\Requests\Request as ParentRequest;
+use Ship\Parents\Requests\Request as ParentRequest;
 
 class {{class-name}} extends ParentRequest
 {

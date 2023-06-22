@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Containers\{{section-name}}\{{container-name}}\Tasks;
+namespace Containers\{{section-name}}\{{container-name}}\Tasks;
 
-use App\Containers\{{section-name}}\{{container-name}}\Data\Repositories\{{model}}Repository;
-use App\Ship\Exceptions\DeleteResourceFailedException;
-use App\Ship\Exceptions\NotFoundException;
-use App\Ship\Parents\Tasks\Task as ParentTask;
+use Containers\{{section-name}}\{{container-name}}\Data\Repositories\{{model}}Repository;
+use Ship\Exceptions\DeleteResourceFailedException;
+use Ship\Exceptions\NotFoundException;
+use Ship\Parents\Tasks\Task as ParentTask;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 

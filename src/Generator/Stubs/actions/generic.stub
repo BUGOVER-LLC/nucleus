@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Containers\{{section-name}}\{{container-name}}\Actions;
+namespace Containers\{{section-name}}\{{container-name}}\Actions;
 
-use App\Ship\Parents\Actions\Action as ParentAction;
+use Ship\Parents\Actions\Action as ParentAction;
 
 class {{class-name}} extends ParentAction
 {

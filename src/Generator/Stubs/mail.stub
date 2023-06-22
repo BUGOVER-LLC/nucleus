@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Containers\{{section-name}}\{{container-name}}\Mails;
+namespace Containers\{{section-name}}\{{container-name}}\Mails;
 
-use App\Containers\AppSection\User\Models\User;
-use App\Ship\Parents\Mails\Mail as ParentMail;
+use Containers\AppSection\User\Models\User;
+use Ship\Parents\Mails\Mail as ParentMail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

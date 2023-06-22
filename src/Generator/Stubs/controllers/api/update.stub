@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controllers;
+namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controllers;
 
 use Nucleus\Exceptions\IncorrectIdException;
 use Nucleus\Exceptions\InvalidTransformerException;
-use App\Containers\{{section-name}}\{{container-name}}\Actions\Update{{model}}Action;
-use App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Update{{model}}Request;
-use App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Transformers\{{model}}Transformer;
-use App\Ship\Exceptions\NotFoundException;
-use App\Ship\Exceptions\UpdateResourceFailedException;
-use App\Ship\Parents\Controllers\{{base-controller}};
+use Containers\{{section-name}}\{{container-name}}\Actions\Update{{model}}Action;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Update{{model}}Request;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Transformers\{{model}}Transformer;
+use Ship\Exceptions\NotFoundException;
+use Ship\Exceptions\UpdateResourceFailedException;
+use Ship\Parents\Controllers\{{base-controller}};
 
 class {{class-name}} extends {{base-controller}}
 {

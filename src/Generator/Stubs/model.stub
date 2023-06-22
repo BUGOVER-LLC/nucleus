@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Containers\{{section-name}}\{{container-name}}\Models;
+namespace Containers\{{section-name}}\{{container-name}}\Models;
 
-use App\Ship\Parents\Models\Model as ParentModel;
+use Ship\Parents\Models\Model as ParentModel;
 
 class {{class-name}} extends ParentModel
 {

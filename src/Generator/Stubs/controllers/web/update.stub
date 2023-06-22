@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controllers;
+namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controllers;
 
-use App\Containers\{{section-name}}\{{container-name}}\Actions\Find{{model}}ByIdAction;
-use App\Containers\{{section-name}}\{{container-name}}\Actions\Update{{model}}Action;
-use App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Edit{{model}}Request;
-use App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Update{{model}}Request;
-use App\Ship\Parents\Controllers\WebController;
+use Containers\{{section-name}}\{{container-name}}\Actions\Find{{model}}ByIdAction;
+use Containers\{{section-name}}\{{container-name}}\Actions\Update{{model}}Action;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Edit{{model}}Request;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Update{{model}}Request;
+use Ship\Parents\Controllers\WebController;
 
 class {{class-name}} extends WebController
 {

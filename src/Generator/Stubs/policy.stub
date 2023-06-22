@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Containers\{{section-name}}\{{container-name}}\Policies;
+namespace Containers\{{section-name}}\{{container-name}}\Policies;
 
-use App\Ship\Parents\Policies\Policy as ParentPolicy;
+use Ship\Parents\Policies\Policy as ParentPolicy;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class {{class-name}} extends ParentPolicy
