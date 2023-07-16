@@ -53,6 +53,7 @@ trait AutoLoaderTrait
     {
         $this->loadConfigsFromShip();
         $this->loadOnlyShipProviderFromShip();
+        $this->loadOnlyVendorProviderFromShip();
 
         foreach (Nuclear::getAllContainerPaths() as $container_path) {
             $this->loadConfigsFromContainers($container_path);

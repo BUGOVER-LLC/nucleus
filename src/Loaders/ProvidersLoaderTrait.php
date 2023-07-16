@@ -74,4 +74,14 @@ trait ProvidersLoaderTrait
     {
         $this->loadProvider('Ship\Providers\ShipProvider');
     }
+
+    /**
+     * @return void
+     */
+    public function loadOnlyVendorProviderFromShip(): void
+    {
+        if (File::exists(app_path('Vendor\Providers\MainServiceProvider.php'))) {
+            $this->loadProvider('Vendor\Providers\MainServiceProvider');
+        }
+    }
 }
