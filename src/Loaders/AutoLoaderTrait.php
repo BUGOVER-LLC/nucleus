@@ -20,6 +20,7 @@ trait AutoLoaderTrait
     use RepositoryLoader;
     use ModelMapLoader;
     use ObserverLoader;
+    use SupportLoader;
 
     /**
      * To be used from the `boot` function of the main service provider
@@ -54,6 +55,7 @@ trait AutoLoaderTrait
         $this->loadConfigsFromShip();
         $this->loadOnlyShipProviderFromShip();
         $this->loadOnlyVendorProviderFromShip();
+        $this->collectRegister();
 
         foreach (Nuclear::getAllContainerPaths() as $container_path) {
             $this->loadConfigsFromContainers($container_path);
