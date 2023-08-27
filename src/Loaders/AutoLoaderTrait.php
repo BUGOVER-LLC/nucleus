@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Nucleus\Loaders;
 
 use Nucleus\Foundation\Facades\Nuclear;
+use ReflectionException;
 
 trait AutoLoaderTrait
 {
@@ -24,6 +25,7 @@ trait AutoLoaderTrait
 
     /**
      * To be used from the `boot` function of the main service provider
+     * @throws ReflectionException
      */
     public function runLoadersBoot(): void
     {
@@ -33,7 +35,7 @@ trait AutoLoaderTrait
         $this->loadHelpersFromShip();
         $this->loadCommandsFromShip();
         $this->loadCommandsFromCore();
-//        $this->loadContractRepo();
+        $this->loadContractRepoFromShip();
 //        $this->loadMaps();
 //        $this->loadObservers();
 
@@ -44,6 +46,7 @@ trait AutoLoaderTrait
             $this->loadViewsFromContainers($container_path);
             $this->loadHelpersFromContainers($container_path);
             $this->loadCommandsFromContainers($container_path);
+            $this->loadContractRepoFromContainers($container_path);
         }
     }
 

@@ -80,8 +80,8 @@ trait ProvidersLoaderTrait
      */
     public function loadOnlyVendorProviderFromShip(): void
     {
-        if (File::exists(app_path('Vendor\Providers\MainServiceProvider.php'))) {
-            $this->loadProvider('Vendor\Providers\MainServiceProvider');
+        if (File::exists(app_path('Containers\Vendor\Providers\MainServiceProvider.php'))) {
+            $this->loadProvider('Containers\Vendor\Providers\MainServiceProvider');
         }
     }
 }
