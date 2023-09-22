@@ -1,6 +1,6 @@
 {
   "name": "nucleus/core",
-  "version": "0.8.1",
+  "version": "1.0.0",
   "type": "library",
   "description": "Core package for Nucleus.",
   "keywords": [
