@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Nucleus\Abstracts\Repositories;
 
-use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use Nucleus\Abstracts\Models\AuthModel;
 use Nucleus\Abstracts\Models\Model;
@@ -30,11 +29,11 @@ abstract class Repository
      * Creates a new QueryBuilder instance that is prepopulated for this entity name.
      *
      * @param string $alias
-     * @param string|null $indexBy The index for the from.
+     * @param null $indexBy The index for the from.
      *
-     * @return Builder
+     * @return \Illuminate\Database\Query\Builder
      */
-    public function createQueryBuilder($alias, $indexBy = null): Builder
+    public function createQueryBuilder($alias, $indexBy = null): \Illuminate\Database\Query\Builder
     {
         return DB::table($this->model->getTable(), $alias)->select()->from($this->model->getTable(), $alias)->useIndex(
             $indexBy
@@ -44,12 +43,12 @@ abstract class Repository
     /**
      * Creates a new QueryBuilder instance that is prepopulated for this entity name.
      *
-     * @param string $alias
-     * @param string|null $indexBy The index for the from.
+     * @param ?string $alias
+     * @param ?string $indexBy The index for the from.
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function createModelBuilder($alias, $indexBy = null): \Illuminate\Database\Eloquent\Builder
+    public function createModelBuilder($alias = null, $indexBy = null): \Illuminate\Database\Eloquent\Builder
     {
         return $this->model::query()->select()->from($this->model->getTable(), $alias)->useIndex($indexBy);
     }
