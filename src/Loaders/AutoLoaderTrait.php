@@ -18,7 +18,6 @@ trait AutoLoaderTrait
     use CommandsLoaderTrait;
     use AliasesLoaderTrait;
     use HelpersLoaderTrait;
-//    use RepositoryLoader;
     use ModelMapLoader;
     use ObserverLoader;
     use SupportLoader;
@@ -35,7 +34,6 @@ trait AutoLoaderTrait
         $this->loadHelpersFromShip();
         $this->loadCommandsFromShip();
         $this->loadCommandsFromCore();
-//        $this->loadContractRepoFromShip();
 //        $this->loadMaps();
 //        $this->loadObservers();
 
@@ -46,7 +44,6 @@ trait AutoLoaderTrait
             $this->loadViewsFromContainers($container_path);
             $this->loadHelpersFromContainers($container_path);
             $this->loadCommandsFromContainers($container_path);
-//            $this->loadContractRepoFromContainers($container_path);
         }
     }
 
