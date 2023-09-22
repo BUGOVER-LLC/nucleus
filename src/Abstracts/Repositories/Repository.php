@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Abstracts\Repositories;
 
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
+use Nucleus\Abstracts\Models\AuthModel;
 use Nucleus\Abstracts\Models\Model;
-use Nucleus\Abstracts\Models\UserModel;
 
 abstract class Repository
 {
@@ -20,7 +22,7 @@ abstract class Repository
      */
     protected ?bool $allowDisablePagination = null;
 
-    public function __construct(private readonly Model|UserModel $model)
+    public function __construct(private readonly Model|AuthModel $model)
     {
     }
 
@@ -35,8 +37,8 @@ abstract class Repository
     public function createQueryBuilder($alias, $indexBy = null): Builder
     {
         return DB::table($this->model->getTable(), $alias)->select()->from($this->model->getTable(), $alias)->useIndex(
-                $indexBy
-            );
+            $indexBy
+        );
     }
 
     /**

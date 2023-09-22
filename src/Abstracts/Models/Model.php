@@ -10,6 +10,7 @@ use Nucleus\Traits\FactoryLocatorTrait;
 use Nucleus\Traits\HashedRouteBindingTrait;
 use Nucleus\Traits\HashIdTrait;
 use Nucleus\Traits\HasResourceKeyTrait;
+use Nucleus\Traits\ModelTrait;
 
 abstract class Model extends LaravelEloquentModel
 {
@@ -18,4 +19,5 @@ abstract class Model extends LaravelEloquentModel
     use HasResourceKeyTrait;
     use FactoryLocatorTrait;
     use HasFactory;
+    use ModelTrait;
 }

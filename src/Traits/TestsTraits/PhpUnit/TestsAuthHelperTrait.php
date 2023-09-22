@@ -4,14 +4,14 @@ namespace Nucleus\Traits\TestsTraits\PhpUnit;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
-use Nucleus\Abstracts\Models\UserModel;
+use Nucleus\Abstracts\Models\AuthModel;
 
 trait TestsAuthHelperTrait
 {
     /**
      * Logged in user object.
      */
-    protected UserModel|null $testingUser = null;
+    protected AuthModel|null $testingUser = null;
 
     /**
      * User class used by factory to create testing user
@@ -43,9 +43,9 @@ trait TestsAuthHelperTrait
      *
      * @param null $userDetails
      * @param bool $createUserAsAdmin
-     * @return UserModel
+     * @return AuthModel
      */
-    public function getTestingUserWithoutAccess($userDetails = null, bool $createUserAsAdmin = false): UserModel
+    public function getTestingUserWithoutAccess($userDetails = null, bool $createUserAsAdmin = false): AuthModel
     {
         return $this->getTestingUser($userDetails, $this->getNullAccess(), $createUserAsAdmin);
     }
@@ -62,13 +62,13 @@ trait TestsAuthHelperTrait
      * @param array|null $userDetails what to be attached on the User object
      * @param array|null $access roles and permissions you'd like to provide this user with
      * @param bool $createUserAsAdmin should create testing user as admin
-     * @return UserModel
+     * @return AuthModel
      */
     public function getTestingUser(
         ?array $userDetails = null,
         ?array $access = null,
         bool $createUserAsAdmin = false
-    ): UserModel {
+    ): AuthModel {
         $this->createUserAsAdmin = $createUserAsAdmin;
         $this->userClass = $this->userclass ?? Config::get('nucleus.tests.user-class');
         $this->userAdminState = Config::get('nucleus.tests.user-admin-state');
@@ -77,12 +77,12 @@ trait TestsAuthHelperTrait
             : $this->createTestingUser($userDetails, $access);
     }
 
-    private function findOrCreateTestingUser($userDetails, $access): UserModel
+    private function findOrCreateTestingUser($userDetails, $access): AuthModel
     {
         return $this->testingUser ?: $this->createTestingUser($userDetails, $access);
     }
 
-    private function createTestingUser(?array $userDetails = null, ?array $access = null): UserModel
+    private function createTestingUser(?array $userDetails = null, ?array $access = null): AuthModel
     {
         // create new user
         $user = $this->factoryCreateUser($userDetails);
@@ -97,7 +97,7 @@ trait TestsAuthHelperTrait
         return $this->testingUser = $user;
     }
 
-    private function factoryCreateUser(?array $userDetails = null): UserModel
+    private function factoryCreateUser(?array $userDetails = null): AuthModel
     {
         $user = str_replace('::class', '', $this->userClass);
         if ($this->createUserAsAdmin) {

@@ -10,7 +10,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Validation\Validator;
-use Nucleus\Abstracts\Models\UserModel as User;
+use Nucleus\Abstracts\Models\AuthModel as User;
 use Nucleus\Exceptions\IncorrectIdException;
 use Nucleus\Traits\HashIdTrait;
 use Nucleus\Traits\SanitizerTrait;

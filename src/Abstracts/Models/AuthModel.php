@@ -10,12 +10,14 @@ use Nucleus\Traits\FactoryLocatorTrait;
 use Nucleus\Traits\HashedRouteBindingTrait;
 use Nucleus\Traits\HashIdTrait;
 use Nucleus\Traits\HasResourceKeyTrait;
+use Nucleus\Traits\ModelTrait;
 
-abstract class UserModel extends LaravelAuthenticatableUser
+abstract class AuthModel extends LaravelAuthenticatableUser
 {
     use HashIdTrait;
     use HashedRouteBindingTrait;
     use HasResourceKeyTrait;
     use FactoryLocatorTrait;
     use HasFactory;
+    use ModelTrait;
 }
