@@ -17,8 +17,5 @@ abstract class AuthModel extends LaravelAuthenticatableUser
     use HashIdTrait;
     use HashedRouteBindingTrait;
     use HasResourceKeyTrait;
-    use HasFactory, FactoryLocatorTrait {
-        FactoryLocatorTrait::newFactory insteadof HasFactory;
-    }
     use ModelTrait;
 }

@@ -13,7 +13,9 @@ trait ModelTrait
     use HashedRouteBindingTrait;
     use HasResourceKeyTrait;
     use FactoryLocatorTrait;
-    use HasFactory;
+    use HasFactory, FactoryLocatorTrait {
+        FactoryLocatorTrait::newFactory insteadof HasFactory;
+    }
 
     /**
      * @var string
