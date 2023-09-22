@@ -4,15 +4,21 @@ declare(strict_types=1);
 
 namespace Nucleus\Traits;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use JetBrains\PhpStorm\Pure;
 
 trait ModelTrait
 {
+    use HashIdTrait;
+    use HashedRouteBindingTrait;
+    use HasResourceKeyTrait;
+    use FactoryLocatorTrait;
+    use HasFactory;
+
     /**
      * @var string
      */
     protected string $map = '';
-
 
     /**
      * @return string
