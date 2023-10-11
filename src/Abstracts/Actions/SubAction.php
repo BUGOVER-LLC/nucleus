@@ -1,8 +1,8 @@
 <?php
 
-namespace Nucleus\Abstracts\Actions;
+declare(strict_types=1);
 
-use Nucleus\Abstracts\Actions\Action;
+namespace Nucleus\Abstracts\Actions;
 
 abstract class SubAction extends Action
 {

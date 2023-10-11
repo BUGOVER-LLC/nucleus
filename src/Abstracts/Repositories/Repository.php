@@ -33,9 +33,12 @@ abstract class Repository
      *
      * @return \Illuminate\Database\Query\Builder
      */
-    public function createQueryBuilder($alias, $indexBy = null): \Illuminate\Database\Query\Builder
+    public function createQueryBuilder($alias, array $columns = [], $indexBy = null): \Illuminate\Database\Query\Builder
     {
-        return DB::table($this->model->getTable(), $alias)->select()->from($this->model->getTable(), $alias)->useIndex(
+        return DB::table($this->model->getTable(), $alias)->select($columns)->from(
+            $this->model->getTable(),
+            $alias
+        )->useIndex(
             $indexBy
         );
     }
@@ -48,8 +51,11 @@ abstract class Repository
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function createModelBuilder($alias = null, $indexBy = null): \Illuminate\Database\Eloquent\Builder
-    {
-        return $this->model::query()->select()->from($this->model->getTable(), $alias)->useIndex($indexBy);
+    public function createModelBuilder(
+        $alias = null,
+        array $columns = [],
+        $indexBy = null
+    ): \Illuminate\Database\Eloquent\Builder {
+        return $this->model::query()->select($columns)->from($this->model->getTable(), $alias)->useIndex($indexBy);
     }
 }

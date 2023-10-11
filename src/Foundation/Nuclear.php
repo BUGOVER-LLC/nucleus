@@ -7,6 +7,8 @@ namespace Nucleus\Foundation;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
+use function is_array;
+
 class Nuclear
 {
     public const VERSION = '1.0.0';
@@ -105,7 +107,7 @@ class Nuclear
 
         while ($i < $count) {
             $token = $tokens[$i];
-            if (\is_array($token) && T_NAMESPACE === $token[0]) {
+            if (is_array($token) && T_NAMESPACE === $token[0]) {
                 // Found namespace declaration
                 while (++$i < $count) {
                     if (';' === $tokens[$i]) {
@@ -144,10 +146,7 @@ class Nuclear
         $tokens = token_get_all($php_code);
         $count = count($tokens);
         for ($i = 2; $i < $count; $i++) {
-            if (T_CLASS == $tokens[$i - 2][0]
-                && T_WHITESPACE == $tokens[$i - 1][0]
-                && T_STRING == $tokens[$i][0]
-            ) {
+            if (T_CLASS == $tokens[$i - 2][0] && T_WHITESPACE == $tokens[$i - 1][0] && T_STRING == $tokens[$i][0]) {
                 $class_name = $tokens[$i][1];
                 $classes[] = $class_name;
             }

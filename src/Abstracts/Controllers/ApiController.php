@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Abstracts\Controllers;
 
-use Nucleus\Abstracts\Controllers\Controller;
 use Nucleus\Traits\ResponseTrait;
 
 abstract class ApiController extends Controller

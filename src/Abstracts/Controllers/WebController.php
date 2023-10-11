@@ -1,8 +1,8 @@
 <?php
 
-namespace Nucleus\Abstracts\Controllers;
+declare(strict_types=1);
 
-use Nucleus\Abstracts\Controllers\Controller;
+namespace Nucleus\Abstracts\Controllers;
 
 abstract class WebController extends Controller
 {

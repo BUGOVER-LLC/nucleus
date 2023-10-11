@@ -58,13 +58,19 @@ abstract class Transformer extends JsonResource
 
     public function nullableItem($data, $transformer, $resourceKey = null): Primitive|Item
     {
-        if (is_null($data)) {
+        if (null === $data) {
             return $this->primitive(null);
         }
 
         return $this->item($data, $transformer, $resourceKey = null);
     }
 
+    /**
+     * @param $data
+     * @param $transformer
+     * @param $resourceKey
+     * @return Item
+     */
     public function item($data, $transformer, $resourceKey = null): Item
     {
         // set a default resource key if none is set
