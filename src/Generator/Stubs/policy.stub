@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Containers\{{section-name}}\{{container-name}}\Policies;
 
 use Ship\Parents\Policies\Policy as ParentPolicy;

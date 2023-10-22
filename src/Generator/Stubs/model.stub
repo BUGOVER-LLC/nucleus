@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Containers\{{section-name}}\{{container-name}}\Models;
 
 use Ship\Parents\Models\Model as ParentModel;
