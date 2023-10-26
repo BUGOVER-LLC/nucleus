@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Traits;
+
+use Nucleus\Abstracts\Requests\Request;
 
 trait StateKeeperTrait
 {
@@ -10,6 +14,10 @@ trait StateKeeperTrait
      */
     public array $stateKeeperStates = [];
 
+    /**
+     * @param array $data
+     * @return StateKeeperTrait|Request
+     */
     public function keep(array $data = []): self
     {
         foreach ($data as $key => $value) {
@@ -19,6 +27,10 @@ trait StateKeeperTrait
         return $this;
     }
 
+    /**
+     * @param $key
+     * @return mixed
+     */
     public function retrieve($key)
     {
         return $this->stateKeeperStates[$key];

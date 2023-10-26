@@ -30,11 +30,13 @@ class ListActionsCommand extends ConsoleCommand
 
     public function handle(): void
     {
-        foreach (Nuclear::getSectionNames() as $sectionName) {
-            foreach (Nuclear::getSectionContainerNames($sectionName) as $containerName) {
+        foreach (Nuclear::getSectionNames() as $section_name) {
+            foreach (Nuclear::getSectionContainerNames($section_name) as $containerName) {
                 $this->console->writeln("<fg=yellow> [$containerName]</fg=yellow>");
 
-                $directory = base_path(config('nucleus.path') . 'Containers/' . $sectionName . '/' . $containerName . '/Actions');
+                $directory = base_path(
+                    config('nucleus.path') . 'Containers/' . $section_name . '/' . $containerName . '/Actions'
+                );
 
                 if (File::isDirectory($directory)) {
                     $files = File::allFiles($directory);
@@ -51,12 +53,12 @@ class ListActionsCommand extends ConsoleCommand
                         $fileName = uncamelize($fileName);
 
                         // Check if flag exists
-                        $includeFileName = '';
+                        $include_file_name = '';
                         if ($this->option('withfilename')) {
-                            $includeFileName = "<fg=red>($originalFileName)</fg=red>";
+                            $include_file_name = "<fg=red>($originalFileName)</fg=red>";
                         }
 
-                        $this->console->writeln("<fg=green>  - $fileName</fg=green>  $includeFileName");
+                        $this->console->writeln("<fg=green>  - $fileName</fg=green>  $include_file_name");
                     }
                 }
             }

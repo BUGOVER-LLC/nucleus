@@ -10,8 +10,8 @@ trait MigrationsLoaderTrait
 {
     public function loadMigrationsFromContainers($containerPath): void
     {
-        $containerMigrationDirectory = $containerPath . '/Data/Migrations';
-        $this->loadMigrations($containerMigrationDirectory);
+        $container_migration_directory = $containerPath . '/Data/Migrations';
+        $this->loadMigrations($container_migration_directory);
     }
 
     /**
@@ -30,7 +30,7 @@ trait MigrationsLoaderTrait
      */
     public function loadMigrationsFromShip(): void
     {
-        $shipMigrationDirectory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Migrations';
-        $this->loadMigrations($shipMigrationDirectory);
+        $ship_migration_directory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Migrations';
+        $this->loadMigrations($ship_migration_directory);
     }
 }

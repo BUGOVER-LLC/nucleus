@@ -80,13 +80,13 @@ trait ResponseTrait
         string|array $message = '',
         int $status = 202,
         array $headers = [],
-        $options = 0
+        int $options = 0
     ): JsonResponse {
         return new JsonResponse($message, $status, $headers, $options);
     }
 
     /**
-     * @param $status
+     * @param int $status
      * @return JsonResponse
      */
     public function noContent(int $status = 204): JsonResponse
@@ -102,6 +102,11 @@ trait ResponseTrait
         return explode(',', Request::get('include'));
     }
 
+    /**
+     * @param array $response_array
+     * @param array $filters
+     * @return array
+     */
     private function filterResponse(array $response_array, array $filters): array
     {
         foreach ($response_array as $k => $v) {
@@ -119,11 +124,8 @@ trait ResponseTrait
                 } else {
                     $response_array[$k] = $v;
                 }
-            } else {
-                // check if the array is not in our filter-list
-                if (!in_array($k, $filters, true)) {
-                    unset($response_array[$k]);
-                }
+            } elseif (!in_array($k, $filters, true)) {
+                unset($response_array[$k]);
             }
         }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Traits;
 
 use Illuminate\Support\Arr;
@@ -20,26 +22,26 @@ trait SanitizerTrait
     {
         $data = $this->all();
 
-        $inputAsArray = [];
-        $fieldsWithDefaultValue = [];
+        $input_as_array = [];
+        $fields_with_defaultValue = [];
 
         // create a multidimensional array based on $fields
         // which was submitted as DOT notation (e.g., data.name)
         foreach ($fields as $key => $value) {
             if (is_string($key)) {
                 // save fields with default values
-                $fieldsWithDefaultValue[$key] = $value;
-                Arr::set($inputAsArray, $key, $value);
+                $fields_with_defaultValue[$key] = $value;
+                Arr::set($input_as_array, $key, $value);
             } else {
-                Arr::set($inputAsArray, $value, true);
+                Arr::set($input_as_array, $value, true);
             }
         }
 
         // check, if the keys exist in both arrays
-        $data = $this->recursiveArrayIntersectKey($data, $inputAsArray);
+        $data = $this->recursiveArrayIntersectKey($data, $input_as_array);
 
         // set default values if key doesn't exist
-        foreach ($fieldsWithDefaultValue as $key => $value) {
+        foreach ($fields_with_defaultValue as $key => $value) {
             $data = Arr::add($data, $key, $value);
         }
 
@@ -59,7 +61,7 @@ trait SanitizerTrait
         $a = array_intersect_key($a, $b);
 
         foreach ($a as $key => &$value) {
-            if (is_array($value) && is_array($b[$key])) {
+            if (\is_array($value) && \is_array($b[$key])) {
                 $value = $this->recursiveArrayIntersectKey($value, $b[$key]);
             }
         }

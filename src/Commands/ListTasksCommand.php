@@ -30,12 +30,12 @@ class ListTasksCommand extends ConsoleCommand
 
     public function handle(): void
     {
-        foreach (Nuclear::getSectionNames() as $sectionName) {
-            foreach (Nuclear::getSectionContainerNames($sectionName) as $containerName) {
-                $this->console->writeln("<fg=yellow> [$containerName]</fg=yellow>");
+        foreach (Nuclear::getSectionNames() as $section_name) {
+            foreach (Nuclear::getSectionContainerNames($section_name) as $container_name) {
+                $this->console->writeln("<fg=yellow> [$container_name]</fg=yellow>");
 
                 $directory = base_path(
-                    config('nucleus.path') . 'Containers/' . $sectionName . '/' . $containerName . '/Tasks'
+                    config('nucleus.path') . 'Containers/' . $section_name . '/' . $container_name . '/Tasks'
                 );
 
                 if (File::isDirectory($directory)) {
@@ -43,14 +43,14 @@ class ListTasksCommand extends ConsoleCommand
 
                     foreach ($files as $action) {
                         // Get the file name as is
-                        $fileName = $originalFileName = $action->getFilename();
+                        $file_name = $originalFileName = $action->getFilename();
 
                         // Remove the Task.php postfix from each file name
                         // Further, remove the `.php', if the file does not end on 'Task.php'
-                        $fileName = str_replace(['Task.php', '.php'], '', $fileName);
+                        $file_name = str_replace(['Task.php', '.php'], '', $file_name);
 
                         // UnCamelize the word and replace it with spaces
-                        $fileName = uncamelize($fileName);
+                        $file_name = uncamelize($file_name);
 
                         // Check if flag exists
                         $includeFileName = '';
@@ -58,7 +58,7 @@ class ListTasksCommand extends ConsoleCommand
                             $includeFileName = "<fg=red>($originalFileName)</fg=red>";
                         }
 
-                        $this->console->writeln("<fg=green>  - $fileName</fg=green>  $includeFileName");
+                        $this->console->writeln("<fg=green>  - $file_name</fg=green>  $includeFileName");
                     }
                 }
             }

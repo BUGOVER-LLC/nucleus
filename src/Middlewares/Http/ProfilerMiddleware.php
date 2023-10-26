@@ -11,7 +11,12 @@ use Nucleus\Abstracts\Middlewares\Middleware;
 
 class ProfilerMiddleware extends Middleware
 {
-    public function handle(Request $request, Closure $next)
+    /**
+     * @param Request $request
+     * @param Closure $next
+     * @return JsonResponse|mixed
+     */
+    public function handle(Request $request, Closure $next): mixed
     {
         $response = $next($request);
 
@@ -20,9 +25,9 @@ class ProfilerMiddleware extends Middleware
         }
 
         if ($response instanceof JsonResponse && app()->bound('debugbar')) {
-            $profilerData = ['_profiler' => app('debugbar')->getData()];
+            $profiler_data = ['_profiler' => app('debugbar')->getData()];
 
-            $response->setData($response->getData(true) + $profilerData);
+            $response->setData($response->getData(true) + $profiler_data);
         }
 
         return $response;

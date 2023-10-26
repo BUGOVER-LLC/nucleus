@@ -1,6 +1,6 @@
 {
   "name": "nucleus/core",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "type": "library",
   "description": "Core package for Nucleus.",
   "keywords": [
@@ -36,7 +36,6 @@
       "Nucleus\\": "src/"
     },
     "files": [
-      "src/Helpers/helpers.php",
       "src/Helpers/_helpers.php"
     ]
   },
