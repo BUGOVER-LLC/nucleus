@@ -122,11 +122,11 @@ abstract class Request extends LaravelRequest
      */
     private function hasAnyPermissionAccess($user): array
     {
-        if (!array_key_exists('permissions', $this->access) || !$this->access['permissions']) {
+        if (!\array_key_exists('permissions', $this->access) || !$this->access['permissions']) {
             return [];
         }
 
-        $permissions = is_array($this->access['permissions']) ? $this->access['permissions'] :
+        $permissions = \is_array($this->access['permissions']) ? $this->access['permissions'] :
             explode('|', $this->access['permissions']);
 
         return array_map(static function ($permission) use ($user) {
@@ -141,7 +141,7 @@ abstract class Request extends LaravelRequest
      */
     private function hasAnyRoleAccess($user): array
     {
-        if (!array_key_exists('roles', $this->access) || !$this->access['roles']) {
+        if (!\array_key_exists('roles', $this->access) || !$this->access['roles']) {
             return [];
         }
 
@@ -242,7 +242,7 @@ abstract class Request extends LaravelRequest
      */
     public function validator(): Validator
     {
-        $v = Validator::make($this->input(), $this->rules(), $this->messages(), $this->attributes());
+        $v = Validator::make($this->all(), $this->rules(), $this->messages(), $this->attributes());
 
         if (method_exists(static::class, 'moreValidation')) {
             $this->moreValidation($v);
