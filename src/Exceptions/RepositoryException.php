@@ -1,0 +1,14 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Nucleus\Exceptions;
+
+use Exception;
+use Symfony\Component\HttpFoundation\Response;
+
+class RepositoryException extends Exception
+{
+    protected $code = 512;
+    protected $message = 'Your request is error';
+}

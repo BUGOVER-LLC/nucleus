@@ -43,16 +43,28 @@ trait HashIdTrait
         return $this->getAttribute($field);
     }
 
+    /**
+     * @param $id
+     * @return string
+     */
     public function encoder($id): string
     {
         return Hashids::encode($id);
     }
 
+    /**
+     * @param $id
+     * @return string
+     */
     public function encode($id): string
     {
         return $this->encoder($id);
     }
 
+    /**
+     * @param array $ids
+     * @return array
+     */
     public function decodeArray(array $ids): array
     {
         $result = [];
@@ -63,10 +75,14 @@ trait HashIdTrait
         return $result;
     }
 
-    public function decode($id)
+    /**
+     * @param $id
+     * @return array|mixed
+     */
+    public function decode($id): mixed
     {
         // check if passed as null, (could be an optional decodable variable)
-        if (is_null($id) || strtolower($id) == 'null') {
+        if (null === $id || 'null' == strtolower($id)) {
             return $id;
         }
 
@@ -74,6 +90,10 @@ trait HashIdTrait
         return empty($this->decoder($id)) ? [] : $this->decoder($id)[0];
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
     private function decoder($id): array
     {
         return Hashids::decode($id);
@@ -149,9 +169,9 @@ trait HashIdTrait
         $field = array_shift($keysTodo);
 
         // is the current field an array?! we need to process it like crazy
-        if ($field == '*') {
+        if ('*' === $field) {
             //make sure field value is an array
-            $data = is_array($data) ? $data : [$data];
+            $data = \is_array($data) ? $data : [$data];
 
             // process each field of the array (and go down one level!)
             $fields = $data;
@@ -163,7 +183,7 @@ trait HashIdTrait
         }
 
         // check if the key we are looking for does, in fact, really exist
-        if (!array_key_exists($field, $data)) {
+        if (!\array_key_exists($field, $data)) {
             return $data;
         }
 
@@ -174,6 +194,10 @@ trait HashIdTrait
         return $data;
     }
 
+    /**
+     * @param $field
+     * @return bool
+     */
     public function skipHashIdDecode($field): bool
     {
         return empty($field);

@@ -46,8 +46,7 @@
     "laravel": {
       "providers": [
         "Nucleus\\Providers\\NucleusServiceProvider",
-        "Nucleus\\Generator\\GeneratorsServiceProvider",
-        "Vinkla\\Hashids\\HashidsServiceProvider"
+        "Nucleus\\Generator\\GeneratorsServiceProvider"
       ],
       "aliases": {
         "Hashids": "Vinkla\\Hashids\\Facades\\Hashids",
