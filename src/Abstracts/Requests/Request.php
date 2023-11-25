@@ -9,7 +9,7 @@ use Illuminate\Foundation\Http\FormRequest as LaravelRequest;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
 use Nucleus\Abstracts\Models\AuthModel as User;
 use Nucleus\Exceptions\IncorrectIdException;
 use Nucleus\Traits\HashIdTrait;
@@ -239,6 +239,7 @@ abstract class Request extends LaravelRequest
 
     /**
      * @return Validator
+     * @throws IncorrectIdException
      */
     public function validator(): Validator
     {
