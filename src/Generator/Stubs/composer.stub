@@ -1,11 +1,11 @@
 {
-    "name": "nucleus/{{_container-name}}",
-    "description": "{{container-name}} Container for nucleus.",
-    "require": {
-    },
-    "autoload": {
-      "psr-4": {
-          "Containers\\{{section-name}}\\{{container-name}}\\": "/"
-        }
+  "name": "nucleus/{{_container-name}}",
+  "description": "{{container-name}} Container for nucleus.",
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Containers\\{{section-name}}\\{{container-name}}\\": "/"
     }
+  }
 }
