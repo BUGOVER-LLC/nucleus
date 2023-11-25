@@ -147,7 +147,7 @@ abstract class GeneratorCommand extends Command
         // Get user inputs
         $this->userData = $this->getUserInputs();
 
-        if ($this->userData === null) {
+        if (null === $this->userData) {
             // The user skipped this step
             return;
         }
@@ -171,6 +171,7 @@ abstract class GeneratorCommand extends Command
 
             $this->printFinishedMessage($this->fileType);
         }
+        $this->call('nucleus:dump-autoload');
 
         // Exit the command successfully
         return 0;

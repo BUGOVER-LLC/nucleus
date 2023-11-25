@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Nucleus\Generator\Commands;
 
+use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem as IlluminateFilesystem;
 use Illuminate\Support\Composer;
-use Nucleus\Generator\GeneratorCommand;
-use Nucleus\Generator\Interfaces\ComponentsGenerator;
 
-class DumpAutoload extends GeneratorCommand implements ComponentsGenerator
+class DumpAutoload extends Command
 {
     /**
      * The console command name.
@@ -28,11 +27,10 @@ class DumpAutoload extends GeneratorCommand implements ComponentsGenerator
      * Create a new command instance.
      *
      * @param Composer $composer
-     * @param IlluminateFilesystem $fileSystem
      */
-    public function __construct(private readonly Composer $composer, IlluminateFilesystem $fileSystem)
+    public function __construct(private readonly Composer $composer)
     {
-        parent::__construct($fileSystem);
+        parent::__construct();
     }
 
     /**
@@ -40,10 +38,13 @@ class DumpAutoload extends GeneratorCommand implements ComponentsGenerator
      *
      * @return  array|null
      */
-    public function getUserInputs(): ?array
+    public function handle(): ?array
     {
+        $this->info('Composer dump-autoload');
         $this->composer->dumpAutoloads();
         $this->composer->dumpOptimized();
+
+        $this->info('Composer dump-autoload, successful');
 
         return [];
     }
