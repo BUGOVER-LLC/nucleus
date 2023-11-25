@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Nucleus\Generator\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Filesystem\Filesystem as IlluminateFilesystem;
 use Illuminate\Support\Composer;
 
 class DumpAutoload extends Command
@@ -41,10 +40,14 @@ class DumpAutoload extends Command
     public function handle(): ?array
     {
         $this->info('Composer dump-autoload');
+        $progress = $this->output->createProgressBar(1);
+        $progress->start();
+
         $this->composer->dumpAutoloads();
         $this->composer->dumpOptimized();
 
-        $this->info('Composer dump-autoload, successful');
+        $progress->finish();
+        $this->info('Composer dump-autoload, successful', '');
 
         return [];
     }

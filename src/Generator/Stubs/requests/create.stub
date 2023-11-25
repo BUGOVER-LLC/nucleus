@@ -50,4 +50,14 @@ class {{class-name}} extends ParentRequest
             'hasAccess',
         ]);
     }
+
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array
+     */
+    public function errorMessages(): array
+    {
+        return [];
+    }
 }

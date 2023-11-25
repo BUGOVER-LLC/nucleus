@@ -1,10 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Generator\Traits;
 
 trait PrinterTrait
 {
-    public function printStartedMessage($containerName, $fileName)
+    /**
+     * @param $containerName
+     * @param $fileName
+     * @return void
+     */
+    public function printStartedMessage($containerName, $fileName): void
     {
         $this->printInfoMessage('> Generating (' . $fileName . ') in (' . $containerName . ') Container.');
     }
@@ -12,7 +19,7 @@ trait PrinterTrait
     /**
      * @param $message
      */
-    public function printInfoMessage($message)
+    public function printInfoMessage($message): void
     {
         $this->info($message);
     }
@@ -22,7 +29,7 @@ trait PrinterTrait
      *
      * @return void
      */
-    public function printFinishedMessage($type)
+    public function printFinishedMessage($type): void
     {
         $this->printInfoMessage($type . ' generated successfully.');
     }
@@ -30,7 +37,7 @@ trait PrinterTrait
     /**
      * @param $message
      */
-    public function printErrorMessage($message)
+    public function printErrorMessage($message): void
     {
         $this->error($message);
     }
