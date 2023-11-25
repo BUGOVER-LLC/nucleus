@@ -11,6 +11,7 @@ use Nucleus\Generator\Commands\ContainerApiGenerator;
 use Nucleus\Generator\Commands\ContainerGenerator;
 use Nucleus\Generator\Commands\ContainerWebGenerator;
 use Nucleus\Generator\Commands\ControllerGenerator;
+use Nucleus\Generator\Commands\DumpAutoload;
 use Nucleus\Generator\Commands\EventGenerator;
 use Nucleus\Generator\Commands\EventListenerGenerator;
 use Nucleus\Generator\Commands\ExceptionGenerator;
@@ -61,6 +62,7 @@ class GeneratorsServiceProvider extends ServiceProvider
             ContainerApiGenerator::class,
             ContainerWebGenerator::class,
             ControllerGenerator::class,
+            DumpAutoload::class,
             EventGenerator::class,
             EventListenerGenerator::class,
             ExceptionGenerator::class,
