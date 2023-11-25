@@ -93,6 +93,7 @@ class ContainerGenerator extends GeneratorCommand implements ComponentsGenerator
         }
 
         $this->printInfoMessage('Generating Composer File');
+        $this->call('');
 
         return [
             'path-parameters' => [
