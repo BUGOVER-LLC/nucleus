@@ -238,10 +238,10 @@ abstract class Request extends LaravelRequest
     }
 
     /**
-     * @return Validator
+     * @return \Illuminate\Validation\Validator
      * @throws IncorrectIdException
      */
-    public function validator(): Validator
+    public function validator(): \Illuminate\Validation\Validator
     {
         $v = Validator::make($this->all(), $this->rules(), $this->messages(), $this->attributes());
 
