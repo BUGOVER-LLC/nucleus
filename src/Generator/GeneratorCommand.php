@@ -171,8 +171,6 @@ abstract class GeneratorCommand extends Command
 
             $this->printFinishedMessage($this->fileType);
         }
-        $this->call('nucleus:dump-autoload');
-
         // Exit the command successfully
         return 0;
     }
