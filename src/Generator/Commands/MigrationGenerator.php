@@ -20,6 +20,7 @@ class MigrationGenerator extends GeneratorCommand implements ComponentsGenerator
      */
     public array $inputs = [
         ['tablename', null, InputOption::VALUE_OPTIONAL, 'The name for the database table'],
+        ['connectionname', null, InputOption::VALUE_OPTIONAL, 'The name for the database connection'],
     ];
     /**
      * The console command name.
@@ -61,7 +62,7 @@ class MigrationGenerator extends GeneratorCommand implements ComponentsGenerator
         );
 
         $connectionName = $this->checkParameterOrAsk(
-            'connection name',
+            'connectionname',
             'Enter the name of the database connection',
             config('database.default')
         );
