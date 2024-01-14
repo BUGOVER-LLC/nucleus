@@ -463,32 +463,6 @@ if (!function_exists('get_token')) {
     }
 }
 
-if (!function_exists('distance_cords')) {
-    /**
-     * @param $cord_a_1
-     * @param $cord_a_2
-     * @param $cord_b_1
-     * @param $cord_b_2
-     * @param string $in
-     * @return float
-     * @todo not used in many data, e.g. inside a loop: use it if high accuracy is important
-     */
-    function distance_cords($cord_a_1, $cord_a_2, $cord_b_1, $cord_b_2, string $in = 'km'): float
-    {
-        $geo_tools = new Geotools();
-
-        $cord_a = new Coordinate([$cord_a_1, $cord_a_2]);
-        $cord_b = new Coordinate([$cord_b_1, $cord_b_2]);
-        $distance = $geo_tools->distance()->setFrom($cord_a)->setTo($cord_b);
-
-        if ('m' === $in) {
-            return round($distance->flat());
-        }
-
-        return round($distance->in('km')->haversine(), 2);
-    }
-}
-
 if (!function_exists('distance_by_coordinates')) {
     /**
      * @param float $lat1

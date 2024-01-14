@@ -15,4 +15,12 @@ class {{class-name}} extends ParentRepository
         'id' => '=',
         // ...
     ];
+
+    /**
+     * @param User $user
+     */
+    public function __construct(private readonly $model)
+    {
+        parent::__construct($this->model);
+    }
 }
