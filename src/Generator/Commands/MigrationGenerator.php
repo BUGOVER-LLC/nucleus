@@ -48,7 +48,7 @@ class MigrationGenerator extends GeneratorCommand implements ComponentsGenerator
     /**
      * The name of the stub file.
      */
-    protected string $stubName = 'migration.stub';
+    protected string $stubName = 'migrations/migration.stub';
 
     public function getUserInputs(): ?array
     {
@@ -60,8 +60,12 @@ class MigrationGenerator extends GeneratorCommand implements ComponentsGenerator
             )
         );
 
-        // Now we need to check if there already exists a "default migration file" for this container!
-        // We therefore search for a file that is named "xxxx_xx_xx_xxxxxx_NAME"
+        $connectionName = $this->checkParameterOrAsk(
+            'connection name',
+            'Enter the name of the database connection',
+            config('database.default')
+        );
+
         $exists = false;
 
         $folder = $this->parsePathStructure($this->pathStructure, [
@@ -82,7 +86,6 @@ class MigrationGenerator extends GeneratorCommand implements ComponentsGenerator
         }
 
         if ($exists) {
-            // There exists a basic migration file for this container
             return null;
         }
 
@@ -98,6 +101,7 @@ class MigrationGenerator extends GeneratorCommand implements ComponentsGenerator
                 'container-name' => $this->containerName,
                 'class-name' => Str::studly($this->fileName),
                 'table-name' => $tableName,
+                'connection' => $connectionName,
             ],
             'file-parameters' => [
                 'date' => Carbon::now()->format('Y_m_d_His'),
