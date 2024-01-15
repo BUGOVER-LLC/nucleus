@@ -31,7 +31,7 @@ trait StateKeeperTrait
      * @param $key
      * @return mixed
      */
-    public function retrieve($key)
+    public function retrieve($key): mixed
     {
         return $this->stateKeeperStates[$key];
     }

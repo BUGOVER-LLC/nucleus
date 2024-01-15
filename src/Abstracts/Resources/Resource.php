@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nucleus\Abstracts\Transformers;
+namespace Nucleus\Abstracts\Resources;
 
 use ErrorException;
 use Exception;
@@ -34,7 +34,7 @@ use Nucleus\Exceptions\UnsupportedFractalIncludeException;
  * @method LengthAwarePaginator hasPages()
  * @method LengthAwarePaginator items()
  */
-abstract class Transformer extends JsonResource
+abstract class Resource extends JsonResource
 {
     /**
      * @var string|JsonResource
@@ -56,36 +56,11 @@ abstract class Transformer extends JsonResource
         JsonResource::wrap(null);
     }
 
-    public function nullableItem($data, $transformer, $resourceKey = null): Primitive|Item
-    {
-        if (null === $data) {
-            return $this->primitive(null);
-        }
-
-        return $this->item($data, $transformer, $resourceKey = null);
-    }
-
-    /**
-     * @param $data
-     * @param $transformer
-     * @param $resourceKey
-     * @return Item
-     */
-    public function item($data, $transformer, $resourceKey = null): Item
-    {
-        // set a default resource key if none is set
-        if (!$resourceKey && $data) {
-            $resourceKey = $data->getResourceKey();
-        }
-
-        return parent::item($data, $transformer, $resourceKey);
-    }
-
     /**
      * @param string $class
      * @return $this
      */
-    public function collectionClass(string $class = ''): Transformer
+    public function collectionClass(string $class = ''): static
     {
         $this->collectionClass = $class;
 

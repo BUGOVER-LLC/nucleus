@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Containers\{{section-name}}\{{container-name}}\UI\API\Transformers;
 
 use Containers\{{section-name}}\{{container-name}}\Models\{{model}};
-use Ship\Parents\Transformers\Transformer as ParentTransformer;
+use Ship\Parents\Resources\Resource as ParentResource;
 
-class {{class-name}} extends ParentTransformer
+class {{class-name}} extends ParentResource
 {
     protected array $defaultIncludes = [
 

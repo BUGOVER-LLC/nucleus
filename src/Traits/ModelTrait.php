@@ -9,8 +9,6 @@ use JetBrains\PhpStorm\Pure;
 
 trait ModelTrait
 {
-    use HashIdTrait;
-    use HashedRouteBindingTrait;
     use HasResourceKeyTrait;
     use FactoryLocatorTrait;
     use HasFactory, FactoryLocatorTrait {

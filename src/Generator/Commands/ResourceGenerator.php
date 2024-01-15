@@ -10,7 +10,7 @@ use Nucleus\Generator\GeneratorCommand;
 use Nucleus\Generator\Interfaces\ComponentsGenerator;
 use Symfony\Component\Console\Input\InputOption;
 
-class TransformerGenerator extends GeneratorCommand implements ComponentsGenerator
+class ResourceGenerator extends GeneratorCommand implements ComponentsGenerator
 {
     /**
      * User required/optional inputs expected to be passed while calling the command.
@@ -41,7 +41,7 @@ class TransformerGenerator extends GeneratorCommand implements ComponentsGenerat
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/UI/API/Transformers/*';
+    protected string $pathStructure = '{section-name}/{container-name}/UI/API/Resources/*';
     /**
      * The structure of the file name.
      */
@@ -49,7 +49,7 @@ class TransformerGenerator extends GeneratorCommand implements ComponentsGenerat
     /**
      * The name of the stub file.
      */
-    protected string $stubName = 'transformer.stub';
+    protected string $stubName = 'resource.stub';
 
     public function getUserInputs(): ?array
     {

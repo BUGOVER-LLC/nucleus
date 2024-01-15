@@ -8,11 +8,9 @@ use Exception;
 use Illuminate\Foundation\Http\FormRequest as LaravelRequest;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Validator;
 use Nucleus\Abstracts\Models\AuthModel as User;
 use Nucleus\Exceptions\IncorrectIdException;
-use Nucleus\Traits\HashIdTrait;
 use Nucleus\Traits\SanitizerTrait;
 use Nucleus\Traits\StateKeeperTrait;
 use RuntimeException;
@@ -26,7 +24,6 @@ use RuntimeException;
  */
 abstract class Request extends LaravelRequest
 {
-    use HashIdTrait;
     use StateKeeperTrait;
     use SanitizerTrait;
 
@@ -81,105 +78,17 @@ abstract class Request extends LaravelRequest
     }
 
     /**
-     * check if a user has permission to perform an action.
-     * User can set multiple permissions (separated with "|") and if the user has
-     * any of the permissions, he will be authorized to proceed with this action.
+     * This method mimics the $request->input() method but works on the "decoded" values
      *
-     * @param User|null $user
+     * @param $key
+     * @param $default
      *
-     * @return  bool
-     */
-    public function hasAccess(User $user = null): bool
-    {
-        // if not in parameters, take from the request object {$this}
-        $user = $user ?: $this->user();
-
-        if ($user) {
-            $autoAccessRoles = Config::get('nucleus.requests.allow-roles-to-access-all-routes');
-            // there are some roles defined that will automatically grant access
-            if (!empty($autoAccessRoles)) {
-                $hasAutoAccessByRole = $user->hasAnyRole($autoAccessRoles);
-                if ($hasAutoAccessByRole) {
-                    return true;
-                }
-            }
-        }
-
-        // check if the user has any role / permission to access the route
-        $hasAccess = array_merge(
-            $this->hasAnyPermissionAccess($user),
-            $this->hasAnyRoleAccess($user)
-        );
-
-        // allow access if user has access to any of the defined roles or permissions.
-        return empty($hasAccess) || in_array(true, $hasAccess, true);
-    }
-
-    /**
-     * @param $user
-     *
-     * @return  array
-     */
-    private function hasAnyPermissionAccess($user): array
-    {
-        if (!\array_key_exists('permissions', $this->access) || !$this->access['permissions']) {
-            return [];
-        }
-
-        $permissions = \is_array($this->access['permissions']) ? $this->access['permissions'] :
-            explode('|', $this->access['permissions']);
-
-        return array_map(static function ($permission) use ($user) {
-            return $user->hasPermissionTo($permission);
-        }, $permissions);
-    }
-
-    /**
-     * @param $user
-     *
-     * @return  array
-     */
-    private function hasAnyRoleAccess($user): array
-    {
-        if (!\array_key_exists('roles', $this->access) || !$this->access['roles']) {
-            return [];
-        }
-
-        $roles = is_array($this->access['roles']) ? $this->access['roles'] :
-            explode('|', $this->access['roles']);
-
-        return array_map(static function ($role) use ($user) {
-            return $user->hasRole($role);
-        }, $roles);
-    }
-
-    /**
-     * Maps Keys in the Request.
-     *
-     * For example, ['data.attributes.name' => 'firstname'] would map the field [data][attributes][name] to [firstname].
-     * Note that the old value (data.attributes.name) is removed the original request - this method manipulates the request!
-     * Be sure you know what you do!
-     *
-     * @param array $fields
+     * @return mixed
      * @throws IncorrectIdException
      */
-    public function mapInput(array $fields): void
+    public function getInputByKey($key = null, $default = null): mixed
     {
-        $data = $this->all();
-
-        foreach ($fields as $oldKey => $newKey) {
-            // the key to be mapped does not exist - skip it
-            if (!Arr::has($data, $oldKey)) {
-                continue;
-            }
-
-            // set the new field and remove the old one
-            Arr::set($data, $newKey, Arr::get($data, $oldKey));
-            Arr::forget($data, $oldKey);
-        }
-
-        // overwrite the initial request
-        $this->replace($data);
+        return data_get($this->all(), $key, $default);
     }
 
     /**
@@ -224,20 +133,6 @@ abstract class Request extends LaravelRequest
     }
 
     /**
-     * This method mimics the $request->input() method but works on the "decoded" values
-     *
-     * @param $key
-     * @param $default
-     *
-     * @return mixed
-     * @throws IncorrectIdException
-     */
-    public function getInputByKey($key = null, $default = null): mixed
-    {
-        return data_get($this->all(), $key, $default);
-    }
-
-    /**
      * @return \Illuminate\Validation\Validator
      * @throws IncorrectIdException
      */
@@ -275,49 +170,6 @@ abstract class Request extends LaravelRequest
      * @return array
      */
     abstract public function errorMessages(): array;
-
-    /**
-     * Used from the `authorize` function if the Request class.
-     * To call functions and compare their bool responses to determine
-     * if the user can proceed with the request or not.
-     *
-     * @param array $functions
-     *
-     * @return  bool
-     */
-    protected function check(array $functions): bool
-    {
-        $orIndicator = '|';
-        $returns = [];
-
-        // iterate all functions in the array
-        foreach ($functions as $function) {
-            // in case the value doesn't contain a separator (single function per key)
-            if (!strpos($function, $orIndicator)) {
-                // simply call the single function and store the response.
-                $returns[] = $this->{$function}();
-            } else {
-                // in case the value contains a separator (multiple functions per key)
-                $orReturns = [];
-
-                // iterate over each function in the key
-                foreach (explode($orIndicator, $function) as $orFunction) {
-                    // dynamically call each function
-                    $orReturns[] = $this->{$orFunction}();
-                }
-
-                // if in_array returned `true` means at least one function returned `true` thus return `true` to allow access.
-                // if in_array returned `false` means no function returned `true` thus return `false` to prevent access.
-                // return single boolean for all the functions found inside the same key.
-                $returns[] = in_array(true, $orReturns, true);
-            }
-        }
-
-        // if in_array returned `true` means a function returned `false` thus return `false` to prevent access.
-        // if in_array returned `false` means all functions returned `true` thus return `true` to allow access.
-        // return the final boolean
-        return !in_array(false, $returns, true);
-    }
 
     /**
      * Handle a passed validation attempt.

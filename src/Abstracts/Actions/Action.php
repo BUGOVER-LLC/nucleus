@@ -5,11 +5,9 @@ declare(strict_types=1);
 namespace Nucleus\Abstracts\Actions;
 
 use Illuminate\Support\Facades\DB;
-use Nucleus\Traits\HasRequestCriteriaTrait;
 
 abstract class Action
 {
-    use HasRequestCriteriaTrait;
 
     /**
      * @var string

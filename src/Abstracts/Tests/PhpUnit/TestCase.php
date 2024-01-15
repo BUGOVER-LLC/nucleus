@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Abstracts\Tests\PhpUnit;
 
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Illuminate\Foundation\Testing\RefreshDatabaseState;
 use Illuminate\Foundation\Testing\TestCase as LaravelTestCase;
-use Nucleus\Traits\HashIdTrait;
 use Nucleus\Traits\TestCaseTrait;
 use Nucleus\Traits\TestsTraits\PhpUnit\TestsAuthHelperTrait;
 use Nucleus\Traits\TestsTraits\PhpUnit\TestsMockHelperTrait;
@@ -20,7 +21,6 @@ abstract class TestCase extends LaravelTestCase
     use TestsResponseHelperTrait;
     use TestsMockHelperTrait;
     use TestsAuthHelperTrait;
-    use HashIdTrait;
     use LazilyRefreshDatabase;
 
     /**

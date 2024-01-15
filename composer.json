@@ -18,12 +18,13 @@
     }
   ],
   "require": {
-    "PHP": "^8.2.0",
+    "php": "^8.2.0",
     "ext-json": "*",
     "ext-gettext": "*",
     "vinkla/hashids": "^11.0.0",
     "guzzlehttp/guzzle": "^7.0.0",
-    "laravel/framework": "^10.0.0"
+    "laravel/framework": "^10.0.0",
+    "composer-plugin-api": "^2.0.0"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
@@ -52,7 +53,8 @@
         "Hashids": "Vinkla\\Hashids\\Facades\\Hashids",
         "Fractal": "Spatie\\Fractal\\FractalFacade"
       }
-    }
+    },
+    "class": "Nucleus\\Installer\\PluginInstaller"
   },
   "scripts": {
     "php-cs-fixer": "php-cs-fixer --config=./php_cs.dist.php"
