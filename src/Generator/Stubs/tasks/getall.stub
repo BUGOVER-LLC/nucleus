@@ -7,21 +7,16 @@ namespace Containers\{{section-name}}\{{container-name}}\Tasks;
 use Nucleus\Exceptions\CoreInternalErrorException;
 use Containers\{{section-name}}\{{container-name}}\Data\Repositories\{{model}}Repository;
 use Ship\Parents\Tasks\Task as ParentTask;
-use Prettus\Repository\Exceptions\RepositoryException;
 
 class {{class-name}} extends ParentTask
 {
-    public function __construct(
-        protected {{model}}Repository $repository
-    ) {
+    public function __construct() {
     }
 
     /**
-     * @throws CoreInternalErrorException
-     * @throws RepositoryException
+     *
      */
     public function run(): mixed
     {
-        return $this->addRequestCriteria()->repository->paginate();
     }
 }

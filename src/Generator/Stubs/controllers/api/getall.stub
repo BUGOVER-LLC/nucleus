@@ -10,14 +10,12 @@ use Containers\{{section-name}}\{{container-name}}\Actions\GetAll{{models}}Actio
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\GetAll{{models}}Request;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Transformers\{{model}}Transformer;
 use Ship\Parents\Controllers\{{base-controller}};
-use Prettus\Repository\Exceptions\RepositoryException;
 
 class {{class-name}} extends {{base-controller}}
 {
     /**
      * @throws InvalidTransformerException
      * @throws CoreInternalErrorException
-     * @throws RepositoryException
      */
     public function getAll{{models}}(GetAll{{models}}Request $request): array
     {
