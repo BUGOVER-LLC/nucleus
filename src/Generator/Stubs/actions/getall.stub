@@ -8,13 +8,11 @@ use Nucleus\Exceptions\CoreInternalErrorException;
 use Containers\{{section-name}}\{{container-name}}\Tasks\GetAll{{models}}Task;
 use Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Requests\GetAll{{models}}Request;
 use Ship\Parents\Actions\Action as ParentAction;
-use Prettus\Repository\Exceptions\RepositoryException;
 
 class {{class-name}} extends ParentAction
 {
     /**
      * @throws CoreInternalErrorException
-     * @throws RepositoryException
      */
     public function run(GetAll{{models}}Request $request): mixed
     {

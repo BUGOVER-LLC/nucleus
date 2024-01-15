@@ -23,7 +23,6 @@ use Ship\Exceptions\NotFoundException;
 use Ship\Exceptions\UpdateResourceFailedException;
 use Ship\Parents\Controllers\{{base-controller}};
 use Illuminate\Http\JsonResponse;
-use Prettus\Repository\Exceptions\RepositoryException;
 
 class {{class-name}} extends {{base-controller}}
 {
@@ -58,7 +57,6 @@ class {{class-name}} extends {{base-controller}}
      * @return array
      * @throws InvalidTransformerException
      * @throws CoreInternalErrorException
-     * @throws RepositoryException
      */
     public function getAll{{models}}(GetAll{{models}}Request $request): array
     {

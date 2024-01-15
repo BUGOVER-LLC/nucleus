@@ -86,7 +86,7 @@ class {{class-name}} extends ApiTestCase
         $response->assertJson(
             fn (AssertableJson $json) =>
                 $json->has('data')
-                     ->where('data.0.id', $second{{model}}->getHashedKey())
+                    ->where('data.0.id', $second{{model}}->getHashedKey())
                     ->etc()
         );
     }

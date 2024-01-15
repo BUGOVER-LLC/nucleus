@@ -4,7 +4,6 @@ namespace Containers\{{section-name}}\{{container-name}}\UI\API\Tests\Functional
 
 use Containers\{{section-name}}\{{container-name}}\Models\{{model}};
 use Containers\{{section-name}}\{{container-name}}\UI\API\Tests\ApiTestCase;
-use Hashids;
 use Illuminate\Testing\Fluent\AssertableJson;
 
 /**
@@ -32,7 +31,7 @@ class {{class-name}} extends ApiTestCase
         $response->assertJson(
             fn (AssertableJson $json) =>
                 $json->has('data')
-                    ->where('data.id', Hashids::encode(${{_model}}->id))
+                    ->where('data.id', ${{_model}}->id)
                     ->etc()
         );
     }

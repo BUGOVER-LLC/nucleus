@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Traits\TestsTraits\PhpUnit;
 
 use Illuminate\Support\Arr;
@@ -11,7 +13,6 @@ use Nucleus\Exceptions\MissingTestEndpointException;
 use Nucleus\Exceptions\UndefinedMethodException;
 use Nucleus\Exceptions\WrongEndpointFormatException;
 use stdClass;
-use Vinkla\Hashids\Facades\Hashids;
 
 trait TestsRequestHelperTrait
 {
@@ -242,7 +243,7 @@ trait TestsRequestHelperTrait
 
     private function hashEndpointId($id, $skipEncoding = false): string
     {
-        return (Config::get('nucleus.hash-id') && !$skipEncoding) ? Hashids::encode($id) : $id;
+        return (Config::get('nucleus.hash_id') && !$skipEncoding) ? $id : $id;
     }
 
     /**
