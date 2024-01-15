@@ -36,12 +36,12 @@ trait ConfigsLoaderTrait
     }
 
     /**
-     * @param $containerPath
+     * @param $container_path
      * @return void
      */
-    public function loadConfigsFromContainers($containerPath): void
+    public function loadConfigsFromContainers($container_path): void
     {
-        $container_configs_directory = $containerPath . DIRECTORY_SEPARATOR . 'Configs';
+        $container_configs_directory = $container_path . DIRECTORY_SEPARATOR . 'Configs';
         $this->loadConfigs($container_configs_directory);
     }
 }

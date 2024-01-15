@@ -11,7 +11,7 @@ use function is_array;
 
 class Nuclear
 {
-    public const VERSION = '1.0.0';
+    public const VERSION = '1.3.17';
     private const SHIP_NAME = 'Ship';
     private const CONTAINERS_DIRECTORY_NAME = 'Containers';
     private const SECTION_DIRECTORY_PREFIX = 'Section';
@@ -175,13 +175,13 @@ class Nuclear
      */
     public function getAllContainerNames(): array
     {
-        $containersNames = [];
+        $containers_names = [];
 
         foreach ($this->getAllContainerPaths() as $containersPath) {
-            $containersNames[] = basename($containersPath);
+            $containers_names[] = basename($containersPath);
         }
 
-        return $containersNames;
+        return $containers_names;
     }
 
     /**
