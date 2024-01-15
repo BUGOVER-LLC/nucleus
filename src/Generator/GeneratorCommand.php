@@ -287,7 +287,7 @@ abstract class GeneratorCommand extends Command
             return config('nucleus.path') . config('nucleus.container_name');
         }
 
-        return config('app.path') . config('app.container_name');
+        return config('nucleus.path') . config('nucleus.container_name');
     }
 
     /**

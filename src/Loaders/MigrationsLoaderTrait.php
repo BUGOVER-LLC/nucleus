@@ -30,7 +30,7 @@ trait MigrationsLoaderTrait
      */
     public function loadMigrationsFromShip(): void
     {
-        $ship_migration_directory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Migrations';
+        $ship_migration_directory = config('nucleus.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Migrations';
         $this->loadMigrations($ship_migration_directory);
     }
 }
