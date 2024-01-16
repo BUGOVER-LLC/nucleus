@@ -92,26 +92,6 @@ abstract class Request extends LaravelRequest
     }
 
     /**
-     * Overriding this function to modify the any user input before
-     * applying the validation rules.
-     *
-     * @param null $keys
-     *
-     * @return  array
-     * @throws IncorrectIdException
-     */
-    public function all($keys = null): array
-    {
-        $requestData = parent::all($keys);
-
-        $requestData = $this->mergeUrlParametersWithRequestData($requestData);
-
-        $requestData = $this->decodeHashedIdsBeforeValidation($requestData);
-
-        return $requestData;
-    }
-
-    /**
      * apply validation rules to the ID's in the URL, since Laravel
      * doesn't validate them by default!
      *
