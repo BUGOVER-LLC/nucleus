@@ -40,7 +40,12 @@ class NucleusServiceProvider extends AbstractMainServiceProvider
     {
         parent::boot();
 
-        if (File::exists(\dirname(__DIR__) . DIRECTORY_SEPARATOR . 'configs' . DIRECTORY_SEPARATOR . 'nucleus.php')) {
+        $config =
+            \dirname(
+                __DIR__
+            ) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'configs' . DIRECTORY_SEPARATOR . 'nucleus.php';
+
+        if (File::exists($config)) {
             $this->mergeConfigFrom(\dirname(__DIR__) . '/config/nucleus.php', 'nucleus');
             $this->publishes(['nucleus']);
         }
