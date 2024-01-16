@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Nucleus\Providers;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 use Nucleus\Abstracts\Providers\MainServiceProvider as AbstractMainServiceProvider;
 use Nucleus\Foundation\Nuclear;
@@ -38,6 +39,11 @@ class NucleusServiceProvider extends AbstractMainServiceProvider
     public function boot(): void
     {
         parent::boot();
+
+        if (File::exists(\dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'nucleus.php')) {
+            $this->mergeConfigFrom(dirname(__DIR__) . '/config/nucleus.php', 'nucleus');
+            $this->publishes(['nucleus']);
+        }
 
         $this->runLoadersBoot();
 
