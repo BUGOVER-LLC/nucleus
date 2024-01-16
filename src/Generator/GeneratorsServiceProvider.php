@@ -34,7 +34,7 @@ use Nucleus\Generator\Commands\TaskGenerator;
 use Nucleus\Generator\Commands\TestFunctionalTestGenerator;
 use Nucleus\Generator\Commands\TestTestCaseGenerator;
 use Nucleus\Generator\Commands\TestUnitTestGenerator;
-use Nucleus\Generator\Commands\TransformerGenerator;
+use Nucleus\Generator\Commands\ResourceGenerator;
 use Nucleus\Generator\Commands\ValueGenerator;
 
 class GeneratorsServiceProvider extends ServiceProvider
@@ -85,7 +85,7 @@ class GeneratorsServiceProvider extends ServiceProvider
             TestTestCaseGenerator::class,
             TestUnitTestGenerator::class,
             TaskGenerator::class,
-            TransformerGenerator::class,
+            ResourceGenerator::class,
             ValueGenerator::class,
         ];
     }

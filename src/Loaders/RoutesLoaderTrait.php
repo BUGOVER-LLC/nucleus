@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Loaders;
 
 use Illuminate\Cache\RateLimiting\Limit;
@@ -99,7 +101,7 @@ trait RoutesLoaderTrait
         $rateLimitMiddleware = null;
 
         if (Config::get('nucleus.php.api.throttle.enabled')) {
-            RateLimiter::for('api', function (Request $request) {
+            RateLimiter::for('api', static function (Request $request) {
                 return Limit::perMinutes(
                     Config::get('nucleus.php.api.throttle.expires'),
                     Config::get('nucleus.php.api.throttle.attempts')

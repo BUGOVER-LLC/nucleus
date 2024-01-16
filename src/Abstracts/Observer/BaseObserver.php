@@ -16,7 +16,7 @@ abstract class BaseObserver
      *
      * @var bool
      */
-    public bool $afterCommit = false;
+    public bool $afterCommit = true;
 
     /**
      * @param  Model  $model
