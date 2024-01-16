@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Generator\Commands;
 
 use Illuminate\Support\Str;
@@ -63,7 +65,7 @@ class ModelGenerator extends GeneratorCommand implements ComponentsGenerator
                 '--file' => $this->fileName . 'Repository',
             ]);
 
-            if ($status != 0) {
+            if (0 != $status) {
                 $this->printErrorMessage('Could not generate the corresponding Repository!');
             }
         }

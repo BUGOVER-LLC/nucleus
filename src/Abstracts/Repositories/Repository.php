@@ -48,8 +48,6 @@ abstract class Repository
         return DB::table($this->model->getTable(), $alias)->select($columns)->from(
             $this->model->getTable(),
             $alias
-        )->useIndex(
-            $indexBy
         );
     }
 
@@ -67,6 +65,6 @@ abstract class Repository
         array $columns = [],
         $indexBy = null
     ): EloquentBuilder {
-        return $this->model::query()->select($columns)->from($this->model->getTable(), $alias)->useIndex($indexBy);
+        return $this->model::query()->select($columns)->from($this->model->getTable(), $alias);
     }
 }

@@ -283,10 +283,6 @@ abstract class GeneratorCommand extends Command
      */
     private static function getRootPath(): string
     {
-        if (config('nucleus.path')) {
-            return config('nucleus.path') . config('nucleus.container_name');
-        }
-
         return config('nucleus.path') . config('nucleus.container_name');
     }
 
