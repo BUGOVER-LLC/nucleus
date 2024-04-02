@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Nucleus\Abstracts\Repositories;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Support\Facades\DB;
-use Nucleus\Abstracts\Models\AuthModel;
-use Nucleus\Abstracts\Models\Model;
+use Service\Repository\Exceptions\RepositoryException;
+use Service\Repository\Repositories\BaseRepository;
 
-abstract class Repository
+abstract class Repository extends BaseRepository
 {
     /**
      * Define the maximum amount of entries per page that is returned.
@@ -25,13 +26,6 @@ abstract class Repository
     protected ?bool $allowDisablePagination = null;
 
     /**
-     * @param Model|AuthModel $model
-     */
-    public function __construct(private readonly Model|AuthModel $model)
-    {
-    }
-
-    /**
      * Creates a new QueryBuilder instance that is prepopulated for this entity name.
      *
      * @param ?string $alias
@@ -39,14 +33,16 @@ abstract class Repository
      * @param null $indexBy The index for the from.
      *
      * @return QueryBuilder
+     * @throws BindingResolutionException
+     * @throws RepositoryException
      */
     public function createQueryBuilder(
         string $alias = null,
         array $columns = [],
         $indexBy = null
     ): QueryBuilder {
-        return DB::table($this->model->getTable(), $alias)->select($columns)->from(
-            $this->model->getTable(),
+        return DB::table($this->createModel()->getTable(), $alias)->select($columns)->from(
+            $this->getModel()->getTable(),
             $alias
         );
     }
@@ -65,6 +61,6 @@ abstract class Repository
         array $columns = [],
         $indexBy = null
     ): EloquentBuilder {
-        return $this->model::query()->select($columns)->from($this->model->getTable(), $alias);
+        return $this->getModel()::query()->select($columns)->from($this->getModel()->getTable(), $alias);
     }
 }

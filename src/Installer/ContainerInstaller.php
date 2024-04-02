@@ -17,7 +17,6 @@ class ContainerInstaller extends LibraryInstaller
 {
     /**
      * {@inheritDoc}
-     * @throws JsonException
      */
     public function getInstallPath(PackageInterface $package): string
     {
