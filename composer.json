@@ -1,6 +1,6 @@
 {
   "name": "bugover/laravel-porto",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "type": "library",
   "description": "Core package for Porto architecture.",
   "keywords": [
@@ -55,7 +55,7 @@
         "Nucleus\\Generator\\GeneratorsServiceProvider"
       ],
       "aliases": {
-        "Hashids": "Vinkla\\Hashids\\Facades\\Hashids",
+        "Hashids": "Vinkla\\Hashids\\Facades\\Hashids"
       }
     },
     "class": "Nucleus\\Installer\\PluginInstaller"
