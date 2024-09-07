@@ -4,15 +4,9 @@ declare(strict_types=1);
 
 namespace Nucleus\Abstracts\Resources;
 
-use ErrorException;
-use Exception;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Config;
-use Laravel\Passport\Scope;
-use Nucleus\Exceptions\CoreInternalErrorException;
-use Nucleus\Exceptions\UnsupportedFractalIncludeException;
 
 /**
  * Class BaseResource
@@ -65,22 +59,5 @@ abstract class Resource extends JsonResource
         $this->collectionClass = $class;
 
         return $this;
-    }
-
-    /**
-     * @throws CoreInternalErrorException
-     * @throws UnsupportedFractalIncludeException
-     */
-    protected function callIncludeMethod(Scope $scope, $includeName, $data)
-    {
-        try {
-            return parent::callIncludeMethod($scope, $includeName, $data);
-        } catch (ErrorException $exception) {
-            if (Config::get('nucleus.requests.force-valid-includes', true)) {
-                throw new UnsupportedFractalIncludeException($exception->getMessage());
-            }
-        } catch (Exception $exception) {
-            throw new CoreInternalErrorException($exception->getMessage());
-        }
     }
 }

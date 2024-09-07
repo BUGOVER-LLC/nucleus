@@ -1,6 +1,6 @@
 {
   "name": "bugover/laravel-porto",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "type": "library",
   "description": "Core package for Porto architecture.",
   "keywords": [
@@ -56,7 +56,6 @@
       ],
       "aliases": {
         "Hashids": "Vinkla\\Hashids\\Facades\\Hashids",
-        "Fractal": "Spatie\\Fractal\\FractalFacade"
       }
     },
     "class": "Nucleus\\Installer\\PluginInstaller"
