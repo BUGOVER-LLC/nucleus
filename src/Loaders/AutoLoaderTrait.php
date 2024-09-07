@@ -34,8 +34,8 @@ trait AutoLoaderTrait
         $this->loadHelpersFromShip();
         $this->loadCommandsFromShip();
         $this->loadCommandsFromCore();
-//        $this->loadMaps();
-//        $this->loadObservers();
+        $this->loadMaps();
+        $this->loadObservers();
 
         // Iterate over all the containers folders and autoload most of the components
         foreach (Nuclear::getAllContainerPaths() as $container_path) {
