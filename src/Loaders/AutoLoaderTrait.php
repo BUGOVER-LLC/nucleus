@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Nucleus\Loaders;
 
 use Nucleus\Foundation\Facades\Nuclear;
-use ReflectionException;
 
 trait AutoLoaderTrait
 {
@@ -18,13 +17,10 @@ trait AutoLoaderTrait
     use CommandsLoaderTrait;
     use AliasesLoaderTrait;
     use HelpersLoaderTrait;
-    use ModelMapLoader;
-    use ObserverLoader;
     use SupportLoader;
 
     /**
      * To be used from the `boot` function of the main service provider
-     * @throws ReflectionException
      */
     public function runLoadersBoot(): void
     {
@@ -34,8 +30,6 @@ trait AutoLoaderTrait
         $this->loadHelpersFromShip();
         $this->loadCommandsFromShip();
         $this->loadCommandsFromCore();
-        $this->loadMaps();
-        $this->loadObservers();
 
         // Iterate over all the containers folders and autoload most of the components
         foreach (Nuclear::getAllContainerPaths() as $container_path) {
