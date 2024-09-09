@@ -73,7 +73,7 @@ class ModelGenerator extends GeneratorCommand implements ComponentsGenerator
             $this->call('nucleus:generate:seeder', [
                 '--section' => $this->sectionName,
                 '--container' => $this->containerName,
-                '--file' => $this->fileName . 'Repository',
+                '--file' => $this->fileName . 'Seeder',
             ]);
         }
 
