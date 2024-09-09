@@ -69,6 +69,12 @@ class ModelGenerator extends GeneratorCommand implements ComponentsGenerator
             if (0 != $status) {
                 $this->printErrorMessage("Couldn't generate the corresponding Repository!");
             }
+
+            $this->call('nucleus:generate:seeder', [
+                '--section' => $this->sectionName,
+                '--container' => $this->containerName,
+                '--file' => $this->fileName . 'Repository',
+            ]);
         }
 
         return [
