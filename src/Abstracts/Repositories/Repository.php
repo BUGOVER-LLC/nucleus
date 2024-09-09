@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Support\Facades\DB;
 use Service\Repository\Exceptions\RepositoryException;
-use Service\Repository\Repositories\BaseRepository;
+use Service\Repository\Repositories\EloquentRepository;
 
-abstract class Repository extends BaseRepository
+abstract class Repository extends EloquentRepository
 {
     /**
      * Define the maximum amount of entries per page that is returned.

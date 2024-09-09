@@ -4,23 +4,20 @@ declare(strict_types=1);
 
 namespace Containers\{{section-name}}\{{container-name}}\Data\Repositories;
 
-use Ship\Parents\Repositories\Repository as ParentRepository;
+use Ship\Parents\Repositories\Repository as AbstractRepository;
+use Illuminate\Contracts\Container\Container;
 
-class {{class-name}} extends ParentRepository
+class {{class-name}} extends AbstractRepository
 {
-    /**
-     * @var array
-     */
-    protected $fieldSearchable = [
-        'id' => '=',
-        // ...
-    ];
-
     /**
      * @param User $user
      */
-    public function __construct(private readonly $model)
+    public function __construct(Container $container)
     {
-        parent::__construct($this->model);
+        $this
+            ->setContainer($container)
+            ->setModel({{class-name}}::class)
+            ->setRepositoryId({{class-name}}::getTableName())
+            ->setCacheDriver('redis');
     }
 }

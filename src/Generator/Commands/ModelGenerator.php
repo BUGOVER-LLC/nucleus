@@ -56,6 +56,7 @@ class ModelGenerator extends GeneratorCommand implements ComponentsGenerator
             'Do you want to generate the corresponding Repository for this Model?',
             true
         );
+
         if ($repository) {
             // We need to generate a corresponding repository
             // so call the other command
@@ -66,7 +67,7 @@ class ModelGenerator extends GeneratorCommand implements ComponentsGenerator
             ]);
 
             if (0 != $status) {
-                $this->printErrorMessage('Could not generate the corresponding Repository!');
+                $this->printErrorMessage("Couldn't generate the corresponding Repository!");
             }
         }
 
