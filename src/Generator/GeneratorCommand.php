@@ -198,7 +198,7 @@ abstract class GeneratorCommand extends Command
      *
      * @return mixed
      */
-    protected function checkParameterOrAsk($param, $question, null|string|int $default = null): mixed
+    protected function checkParameterOrAsk($param, $question, string|int $default = ''): mixed
     {
         // Check if we already have a param set
         $value = $this->option($param);
