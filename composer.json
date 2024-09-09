@@ -1,6 +1,6 @@
 {
   "name": "bugover/ship",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "library",
   "description": "Core package for Porto architecture.",
   "keywords": [
@@ -65,7 +65,6 @@
     "php-cs-fixer": "php-cs-fixer --config=./php_cs.dist.php"
   },
   "minimum-stability": "dev",
-  "prefer-stable": true,
   "config": {
     "sort-packages": true,
     "allow-plugins": {
