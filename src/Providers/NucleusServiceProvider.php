@@ -34,7 +34,6 @@ class NucleusServiceProvider extends AbstractMainServiceProvider
 
     /**
      * @return void
-     * @throws ReflectionException
      */
     public function boot(): void
     {

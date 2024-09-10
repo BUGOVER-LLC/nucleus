@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 use Nucleus\Generator\GeneratorCommand;
 use Nucleus\Generator\Interfaces\ComponentsGenerator;
 
-class ReadmeGenerator extends GeneratorCommand implements ComponentsGenerator
+class GitIgnoreGenerator extends GeneratorCommand implements ComponentsGenerator
 {
     /**
      * User required/optional inputs expected to be passed while calling the command.
@@ -23,17 +23,17 @@ class ReadmeGenerator extends GeneratorCommand implements ComponentsGenerator
      *
      * @var string
      */
-    protected $name = 'nucleus:generate:readme';
+    protected $name = 'nucleus:generate:gitignore';
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a README file for a Container';
+    protected $description = 'Create a gitignore file for a Container';
     /**
      * The type of class being generated.
      */
-    protected string $fileType = 'Readme';
+    protected string $fileType = 'Gitignore';
     /**
      * The structure of the file path.
      */
@@ -45,7 +45,7 @@ class ReadmeGenerator extends GeneratorCommand implements ComponentsGenerator
     /**
      * The name of the stub file.
      */
-    protected string $stubName = 'readme.stub';
+    protected string $stubName = 'gitignore.stub';
 
     public function getUserInputs(): ?array
     {
@@ -72,11 +72,11 @@ class ReadmeGenerator extends GeneratorCommand implements ComponentsGenerator
      */
     public function getDefaultFileName(): string
     {
-        return 'README';
+        return '.gitignore';
     }
 
     public function getDefaultFileExtension(): string
     {
-        return 'md';
+        return '';
     }
 }

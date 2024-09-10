@@ -15,6 +15,7 @@ use Nucleus\Generator\Commands\DumpAutoload;
 use Nucleus\Generator\Commands\EventGenerator;
 use Nucleus\Generator\Commands\EventListenerGenerator;
 use Nucleus\Generator\Commands\ExceptionGenerator;
+use Nucleus\Generator\Commands\GitIgnoreGenerator;
 use Nucleus\Generator\Commands\JobGenerator;
 use Nucleus\Generator\Commands\MailGenerator;
 use Nucleus\Generator\Commands\MiddlewareGenerator;
@@ -75,6 +76,7 @@ class GeneratorsServiceProvider extends ServiceProvider
             NotificationGenerator::class,
             PolicyGenerator::class,
             ReadmeGenerator::class,
+            GitIgnoreGenerator::class,
             RepositoryGenerator::class,
             RequestGenerator::class,
             RouteGenerator::class,
