@@ -1,14 +1,29 @@
 {
-  "name": "nucleus/{{_container-name}}",
+  "name": "nucleus/{{container-name}}",
+  "type": "ship-container",
   "description": "{{container-name}} Container for nucleus.",
   "require": {
+    "php": "<=8.2.3",
+    "php-64bit": "<=8.2.3",
   },
   "require-dev": {
-    "roave/security-advisories": "dev-latest"
+    "roave/security-advisories": "dev-latest",
   },
   "autoload": {
     "psr-4": {
       "Containers\\{{section-name}}\\{{container-name}}\\": "/"
+    }
+  },
+  "extra": {
+    "nucleus": {
+      "container": {
+        "name": "{{container-name}}"
+        }
+    },
+    "laravel": {
+      "providers": [
+        "Containers\\{{section-name}}\\{{container-name}}\\Providers\\MainServiceProvider"
+      ]
     }
   }
 }

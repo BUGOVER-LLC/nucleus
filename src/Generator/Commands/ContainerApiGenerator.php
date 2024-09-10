@@ -389,7 +389,7 @@ class ContainerApiGenerator extends GeneratorCommand implements ComponentsGenera
             }
         }
 
-        if ($controllertype === 'mac') {
+        if ('mac' === $controllertype) {
             $this->printInfoMessage('Generating Controller to wire everything together');
             $this->call('nucleus:generate:controller', [
                 '--section' => $sectionName,

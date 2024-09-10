@@ -1,1 +1,5 @@
 ### Nucleus {{container-name}} Container
+.idea
+vendor
+node_modules
+.env
