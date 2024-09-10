@@ -19,25 +19,25 @@ abstract class BaseObserver
     public bool $afterCommit = true;
 
     /**
-     * @param  Model  $model
+     * @param Model $model
      * @return void
      */
     abstract public function created(Model $model): void;
 
     /**
-     * @param  Model  $model
+     * @param Model $model
      * @return void
      */
     abstract public function updated(Model $model): void;
 
     /**
-     * @param  Model  $model
+     * @param Model $model
      * @return void
      */
     abstract public function deleted(Model $model): void;
 
     /**
-     * @param  Model  $model
+     * @param Model $model
      * @return void
      */
     public function saved(Model $model): void
@@ -46,7 +46,7 @@ abstract class BaseObserver
     }
 
     /**
-     * @param  Model  $model
+     * @param Model $model
      * @return void
      */
     public function creating(Model $model)
@@ -55,7 +55,7 @@ abstract class BaseObserver
     }
 
     /**
-     * @param  Model  $model
+     * @param Model $model
      * @return void
      */
     public function updating(Model $model)
@@ -64,7 +64,7 @@ abstract class BaseObserver
     }
 
     /**
-     * @param  Model  $model
+     * @param Model $model
      * @return void
      */
     public function saving(Model $model)
@@ -73,7 +73,7 @@ abstract class BaseObserver
     }
 
     /**
-     * @param  Model  $model
+     * @param Model $model
      * @return void
      */
     public function deleting(Model $model)
@@ -82,7 +82,7 @@ abstract class BaseObserver
     }
 
     /**
-     * @param  Model  $model
+     * @param Model $model
      * @return void
      */
     public function restoring(Model $model): void
@@ -91,7 +91,7 @@ abstract class BaseObserver
     }
 
     /**
-     * @param  Model  $model
+     * @param Model $model
      * @return void
      */
     public function restored(Model $model): void
@@ -100,7 +100,7 @@ abstract class BaseObserver
     }
 
     /**
-     * @param  Model  $model
+     * @param Model $model
      * @return void
      */
     public function retrieved(Model $model): void
@@ -109,7 +109,7 @@ abstract class BaseObserver
     }
 
     /**
-     * @param  Model  $model
+     * @param Model $model
      * @return void
      */
     public function forceDeleted(Model $model): void
@@ -118,7 +118,7 @@ abstract class BaseObserver
     }
 
     /**
-     * @param  Model  $model
+     * @param Model $model
      * @return void
      */
     public function replicating(Model $model): void
@@ -127,7 +127,7 @@ abstract class BaseObserver
     }
 
     /**
-     * @param  Model  $model
+     * @param Model $model
      * @return void
      */
     public function trashed(Model $model): void

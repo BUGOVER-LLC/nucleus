@@ -81,6 +81,7 @@ trait TestsRequestHelperTrait
 
     /**
      * read `$this->endpoint` property from the test class (`verb@uri`) and convert it to usable data
+     *
      * @throws WrongEndpointFormatException
      * @throws MissingTestEndpointException
      */
@@ -98,8 +99,12 @@ trait TestsRequestHelperTrait
         // get the verb and uri values from the array
         extract(array_combine(['verb', 'uri'], $asArray));
 
-        /** @var string $verb */
-        /** @var string $uri */
+        /**
+ * @var string $verb
+*/
+        /**
+ * @var string $uri
+*/
         return [
             'verb' => $verb,
             'uri' => $uri,

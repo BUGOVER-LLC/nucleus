@@ -211,13 +211,12 @@ if (!function_exists('decode')) {
      */
     function decode(array $data = []): mixed
     {
-        return
-            json_decode(
-                json_encode($data, JSON_THROW_ON_ERROR | JSON_NUMERIC_CHECK),
-                true,
-                512,
-                JSON_THROW_ON_ERROR | JSON_NUMERIC_CHECK
-            );
+        return json_decode(
+            json_encode($data, JSON_THROW_ON_ERROR | JSON_NUMERIC_CHECK),
+            true,
+            512,
+            JSON_THROW_ON_ERROR | JSON_NUMERIC_CHECK
+        );
     }
 }
 
@@ -321,7 +320,9 @@ if (!function_exists('array_flatten')) {
 
         foreach ($array as $key => $value) {
             if (is_array($value)) {
-                /** @noinspection SlowArrayOperationsInLoopInspection */
+                /**
+ * @noinspection SlowArrayOperationsInLoopInspection
+*/
                 $result = array_merge($result, array_flatten($value));
             } else {
                 $result[$key] = $value;
@@ -343,7 +344,9 @@ if (!function_exists('array_flatten_adjustable')) {
 
         foreach ($points as $key => $value) {
             if (is_array($value)) {
-                /** @noinspection SlowArrayOperationsInLoopInspection */
+                /**
+ * @noinspection SlowArrayOperationsInLoopInspection
+*/
                 $result = array_merge($result, $value);
             } else {
                 $result[$key] = $value;
@@ -428,12 +431,14 @@ if (!function_exists('crypto_rand_secure')) {
         }
 
         $log = ceil(log($range, 2));
-        $bytes = (int)($log / 8) + 1;
-        $bits = (int)$log + 1;
+        $bytes = (int) ($log / 8) + 1;
+        $bits = (int) $log + 1;
         $filter = (1 << $bits) - 1;
 
         do {
-            /** @noinspection CryptographicallySecureRandomnessInspection */
+            /**
+ * @noinspection CryptographicallySecureRandomnessInspection
+*/
             $rnd = hexdec(bin2hex(openssl_random_pseudo_bytes($bytes)));
             $rnd &= $filter;
         } while ($rnd > $range);
@@ -480,15 +485,16 @@ if (!function_exists('distance_by_coordinates')) {
         float $lat2,
         float $lon2,
         string $unit = 'Km'
-    ): float|int|string {
+    ): float|int|string
+    {
         if (($lat1 === $lat2) && ($lon1 === $lon2)) {
             return 0;
         }
 
         $theta = $lon1 - $lon2;
         $distance = (sin(deg2rad($lat1)) * sin(deg2rad($lat2)) + (cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(
-                    deg2rad($theta)
-                )));
+            deg2rad($theta)
+        )));
         $distance = acos($distance);
         $distance = rad2deg($distance);
         $distance *= 60 * 1.1515;
@@ -518,7 +524,7 @@ if (!function_exists('http_build_query')) {
     {
         $ret = [];
 
-        foreach ((array)$data as $k => $v) {
+        foreach ((array) $data as $k => $v) {
             if (is_int($k) && null !== $prefix) {
                 $k = urlencode($prefix . $k);
             }
@@ -572,7 +578,7 @@ if (!function_exists('preg_nested_contains')) {
                 }
 
                 if ($value && Str::contains($key, $needles)) {
-                    $values[$key] = preg_replace($preg, '', is_int($value) ? (string)$value : $value);
+                    $values[$key] = preg_replace($preg, '', is_int($value) ? (string) $value : $value);
                     break 2;
                 }
             }
@@ -817,8 +823,8 @@ if (!function_exists('get_nearest_timezone')) {
      */
     function get_nearest_timezone(string|float $cur_lat, string|float $cur_long, string $country_code = ''): string
     {
-        $cur_lat = (float)$cur_lat;
-        $cur_long = (float)$cur_long;
+        $cur_lat = (float) $cur_lat;
+        $cur_long = (float) $cur_long;
 
         $timezone_ids = ($country_code)
             ? DateTimeZone::listIdentifiers(DateTimeZone::PER_COUNTRY, $country_code)
@@ -846,8 +852,8 @@ if (!function_exists('get_nearest_timezone')) {
 
                 $theta = $cur_long - $tz_long;
                 $distance = (sin(deg2rad($cur_lat)) * sin(deg2rad($tz_lat))) + (cos(deg2rad($cur_lat)) * cos(
-                            deg2rad($tz_lat)
-                        ) * cos(deg2rad($theta)));
+                    deg2rad($tz_lat)
+                ) * cos(deg2rad($theta)));
                 $distance = acos($distance);
                 $distance = abs(rad2deg($distance));
 
@@ -943,7 +949,8 @@ if (!function_exists('recursive_loader')) {
         bool $only_class = false,
         bool $with_path = false,
         string $app_path = 'src'
-    ): void {
+    ): void
+    {
         $files = scandir($dir);
         $app_path = dirname(__DIR__) . DIRECTORY_SEPARATOR . $app_path;
         $app_name = substr($app_path, (strrpos($app_path, DIRECTORY_SEPARATOR) + 1));

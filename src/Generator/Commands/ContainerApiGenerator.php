@@ -423,6 +423,13 @@ class ContainerApiGenerator extends GeneratorCommand implements ComponentsGenera
             return $generateComposerFile;
         }
 
+        $this->printInfoMessage('Generating .gitignore File');
+        $this->call('nucleus:generate:gitignore', [
+            '--section' => $sectionName,
+            '--container' => $containerName,
+            '--file' => 'Gitignore',
+        ]);
+
         return null;
     }
 

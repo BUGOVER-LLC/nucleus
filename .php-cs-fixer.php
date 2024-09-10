@@ -6,7 +6,7 @@ use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
 $rules = [
-    'psr12' => true,
+    '@PSR12' => true,
     'array_indentation' => true,
     'no_unused_imports' => true,
     'array_syntax' => ['syntax' => 'short'],
@@ -17,7 +17,7 @@ $rules = [
     'blank_line_after_namespace' => true,
     'blank_line_after_opening_tag' => true,
     'blank_line_before_statement' => [
-        'statements' => ['return'],
+        'statements' => ['break', 'continue', 'declare', 'return', 'throw', 'try'],
     ],
     'braces' => true,
     'cast_spaces' => true,
@@ -147,15 +147,10 @@ $rules = [
     'whitespace_after_comma_in_array' => true,
 ];
 
-
 $finder = Finder::create()
     ->in([
-        __DIR__ . '/app',
         __DIR__ . '/src',
         __DIR__ . '/config',
-        __DIR__ . '/database',
-        __DIR__ . '/resources',
-        __DIR__ . '/routes',
         __DIR__ . '/tests',
     ])
     ->name('*.php')

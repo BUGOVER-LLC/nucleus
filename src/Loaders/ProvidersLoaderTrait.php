@@ -20,7 +20,7 @@ trait ProvidersLoaderTrait
      */
     public function loadOnlyMainProvidersFromContainers($containerPath): void
     {
-        $container_providers_directory = $containerPath . '/Providers';
+        $container_providers_directory = $containerPath.'/Providers';
         $this->loadProviders($container_providers_directory);
     }
 
@@ -37,7 +37,10 @@ trait ProvidersLoaderTrait
 
             foreach ($files as $file) {
                 // Check if this is the Main Service Provider
-                if (File::isFile($file) && Str::startsWith($file->getFilename(), $main_service_provider_name_start_with)) {
+                if (File::isFile($file) && Str::startsWith(
+                        $file->getFilename(),
+                        $main_service_provider_name_start_with
+                    )) {
                     $serviceProviderClass = Nuclear::getClassFullNameFromFile($file->getPathname());
                     $this->loadProvider($serviceProviderClass);
                 }

@@ -42,8 +42,8 @@ trait ViewsLoaderTrait
     public function loadViewsFromShip(): void
     {
         $ship_mail_templates_directory = config(
-                'nucleus.path'
-            ) . 'Ship' . DIRECTORY_SEPARATOR . 'Mails' . DIRECTORY_SEPARATOR . 'Templates' . DIRECTORY_SEPARATOR;
+            'nucleus.path'
+        ) . 'Ship' . DIRECTORY_SEPARATOR . 'Mails' . DIRECTORY_SEPARATOR . 'Templates' . DIRECTORY_SEPARATOR;
         $this->loadViews($ship_mail_templates_directory, 'ship'); // Ship views accessible via `ship::`.
     }
 }

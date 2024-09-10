@@ -10,7 +10,6 @@ use Nucleus\Abstracts\Providers\MainServiceProvider as AbstractMainServiceProvid
 use Nucleus\Foundation\Nuclear;
 use Nucleus\Loaders\AutoLoaderTrait;
 use Nucleus\Traits\ValidationTrait;
-use ReflectionException;
 
 class NucleusServiceProvider extends AbstractMainServiceProvider
 {

@@ -7,6 +7,8 @@ namespace Nucleus\Traits;
 use Illuminate\Support\Arr;
 use Nucleus\Exceptions\IncorrectIdException;
 
+use function is_array;
+
 trait SanitizerTrait
 {
     /**
@@ -56,7 +58,7 @@ trait SanitizerTrait
         $a = array_intersect_key($a, $b);
 
         foreach ($a as $key => &$value) {
-            if (\is_array($value) && \is_array($b[$key])) {
+            if (is_array($value) && is_array($b[$key])) {
                 $value = $this->recursiveArrayIntersectKey($value, $b[$key]);
             }
         }

@@ -171,6 +171,7 @@ abstract class GeneratorCommand extends Command
 
             $this->printFinishedMessage($this->fileType);
         }
+
         // Exit the command successfully
         return 0;
     }
@@ -194,7 +195,7 @@ abstract class GeneratorCommand extends Command
      *
      * @param $param
      * @param $question
-     * @param string|int|null $default
+     * @param string|int $default
      *
      * @return mixed
      */
@@ -220,6 +221,7 @@ abstract class GeneratorCommand extends Command
 
     /**
      * Removes "special characters" from a string
+     *
      * @param $str
      * @return string
      */
@@ -349,7 +351,8 @@ abstract class GeneratorCommand extends Command
         $question,
         $choices,
         mixed $default = null
-    ): bool|array|string|null {
+    ): bool|array|string|null
+    {
         // Check if we already have a param set
         $value = $this->option($param);
         if (null === $value) {

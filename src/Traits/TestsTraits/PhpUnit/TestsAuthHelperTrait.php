@@ -68,7 +68,8 @@ trait TestsAuthHelperTrait
         ?array $userDetails = null,
         ?array $access = null,
         bool $createUserAsAdmin = false
-    ): AuthModel {
+    ): AuthModel
+    {
         $this->createUserAsAdmin = $createUserAsAdmin;
         $this->userClass = $this->userclass ?? Config::get('nucleus.tests.user-class');
         $this->userAdminState = Config::get('nucleus.tests.user-admin-state');

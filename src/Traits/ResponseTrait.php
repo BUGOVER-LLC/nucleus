@@ -81,7 +81,8 @@ trait ResponseTrait
         int $status = 202,
         array $headers = [],
         int $options = 0
-    ): JsonResponse {
+    ): JsonResponse
+    {
         return new JsonResponse($message, $status, $headers, $options);
     }
 

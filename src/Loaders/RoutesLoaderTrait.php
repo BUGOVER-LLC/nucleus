@@ -31,6 +31,7 @@ trait RoutesLoaderTrait
 
     /**
      * Register the Containers API routes files
+     *
      * @param string $container_path
      */
     private function loadApiContainerRoutes(string $container_path): void
@@ -76,7 +77,7 @@ trait RoutesLoaderTrait
             'middleware' => $this->getMiddlewares(),
             'domain' => $this->getApiUrl(),
             // If $endpointFileOrPrefixString is a file then get the version name from the file name, else if string use that string as prefix
-            'prefix' => is_string(
+            'prefix' => \is_string(
                 $endpointFileOrPrefixString
             ) ? $endpointFileOrPrefixString : $this->getApiVersionPrefix($endpointFileOrPrefixString),
         ];
@@ -130,8 +131,8 @@ trait RoutesLoaderTrait
     private function getApiVersionPrefix($file): string
     {
         return Config::get('nucleus.php.api.prefix') . (Config::get(
-                'nucleus.php.api.enable_version_prefix'
-            ) ? $this->getRouteFileVersionFromFileName($file) : '');
+            'nucleus.php.api.enable_version_prefix'
+        ) ? $this->getRouteFileVersionFromFileName($file) : '');
     }
 
     /**
@@ -196,7 +197,8 @@ trait RoutesLoaderTrait
     private function loadWebRoute($file, $controller_namespace): void
     {
         Route::group(
-            ['namespace' => $controller_namespace, 'middleware' => ['web']], fn($router) => require $file->getPathname()
+            ['namespace' => $controller_namespace, 'middleware' => ['web']],
+            fn($router) => require $file->getPathname()
         );
     }
 }

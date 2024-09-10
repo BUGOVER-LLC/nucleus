@@ -57,13 +57,14 @@ trait CanOwnTrait
         $morphableKeyName = null,
         $morphableTypeName = null,
         $localKey = null
-    ): bool {
+    ): bool
+    {
         [$keyName, $typeName] = $this->guessMorphs($ownable);
         $morphableKeyName = $morphableKeyName ?: $keyName;
         $morphableTypeName = $morphableTypeName ?: $typeName;
 
         return $ownable->$morphableKeyName == ($localKey ?? $this->getKey(
-            )) && $ownable->$morphableTypeName == get_class($this);
+        )) && $ownable->$morphableTypeName == get_class($this);
     }
 
     /**

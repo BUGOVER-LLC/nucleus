@@ -12,9 +12,8 @@ trait ModelTrait
     use HasResourceKeyTrait;
     use FactoryLocatorTrait;
     use ModelUUID;
-    use HasFactory, FactoryLocatorTrait {
-        FactoryLocatorTrait::newFactory insteadof HasFactory;
-    }
+    use FactoryLocatorTrait;
+    use HasFactory;
 
     /**
      * @var string

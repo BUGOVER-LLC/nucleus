@@ -10,6 +10,7 @@ use RuntimeException;
 
 /**
  * Trait UUID
+ *
  * @package Src\Core\Traits
  * @property string $uniqueKey
  */
@@ -17,6 +18,7 @@ trait ModelUUID
 {
     /**
      * The "booting" method of the model.
+     *
      * @throws Exception
      */
     public static function boot(): void

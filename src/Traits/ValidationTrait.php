@@ -7,6 +7,8 @@ namespace Nucleus\Traits;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
+use function is_array;
+
 trait ValidationTrait
 {
     /**
@@ -26,7 +28,7 @@ trait ValidationTrait
         Validator::extend('unique_composite', function ($attribute, $value, $parameters, $validator) {
             $QB = DB::table($parameters[0]);
 
-            $QB = \is_array($value) ? $QB->whereIn($parameters[1], $value) : $QB->where(
+            $QB = is_array($value) ? $QB->whereIn($parameters[1], $value) : $QB->where(
                 $parameters[1],
                 $value
             );

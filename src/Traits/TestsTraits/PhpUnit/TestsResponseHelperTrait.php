@@ -11,7 +11,7 @@ trait TestsResponseHelperTrait
     public function assertResponseContainKeys($keys): void
     {
         if (!is_array($keys)) {
-            $keys = (array)$keys;
+            $keys = (array) $keys;
         }
 
         $arrayResponse = $this->removeDataKeyFromResponse($this->getResponseContentArray());
@@ -38,7 +38,7 @@ trait TestsResponseHelperTrait
     public function assertResponseContainValues($values): void
     {
         if (!is_array($values)) {
-            $values = (array)$values;
+            $values = (array) $values;
         }
 
         $arrayResponse = $this->removeDataKeyFromResponse($this->getResponseContentArray());
@@ -51,7 +51,7 @@ trait TestsResponseHelperTrait
     public function assertResponseContainKeyValue($data): void
     {
         // `responseContentToArray` will remove the `data` node
-        $httpResponse = json_encode(Arr::sortRecursive((array)$this->getResponseContentArray()));
+        $httpResponse = json_encode(Arr::sortRecursive((array) $this->getResponseContentArray()));
 
         foreach (Arr::sortRecursive($data) as $key => $value) {
             $expected = $this->formatToExpectedJson($key, $value);
