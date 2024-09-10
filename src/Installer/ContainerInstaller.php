@@ -23,8 +23,8 @@ class ContainerInstaller extends LibraryInstaller
         $container_name = $package->getPrettyName();
         $extras = json_decode(json_encode($package->getExtra(), JSON_THROW_ON_ERROR), false, 512, JSON_THROW_ON_ERROR);
 
-        if (isset($extras->apiato->container->name)) {
-            $container_name = $extras->apiato->container->name;
+        if (isset($extras->ship->container->name)) {
+            $container_name = $extras->ship->container->name;
         }
 
         return 'app/Containers/Vendor/' . $container_name;
