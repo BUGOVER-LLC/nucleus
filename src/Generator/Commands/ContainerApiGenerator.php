@@ -28,30 +28,36 @@ class ContainerApiGenerator extends GeneratorCommand implements ComponentsGenera
         ['tests', null, InputOption::VALUE_OPTIONAL, 'Generate Tests for this Container?'],
         ['maincalled', false, InputOption::VALUE_NONE],
     ];
+
     /**
      * The console command name.
      *
      * @var string
      */
     protected $name = 'nucleus:generate:container:api';
+
     /**
      * The console command description.
      *
      * @var string
      */
     protected $description = 'Create a Container for nucleus from scratch (API Part)';
+
     /**
      * The type of class being generated.
      */
     protected string $fileType = 'Container';
+
     /**
      * The structure of the file path.
      */
     protected string $pathStructure = '{section-name}/{container-name}/*';
+
     /**
      * The structure of the file name.
      */
     protected string $nameStructure = '{file-name}';
+
     /**
      * The name of the stub file.
      */
@@ -352,7 +358,7 @@ class ContainerApiGenerator extends GeneratorCommand implements ComponentsGenera
                 ]);
             }
 
-            if ($controllertype === 'sac') {
+            if ('sac' === $controllertype) {
                 $this->call('nucleus:generate:route', [
                     '--section' => $sectionName,
                     '--container' => $containerName,

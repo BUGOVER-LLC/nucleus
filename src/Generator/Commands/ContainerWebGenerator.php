@@ -21,30 +21,36 @@ class ContainerWebGenerator extends GeneratorCommand implements ComponentsGenera
         ['controllertype', null, InputOption::VALUE_OPTIONAL, 'The controller type (SAC, MAC)'],
         ['maincalled', false, InputOption::VALUE_NONE],
     ];
+
     /**
      * The console command name.
      *
      * @var string
      */
     protected $name = 'nucleus:generate:container:web';
+
     /**
      * The console command description.
      *
      * @var string
      */
     protected $description = 'Create a Container for nucleus from scratch (WEB Part)';
+
     /**
      * The type of class being generated.
      */
     protected string $fileType = 'Container';
+
     /**
      * The structure of the file path.
      */
     protected string $pathStructure = '{section-name}/{container-name}/*';
+
     /**
      * The structure of the file name.
      */
     protected string $nameStructure = '{file-name}';
+
     /**
      * The name of the stub file.
      */
@@ -79,7 +85,7 @@ class ContainerWebGenerator extends GeneratorCommand implements ComponentsGenera
         $this->call('nucleus:generate:configuration', [
             '--section' => $sectionName,
             '--container' => $containerName,
-            '--file' => Str::camel($this->sectionName).'-'.Str::camel($this->containerName),
+            '--file' => Str::camel($this->sectionName) . '-' . Str::camel($this->containerName),
         ]);
 
         // create the MainServiceProvider for the container
@@ -105,7 +111,7 @@ class ContainerWebGenerator extends GeneratorCommand implements ComponentsGenera
         $this->call('nucleus:generate:migration', [
             '--section' => $sectionName,
             '--container' => $containerName,
-            '--file' => 'create_'.Str::snake($models).'_table',
+            '--file' => 'create_' . Str::snake($models) . '_table',
             '--tablename' => Str::snake($models),
         ]);
 
@@ -141,80 +147,80 @@ class ContainerWebGenerator extends GeneratorCommand implements ComponentsGenera
         $routes = [
             [
                 'stub' => 'GetAll',
-                'name' => 'GetAll'.$models,
+                'name' => 'GetAll' . $models,
                 'operation' => 'index',
                 'verb' => 'GET',
                 'url' => $url,
-                'action' => 'GetAll'.$models.'Action',
-                'request' => 'GetAll'.$models.'Request',
-                'task' => 'GetAll'.$models.'Task',
-                'controller' => 'GetAll'.$models.'Controller',
+                'action' => 'GetAll' . $models . 'Action',
+                'request' => 'GetAll' . $models . 'Request',
+                'task' => 'GetAll' . $models . 'Task',
+                'controller' => 'GetAll' . $models . 'Controller',
             ],
             [
                 'stub' => 'Find',
-                'name' => 'Find'.$model.'ById',
+                'name' => 'Find' . $model . 'ById',
                 'operation' => 'show',
                 'verb' => 'GET',
-                'url' => $url.'/{id}',
-                'action' => 'Find'.$model.'ById'.'Action',
-                'request' => 'Find'.$model.'ById'.'Request',
-                'task' => 'Find'.$model.'ById'.'Task',
-                'controller' => 'Find'.$model.'ById'.'Controller',
+                'url' => $url . '/{id}',
+                'action' => 'Find' . $model . 'ById' . 'Action',
+                'request' => 'Find' . $model . 'ById' . 'Request',
+                'task' => 'Find' . $model . 'ById' . 'Task',
+                'controller' => 'Find' . $model . 'ById' . 'Controller',
             ],
             [
                 'stub' => 'Create',
-                'name' => 'Store'.$model,
+                'name' => 'Store' . $model,
                 'operation' => 'store',
                 'verb' => 'POST',
-                'url' => $url.'/store',
-                'action' => 'Create'.$model.'Action',
-                'request' => 'Store'.$model.'Request',
-                'task' => 'Create'.$model.'Task',
-                'controller' => 'Create'.$model.'Controller',
+                'url' => $url . '/store',
+                'action' => 'Create' . $model . 'Action',
+                'request' => 'Store' . $model . 'Request',
+                'task' => 'Create' . $model . 'Task',
+                'controller' => 'Create' . $model . 'Controller',
             ],
             [
                 'stub' => 'Store',
-                'name' => 'Create'.$model,
+                'name' => 'Create' . $model,
                 'operation' => 'create',
                 'verb' => 'GET',
-                'url' => $url.'/create',
+                'url' => $url . '/create',
                 'action' => null,
-                'request' => 'Create'.$model.'Request',
+                'request' => 'Create' . $model . 'Request',
                 'task' => null,
-                'controller' => 'Create'.$model.'Controller',
+                'controller' => 'Create' . $model . 'Controller',
             ],
             [
                 'stub' => 'Update',
-                'name' => 'Update'.$model,
+                'name' => 'Update' . $model,
                 'operation' => 'update',
                 'verb' => 'PATCH',
-                'url' => $url.'/{id}',
-                'action' => 'Update'.$model.'Action',
-                'request' => 'Update'.$model.'Request',
-                'task' => 'Update'.$model.'Task',
-                'controller' => 'Update'.$model.'Controller',
+                'url' => $url . '/{id}',
+                'action' => 'Update' . $model . 'Action',
+                'request' => 'Update' . $model . 'Request',
+                'task' => 'Update' . $model . 'Task',
+                'controller' => 'Update' . $model . 'Controller',
             ],
             [
                 'stub' => 'Edit',
-                'name' => 'Edit'.$model,
+                'name' => 'Edit' . $model,
                 'operation' => 'edit',
                 'verb' => 'GET',
-                'url' => $url.'/{id}/edit',
+                'url' => $url . '/{id}/edit',
                 'action' => null,
-                'request' => 'Edit'.$model.'Request',
+                'request' => 'Edit' . $model . 'Request',
                 'task' => null,
-                'controller' => 'Update'.$model.'Controller',
+                'controller' => 'Update' . $model . 'Controller',
             ],
             [
                 'stub' => 'Delete',
-                'name' => 'Delete'.$model,
+                'name' => 'Delete' . $model,
                 'operation' => 'destroy',
                 'verb' => 'DELETE',
-                'url' => $url.'/{id}',
-                'action' => 'Delete'.$model.'Action',
-                'request' => 'Delete'.$model.'Request',
-                'task' => 'Delete'.$model.'Task',
-                'controller' => 'Delete'.$model.'Controller',
+                'url' => $url . '/{id}',
+                'action' => 'Delete' . $model . 'Action',
+                'request' => 'Delete' . $model . 'Request',
+                'task' => 'Delete' . $model . 'Task',
+                'controller' => 'Delete' . $model . 'Controller',
             ],
         ];
 
@@ -227,7 +233,7 @@ class ContainerWebGenerator extends GeneratorCommand implements ComponentsGenera
                 '--stub' => $route['stub'],
             ]);
 
-            if ($route['action'] != null) {
+            if (null != $route['action']) {
                 $this->call('nucleus:generate:action', [
                     '--section' => $sectionName,
                     '--container' => $containerName,
@@ -238,7 +244,7 @@ class ContainerWebGenerator extends GeneratorCommand implements ComponentsGenera
                 ]);
             }
 
-            if ($route['task'] != null) {
+            if (null != $route['task']) {
                 $this->call('nucleus:generate:task', [
                     '--section' => $sectionName,
                     '--container' => $containerName,
@@ -248,7 +254,7 @@ class ContainerWebGenerator extends GeneratorCommand implements ComponentsGenera
                 ]);
             }
 
-            if ($controllertype === 'sac') {
+            if ('sac' === $controllertype) {
                 $this->call('nucleus:generate:route', [
                     '--section' => $sectionName,
                     '--container' => $containerName,

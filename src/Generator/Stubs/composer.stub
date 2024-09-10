@@ -1,10 +1,10 @@
 {
-  "name": "nucleus/{{container-name}}",
+  "name": "ship/{{container-name}}",
   "type": "ship-container",
   "description": "{{container-name}} Container for nucleus.",
   "require": {
     "php": "<=8.2.3",
-    "php-64bit": "<=8.2.3",
+    "php-64bit": "<=8.2.3"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
@@ -18,7 +18,7 @@
     "nucleus": {
       "container": {
         "name": "{{container-name}}"
-        }
+      }
     },
     "laravel": {
       "providers": [
