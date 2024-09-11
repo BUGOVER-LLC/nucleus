@@ -312,10 +312,6 @@ if (!function_exists('array_flatten')) {
      */
     function array_flatten(array $array): ?array
     {
-        if (!is_array($array)) {
-            return null;
-        }
-
         $result = [];
 
         foreach ($array as $key => $value) {

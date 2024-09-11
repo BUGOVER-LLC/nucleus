@@ -22,6 +22,7 @@
     "php-64bit": "<=8.2.3",
     "ext-gettext": "*",
     "ext-json": "*",
+    "ext-redis": "*",
     "composer-plugin-api": "^2.0.0",
     "bugover/laravel-repository": "^1.0.0",
     "composer/class-map-generator": "^1.0.0",
