@@ -1,6 +1,6 @@
 {
   "name": "bugover/ship",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "type": "library",
   "description": "Core package for Porto architecture.",
   "keywords": [
@@ -72,7 +72,6 @@
   "config": {
     "sort-packages": true,
     "allow-plugins": {
-      "nucleus/container-installer": true,
       "composer/package-versions-deprecated": true
     }
   }
