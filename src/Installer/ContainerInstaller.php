@@ -33,7 +33,7 @@ class ContainerInstaller extends LibraryInstaller
     /**
      * {@inheritDoc}
      */
-    public function supports($package_type): bool
+    public function supports(string $package_type): bool
     {
         return ('ship-container' === $package_type);
     }

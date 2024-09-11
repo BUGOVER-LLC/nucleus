@@ -172,6 +172,8 @@ abstract class GeneratorCommand extends Command
             $this->printFinishedMessage($this->fileType);
         }
 
+        $this->info((new \DateTime())->format('Y-m-d H:i:s'));
+
         // Exit the command successfully
         return 0;
     }

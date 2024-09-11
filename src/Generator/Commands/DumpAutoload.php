@@ -47,7 +47,7 @@ class DumpAutoload extends Command
         $this->composer->dumpOptimized();
 
         $progress->finish();
-        $this->info('Composer dump-autoload, successful', '');
+        $this->info('Composer dump-autoload, successful');
 
         return [];
     }

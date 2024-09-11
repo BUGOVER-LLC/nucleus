@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Traits;
 
 use Laravel\Passport\ClientRepository;

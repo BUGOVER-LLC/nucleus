@@ -21,13 +21,17 @@ trait ModelUUID
      *
      * @throws Exception
      */
-    public static function boot(): void
+    protected static function boot(): void
     {
         parent::boot();
 
         static::creating(static function (self $model): void {
-            if ($model->uniqueKey) {
-                $model->{$model->uniqueKey} = $model->generateUuid();
+            if (empty($model->{$model->getKeyName()}) && 'string' === $model->getKeyType()) {
+                $model->{$model->getKeyName()} = $model->generateUuid();
+            }
+
+            if (\in_array('uuid', $model->getFillable(), true)) {
+                $model->setAttribute('uuid', $model->generateUuid());
             }
         });
     }
@@ -53,15 +57,5 @@ trait ModelUUID
     protected function uuidVersion(): int
     {
         return 4;
-    }
-
-    /**
-     * Indicates if the IDs are UUIDs.
-     *
-     * @return bool
-     */
-    protected function keyIsUuid(): bool
-    {
-        return true;
     }
 }
