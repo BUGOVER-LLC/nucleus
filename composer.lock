@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0730dbb37d357572a94e4e933f563ca2",
+    "content-hash": "e5c7936544703aead074572c51ded840",
     "packages": [
         {
             "name": "brick/math",
@@ -5801,6 +5801,38 @@
             "time": "2024-05-28T05:24:40+00:00"
         },
         {
+            "name": "swoole/ide-helper",
+            "version": "5.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swoole/ide-helper.git",
+                "reference": "e63299f488bf8332404ce4f80142a2ed1397edde"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swoole/ide-helper/zipball/e63299f488bf8332404ce4f80142a2ed1397edde",
+                "reference": "e63299f488bf8332404ce4f80142a2ed1397edde",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Team Swoole",
+                    "email": "team@swoole.com"
+                }
+            ],
+            "description": "IDE help files for Swoole.",
+            "support": {
+                "issues": "https://github.com/swoole/ide-helper/issues",
+                "source": "https://github.com/swoole/ide-helper/tree/5.1.4"
+            },
+            "time": "2024-09-03T04:39:02+00:00"
+        },
+        {
             "name": "symfony/clock",
             "version": "v7.1.1",
             "source": {
@@ -11369,38 +11401,6 @@
                 }
             ],
             "time": "2024-09-18T10:38:58+00:00"
-        },
-        {
-            "name": "swoole/ide-helper",
-            "version": "5.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/swoole/ide-helper.git",
-                "reference": "e63299f488bf8332404ce4f80142a2ed1397edde"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/swoole/ide-helper/zipball/e63299f488bf8332404ce4f80142a2ed1397edde",
-                "reference": "e63299f488bf8332404ce4f80142a2ed1397edde",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Team Swoole",
-                    "email": "team@swoole.com"
-                }
-            ],
-            "description": "IDE help files for Swoole.",
-            "support": {
-                "issues": "https://github.com/swoole/ide-helper/issues",
-                "source": "https://github.com/swoole/ide-helper/tree/5.1.4"
-            },
-            "time": "2024-09-03T04:39:02+00:00"
         },
         {
             "name": "symfony/config",
