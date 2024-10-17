@@ -1,6 +1,6 @@
 {
   "name": "bugover/ship",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "type": "library",
   "description": "Core package for Porto architecture.",
   "keywords": [
@@ -23,6 +23,7 @@
     "ext-gettext": "*",
     "ext-json": "*",
     "ext-redis": "*",
+    "ext-swoole": "*",
     "composer-plugin-api": "^2.0.0",
     "bugover/laravel-repository": "^1.0.0",
     "composer/class-map-generator": "^1.0.0",
@@ -34,7 +35,7 @@
     "laravel/passport": "^12.0.0",
     "laravel/reverb": "^1.0.0",
     "laravel/tinker": "^2.0.0",
-    "swoole/ide-helper": "^5.1"
+    "swoole/ide-helper": "^5.0.0"
   },
   "require-dev": {
     "composer/composer": "^2.0.0",
