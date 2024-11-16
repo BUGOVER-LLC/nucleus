@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Nucleus\Abstracts\DTO;
 
+use App\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +26,7 @@ abstract class DTO implements Arrayable
     }
 
     /**
-     * @return object|\App\User|\Illuminate\Contracts\Auth\Authenticatable|null
+     * @return object|User|Authenticatable|null
      */
     public function getUser(): ?object
     {

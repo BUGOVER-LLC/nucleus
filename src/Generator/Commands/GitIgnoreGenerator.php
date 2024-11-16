@@ -16,8 +16,7 @@ class GitIgnoreGenerator extends GeneratorCommand implements ComponentsGenerator
      *
      * @var  array
      */
-    public array $inputs = [
-    ];
+    public array $inputs = [];
     /**
      * The console command name.
      *
@@ -33,7 +32,7 @@ class GitIgnoreGenerator extends GeneratorCommand implements ComponentsGenerator
     /**
      * The type of class being generated.
      */
-    protected string $fileType = 'Gitignore';
+    protected string $fileType = 'gitignore';
     /**
      * The structure of the file path.
      */
@@ -62,7 +61,7 @@ class GitIgnoreGenerator extends GeneratorCommand implements ComponentsGenerator
                 'class-name' => $this->fileName,
             ],
             'file-parameters' => [
-                'file-name' => $this->fileName,
+                'file-name' => $this->getDefaultFileName(),
             ],
         ];
     }

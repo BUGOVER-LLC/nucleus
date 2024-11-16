@@ -29,8 +29,8 @@ class ValidateJsonContent extends Middleware
 
         if (!str_contains($accept_header, $content_type)) {
             $warn_code = '199';
-            $warn_message = 'Missing request header [ accept = ' . $content_type . ' ] when calling a JSON API.';
-            $response->headers->set('Warning', $warn_code . ' ' . $warn_message);
+            $warn_message = 'Missing request header [ accept = '.$content_type.' ] when calling a JSON API.';
+            $response->headers->set('Warning', $warn_code.' '.$warn_message);
         }
 
         return $response;

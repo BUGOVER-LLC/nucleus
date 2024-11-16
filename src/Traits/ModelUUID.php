@@ -6,7 +6,8 @@ namespace Nucleus\Traits;
 
 use Exception;
 use Ramsey\Uuid\Uuid as RamseyUuid;
-use RuntimeException;
+
+use function in_array;
 
 /**
  * Trait UUID
@@ -30,7 +31,7 @@ trait ModelUUID
                 $model->{$model->getKeyName()} = $model->generateUuid();
             }
 
-            if (\in_array('uuid', $model->getFillable(), true)) {
+            if (in_array('uuid', $model->getFillable(), true)) {
                 $model->setAttribute('uuid', $model->generateUuid());
             }
         });

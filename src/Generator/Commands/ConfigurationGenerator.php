@@ -14,8 +14,7 @@ class ConfigurationGenerator extends GeneratorCommand implements ComponentsGener
      *
      * @var  array
      */
-    public array $inputs = [
-    ];
+    public array $inputs = [];
     /**
      * The console command name.
      *

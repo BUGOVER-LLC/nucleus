@@ -6,5 +6,4 @@ namespace Nucleus\Abstracts\Criterias;
 
 abstract class Criteria implements CriteriaInterface
 {
-
 }

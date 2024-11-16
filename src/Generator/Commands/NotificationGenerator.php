@@ -14,8 +14,7 @@ class NotificationGenerator extends GeneratorCommand implements ComponentsGenera
      *
      * @var  array
      */
-    public array $inputs = [
-    ];
+    public array $inputs = [];
     /**
      * The console command name.
      *

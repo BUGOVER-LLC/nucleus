@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Nucleus\Abstracts\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as LaravelRouteServiceProvider;
-use Illuminate\Support\Facades\Route;
 use Nucleus\Loaders\RoutesLoaderTrait;
 
 abstract class RouteServiceProvider extends LaravelRouteServiceProvider

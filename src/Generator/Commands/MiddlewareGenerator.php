@@ -14,8 +14,7 @@ class MiddlewareGenerator extends GeneratorCommand implements ComponentsGenerato
      *
      * @var  array
      */
-    public array $inputs = [
-    ];
+    public array $inputs = [];
     /**
      * The console command name.
      *

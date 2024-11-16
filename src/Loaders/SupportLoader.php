@@ -6,13 +6,16 @@ namespace Nucleus\Loaders;
 
 use Illuminate\Support\Collection;
 
+use function is_array;
+use function is_object;
+
 trait SupportLoader
 {
     protected function collectRegister(): void
     {
         Collection::macro('recToRec', function () {
             return $this->map(function ($value) {
-                if (\is_array($value) || \is_object($value)) {
+                if (is_array($value) || is_object($value)) {
                     return collect($value)->recToRec();
                 }
 

@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Nucleus\Abstracts\Models;
 
+use AllowDynamicProperties;
 use Illuminate\Foundation\Auth\User as LaravelAuthenticatableUser;
 use Illuminate\Notifications\Notifiable;
 use Nucleus\Attributes\ModelEntity;
 use Nucleus\Traits\HasResourceKeyTrait;
 use Nucleus\Traits\ModelTrait;
 
-#[\AllowDynamicProperties]
+#[AllowDynamicProperties]
 #[ModelEntity()]
 abstract class AuthModel extends LaravelAuthenticatableUser
 {

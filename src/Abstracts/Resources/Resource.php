@@ -11,6 +11,7 @@ use Nucleus\Traits\ConvertsSchemaToArray;
 
 /**
  * Class BaseResource
+ *
  * @package Src\Http\Resources
  * @property JsonResource $collection_data
  * @method Collection get(string $string, $default = null)

@@ -8,5 +8,4 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as LaravelEvent
 
 abstract class EventServiceProvider extends LaravelEventServiceProvider
 {
-
 }

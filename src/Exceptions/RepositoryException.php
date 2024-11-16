@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Nucleus\Exceptions;
 
 use Exception;
-use Symfony\Component\HttpFoundation\Response;
 
 class RepositoryException extends Exception
 {

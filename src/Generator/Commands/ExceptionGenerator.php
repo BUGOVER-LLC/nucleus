@@ -14,8 +14,7 @@ class ExceptionGenerator extends GeneratorCommand implements ComponentsGenerator
      *
      * @var  array
      */
-    public array $inputs = [
-    ];
+    public array $inputs = [];
     /**
      * The console command name.
      *

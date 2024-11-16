@@ -58,7 +58,7 @@ class Nuclear
      */
     private function getSectionPath(string $sectionName): string
     {
-        return app_path(self::CONTAINERS_DIRECTORY_NAME . DIRECTORY_SEPARATOR . $sectionName);
+        return app_path(self::CONTAINERS_DIRECTORY_NAME.DIRECTORY_SEPARATOR.$sectionName);
     }
 
     /**
@@ -242,7 +242,7 @@ class Nuclear
      */
     public function getSectionContainerPaths(string $sectionName): array
     {
-        return File::directories(app_path(self::CONTAINERS_DIRECTORY_NAME . DIRECTORY_SEPARATOR . $sectionName));
+        return File::directories(app_path(self::CONTAINERS_DIRECTORY_NAME.DIRECTORY_SEPARATOR.$sectionName));
     }
 
     /**
@@ -250,6 +250,6 @@ class Nuclear
      */
     public function getContainerPaths(): array
     {
-        return File::directories(app_path(self::CONTAINERS_DIRECTORY_NAME . DIRECTORY_SEPARATOR));
+        return File::directories(app_path(self::CONTAINERS_DIRECTORY_NAME.DIRECTORY_SEPARATOR));
     }
 }

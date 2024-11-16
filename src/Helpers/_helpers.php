@@ -317,8 +317,8 @@ if (!function_exists('array_flatten')) {
         foreach ($array as $key => $value) {
             if (is_array($value)) {
                 /**
- * @noinspection SlowArrayOperationsInLoopInspection
-*/
+                 * @noinspection SlowArrayOperationsInLoopInspection
+                 */
                 $result = array_merge($result, array_flatten($value));
             } else {
                 $result[$key] = $value;
@@ -341,8 +341,8 @@ if (!function_exists('array_flatten_adjustable')) {
         foreach ($points as $key => $value) {
             if (is_array($value)) {
                 /**
- * @noinspection SlowArrayOperationsInLoopInspection
-*/
+                 * @noinspection SlowArrayOperationsInLoopInspection
+                 */
                 $result = array_merge($result, $value);
             } else {
                 $result[$key] = $value;
@@ -433,8 +433,8 @@ if (!function_exists('crypto_rand_secure')) {
 
         do {
             /**
- * @noinspection CryptographicallySecureRandomnessInspection
-*/
+             * @noinspection CryptographicallySecureRandomnessInspection
+             */
             $rnd = hexdec(bin2hex(openssl_random_pseudo_bytes($bytes)));
             $rnd &= $filter;
         } while ($rnd > $range);

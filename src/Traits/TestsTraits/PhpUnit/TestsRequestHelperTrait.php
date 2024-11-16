@@ -100,11 +100,11 @@ trait TestsRequestHelperTrait
         extract(array_combine(['verb', 'uri'], $asArray));
 
         /**
- * @var string $verb
-*/
+         * @var string $verb
+         */
         /**
- * @var string $uri
-*/
+         * @var string $uri
+         */
         return [
             'verb' => $verb,
             'uri' => $uri,

@@ -27,6 +27,7 @@ use Nucleus\Generator\Commands\PolicyGenerator;
 use Nucleus\Generator\Commands\ReadmeGenerator;
 use Nucleus\Generator\Commands\RepositoryGenerator;
 use Nucleus\Generator\Commands\RequestGenerator;
+use Nucleus\Generator\Commands\ResourceGenerator;
 use Nucleus\Generator\Commands\RouteGenerator;
 use Nucleus\Generator\Commands\SeederGenerator;
 use Nucleus\Generator\Commands\ServiceProviderGenerator;
@@ -35,7 +36,6 @@ use Nucleus\Generator\Commands\TaskGenerator;
 use Nucleus\Generator\Commands\TestFunctionalTestGenerator;
 use Nucleus\Generator\Commands\TestTestCaseGenerator;
 use Nucleus\Generator\Commands\TestUnitTestGenerator;
-use Nucleus\Generator\Commands\ResourceGenerator;
 use Nucleus\Generator\Commands\ValueGenerator;
 
 class GeneratorsServiceProvider extends ServiceProvider

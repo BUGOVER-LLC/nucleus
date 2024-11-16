@@ -60,8 +60,8 @@ class TestFunctionalTestGenerator extends GeneratorCommand implements Components
 
         // Load a new stub-file if generating container otherwise use generic
         $this->stubName = $stub ? 'tests/functional/' . Str::lower(
-                $stub
-            ) . '.stub' : 'tests/functional/' . $ui . '.stub';
+            $stub
+        ) . '.stub' : 'tests/functional/' . $ui . '.stub';
 
         $model = $model ?? $this->containerName;
         $models = Str::plural($model);
