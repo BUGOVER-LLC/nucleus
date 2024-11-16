@@ -87,8 +87,8 @@ trait EnumConcern
     /**
      * Convert all the values to a JSON string.
      *
-     * @param string $method (optional) If provided, the specified method will be called on each value before conversion.
-     * @param int $options (optional) Bitmask of JSON encode options.
+     * @param string $method If provided, the specified method will be called on each value before conversion.
+     * @param int $options Bitmask of JSON encode options.
      * @return string Returns a JSON representation of the values.
      */
     public static function toJson(string $method = '', int $options = 0): string
@@ -99,7 +99,7 @@ trait EnumConcern
     /**
      * Convert all the values to an array.
      *
-     * @param string $method (optional) If provided, the specified method will be called on each value before conversion.
+     * @param string $method If provided, the specified method will be called on each value before conversion.
      * @return array Returns an array representation of the values.
      */
     public static function toArray(string $method = ''): array
@@ -110,8 +110,8 @@ trait EnumConcern
     /**
      * Convert all the values to a key-value format as a Collection.
      *
-     * @param string $keyAttributeName (optional) The attribute name to be used for the keys in the resulting key-value pairs.
-     * @param string $valueAttributeName (optional) The attribute name to be used for the values in the resulting key-value pairs.
+     * @param string $keyAttributeName The attribute name to be used for the keys in the resulting key-value pairs.
+     * @param string $valueAttributeName The attribute name to be used for the values in the resulting key-value pairs.
      * @return Collection Returns a Collection with key-value pairs.
      */
     public static function toKeyValueCollection(
@@ -131,9 +131,9 @@ trait EnumConcern
     /**
      * Convert all the values to a key-value format as an array.
      *
-     * @param string $method (optional) If provided, the specified method will be called on each value before conversion.
-     * @param string $keyAttributeName (optional) The attribute name to be used for the keys in the resulting key-value pairs.
-     * @param string $valueAttributeName (optional) The attribute name to be used for the values in the resulting key-value pairs.
+     * @param string $method (optional) If provided, the specified method will called on each value before conversion.
+     * @param string $keyAttributeName The attribute name to be used for the keys in the resulting key-value pairs.
+     * @param string $valueAttributeName The attribute name to be used for the values in the resulting key-value pairs.
      * @return array Returns an array with key-value pairs.
      */
     public static function toKeyValueArray(
@@ -194,7 +194,7 @@ trait EnumConcern
     /**
      * Get all the values as an array.
      *
-     * @param string $method (optional) If provided, the specified method will be called on each value before conversion.
+     * @param string $method (optional) If provided, the specified method will called on each value before conversion.
      * @return array Returns an array representation of the values.
      */
     public static function allToArray(string $method = ''): array
@@ -362,10 +362,8 @@ trait EnumConcern
         }
 
         return collect(self::cases())
-            ->filter(function ($item) use ($excludes) {
-                return !\in_array($item->value, $excludes, true);
-            })
-            ->map(function ($item) {
+            ->filter(fn($item): bool => !in_array($item->value, $excludes))
+            ->map(function ($item): array {
                 return [
                     'value' => $item->value,
                     'label' => self::from($item->value)->getLabel(),

@@ -6,11 +6,8 @@ namespace Nucleus\Abstracts\Criterias;
 
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Query\Builder as QueryBuilder;
+use Service\Repository\Contracts\BaseCriteriaContract;
 
-interface CriteriaInterface
+interface CriteriaInterface extends BaseCriteriaContract
 {
-    /**
-     * @return EloquentBuilder|QueryBuilder
-     */
-    public function apply(): EloquentBuilder|QueryBuilder;
 }
