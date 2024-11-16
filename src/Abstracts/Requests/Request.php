@@ -59,7 +59,8 @@ abstract class Request extends LaravelRequest
         array $cookies = [],
         array $files = [],
         array $server = []
-    ): static {
+    ): static
+    {
         // if user is passed, will be returned when asking for the authenticated user using `\Auth::user()`
         if ($user) {
             $app = App::getInstance();
@@ -92,27 +93,6 @@ abstract class Request extends LaravelRequest
     }
 
     /**
-     * apply validation rules to the ID's in the URL, since Laravel
-     * doesn't validate them by default!
-     *
-     * Now you can use validation rules like this: `'id' => 'required|integer|exists:items,id'`
-     *
-     * @param array $requestData
-     *
-     * @return  array
-     */
-    private function mergeUrlParametersWithRequestData(array $requestData): array
-    {
-        if (isset($this->urlParameters) && !empty($this->urlParameters)) {
-            foreach ($this->urlParameters as $param) {
-                $requestData[$param] = $this->route($param);
-            }
-        }
-
-        return $requestData;
-    }
-
-    /**
      * @return \Illuminate\Validation\Validator
      * @throws IncorrectIdException
      */
@@ -133,6 +113,8 @@ abstract class Request extends LaravelRequest
      * @return array
      */
     abstract public function rules(): array;
+
+    abstract public function toDTO(): object;
 
     /**
      * Get custom messages for validator errors.
@@ -208,5 +190,26 @@ abstract class Request extends LaravelRequest
     protected function getStringOrIntPattern(): string
     {
         return self::VALIDATE_STRING_OR_INT;
+    }
+
+    /**
+     * apply validation rules to the ID's in the URL, since Laravel
+     * doesn't validate them by default!
+     *
+     * Now you can use validation rules like this: `'id' => 'required|integer|exists:items,id'`
+     *
+     * @param array $requestData
+     *
+     * @return  array
+     */
+    private function mergeUrlParametersWithRequestData(array $requestData): array
+    {
+        if (!empty($this->urlParameters)) {
+            foreach ($this->urlParameters as $param) {
+                $requestData[$param] = $this->route($param);
+            }
+        }
+
+        return $requestData;
     }
 }

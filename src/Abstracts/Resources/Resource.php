@@ -7,6 +7,7 @@ namespace Nucleus\Abstracts\Resources;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Collection;
+use Nucleus\Traits\ConvertsSchemaToArray;
 
 /**
  * Class BaseResource
@@ -30,10 +31,24 @@ use Illuminate\Support\Collection;
  */
 abstract class Resource extends JsonResource
 {
+    use ConvertsSchemaToArray;
+
+    /**
+     * @var string
+     */
+    public static $wrap = '_payload';
+
+    /**
+     * Indicates if the resource's collection keys should be preserved.
+     *
+     * @var bool
+     */
+    public bool $preserveKeys = true;
+
     /**
      * @var string|JsonResource
      */
-    protected $collectionClass = '';
+    protected string|JsonResource $collectionClass = '';
 
     /**
      * Set the string that should wrap the outer-most resource array.
@@ -54,10 +69,19 @@ abstract class Resource extends JsonResource
      * @param string $class
      * @return $this
      */
-    public function collectionClass(string $class = ''): static
+    public function collectionClass(string $class = ''): AbstractResource
     {
         $this->collectionClass = $class;
 
         return $this;
+    }
+
+    /**
+     * @return false|string
+     * @throws JsonException
+     */
+    public function eobject(): false|string
+    {
+        return json_encode(new stdClass(), JSON_THROW_ON_ERROR);
     }
 }

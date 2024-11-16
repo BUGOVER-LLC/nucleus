@@ -19,6 +19,10 @@ abstract class Action
      */
     public function transactionalRun(...$arguments)
     {
+        if (0 !== DB::connection(DB::getDefaultConnection())->transactionLevel()) {
+            return $this->run(...$arguments);
+        }
+
         return DB::transaction(function () use ($arguments) {
             return static::run(...$arguments);
         });

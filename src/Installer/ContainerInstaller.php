@@ -15,6 +15,10 @@ use JsonException;
  */
 class ContainerInstaller extends LibraryInstaller
 {
+    private const string CONTAINER_NAME = 'ship-container';
+
+    private const string CONTAINER_PATH = 'app/Containers/Vendor/';
+
     /**
      * {@inheritDoc}
      *
@@ -29,7 +33,7 @@ class ContainerInstaller extends LibraryInstaller
             $container_name = $extras->ship->container->name;
         }
 
-        return 'app/Containers/Vendor/' . $container_name;
+        return self::CONTAINER_PATH . $container_name;
     }
 
     /**
@@ -37,6 +41,6 @@ class ContainerInstaller extends LibraryInstaller
      */
     public function supports(string $package_type): bool
     {
-        return ('ship-container' === $package_type);
+        return (self::CONTAINER_NAME === $package_type);
     }
 }
