@@ -22,6 +22,7 @@ abstract class Exception extends BaseException
 
     /**
      * Construct the exception. Note: The message is NOT binary safe.
+     *
      * @link https://php.net/manual/en/exception.construct.php
      * @param string|null $message [optional] The Exception message to throw.
      * @param int|null $code [optional] The Exception code.
@@ -31,7 +32,8 @@ abstract class Exception extends BaseException
         ?string $message = null,
         ?int $code = null,
         Throwable $previous = null
-    ) {
+    )
+    {
         // Detect and set the running environment
         $this->environment = Config::get('app.env');
 

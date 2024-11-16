@@ -13,6 +13,7 @@ class ModelEntity
     public function __construct(
         public readonly string|EloquentRepositoryContract $repositoryClass = '',
         public readonly bool $readonly = true,
-    ) {
+    )
+    {
     }
 }

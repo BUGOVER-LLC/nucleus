@@ -40,7 +40,8 @@ abstract class Repository extends EloquentRepository
         string $alias = null,
         array $columns = [],
         $indexBy = null
-    ): QueryBuilder {
+    ): QueryBuilder
+    {
         return DB::table($this->createModel()->getTable(), $alias)->select($columns)->from(
             $this->getModel()->getTable(),
             $alias
@@ -60,7 +61,8 @@ abstract class Repository extends EloquentRepository
         string $alias = null,
         array $columns = [],
         $indexBy = null
-    ): EloquentBuilder {
+    ): EloquentBuilder
+    {
         return $this->getModel()::query()->select($columns)->from($this->getModel()->getTable(), $alias);
     }
 }

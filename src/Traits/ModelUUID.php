@@ -45,8 +45,6 @@ trait ModelUUID
             1 => RamseyUuid::uuid1()->toString(),
             default => RamseyUuid::uuid4()->toString(),
         };
-
-        throw new RuntimeException("UUID version [{$this->uuidVersion()}] not supported.");
     }
 
     /**

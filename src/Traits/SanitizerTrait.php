@@ -28,7 +28,7 @@ trait SanitizerTrait
         $fields_with_defaultValue = [];
 
         foreach ($fields as $key => $value) {
-            if (is_string($key)) {
+            if (\is_string($key)) {
                 $fields_with_defaultValue[$key] = $value;
                 Arr::set($input_as_array, $key, $value);
             } else {
