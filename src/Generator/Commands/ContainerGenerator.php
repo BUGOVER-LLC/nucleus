@@ -5,15 +5,12 @@ declare(strict_types=1);
 namespace Nucleus\Generator\Commands;
 
 use Illuminate\Support\Str;
-use Nucleus\Generator\Commands\Traits\ComposerGenerate;
 use Nucleus\Generator\GeneratorCommand;
 use Nucleus\Generator\Interfaces\ComponentsGenerator;
 use Symfony\Component\Console\Input\InputOption;
 
 class ContainerGenerator extends GeneratorCommand implements ComponentsGenerator
 {
-    use ComposerGenerate;
-
     /**
      * User required/optional inputs expected to be passed while calling the command.
      * This is a replacement of the `getArguments` function "which reads whenever it's called".
