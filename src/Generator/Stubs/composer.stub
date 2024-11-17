@@ -1,5 +1,5 @@
 {
-  "name": "ship/{{container-name}}",
+  "name": "ship/{{_container-name}}",
   "type": "ship-container",
   "description": "{{container-name}} Container for nucleus.",
   "require": {

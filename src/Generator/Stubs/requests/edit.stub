@@ -60,4 +60,9 @@ class {{class-name}} extends ParentRequest
     {
         return [];
     }
+
+    #[\Override] public function toDTO(): object
+    {
+        // TODO: Implement toDTO() method.
+    }
 }

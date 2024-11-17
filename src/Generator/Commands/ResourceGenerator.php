@@ -19,25 +19,25 @@ class ResourceGenerator extends GeneratorCommand implements ComponentsGenerator
      * @var  array
      */
     public array $inputs = [
-        ['model', null, InputOption::VALUE_OPTIONAL, 'The model to generate this Transformer for'],
-        ['full', null, InputOption::VALUE_OPTIONAL, 'Generate a Transformer with all fields of the model'],
+        ['model', null, InputOption::VALUE_OPTIONAL, 'The model to generate this Resource for'],
+        ['full', null, InputOption::VALUE_OPTIONAL, 'Generate a Resource with all fields of the model'],
     ];
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'nucleus:generate:transformer';
+    protected $name = 'nucleus:generate:resource';
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a new Transformer class for a given Model';
+    protected $description = 'Create a new Resource class for a given Model';
     /**
      * The type of class being generated.
      */
-    protected string $fileType = 'Transformer';
+    protected string $fileType = 'Resource';
     /**
      * The structure of the file path.
      */
@@ -53,8 +53,8 @@ class ResourceGenerator extends GeneratorCommand implements ComponentsGenerator
 
     public function getUserInputs(): ?array
     {
-        $model = $this->checkParameterOrAsk('model', 'Enter the name of the Model to generate this Transformer for');
-        $full = $this->checkParameterOrConfirm('full', 'Generate a Transformer with all fields', false);
+        $model = $this->checkParameterOrAsk('model', 'Enter the name of the Model to generate this Resource for');
+        $full = $this->checkParameterOrConfirm('full', 'Generate a Resource with all fields', false);
 
         $attributes = $this->getListOfAllAttributes($full, $model);
 

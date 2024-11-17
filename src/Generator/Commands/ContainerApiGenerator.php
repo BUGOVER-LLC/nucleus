@@ -69,11 +69,9 @@ class ContainerApiGenerator extends GeneratorCommand implements ComponentsGenera
 
         // section name as inputted and lower
         $sectionName = $this->sectionName;
-        $_sectionName = Str::lower($this->sectionName);
 
         // container name as inputted and lower
         $containerName = $this->containerName;
-        $_containerName = Str::lower($this->containerName);
 
         // name of the model (singular and plural)
         $model = $this->containerName;
@@ -122,12 +120,12 @@ class ContainerApiGenerator extends GeneratorCommand implements ComponentsGenera
             '--tablename' => Str::snake($models),
         ]);
 
-        // create a transformer for the model
-        $this->printInfoMessage('Generating Transformer for the Model');
-        $this->call('nucleus:generate:transformer', [
+        // create a resource for the model
+        $this->printInfoMessage('Generating Resource for the Model');
+        $this->call('nucleus:generate:resource', [
             '--section' => $sectionName,
             '--container' => $containerName,
-            '--file' => $containerName . 'Transformer',
+            '--file' => $containerName . 'Resource',
             '--model' => $model,
             '--full' => false,
         ]);
@@ -406,28 +404,12 @@ class ContainerApiGenerator extends GeneratorCommand implements ComponentsGenera
             ]);
         }
 
-        $generateComposerFile = [
-            'path-parameters' => [
-                'section-name' => $this->sectionName,
-                'container-name' => $this->containerName,
-            ],
-            'stub-parameters' => [
-                '_section-name' => $_sectionName,
-                'section-name' => $this->sectionName,
-                '_container-name' => $_containerName,
-                'container-name' => $containerName,
-                'class-name' => $this->fileName,
-            ],
-            'file-parameters' => [
-                'file-name' => $this->fileName,
-            ],
-        ];
-
-        if (!$this->option('maincalled')) {
-            $this->printInfoMessage('Generating Composer File');
-
-            return $generateComposerFile;
-        }
+        $this->printInfoMessage('Generating Composer File');
+        $this->call('nucleus:generate:composer', [
+            '--section' => $sectionName,
+            '--container' => $containerName,
+            '--file' => 'Composer',
+        ]);
 
         $this->printInfoMessage('Generating .gitignore File');
         $this->call('nucleus:generate:gitignore', [
