@@ -303,7 +303,7 @@ class ContainerWebGenerator extends GeneratorCommand implements ComponentsGenera
         $this->call('nucleus:generate:composer', [
             '--section' => $sectionName,
             '--container' => $containerName,
-            '--file' => 'Composer',
+            '--file' => 'composer',
         ]);
         $this->printInfoMessage('Generating Composer File');
 

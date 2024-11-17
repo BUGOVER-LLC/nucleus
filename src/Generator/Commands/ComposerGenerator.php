@@ -52,7 +52,7 @@ class ComposerGenerator extends GeneratorCommand implements ComponentsGenerator
         $_sectionName = Str::kebab($this->sectionName);
         $_containerName = Str::kebab($this->containerName);
 
-        $generateComposerFile = [
+        return [
             'path-parameters' => [
                 'section-name' => $this->sectionName,
                 'container-name' => $this->containerName,
@@ -68,14 +68,6 @@ class ComposerGenerator extends GeneratorCommand implements ComponentsGenerator
                 'file-name' => $this->fileName,
             ],
         ];
-
-        if (!$this->option('maincalled')) {
-            $this->printInfoMessage('Generating Composer File');
-
-            return $generateComposerFile;
-        }
-
-        return null;
     }
 
     /**

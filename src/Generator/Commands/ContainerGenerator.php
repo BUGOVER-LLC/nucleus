@@ -92,9 +92,6 @@ class ContainerGenerator extends GeneratorCommand implements ComponentsGenerator
             ]);
         }
 
-        $this->printInfoMessage('Generating Composer File');
-        $this->call('nucleus:dump-autoload');
-
         return [
             'path-parameters' => [
                 'section-name' => $this->sectionName,
