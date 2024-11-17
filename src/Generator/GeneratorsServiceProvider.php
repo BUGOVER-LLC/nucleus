@@ -16,6 +16,7 @@ use Nucleus\Generator\Commands\EventGenerator;
 use Nucleus\Generator\Commands\EventListenerGenerator;
 use Nucleus\Generator\Commands\ExceptionGenerator;
 use Nucleus\Generator\Commands\GitIgnoreGenerator;
+use Nucleus\Generator\Commands\ComposerGenerator;
 use Nucleus\Generator\Commands\JobGenerator;
 use Nucleus\Generator\Commands\MailGenerator;
 use Nucleus\Generator\Commands\MiddlewareGenerator;
@@ -89,6 +90,7 @@ class GeneratorsServiceProvider extends ServiceProvider
             TaskGenerator::class,
             ResourceGenerator::class,
             ValueGenerator::class,
+            ComposerGenerator::class,
         ];
     }
 }
