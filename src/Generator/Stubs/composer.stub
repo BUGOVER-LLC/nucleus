@@ -3,8 +3,8 @@
   "type": "ship-container",
   "description": "{{container-name}} Container for nucleus.",
   "require": {
-    "php": "<=8.3.2",
-    "php-64bit": "<=8.3.2"
+    "php": "^8.3.2",
+    "php-64bit": "^8.3.2"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest"
