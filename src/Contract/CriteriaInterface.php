@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nucleus\Abstracts\Criterias;
+namespace Nucleus\Contract;
 
 use Service\Repository\Contracts\BaseCriteriaContract;
 

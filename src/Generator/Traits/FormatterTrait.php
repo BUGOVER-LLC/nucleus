@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Generator\Traits;
 
 trait FormatterTrait
@@ -12,7 +14,7 @@ trait FormatterTrait
      */
     public function prependOperationToName($operation, $class): string
     {
-        $className = ($operation == 'list') ? ngettext($class) : $class;
+        $className = ('list' === $operation) ? ngettext($class) : $class;
 
         return $operation . $this->capitalize($className);
     }
