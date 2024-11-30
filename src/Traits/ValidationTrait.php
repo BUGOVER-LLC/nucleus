@@ -35,9 +35,7 @@ trait ValidationTrait
 
             $QB->where($parameters[2], $validator->getData()[$parameters[2]]);
 
-            $query_result = $QB->get();
-
-            return $query_result->isEmpty();
+            return $QB->get()->isEmpty();
         }, 'Duplicated record. This record has composite ID and it must be unique.');
     }
 }

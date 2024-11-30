@@ -27,10 +27,6 @@ trait ModelUUID
         parent::boot();
 
         static::creating(static function (self $model): void {
-            if (empty($model->{$model->getKeyName()}) && 'string' === $model->getKeyType()) {
-                $model->{$model->getKeyName()} = $model->generateUuid();
-            }
-
             if (in_array('uuid', $model->getFillable(), true)) {
                 $model->setAttribute('uuid', $model->generateUuid());
             }

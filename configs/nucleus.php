@@ -168,8 +168,8 @@ return [
     ],
 
     'seeders' => [
-        'deployment' => Ship\Seeders\SeedDeploymentData::class,
-        'testing' => Ship\Seeders\SeedTestingData::class,
+        'deployment' => Nucleus\Commands\SeedDeploymentDataCommand::class,
+        'testing' => Nucleus\Commands\SeedTestingDataCommand::class,
     ],
 
     'tests' => [

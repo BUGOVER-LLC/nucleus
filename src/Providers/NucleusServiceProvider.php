@@ -51,6 +51,7 @@ class NucleusServiceProvider extends AbstractMainServiceProvider
         $this->runLoadersBoot();
 
         Schema::defaultStringLength(191);
+        Schema::morphUsingUlids();
 
         $this->extendValidationRules();
     }
