@@ -4,46 +4,87 @@ declare(strict_types=1);
 
 namespace Nucleus\Abstracts\Actions;
 
+use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Facades\DB;
+use Nucleus\Abstracts\Exceptions\ServerErrorException;
+use Throwable;
 
+/**
+ * @method run(...$arguments)
+ */
 abstract class Action
 {
     /**
-     * @var string
-     */
-    protected string $ui;
-
-    /**
      * @param ...$arguments
      * @return mixed
+     * @throws ServerErrorException
      */
-    public function transactionalRun(...$arguments)
+    public function transactionalRun(...$arguments): mixed
     {
         if (0 !== DB::connection(DB::getDefaultConnection())->transactionLevel()) {
-            return $this->run(...$arguments);
+            try {
+                return $this->run(...$arguments);
+            } catch (Throwable $exception) {
+                throw new ServerErrorException(
+                    message: $exception->getMessage(),
+                    previous: $exception->getPrevious(),
+                    file: $exception->getFile(),
+                    line: $exception->getLine(),
+                );
+            }
         }
 
         return DB::transaction(function () use ($arguments) {
-            return static::run(...$arguments);
+            try {
+                return static::run(...$arguments);
+            } catch (Throwable $exception) {
+                throw new ServerErrorException(
+                    message: $exception->getMessage(),
+                    previous: $exception->getPrevious(),
+                    file: $exception->getFile(),
+                    line: $exception->getLine(),
+                );
+            }
         });
     }
 
     /**
-     * @return string
+     * Close current transaction
+     *
+     * @return void
      */
-    public function getUI(): string
+    final protected function closeTransaction(): void
     {
-        return $this->ui;
+        DB::connection(DB::getDefaultConnection())->unsetTransactionManager();
     }
 
     /**
-     * @param string $interface
-     * @return $this
+     * Close current transaction
+     *
+     * @return void
+     * @throws Throwable
      */
-    public function setUI(string $interface): static
+    final protected function commitTransaction(): void
     {
-        $this->ui = $interface;
+        DB::connection(DB::getDefaultConnection())->commit();
+    }
 
-        return $this;
+    /**
+     * Close current transaction
+     *
+     * @return void
+     * @throws Throwable
+     */
+    final protected function rollbackTransaction(): void
+    {
+        DB::connection(DB::getDefaultConnection())->rollBack();
+    }
+
+    /**
+     * @return Pipeline
+     */
+    final protected function pipe(): Pipeline
+    {
+        return new Pipeline(app());
     }
 }

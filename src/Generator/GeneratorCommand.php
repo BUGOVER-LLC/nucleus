@@ -137,7 +137,7 @@ abstract class GeneratorCommand extends Command
         // Now fix the section, container and file name
         $this->sectionName = $this->removeSpecialChars($this->sectionName);
         $this->containerName = $this->removeSpecialChars($this->containerName);
-        if (!('Configuration' === $this->fileType)) {
+        if ('Configuration' !== $this->fileType) {
             $this->fileName = $this->removeSpecialChars($this->fileName);
         }
 

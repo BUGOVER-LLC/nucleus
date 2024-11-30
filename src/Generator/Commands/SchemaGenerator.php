@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 use Nucleus\Generator\GeneratorCommand;
 use Nucleus\Generator\Interfaces\ComponentsGenerator;
 
-class ComposerGenerator extends GeneratorCommand implements ComponentsGenerator
+class SchemaGenerator extends GeneratorCommand implements ComponentsGenerator
 {
     /**
      * User required/optional inputs expected to be passed while calling the command.
@@ -17,68 +17,58 @@ class ComposerGenerator extends GeneratorCommand implements ComponentsGenerator
      * @var  array
      */
     public array $inputs = [];
+
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'nucleus:generate:composer';
+    protected $name = 'nucleus:generate:schema';
+
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a composer file for a Container';
+    protected $description = 'Create a Schema file for a Container';
+
     /**
      * The type of class being generated.
      */
-    protected string $fileType = 'composer';
+    protected string $fileType = 'schema';
+
     /**
      * The structure of the file path.
      */
     protected string $pathStructure = '{section-name}/{container-name}/*';
+
     /**
      * The structure of the file name.
      */
     protected string $nameStructure = '{file-name}';
+
     /**
      * The name of the stub file.
      */
-    protected string $stubName = 'composer.stub';
+    protected string $stubName = 'schema.stub';
 
     #[\Override] public function getUserInputs(): ?array
     {
-        $_sectionName = Str::kebab($this->sectionName);
-        $_containerName = Str::kebab($this->containerName);
-
         return [
             'path-parameters' => [
                 'section-name' => $this->sectionName,
                 'container-name' => $this->containerName,
             ],
             'stub-parameters' => [
-                '_section-name' => $_sectionName,
+                '_section-name' => Str::lower($this->sectionName),
                 'section-name' => $this->sectionName,
-                '_container-name' => $_containerName,
+                '_container-name' => Str::lower($this->containerName),
                 'container-name' => $this->containerName,
                 'class-name' => $this->fileName,
             ],
             'file-parameters' => [
-                'file-name' => $this->fileName,
+                'file-name' => $this->getDefaultFileName(),
             ],
         ];
-    }
-
-    /**
-     * Get the default file name for this component to be generated
-     */
-    public function getDefaultFileName(): string
-    {
-        return 'composer';
-    }
-
-    public function getDefaultFileExtension(): string
-    {
-        return 'json';
     }
 }

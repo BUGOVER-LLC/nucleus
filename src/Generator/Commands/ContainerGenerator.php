@@ -67,17 +67,15 @@ class ContainerGenerator extends GeneratorCommand implements ComponentsGenerator
         );
 
         // container name as inputted and lower
-        $sectionName = $this->sectionName;
         $_sectionName = Str::lower($this->sectionName);
 
         // container name as inputted and lower
-        $containerName = $this->containerName;
         $_containerName = Str::kebab($this->containerName);
 
         if ('api' === $ui || 'both' === $ui) {
             $this->call('nucleus:generate:container:api', [
-                '--section' => $sectionName,
-                '--container' => $containerName,
+                '--section' => $this->sectionName,
+                '--container' => $this->containerName,
                 '--file' => 'composer',
                 '--maincalled' => true,
             ]);
@@ -85,8 +83,8 @@ class ContainerGenerator extends GeneratorCommand implements ComponentsGenerator
 
         if ('web' === $ui || 'both' === $ui) {
             $this->call('nucleus:generate:container:web', [
-                '--section' => $sectionName,
-                '--container' => $containerName,
+                '--section' => $this->sectionName,
+                '--container' => $this->containerName,
                 '--file' => 'composer',
                 '--maincalled' => true,
             ]);
@@ -101,7 +99,7 @@ class ContainerGenerator extends GeneratorCommand implements ComponentsGenerator
                 '_section-name' => $_sectionName,
                 'section-name' => $this->sectionName,
                 '_container-name' => $_containerName,
-                'container-name' => $containerName,
+                'container-name' => $this->containerName,
                 'class-name' => $this->fileName,
             ],
             'file-parameters' => [
