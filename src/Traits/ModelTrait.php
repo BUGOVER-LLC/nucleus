@@ -13,7 +13,10 @@ trait ModelTrait
     use FactoryLocatorTrait;
     use ModelUUID;
     use FactoryLocatorTrait;
-    use HasFactory;
+    use HasFactory {
+        HasFactory::newFactory insteadof FactoryLocatorTrait;
+        FactoryLocatorTrait::newFactory insteadof HasFactory;
+    }
 
     /**
      * @var string
