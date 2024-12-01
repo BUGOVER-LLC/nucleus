@@ -20,14 +20,6 @@ class GetNucleusVersionCommand extends ConsoleCommand
     protected $description = 'Display the current Nucleus version.';
 
     /**
-     *
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * @return void
      */
     public function handle(): void

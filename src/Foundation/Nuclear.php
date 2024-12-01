@@ -11,7 +11,7 @@ use function is_array;
 
 class Nuclear
 {
-    public const VERSION = '1.3.17';
+    public const VERSION = '1.4.5';
     private const SHIP_NAME = 'Ship';
     private const CONTAINERS_DIRECTORY_NAME = 'Containers';
     private const SECTION_DIRECTORY_PREFIX = 'Section';
@@ -58,7 +58,7 @@ class Nuclear
      */
     private function getSectionPath(string $sectionName): string
     {
-        return app_path(self::CONTAINERS_DIRECTORY_NAME.DIRECTORY_SEPARATOR.$sectionName);
+        return app_path(self::CONTAINERS_DIRECTORY_NAME . DIRECTORY_SEPARATOR . $sectionName);
     }
 
     /**
@@ -193,10 +193,12 @@ class Nuclear
         $container_section_paths = [];
 
         foreach ($section_or_container_names as $container_section_name) {
-            if (Str::contains($container_section_name, self::SECTION_DIRECTORY_PREFIX) && Str::endsWith(
-                    $container_section_name,
-                    'Section'
-                )) {
+            $contains = Str::contains($container_section_name, self::SECTION_DIRECTORY_PREFIX) && Str::endsWith(
+                $container_section_name,
+                'Section'
+            );
+
+            if ($contains) {
                 $section_container_paths = $this->getSectionContainerPaths($container_section_name);
                 foreach ($section_container_paths as $containerPath) {
                     $container_section_paths[] = $containerPath;
@@ -242,7 +244,7 @@ class Nuclear
      */
     public function getSectionContainerPaths(string $sectionName): array
     {
-        return File::directories(app_path(self::CONTAINERS_DIRECTORY_NAME.DIRECTORY_SEPARATOR.$sectionName));
+        return File::directories(app_path(self::CONTAINERS_DIRECTORY_NAME . DIRECTORY_SEPARATOR . $sectionName));
     }
 
     /**
@@ -250,6 +252,6 @@ class Nuclear
      */
     public function getContainerPaths(): array
     {
-        return File::directories(app_path(self::CONTAINERS_DIRECTORY_NAME.DIRECTORY_SEPARATOR));
+        return File::directories(app_path(self::CONTAINERS_DIRECTORY_NAME . DIRECTORY_SEPARATOR));
     }
 }
