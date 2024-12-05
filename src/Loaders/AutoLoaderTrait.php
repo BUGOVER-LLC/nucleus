@@ -17,7 +17,6 @@ trait AutoLoaderTrait
     use CommandsLoaderTrait;
     use AliasesLoaderTrait;
     use HelpersLoaderTrait;
-    use SupportLoader;
     use ModelMapLoader;
     use MacrosBindLoader;
 
@@ -56,7 +55,6 @@ trait AutoLoaderTrait
         $this->loadConfigsFromShip();
         $this->loadOnlyShipProviderFromShip();
         $this->loadOnlyVendorProviderFromShip();
-        $this->collectRegister();
 
         foreach (Nuclear::getAllContainerPaths() as $container_path) {
             $this->loadConfigsFromContainers($container_path);

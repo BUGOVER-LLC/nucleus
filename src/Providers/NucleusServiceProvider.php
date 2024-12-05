@@ -23,10 +23,10 @@ class NucleusServiceProvider extends AbstractMainServiceProvider
      */
     public function register(): void
     {
+        parent::register();
+
         $this->app->bind('Nuclear', Nuclear::class);
         $this->app->alias(Nuclear::class, 'Nuclear');
-
-        parent::register();
 
         $this->runLoaderRegister();
     }
