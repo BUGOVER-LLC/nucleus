@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Nucleus\Loaders;
 
 use Composer\ClassMapGenerator\ClassMapGenerator;
-use Exception;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Nucleus\Contract\EntityContract;
 
@@ -16,13 +15,9 @@ trait ModelMapLoader
      */
     private function loadModelMapsFromContainers(string $container_path): array
     {
-        try {
-            $container_models = array_keys(
-                ClassMapGenerator::createMap($container_path . DIRECTORY_SEPARATOR . 'Models')
-            );
-        } catch (Exception) {
-            return [];
-        }
+        $container_models = array_keys(
+            ClassMapGenerator::createMap($container_path . DIRECTORY_SEPARATOR . 'Models')
+        );
 
         $this->load($container_models);
     }
