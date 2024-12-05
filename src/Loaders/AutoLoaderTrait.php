@@ -19,12 +19,14 @@ trait AutoLoaderTrait
     use HelpersLoaderTrait;
     use SupportLoader;
     use ModelMapLoader;
+    use MacrosBindLoader;
 
     /**
      * To be used from the `boot` function of the main service provider
      */
     public function runLoadersBoot(): void
     {
+        // Ship folder and autoload most of the components.
         $this->loadMigrationsFromShip();
         $this->loadLocalsFromShip();
         $this->loadViewsFromShip();
@@ -32,8 +34,9 @@ trait AutoLoaderTrait
         $this->loadCommandsFromShip();
         $this->loadCommandsFromCore();
         $this->loadModelsMapFormShip();
+        $this->loadMacrosFromShip();
 
-        // Iterate over all the containers folders and autoload most of the components
+        // Iterate over all the containers folders and autoload most of the components.
         foreach (Nuclear::getAllContainerPaths() as $container_path) {
             $this->loadMigrationsFromContainers($container_path);
             $this->loadLocalsFromContainers($container_path);
@@ -41,6 +44,7 @@ trait AutoLoaderTrait
             $this->loadHelpersFromContainers($container_path);
             $this->loadCommandsFromContainers($container_path);
             $this->loadModelMapsFromContainers($container_path);
+            $this->loadMacrosFromContainers($container_path);
         }
     }
 
