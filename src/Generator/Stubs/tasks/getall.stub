@@ -16,7 +16,7 @@ class {{class-name}} extends ParentTask
     /**
      *
      */
-    public function run(): mixed
+    public function handle(): mixed
     {
     }
 }

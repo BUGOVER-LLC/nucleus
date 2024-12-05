@@ -13,7 +13,7 @@ class {{class-name}} extends ParentTask
         // ..
     }
 
-    public function run()
+    public function handle()
     {
         // ..
     }

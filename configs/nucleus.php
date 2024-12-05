@@ -5,13 +5,6 @@ declare(strict_types=1);
 return [
     /*
     |--------------------------------------------------------------------------
-    | Enable / Disable Hashed ID
-    |--------------------------------------------------------------------------
-    */
-    'hash-id' => env('HASH_ID', false),
-
-    /*
-    |--------------------------------------------------------------------------
     | Application Name
     |--------------------------------------------------------------------------
     |
@@ -22,9 +15,35 @@ return [
     */
     'path' => env('APP_PATH', base_path('app/')),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Container Name
+    |--------------------------------------------------------------------------
+    |
+    | This value is the name of your application. This value is used when the
+    | framework needs to place the application's name in a notification or
+    | any other location as required by the application or its packages.
+    |
+    */
     'container_name' => 'Containers',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Section prefix
+    |--------------------------------------------------------------------------
+    |
+    | This value is the name of your application. This value is used when the
+    | framework needs to place the application's name in a notification or
+    | any other location as required by the application or its packages.
+    |
+    */
     'section_prefix' => 'Section',
+
+    /**
+     * In development state STRICT_MODE enable please, and level 3,2,1
+     */
+    'strict' => env('STRICT_MODE', true),
+    'strict_level' => env('STRICT_LEVEL', 1),
 
     'api' => [
         /*
@@ -47,7 +66,6 @@ return [
         |--------------------------------------------------------------------------
         */
         'enable_version_prefix' => true,
-
 
         /*
         |--------------------------------------------------------------------------
@@ -101,7 +119,6 @@ return [
             'attempts' => env('GLOBAL_API_RATE_LIMIT_ATTEMPTS_PER_MIN', '30'),
             'expires' => env('GLOBAL_API_RATE_LIMIT_EXPIRES_IN_MIN', '1'),
         ],
-
     ],
 
     'requests' => [

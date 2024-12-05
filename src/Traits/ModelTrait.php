@@ -24,19 +24,43 @@ trait ModelTrait
     }
 
     /**
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
-     * @var string
-     */
-    protected $keyType = 'string';
-
-    /**
      * @var string
      */
     protected string $map = '';
+
+    /**
+     * @return mixed
+     */
+    public static function getTableName(): string
+    {
+        return (new static())->getTable();
+    }
+
+    /////////////////////////////////////////////////////STATUS, TYPE, CLASS///////////////////////////////////////////
+
+    /**
+     * @return mixed
+     */
+    #[Pure] public static function getPrimaryName(): string
+    {
+        return (new static())->getKeyName();
+    }
+
+    /**
+     * @return mixed
+     */
+    #[Pure] public static function getFillables(): array
+    {
+        return (new static())->getFillable();
+    }
+
+    /**
+     * @return string
+     */
+    public static function map(): string
+    {
+        return (new static())->map;
+    }
 
     /**
      * @return string
@@ -67,13 +91,5 @@ trait ModelTrait
             ->map(fn($attribute) => $attribute->getArguments())
             ->flatten()
             ->first();
-    }
-
-    /**
-     * @return string
-     */
-    public static function map(): string
-    {
-        return (new static())->map;
     }
 }

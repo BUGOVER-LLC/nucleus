@@ -11,19 +11,21 @@ use Ship\Exceptions\UpdateResourceFailedException;
 use Ship\Parents\Tasks\Task as ParentTask;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Closure;
 
 class {{class-name}} extends ParentTask
 {
     public function __construct(
         protected {{model}}Repository $repository
-    ) {
+    )
+    {
     }
 
     /**
      * @throws NotFoundException
      * @throws UpdateResourceFailedException
      */
-    public function run(array $data, $id): {{model}}
+    public function handle(mxied $data, ?Closure $next = null): {{model}}
     {
         try {
             return $this->repository->update($data, $id);

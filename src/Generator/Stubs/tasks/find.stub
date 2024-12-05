@@ -9,6 +9,7 @@ use Containers\{{section-name}}\{{container-name}}\Models\{{model}};
 use Ship\Exceptions\NotFoundException;
 use Ship\Parents\Tasks\Task as ParentTask;
 use Exception;
+use Closure;
 
 class {{class-name}} extends ParentTask
 {
@@ -20,7 +21,7 @@ class {{class-name}} extends ParentTask
     /**
      * @throws NotFoundException
      */
-    public function run($id): {{model}}
+    public function handle(mixed $id, ?Closure $next = null): {{model}}
     {
         try {
             return $this->repository->find($id);

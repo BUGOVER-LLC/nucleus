@@ -9,18 +9,20 @@ use Containers\{{section-name}}\{{container-name}}\Models\{{model}};
 use Ship\Exceptions\CreateResourceFailedException;
 use Ship\Parents\Tasks\Task as ParentTask;
 use Exception;
+use Closure;
 
 class {{class-name}} extends ParentTask
 {
     public function __construct(
         protected {{model}}Repository $repository
-    ) {
+    )
+    {
     }
 
     /**
      * @throws CreateResourceFailedException
      */
-    public function run(array $data): {{model}}
+    public function handle(mixed $data, , ?Closure $next = null): {{model}}
     {
         try {
             return $this->repository->create($data);

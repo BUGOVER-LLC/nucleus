@@ -70,7 +70,7 @@ abstract class Resource extends JsonResource
      * @param string $class
      * @return $this
      */
-    public function collectionClass(string $class = ''): AbstractResource
+    public function collectionClass(string $class = ''): Resource
     {
         $this->collectionClass = $class;
 
@@ -79,10 +79,10 @@ abstract class Resource extends JsonResource
 
     /**
      * @return false|string
-     * @throws JsonException
+     * @throws \JsonException
      */
     public function eobject(): false|string
     {
-        return json_encode(new stdClass(), JSON_THROW_ON_ERROR);
+        return json_encode(new \stdClass(), JSON_THROW_ON_ERROR);
     }
 }

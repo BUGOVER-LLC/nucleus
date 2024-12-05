@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Abstracts\Notifications;
 
 use Illuminate\Notifications\Notification as LaravelNotification;

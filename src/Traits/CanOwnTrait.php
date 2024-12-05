@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Nucleus\Contract\EntityContract;
 use Nucleus\Exceptions\CoreInternalErrorException;
 use Throwable;
 
@@ -15,20 +18,20 @@ trait CanOwnTrait
      *
      * can be used for OO and OM relations
      *
-     * @param Model $ownable
+     * @param EntityContract $ownable
      * @param null $foreignKeyName
      * @param null $localKey
      * @return bool
      * @throws Throwable
      */
-    public function owns(Model $ownable, $foreignKeyName = null, $localKey = null): bool
+    public function owns(EntityContract $ownable, $foreignKeyName = null, $localKey = null): bool
     {
         $foreignKeyName = $foreignKeyName ?: $this->guessForeignKeyName();
 
         $ownerKey = $ownable->$foreignKeyName;
 
         throw_if(
-            is_null($ownerKey),
+            null === $ownerKey,
             (new CoreInternalErrorException())->withErrors(['foreign_key_name' => 'Foreign key name is invalid.'])
         );
 
@@ -39,7 +42,7 @@ trait CanOwnTrait
     {
         $className = Str::snake(class_basename($this));
 
-        return $className . '_id';
+        return $className . 'Id';
     }
 
     /**
@@ -75,6 +78,6 @@ trait CanOwnTrait
     {
         $className = Str::snake(class_basename($ownable));
 
-        return [$className . 'able_id', $className . 'able_type'];
+        return [$className . 'ableId', $className . 'ableType'];
     }
 }

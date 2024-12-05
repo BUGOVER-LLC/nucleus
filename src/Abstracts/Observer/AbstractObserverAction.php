@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Nucleus\Abstracts\Observer;
 
 use Illuminate\Database\Eloquent\Model;
+use Nucleus\Abstracts\Models\AuthModel;
 
 /**
  * Observer action
@@ -17,9 +18,9 @@ abstract class AbstractObserverAction
     protected Model $model;
 
     /**
-     * @var AuthenticateModel|null
+     * @var AuthModel|null
      */
-    protected ?AuthenticateModel $emitting;
+    protected ?AuthModel $emitting;
 
     /**
      * @var string
@@ -39,9 +40,9 @@ abstract class AbstractObserverAction
     /**
      * @param Model $model
      * @param string $method
-     * @param AuthenticateModel|null $emitting
+     * @param AuthModel|null $emitting
      */
-    private function setData(Model $model, string $method, ?AuthenticateModel $emitting): void
+    private function setData(Model $model, string $method, ?AuthModel $emitting): void
     {
         $this->model = $model;
         $this->method = $method;
