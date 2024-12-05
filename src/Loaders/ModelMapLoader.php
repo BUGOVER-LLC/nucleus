@@ -6,6 +6,7 @@ namespace Nucleus\Loaders;
 
 use Composer\ClassMapGenerator\ClassMapGenerator;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Nucleus\Abstracts\Exceptions\Exception;
 use Nucleus\Contract\EntityContract;
 
 trait ModelMapLoader
@@ -48,10 +49,13 @@ trait ModelMapLoader
      */
     private function loadModelsMapFormShip(): void
     {
-        $ship_models_directory = base_path(
-            config('nucleus.path') . 'Ship/Models'
-        );
-        $models = array_keys(ClassMapGenerator::createMap($ship_models_directory));
+        try {
+            $ship_models_directory = base_path(
+                config('nucleus.path') . 'Ship/Models'
+            );
+            $models = array_keys(ClassMapGenerator::createMap($ship_models_directory));
+        } catch (Exception) {
+        }
 
         $this->load($models);
     }

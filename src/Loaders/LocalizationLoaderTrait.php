@@ -18,7 +18,7 @@ trait LocalizationLoaderTrait
         $containerLocaleDirectory = $containerPath . '/Languages';
         $containerName = basename($containerPath);
         $pathParts = explode(DIRECTORY_SEPARATOR, $containerPath);
-        $sectionName = $pathParts[count($pathParts) - 2];
+        $sectionName = $pathParts[(int) count($pathParts) - 2];
 
         $this->loadLocals($containerLocaleDirectory, $containerName, $sectionName);
     }
