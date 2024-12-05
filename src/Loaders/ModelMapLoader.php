@@ -4,44 +4,44 @@ declare(strict_types=1);
 
 namespace Nucleus\Loaders;
 
-use Composer\ClassMapGenerator\ClassMapGenerator;
 use Illuminate\Database\Eloquent\Relations\Relation;
-use Nucleus\Abstracts\Exceptions\Exception;
+use Illuminate\Support\Facades\File;
 use Nucleus\Contract\EntityContract;
+use Nucleus\Foundation\Facades\Nuclear;
 
 trait ModelMapLoader
 {
     /**
-     * @return string[]
+     * @param string $container_path
+     * @return void
      */
-    private function loadModelMapsFromContainers(string $container_path): array
+    private function loadModelMapsFromContainers(string $container_path): void
     {
-        $container_models = array_keys(
-            ClassMapGenerator::createMap($container_path . DIRECTORY_SEPARATOR . 'Models')
-        );
-
-        $this->load($container_models);
+        $container_models_directory = $container_path . '/Ship/Models';
+        $this->load($container_models_directory);
     }
 
     /**
-     * @param array $models
-     * @return array
+     * @param string $directory
+     * @return void
      */
-    private function load(array $models): array
+    private function load(string $directory): void
     {
         $result = [];
-        foreach ($models as $model) {
-            if (class_exists($model)) {
-                $instance = (new $model());
-                if ($instance instanceof EntityContract && property_exists($model, 'map') && $instance->getMap()) {
-                    $result[$instance->getMap()] = $model;
+
+        if (File::isDirectory($directory)) {
+            $files = File::allFiles($directory);
+
+            foreach ($files as $modelFile) {
+                $modelClass = Nuclear::getClassFullNameFromFile($modelFile->getPathname());
+                $instance = (new $modelClass());
+                if ($instance instanceof EntityContract && property_exists($instance, 'map') && $instance->getMap()) {
+                    $result[$instance->getMap()] = $modelFile;
                 }
             }
         }
 
         Relation::morphMap($result);
-
-        return $result;
     }
 
     /**
@@ -49,14 +49,7 @@ trait ModelMapLoader
      */
     private function loadModelsMapFormShip(): void
     {
-        try {
-            $ship_models_directory = base_path(
-                config('nucleus.path') . 'Ship/Models'
-            );
-            $models = array_keys(ClassMapGenerator::createMap($ship_models_directory));
-        } catch (Exception) {
-        }
-
-        $this->load($models);
+        $ship_models_directory = base_path(config('nucleus.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Models');
+        $this->load($ship_models_directory);
     }
 }
