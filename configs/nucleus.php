@@ -27,18 +27,6 @@ return [
     */
     'container_name' => 'Containers',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Section prefix
-    |--------------------------------------------------------------------------
-    |
-    | This value is the name of your application. This value is used when the
-    | framework needs to place the application's name in a notification or
-    | any other location as required by the application or its packages.
-    |
-    */
-    'section_prefix' => 'Section',
-
     /**
      * In development state STRICT_MODE enable please, and level 3,2,1
      */
