@@ -17,15 +17,15 @@ trait ModelMapLoader
      */
     private function loadModelMapsFromContainers(string $container_path): void
     {
-        $container_models_directory = $container_path . '/Ship/Models';
-        $this->load($container_models_directory);
+        $container_models_directory = $container_path . DIRECTORY_SEPARATOR . 'Models';
+        $this->loadModels($container_models_directory);
     }
 
     /**
      * @param string $directory
      * @return void
      */
-    private function load(string $directory): void
+    private function loadModels(string $directory): void
     {
         $result = [];
 
@@ -50,6 +50,6 @@ trait ModelMapLoader
     private function loadModelsMapFormShip(): void
     {
         $ship_models_directory = base_path(config('nucleus.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Models');
-        $this->load($ship_models_directory);
+        $this->loadModels($ship_models_directory);
     }
 }

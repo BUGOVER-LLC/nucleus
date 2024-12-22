@@ -44,12 +44,12 @@ trait MiddlewaresLoaderTrait
     private function registerMiddlewareGroups(array $middlewareGroups = []): void
     {
         foreach ($middlewareGroups as $key => $middleware) {
-            if (!is_array($middleware)) {
-                $this->app['router']->pushMiddlewareToGroup($key, $middleware);
-            } else {
+            if (\is_array($middleware)) {
                 foreach ($middleware as $item) {
                     $this->app['router']->pushMiddlewareToGroup($key, $item);
                 }
+            } else {
+                $this->app['router']->pushMiddlewareToGroup($key, $middleware);
             }
         }
     }
@@ -62,7 +62,7 @@ trait MiddlewaresLoaderTrait
     private function registerMiddlewarePriority(array $middlewarePriority = []): void
     {
         foreach ($middlewarePriority as $key => $middleware) {
-            if (!in_array($middleware, $this->app['router']->middlewarePriority, true)) {
+            if (!\in_array($middleware, $this->app['router']->middlewarePriority, true)) {
                 $this->app['router']->middlewarePriority[] = $middleware;
             }
         }

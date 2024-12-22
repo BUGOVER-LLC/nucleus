@@ -4,24 +4,18 @@ declare(strict_types=1);
 
 namespace Container\Domain\Info\Http\Schema;
 
-use App\Core\Abstract\AbstractSchema;
+use Ship\Parents\Schema as AbstractSchema;
 use OpenApi\Attributes\Property;
 use OpenApi\Attributes\Schema;
-use Illuminate\Contracts\Support\Arrayable;
 
-#[Schema(schema: MeSchema::class, title: 'UserProfileSchema', properties: [
+#[Schema(schema: {{class-name}}::class, title: '{{class-name}}', properties: [
     new Property(property: 'userId', type: 'integer', nullable: false),
 ])]
-class MeSchema extends AbstractSchema implements Arrayable
+class {{class-name}} extends AbstractSchema
 {
     public function __construct(
         public readonly int $userId,
     )
     {
-    }
-
-    final public function toArray(): array
-    {
-        return collect(get_object_vars($this))->toArray();
     }
 }

@@ -16,11 +16,12 @@ trait ProvidersLoaderTrait
      * All the Service Providers (registered inside the main), will be
      * loaded from the `boot()` function on the parent of the Main
      * Service Providers.
+     *
      * @param $containerPath
      */
     public function loadOnlyMainProvidersFromContainers($containerPath): void
     {
-        $container_providers_directory = $containerPath.'/Providers';
+        $container_providers_directory = $containerPath . '/Providers';
         $this->loadProviders($container_providers_directory);
     }
 
@@ -37,10 +38,12 @@ trait ProvidersLoaderTrait
 
             foreach ($files as $file) {
                 // Check if this is the Main Service Provider
-                if (File::isFile($file) && Str::startsWith(
-                        $file->getFilename(),
-                        $main_service_provider_name_start_with
-                    )) {
+                $fileExists = File::isFile($file) && Str::startsWith(
+                    $file->getFilename(),
+                    $main_service_provider_name_start_with
+                );
+
+                if ($fileExists) {
                     $serviceProviderClass = Nuclear::getClassFullNameFromFile($file->getPathname());
                     $this->loadProvider($serviceProviderClass);
                 }

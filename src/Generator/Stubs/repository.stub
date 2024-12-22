@@ -10,14 +10,14 @@ use Illuminate\Contracts\Container\Container;
 class {{class-name}} extends AbstractRepository
 {
     /**
-     * @param User $user
+     * @param Container $container
      */
     public function __construct(Container $container)
     {
         $this
             ->setContainer($container)
-            ->setModel({{class-name}}::class)
-            ->setRepositoryId({{class-name}}::getTableName())
+            ->setModel({{model-name}}::class)
+            ->setRepositoryId({{model-name}}::getTableName())
             ->setCacheDriver('redis');
     }
 }

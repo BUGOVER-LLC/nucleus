@@ -8,5 +8,7 @@ use Ship\Parents\Controllers\{{base-controller}};
 
 class {{class-name}} extends {{base-controller}}
 {
-
+    public   function __invoke()
+    {
+    }
 }

@@ -62,6 +62,7 @@ class RepositoryGenerator extends GeneratorCommand implements ComponentsGenerato
                 '_container-name' => Str::lower($this->containerName),
                 'container-name' => $this->containerName,
                 'class-name' => $this->fileName,
+                'model-name' => Str::beforeLast($this->fileName, 'Repository'),
             ],
             'file-parameters' => [
                 'file-name' => $this->fileName,

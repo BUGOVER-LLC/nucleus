@@ -19,6 +19,7 @@ trait AutoLoaderTrait
     use HelpersLoaderTrait;
     use ModelMapLoader;
     use MacrosBindLoader;
+    use ObserverLoaderTrait;
 
     /**
      * To be used from the `boot` function of the main service provider
@@ -44,6 +45,7 @@ trait AutoLoaderTrait
             $this->loadCommandsFromContainers($container_path);
             $this->loadModelMapsFromContainers($container_path);
             $this->loadMacrosFromContainers($container_path);
+            $this->loadObserverFromContainers($container_path);
         }
     }
 

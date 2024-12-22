@@ -81,7 +81,7 @@ abstract class Resource extends JsonResource
      * @return false|string
      * @throws \JsonException
      */
-    public function eobject(): false|string
+    public function eObject(): false|string
     {
         return json_encode(new \stdClass(), JSON_THROW_ON_ERROR);
     }

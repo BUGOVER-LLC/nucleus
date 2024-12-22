@@ -1,6 +1,6 @@
 {
   "name": "bugover/ship",
-  "version": "1.4.12",
+  "version": "1.4.13",
   "type": "library",
   "description": "Core package for Porto architecture.",
   "keywords": [
@@ -21,6 +21,9 @@
     "php": "^8.3.2",
     "php-64bit": "^8.3.2",
     "ext-gettext": "*",
+    "ext-curl": "*",
+    "ext-igbinary": "*",
+    "ext-pcntl": "*",
     "ext-json": "*",
     "ext-redis": "*",
     "ext-swoole": "*",
