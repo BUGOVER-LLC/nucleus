@@ -26,7 +26,7 @@ trait ObserverLoaderTrait
      */
     private function loadObserve(string $modelDirectory, string $observerDirectory): void
     {
-        if (!File::isDirectory($modelDirectory) || !File::isDirectory($observerDirectory)) {
+        if (File::isDirectory($modelDirectory) && File::isDirectory($observerDirectory)) {
             $modelFiles = File::allFiles($modelDirectory);
             $observerFiles = File::allFiles($observerDirectory);
 
