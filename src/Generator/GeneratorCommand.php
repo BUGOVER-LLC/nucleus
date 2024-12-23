@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Nucleus\Generator;
 
+use DateTime;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Filesystem\Filesystem as IlluminateFilesystem;
@@ -15,6 +16,8 @@ use Nucleus\Generator\Traits\FormatterTrait;
 use Nucleus\Generator\Traits\ParserTrait;
 use Nucleus\Generator\Traits\PrinterTrait;
 use Symfony\Component\Console\Input\InputOption;
+
+use function array_key_exists;
 
 abstract class GeneratorCommand extends Command
 {
@@ -28,26 +31,26 @@ abstract class GeneratorCommand extends Command
      *
      * @var string
      */
-    private const DEFAULT_ROOT = 'Containers';
+    private const string DEFAULT_ROOT = 'Containers';
 
     /**
      * Relative path for the stubs (relative to this directory / file)
      *
      * @var string
      */
-    private const STUB_PATH = 'Stubs/*';
+    private const string STUB_PATH = 'Stubs/*';
 
     /**
      * Relative path for the custom stubs (relative to the app/Ship directory!)
      */
-    private const CUSTOM_STUB_PATH = 'Generators/CustomStubs/*';
+    private const string CUSTOM_STUB_PATH = 'Generators/CustomStubs/*';
 
     /**
      * Default section name
      *
      * @var string
      */
-    private const DEFAULT_SECTION_NAME = 'AppSection';
+    private const string DEFAULT_SECTION_NAME = 'AppSection';
 
     /**
      * @var string
@@ -90,11 +93,6 @@ abstract class GeneratorCommand extends Command
     protected string|array $renderedStubContent;
 
     /**
-     * @var IlluminateFilesystem
-     */
-    private IlluminateFilesystem $fileSystem;
-
-    /**
      * @var array|array[]
      */
     private array $defaultInputs = [
@@ -108,11 +106,9 @@ abstract class GeneratorCommand extends Command
      *
      * @return void
      */
-    public function __construct(IlluminateFilesystem $fileSystem)
+    public function __construct(private readonly IlluminateFilesystem $fileSystem)
     {
         parent::__construct();
-
-        $this->fileSystem = $fileSystem;
     }
 
     /**
@@ -172,7 +168,7 @@ abstract class GeneratorCommand extends Command
             $this->printFinishedMessage($this->fileType);
         }
 
-        $this->info((new \DateTime())->format('Y-m-d H:i:s'));
+        $this->info((new DateTime())->format('Y-m-d H:i:s'));
 
         // Exit the command successfully
         return 0;
@@ -242,15 +238,15 @@ abstract class GeneratorCommand extends Command
      */
     private function sanitizeUserData($data): mixed
     {
-        if (!\array_key_exists('path-parameters', $data)) {
+        if (!array_key_exists('path-parameters', $data)) {
             $data['path-parameters'] = [];
         }
 
-        if (!\array_key_exists('stub-parameters', $data)) {
+        if (!array_key_exists('stub-parameters', $data)) {
             $data['stub-parameters'] = [];
         }
 
-        if (!\array_key_exists('file-parameters', $data)) {
+        if (!array_key_exists('file-parameters', $data)) {
             $data['file-parameters'] = [];
         }
 

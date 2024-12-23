@@ -1,6 +1,6 @@
 {
   "name": "bugover/ship",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "type": "library",
   "description": "Core package for Porto architecture.",
   "keywords": [
@@ -36,7 +36,6 @@
     "guzzlehttp/guzzle": "^7.0.0",
     "laravel/framework": "^11.0.0",
     "laravel/octane": "^2.0.0",
-    "laravel/passport": "^12.0.0",
     "laravel/tinker": "^2.0.0",
     "swoole/ide-helper": "^5.0.0"
   },
