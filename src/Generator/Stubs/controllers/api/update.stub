@@ -12,6 +12,11 @@ use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resourc
 use Ship\Exceptions\NotFoundException;
 use Ship\Exceptions\UpdateResourceFailedException;
 use Ship\Parents\Controllers\{{base-controller}};
+use OpenApi\Attributes\JsonContent;
+use OpenApi\Attributes\Put;
+use OpenApi\Attributes\Property;
+use OpenApi\Attributes\Response;
+use Symfony\Component\Routing\Attribute\Route;
 
 class {{class-name}} extends {{base-controller}}
 {
@@ -23,6 +28,27 @@ class {{class-name}} extends {{base-controller}}
      * @throws IncorrectIdException
      * @throws NotFoundException
      */
+    #[Route(path: '/', methods: ['PUT'])]
+    #[
+         Put(
+             path: '/',
+             description: 'create',
+             summary: '',
+             tags: [''],
+             responses: [
+                 new Response(
+                     response: 200,
+                     description: 'Get to Update',
+                     content: new JsonContent(properties: [
+                         new Property(
+                             property: '_payload',
+                             type: 'Schema'
+                         ),
+                     ])
+                 ),
+             ]
+         ),
+    ]
     public function update{{model}}(Update{{model}}Request $request): array
     {
         ${{entity}} = app(Update{{model}}Action::class)->run($request);

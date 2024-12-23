@@ -23,30 +23,36 @@ class ControllerGenerator extends GeneratorCommand implements ComponentsGenerato
         ['ui', null, InputOption::VALUE_OPTIONAL, 'The user-interface to generate the Controller for.'],
         ['stub', null, InputOption::VALUE_OPTIONAL, 'The stub file to load for this generator.'],
     ];
+
     /**
      * The console command name.
      *
      * @var string
      */
     protected $name = 'nucleus:generate:controller';
+
     /**
      * The console command description.
      *
      * @var string
      */
     protected $description = 'Create a controller for a container';
+
     /**
      * The type of class being generated.
      */
     protected string $fileType = 'Controller';
+
     /**
      * The structure of the file path.
      */
     protected string $pathStructure = '{section-name}/{container-name}/UI/{user-interface}/Controllers/*';
+
     /**
      * The structure of the file name.
      */
     protected string $nameStructure = '{file-name}';
+
     /**
      * The name of the stub file.
      */
