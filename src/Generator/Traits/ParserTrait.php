@@ -16,8 +16,11 @@ trait ParserTrait
      */
     public function parsePathStructure($path, $data): string|array
     {
-        $path = str_replace(array_map([$this, 'maskPathVariables'], array_keys($data)), array_values($data), $path);
-        $path = str_replace('*', $this->parsedFileName, $path);
+        $path = str_replace(
+            [array_map([$this, 'maskPathVariables'], array_keys($data)), '*'],
+            [array_values($data), $this->parsedFileName],
+            $path
+        );
 
         return $path;
     }

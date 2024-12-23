@@ -35,7 +35,7 @@ class ListTasksCommand extends ConsoleCommand
                 $this->console->writeln("<fg=yellow> [$container_name]</fg=yellow>");
 
                 $directory = base_path(
-                    config('nucleus.path') . 'Containers/' . $section_name . '/' . $container_name . '/Tasks'
+                    config('app.path') . 'Containers/' . $section_name . '/' . $container_name . '/Tasks'
                 );
 
                 if (File::isDirectory($directory)) {

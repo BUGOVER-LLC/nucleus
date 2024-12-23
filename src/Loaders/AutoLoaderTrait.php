@@ -22,7 +22,7 @@ trait AutoLoaderTrait
     use ObserverLoaderTrait;
 
     /**
-     * To be used from the `boot` function of the main service provider
+     * To be used from the `boot` function of the main service provider.
      */
     public function runLoadersBoot(): void
     {
@@ -35,6 +35,7 @@ trait AutoLoaderTrait
         $this->loadCommandsFromCore();
         $this->loadModelsMapFormShip();
         $this->loadMacrosFromShip();
+        $this->loadObserversMapFormShip();
 
         // Iterate over all the containers folders and autoload most of the components.
         foreach (Nuclear::getAllContainerPaths() as $container_path) {

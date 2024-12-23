@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Nucleus\Exceptions;
 
 use Nucleus\Abstracts\Exceptions\Exception;
+use Nucleus\Abstracts\Resources\Resource;
 use Symfony\Component\HttpFoundation\Response;
 
-class WrongEndpointFormatException extends Exception
+class InvalidResourceException extends Exception
 {
     protected $code = Response::HTTP_INTERNAL_SERVER_ERROR;
-
-    protected $message = 'tests ($this->endpoint) property must be formatted as "verb@url".';
+    protected $message = 'Transformers must extended the ' . Resource::class . ' class.';
 }

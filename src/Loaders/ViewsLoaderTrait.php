@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 trait ViewsLoaderTrait
 {
-    public function loadViewsFromContainers($containerPath): void
+    public function loadViewsFromContainers(string $containerPath): void
     {
         $container_view_directory = $containerPath . '/UI/WEB/Views/';
         $container_mail_templates_directory = $containerPath . '/Mails/Templates/';
@@ -22,7 +22,7 @@ trait ViewsLoaderTrait
         $this->loadViews($container_mail_templates_directory, $container_name, $section_name);
     }
 
-    private function loadViews($directory, $container_name, $section_name = null): void
+    private function loadViews(string $directory, string $container_name, ?string $section_name = null): void
     {
         if (File::isDirectory($directory)) {
             $this->loadViewsFrom($directory, $this->buildViewNamespace($section_name, $container_name));
@@ -42,7 +42,7 @@ trait ViewsLoaderTrait
     public function loadViewsFromShip(): void
     {
         $ship_mail_templates_directory = config(
-            'nucleus.path'
+            'app.path'
         ) . 'Ship' . DIRECTORY_SEPARATOR . 'Mails' . DIRECTORY_SEPARATOR . 'Templates' . DIRECTORY_SEPARATOR;
         $this->loadViews($ship_mail_templates_directory, 'ship'); // Ship views accessible via `ship::`.
     }

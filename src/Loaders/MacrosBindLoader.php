@@ -12,7 +12,7 @@ trait MacrosBindLoader
 {
     private function loadMacrosFromShip()
     {
-        $shipMacrosDirectory = config('nucleus.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Macros';
+        $shipMacrosDirectory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Macros';
         $this->loadTheMacros($shipMacrosDirectory);
     }
 

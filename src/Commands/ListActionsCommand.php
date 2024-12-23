@@ -35,7 +35,7 @@ class ListActionsCommand extends ConsoleCommand
                 $this->console->writeln("<fg=yellow> [$containerName]</fg=yellow>");
 
                 $directory = base_path(
-                    config('nucleus.path') . 'Containers/' . $section_name . '/' . $containerName . '/Actions'
+                    config('app.path') . 'Containers/' . $section_name . '/' . $containerName . '/Actions'
                 );
 
                 if (File::isDirectory($directory)) {

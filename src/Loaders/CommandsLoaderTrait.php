@@ -54,7 +54,7 @@ trait CommandsLoaderTrait
      */
     public function loadCommandsFromShip(): void
     {
-        $shipCommandsDirectory = config('nucleus.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Commands';
+        $shipCommandsDirectory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Commands';
         $this->loadTheConsoles($shipCommandsDirectory);
     }
 

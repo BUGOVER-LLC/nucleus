@@ -805,7 +805,7 @@ if (!function_exists('async_loader')) {
      */
     function async_loader(): string
     {
-        return base_path(config('nucleus.path') . 'AsyncLoader/RuntimeAutoload.php');
+        return base_path(config('app.path') . 'AsyncLoader/RuntimeAutoload.php');
     }
 }
 

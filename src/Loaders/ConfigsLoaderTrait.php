@@ -13,7 +13,7 @@ trait ConfigsLoaderTrait
      */
     public function loadConfigsFromShip(): void
     {
-        $ship_configs_directory = base_path(config('nucleus.path') . 'Ship/Configs');
+        $ship_configs_directory = base_path(config('app.path') . 'Ship/Configs');
         $this->loadConfigs($ship_configs_directory);
     }
 

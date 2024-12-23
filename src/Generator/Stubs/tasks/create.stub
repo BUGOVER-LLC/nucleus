@@ -22,7 +22,7 @@ class {{class-name}} extends ParentTask
     /**
      * @throws CreateResourceFailedException
      */
-    public function handle(mixed $data, , ?Closure $next = null): {{model}}
+    public function handle(mixed $data, ?Closure $next = null): {{model}}
     {
         try {
             return $this->repository->create($data);

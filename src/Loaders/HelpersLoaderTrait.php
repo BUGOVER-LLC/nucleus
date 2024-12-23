@@ -31,7 +31,7 @@ trait HelpersLoaderTrait
 
     public function loadHelpersFromShip(): void
     {
-        $shipHelpersDirectory = config('nucleus.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Helpers';
+        $shipHelpersDirectory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Helpers';
         $this->loadHelpers($shipHelpersDirectory);
     }
 }

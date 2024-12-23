@@ -5,22 +5,22 @@ declare(strict_types=1);
 namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controllers;
 
 use Nucleus\Exceptions\CoreInternalErrorException;
-use Nucleus\Exceptions\InvalidTransformerException;
+use Nucleus\Exceptions\InvalidResourceException;
 use Containers\{{section-name}}\{{container-name}}\Actions\GetAll{{models}}Action;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\GetAll{{models}}Request;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Transformers\{{model}}Transformer;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resource\{{model}}Resource;
 use Ship\Parents\Controllers\{{base-controller}};
 
 class {{class-name}} extends {{base-controller}}
 {
     /**
-     * @throws InvalidTransformerException
+     * @throws InvalidResourceException
      * @throws CoreInternalErrorException
      */
     public function getAll{{models}}(GetAll{{models}}Request $request): array
     {
         ${{entities}} = app(GetAll{{models}}Action::class)->run($request);
 
-        return $this->transform(${{entities}}, {{model}}Transformer::class);
+        return $this->transform(${{entities}}, {{model}}Resource::class);
     }
 }

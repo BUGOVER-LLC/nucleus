@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\UI\API\Transformers;
+namespace Containers\{{section-name}}\{{container-name}}\UI\API\Resource;
 
 use Containers\{{section-name}}\{{container-name}}\Models\{{model}};
 use Ship\Parents\Resources\Resource as ParentResource;
@@ -20,7 +20,7 @@ class {{class-name}} extends ParentResource
     public function transform({{model}} ${{_model}}): array
     {
         $response = [
-{{attributes}}
+            {{attributes}}
         ];
 
         return $this->ifAdmin([

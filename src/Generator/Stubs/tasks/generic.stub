@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Containers\{{section-name}}\{{container-name}}\Tasks;
 
 use Ship\Parents\Tasks\Task as ParentTask;
+use Closure;
 
 class {{class-name}} extends ParentTask
 {
@@ -13,7 +14,7 @@ class {{class-name}} extends ParentTask
         // ..
     }
 
-    public function handle()
+    public function handle(mixed $context, ?Closure $next = null)
     {
         // ..
     }

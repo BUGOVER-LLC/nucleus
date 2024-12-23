@@ -54,7 +54,7 @@ trait LocalizationLoaderTrait
      */
     public function loadLocalsFromShip(): void
     {
-        $shipLocaleDirectory = config('nucleus.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Languages';
+        $shipLocaleDirectory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Languages';
         $this->loadLocals($shipLocaleDirectory, 'ship');
     }
 }

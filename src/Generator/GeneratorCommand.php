@@ -72,22 +72,22 @@ abstract class GeneratorCommand extends Command
     /**
      * @var
      */
-    protected $userData;
+    protected array|string $userData = [];
 
     /**
      * @var
      */
-    protected $parsedFileName;
+    protected string $parsedFileName = '';
 
     /**
      * @var
      */
-    protected $stubContent;
+    protected string|array $stubContent;
 
     /**
      * @var
      */
-    protected $renderedStubContent;
+    protected string|array $renderedStubContent;
 
     /**
      * @var IlluminateFilesystem
@@ -287,7 +287,7 @@ abstract class GeneratorCommand extends Command
      */
     private static function getRootPath(): string
     {
-        return config('nucleus.path') . config('nucleus.container_name');
+        return config('app.path') . self::DEFAULT_ROOT;
     }
 
     /**

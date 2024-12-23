@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Nucleus\Loaders;
 
-use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Nucleus\Contract\EntityContract;
@@ -46,7 +45,7 @@ trait ObserverLoaderTrait
      */
     private function loadObserversMapFormShip(): void
     {
-        $ship_models_directory = base_path(config('nucleus.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Observer');
+        $ship_models_directory = base_path(config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Observer');
         $this->loadModels($ship_models_directory);
     }
 }
