@@ -45,7 +45,7 @@ trait ObserverLoaderTrait
      */
     private function loadObserversMapFormShip(): void
     {
-        $ship_models_directory = base_path(config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Observer');
+        $ship_models_directory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Observer';
         $this->loadModels($ship_models_directory);
     }
 }

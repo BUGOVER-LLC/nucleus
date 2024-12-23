@@ -49,7 +49,7 @@ trait ModelMapLoader
      */
     private function loadModelsMapFormShip(): void
     {
-        $ship_models_directory = base_path(config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Models');
+        $ship_models_directory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Models';
         $this->loadModels($ship_models_directory);
     }
 }
