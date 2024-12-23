@@ -72,7 +72,7 @@ abstract class GeneratorCommand extends Command
     /**
      * @var
      */
-    protected array|string $userData = [];
+    protected null|array|string $userData = [];
 
     /**
      * @var
