@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controllers;
 
 use Nucleus\Exceptions\IncorrectIdException;
-use Nucleus\Exceptions\InvalidTransformerException;
+use Nucleus\Exceptions\InvalidResourceException;
 use Containers\{{section-name}}\{{container-name}}\Actions\Update{{model}}Action;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Update{{model}}Request;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Transformers\{{model}}Transformer;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resource\{{model}}Resource;
 use Ship\Exceptions\NotFoundException;
 use Ship\Exceptions\UpdateResourceFailedException;
 use Ship\Parents\Controllers\{{base-controller}};
@@ -18,7 +18,7 @@ class {{class-name}} extends {{base-controller}}
     /**
      * @param Update{{model}}Request $request
      * @return array
-     * @throws InvalidTransformerException
+     * @throws InvalidResourceException
      * @throws UpdateResourceFailedException
      * @throws IncorrectIdException
      * @throws NotFoundException
@@ -27,6 +27,6 @@ class {{class-name}} extends {{base-controller}}
     {
         ${{entity}} = app(Update{{model}}Action::class)->run($request);
 
-        return $this->transform(${{entity}}, {{model}}Transformer::class);
+        return $this->transform(${{entity}}, {{model}}Resource::class);
     }
 }

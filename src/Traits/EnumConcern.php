@@ -289,7 +289,7 @@ trait EnumConcern
     }
 
     /**
-     * Get the key-value pairs of value and transformed value (if a method is specified).
+     * Get the key-value pairs of value and Resource value (if a method is specified).
      *
      * @param string $method (optional) If provided, the specified method will be called on each value.
      * @return Collection Returns a Collection containing the key-value pairs.

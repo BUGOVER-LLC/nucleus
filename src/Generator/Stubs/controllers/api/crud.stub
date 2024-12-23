@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controllers;
 
 use Nucleus\Exceptions\CoreInternalErrorException;
-use Nucleus\Exceptions\InvalidTransformerException;
+use Nucleus\Exceptions\InvalidResourceException;
 use Containers\{{section-name}}\{{container-name}}\Actions\Create{{model}}Action;
 use Containers\{{section-name}}\{{container-name}}\Actions\Delete{{model}}Action;
 use Containers\{{section-name}}\{{container-name}}\Actions\Find{{model}}ByIdAction;
@@ -16,7 +16,7 @@ use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Find{{model}}ByIdRequest;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\GetAll{{models}}Request;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Update{{model}}Request;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Transformers\{{model}}Transformer;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resources\{{model}}Resource;
 use Ship\Exceptions\CreateResourceFailedException;
 use Ship\Exceptions\DeleteResourceFailedException;
 use Ship\Exceptions\NotFoundException;

@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controllers;
 
 use Nucleus\Exceptions\IncorrectIdException;
-use Nucleus\Exceptions\InvalidTransformerException;
+use Nucleus\Exceptions\InvalidResourceException;
 use Containers\{{section-name}}\{{container-name}}\Actions\Create{{model}}Action;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Create{{model}}Request;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Transformers\{{model}}Transformer;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resource\{{model}}Resource;
 use Ship\Exceptions\CreateResourceFailedException;
 use Ship\Parents\Controllers\{{base-controller}};
 use Illuminate\Http\JsonResponse;
@@ -19,13 +19,13 @@ class {{class-name}} extends {{base-controller}}
      * @param Create{{model}}Request $request
      * @return JsonResponse
      * @throws CreateResourceFailedException
-     * @throws InvalidTransformerException
+     * @throws InvalidResourceException
      * @throws IncorrectIdException
      */
     public function create{{model}}(Create{{model}}Request $request): JsonResponse
     {
         ${{entity}} = app(Create{{model}}Action::class)->run($request);
 
-        return $this->created($this->transform(${{entity}}, {{model}}Transformer::class));
+        return $this->created($this->transform(${{entity}}, {{model}}Resource::class));
     }
 }

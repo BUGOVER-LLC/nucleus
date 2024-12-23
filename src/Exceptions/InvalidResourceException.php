@@ -11,5 +11,5 @@ use Symfony\Component\HttpFoundation\Response;
 class InvalidResourceException extends Exception
 {
     protected $code = Response::HTTP_INTERNAL_SERVER_ERROR;
-    protected $message = 'Transformers must extended the ' . Resource::class . ' class.';
+    protected $message = 'Resource must extended the ' . Resource::class . ' class.';
 }

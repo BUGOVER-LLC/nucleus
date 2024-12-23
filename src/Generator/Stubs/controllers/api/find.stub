@@ -4,22 +4,22 @@ declare(strict_types=1);
 
 namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controllers;
 
-use Nucleus\Exceptions\InvalidTransformerException;
+use Nucleus\Exceptions\InvalidResourceException;
 use Containers\{{section-name}}\{{container-name}}\Actions\Find{{model}}ByIdAction;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Find{{model}}ByIdRequest;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Transformers\{{model}}Transformer;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resource\{{model}}Resource;
 use Ship\Exceptions\NotFoundException;
 use Ship\Parents\Controllers\{{base-controller}};
 
 class {{class-name}} extends {{base-controller}}
 {
     /**
-     * @throws InvalidTransformerException|NotFoundException
+     * @throws InvalidResourceException|NotFoundException
      */
     public function find{{model}}ById(Find{{model}}ByIdRequest $request): array
     {
         ${{entity}} = app(Find{{model}}ByIdAction::class)->run($request);
 
-        return $this->transform(${{entity}}, {{model}}Transformer::class);
+        return $this->transform(${{entity}}, {{model}}Resource::class);
     }
 }
