@@ -6,7 +6,6 @@ namespace Nucleus\Abstracts\Providers;
 
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Nucleus\Loaders\MiddlewaresLoaderTrait;
-use Nucleus\Abstracts\Providers\MainServiceProvider;
 
 abstract class MiddlewareServiceProvider extends MainServiceProvider
 {
@@ -28,12 +27,5 @@ abstract class MiddlewareServiceProvider extends MainServiceProvider
     public function boot(): void
     {
         $this->loadMiddlewares();
-    }
-
-    /**
-     * Register anything in the container.
-     */
-    public function register(): void
-    {
     }
 }

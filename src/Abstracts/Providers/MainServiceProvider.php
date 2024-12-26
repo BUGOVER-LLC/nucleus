@@ -15,6 +15,8 @@ abstract class MainServiceProvider extends LaravelAppServiceProvider
 
     protected array $aliases = [];
 
+    protected array $serviceProviders = [];
+
     /**
      * Register any application services.
      *
