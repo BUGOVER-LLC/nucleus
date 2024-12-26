@@ -13,6 +13,8 @@ abstract class MainServiceProvider extends LaravelAppServiceProvider
     use ProvidersLoaderTrait;
     use AliasesLoaderTrait;
 
+    protected array $aliases = [];
+
     /**
      * Register any application services.
      *

@@ -24,13 +24,11 @@ use Nucleus\Generator\Commands\MigrationGenerator;
 use Nucleus\Generator\Commands\ModelFactoryGenerator;
 use Nucleus\Generator\Commands\ModelGenerator;
 use Nucleus\Generator\Commands\NotificationGenerator;
-use Nucleus\Generator\Commands\PolicyGenerator;
 use Nucleus\Generator\Commands\ReadmeGenerator;
 use Nucleus\Generator\Commands\RepositoryGenerator;
 use Nucleus\Generator\Commands\RequestGenerator;
 use Nucleus\Generator\Commands\ResourceGenerator;
 use Nucleus\Generator\Commands\RouteGenerator;
-use Nucleus\Generator\Commands\SchemaGenerator;
 use Nucleus\Generator\Commands\SeederGenerator;
 use Nucleus\Generator\Commands\ServiceProviderGenerator;
 use Nucleus\Generator\Commands\SubActionGenerator;
@@ -76,7 +74,6 @@ class GeneratorsServiceProvider extends ServiceProvider
             MigrationGenerator::class,
             ModelGenerator::class,
             NotificationGenerator::class,
-            PolicyGenerator::class,
             ReadmeGenerator::class,
             GitIgnoreGenerator::class,
             RepositoryGenerator::class,
@@ -91,7 +88,6 @@ class GeneratorsServiceProvider extends ServiceProvider
             TaskGenerator::class,
             ResourceGenerator::class,
             ValueGenerator::class,
-            SchemaGenerator::class,
             ComposerGenerator::class,
         ];
     }

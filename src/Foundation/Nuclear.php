@@ -11,7 +11,7 @@ use function is_array;
 
 class Nuclear
 {
-    public const VERSION = '1.4.5';
+    public const VERSION = '1.5.0';
     private const SHIP_NAME = 'Ship';
     private const CONTAINERS_DIRECTORY_NAME = 'Containers';
     private const SECTION_DIRECTORY_PREFIX = 'Section';
