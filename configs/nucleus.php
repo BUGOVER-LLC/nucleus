@@ -175,7 +175,7 @@ return [
         |--------------------------------------------------------------------------
         |
         */
-        'user-class' => Containers\Vendor\Models\User::class,
+        'user-class' => 'Containers\Vendor\Models\User::class',
 
         /*
         |--------------------------------------------------------------------------
