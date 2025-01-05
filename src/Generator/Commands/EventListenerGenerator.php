@@ -36,7 +36,7 @@ class EventListenerGenerator extends GeneratorCommand implements ComponentsGener
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/Listeners/*';
+    protected string $pathStructure = '{section-name}/{container-name}/Listener/*';
     /**
      * The structure of the file name.
      */

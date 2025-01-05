@@ -37,7 +37,7 @@ class MailGenerator extends GeneratorCommand implements ComponentsGenerator
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/Mails/*';
+    protected string $pathStructure = '{section-name}/{container-name}/Mail/*';
     /**
      * The structure of the file name.
      */

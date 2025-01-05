@@ -41,7 +41,7 @@ class EventGenerator extends GeneratorCommand implements ComponentsGenerator
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/Events/*';
+    protected string $pathStructure = '{section-name}/{container-name}/Event/*';
     /**
      * The structure of the file name.
      */

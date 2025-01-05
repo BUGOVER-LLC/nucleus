@@ -8,11 +8,6 @@ use Composer\Installer\LibraryInstaller;
 use Composer\Package\PackageInterface;
 use JsonException;
 
-/**
- * Class ContainerInstaller
- *
- * @author  Johannes Schobel <johannes.schobel@googlemail.com>
- */
 class ContainerInstaller extends LibraryInstaller
 {
     private const string CONTAINER_NAME = 'ship-container';

@@ -41,7 +41,7 @@ class ResourceGenerator extends GeneratorCommand implements ComponentsGenerator
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/UI/API/Resources/*';
+    protected string $pathStructure = '{section-name}/{container-name}/UI/API/Resource/*';
     /**
      * The structure of the file name.
      */

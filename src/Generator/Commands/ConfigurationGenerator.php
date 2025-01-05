@@ -34,7 +34,7 @@ class ConfigurationGenerator extends GeneratorCommand implements ComponentsGener
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/Configs/*';
+    protected string $pathStructure = '{section-name}/{container-name}/Config/*';
     /**
      * The structure of the file name.
      */

@@ -40,7 +40,7 @@ class RequestGenerator extends GeneratorCommand implements ComponentsGenerator
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/UI/{user-interface}/Requests/*';
+    protected string $pathStructure = '{section-name}/{container-name}/UI/{user-interface}/Request/*';
 
     /**
      * The structure of the file name.

@@ -34,7 +34,7 @@ class ExceptionGenerator extends GeneratorCommand implements ComponentsGenerator
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/Exceptions/*';
+    protected string $pathStructure = '{section-name}/{container-name}/Exception/*';
     /**
      * The structure of the file name.
      */

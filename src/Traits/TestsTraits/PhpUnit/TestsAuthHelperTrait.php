@@ -4,7 +4,7 @@ namespace Nucleus\Traits\TestsTraits\PhpUnit;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
-use Nucleus\Abstracts\Models\AuthModel;
+use Nucleus\Abstracts\Model\AuthModel;
 
 trait TestsAuthHelperTrait
 {

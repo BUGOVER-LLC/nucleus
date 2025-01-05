@@ -39,7 +39,7 @@ class ModelGenerator extends GeneratorCommand implements ComponentsGenerator
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/Models/*';
+    protected string $pathStructure = '{section-name}/{container-name}/Model/*';
     /**
      * The structure of the file name.
      */

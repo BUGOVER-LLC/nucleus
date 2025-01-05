@@ -15,7 +15,7 @@ trait FactoryLocatorTrait
         $fullPathSections = explode($separator, static::class);
         $sectionName = $fullPathSections[2];
         $containerName = $fullPathSections[3];
-        $nameSpace = 'App' . $separator . 'Containers' . $separator . $sectionName . $separator . $containerName . $containersFactoriesPath;
+        $nameSpace = 'App' . $separator . 'Container' . $separator . $sectionName . $separator . $containerName . $containersFactoriesPath;
 
         Factory::useNamespace($nameSpace);
         $className = class_basename(static::class);

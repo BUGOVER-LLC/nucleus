@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Nucleus\Commands;
 
 use Illuminate\Support\Facades\File;
-use Nucleus\Abstracts\Commands\ConsoleCommand;
+use Nucleus\Abstracts\Command\ConsoleCommand;
 use Nucleus\Foundation\Facades\Nuclear;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
@@ -21,11 +21,9 @@ class ListTasksCommand extends ConsoleCommand
      */
     protected $description = 'List all Tasks in the Application.';
 
-    public function __construct(ConsoleOutput $console)
+    public function __construct(private readonly ConsoleOutput $console)
     {
         parent::__construct();
-
-        $this->console = $console;
     }
 
     public function handle(): void

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Nucleus\Commands;
 
-use Nucleus\Abstracts\Commands\ConsoleCommand;
+use Nucleus\Abstracts\Command\ConsoleCommand;
 use Nucleus\Foundation\Nuclear;
 
 class GetNucleusVersionCommand extends ConsoleCommand

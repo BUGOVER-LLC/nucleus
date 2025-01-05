@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Nucleus\Exceptions;
 
-use Nucleus\Abstracts\Exceptions\Exception;
+use Nucleus\Abstracts\Exception\Exception;
 use Symfony\Component\HttpFoundation\Response;
 
 class MissingTestEndpointException extends Exception

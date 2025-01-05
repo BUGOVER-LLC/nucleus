@@ -8,11 +8,6 @@ use Composer\Composer;
 use Composer\IO\IOInterface;
 use Composer\Plugin\PluginInterface;
 
-/**
- * Class ContainerInstallerPlugin
- *
- * @author  Johannes Schobel <johannes.schobel@googlemail.com>
- */
 class PluginInstaller implements PluginInterface
 {
     /**

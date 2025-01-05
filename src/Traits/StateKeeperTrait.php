@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Nucleus\Traits;
 
-use Nucleus\Abstracts\Requests\Request;
+use Nucleus\Abstracts\Request\Request;
 
 trait StateKeeperTrait
 {

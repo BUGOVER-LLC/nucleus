@@ -46,7 +46,7 @@ class ControllerGenerator extends GeneratorCommand implements ComponentsGenerato
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/UI/{user-interface}/Controllers/*';
+    protected string $pathStructure = '{section-name}/{container-name}/UI/{user-interface}/Controller/*';
 
     /**
      * The structure of the file name.

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Nucleus\Commands;
 
 use Illuminate\Support\Facades\Config;
-use Nucleus\Abstracts\Commands\ConsoleCommand;
+use Nucleus\Abstracts\Command\ConsoleCommand;
 
 class SeedDeploymentDataCommand extends ConsoleCommand
 {

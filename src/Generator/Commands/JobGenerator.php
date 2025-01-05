@@ -36,7 +36,7 @@ class JobGenerator extends GeneratorCommand implements ComponentsGenerator
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/Jobs/*';
+    protected string $pathStructure = '{section-name}/{container-name}/Job/*';
     /**
      * The structure of the file name.
      */

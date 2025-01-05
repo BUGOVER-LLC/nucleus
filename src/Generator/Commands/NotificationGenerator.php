@@ -34,7 +34,7 @@ class NotificationGenerator extends GeneratorCommand implements ComponentsGenera
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/Notifications/*';
+    protected string $pathStructure = '{section-name}/{container-name}/Notification/*';
     /**
      * The structure of the file name.
      */

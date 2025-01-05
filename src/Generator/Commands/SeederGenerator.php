@@ -34,7 +34,7 @@ class SeederGenerator extends GeneratorCommand implements ComponentsGenerator
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/Data/Seeders/*';
+    protected string $pathStructure = '{section-name}/{container-name}/Data/Seeder/*';
     /**
      * The structure of the file name.
      */

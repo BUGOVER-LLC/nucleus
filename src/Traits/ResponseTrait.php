@@ -6,7 +6,7 @@ namespace Nucleus\Traits;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Nucleus\Abstracts\Controllers\ApiController;
+use Nucleus\Abstracts\Controller\ApiController;
 use ReflectionClass;
 use ReflectionException;
 

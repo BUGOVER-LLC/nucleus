@@ -37,7 +37,7 @@ class ModelFactoryGenerator extends GeneratorCommand implements ComponentsGenera
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/Data/Factories/*';
+    protected string $pathStructure = '{section-name}/{container-name}/Data/Factory/*';
     /**
      * The structure of the file name.
      */

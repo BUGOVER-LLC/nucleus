@@ -6,7 +6,7 @@ namespace Nucleus\Middlewares\Http;
 
 use Closure;
 use Illuminate\Http\Request;
-use Nucleus\Abstracts\Middlewares\Middleware;
+use Nucleus\Abstracts\Middleware\Middleware;
 use Nucleus\Exceptions\MissingJSONHeaderException;
 
 class ValidateJsonContent extends Middleware

@@ -40,7 +40,7 @@ class ActionGenerator extends GeneratorCommand implements ComponentsGenerator
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/Actions/*';
+    protected string $pathStructure = '{section-name}/{container-name}/Action/*';
     /**
      * The structure of the file name.
      */

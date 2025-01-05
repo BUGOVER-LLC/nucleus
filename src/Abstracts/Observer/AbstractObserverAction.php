@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Nucleus\Abstracts\Observer;
 
 use Illuminate\Database\Eloquent\Model;
-use Nucleus\Abstracts\Models\AuthModel;
+use Nucleus\Abstracts\Model\AuthModel;
 
 /**
  * Observer action
