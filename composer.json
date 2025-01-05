@@ -1,6 +1,6 @@
 {
   "name": "bugover/ship",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "type": "library",
   "description": "Core package for Porto architecture.",
   "keywords": [
@@ -40,7 +40,6 @@
     "swoole/ide-helper": "^5.0.0"
   },
   "require-dev": {
-    "composer/composer": "^2.0.0",
     "friendsofphp/php-cs-fixer": "^3.0.0",
     "mockery/mockery": "^1.6.12",
     "nunomaduro/collision": "^8.4",

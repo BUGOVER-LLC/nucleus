@@ -65,7 +65,6 @@ trait ProvidersLoaderTrait
      */
     public function loadServiceProviders(): void
     {
-        // `$this->serviceProviders` is declared on each Container's Main Service Provider
         foreach ($this->serviceProviders ?? [] as $provider) {
             if (class_exists($provider)) {
                 $this->loadProvider($provider);

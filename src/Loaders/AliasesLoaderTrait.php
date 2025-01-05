@@ -10,7 +10,6 @@ trait AliasesLoaderTrait
 {
     public function loadAliases(): void
     {
-        // `$this->aliases` is declared on each Container's Main Service Provider
         foreach ($this->aliases ?? [] as $aliasKey => $aliasValue) {
             if (class_exists($aliasValue)) {
                 $this->loadAlias($aliasKey, $aliasValue);
