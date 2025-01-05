@@ -6,8 +6,8 @@ namespace Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Co
 
 use Nucleus\Exceptions\IncorrectIdException;
 use Nucleus\Exceptions\InvalidResourceException;
-use Container\{{section-name}}\{{container-name}}\Actions\Create{{model}}Action;
-use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Create{{model}}Request;
+use Container\{{section-name}}\{{container-name}}\Action\Create{{model}}Action;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Create{{model}}Request;
 use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resource\{{model}}Resource;
 use Ship\Exceptions\CreateResourceFailedException;
 use Ship\Parents\Controller\{{base-controller}};

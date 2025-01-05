@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Container\{{section-name}}\{{container-name}}\UI\API\Resource;
 
-use Container\{{section-name}}\{{container-name}}\Models\{{model}};
-use Ship\Parents\Resources\Resource as ParentResource;
+use Container\{{section-name}}\{{container-name}}\Model\{{model}};
+use Ship\Parents\Resource\Resource as ParentResource;
 
 class {{class-name}} extends ParentResource
 {

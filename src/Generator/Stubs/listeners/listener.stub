@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Container\{{section-name}}\{{container-name}}\Listener;
 
-use Container\{{section-name}}\{{container-name}}\Events\{{model}};
-use Ship\Parents\Listeners\Listener as ParentListener;
+use Container\{{section-name}}\{{container-name}}\Event\{{model}};
+use Ship\Parents\Listener\Listener as ParentListener;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class {{class-name}} extends ParentListener implements ShouldQueue

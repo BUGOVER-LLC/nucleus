@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Container\{{section-name}}\{{container-name}}\Action;
 
 use Nucleus\Exceptions\CoreInternalErrorException;
-use Container\{{section-name}}\{{container-name}}\Tasks\GetAll{{models}}Task;
-use Container\{{section-name}}\{{container-name}}\UI\{{ui}}\Requests\GetAll{{models}}Request;
+use Container\{{section-name}}\{{container-name}}\Task\GetAll{{models}}Task;
+use Container\{{section-name}}\{{container-name}}\UI\{{ui}}\Request\GetAll{{models}}Request;
 use Ship\Parents\Action\Action as ParentAction;
 
 class {{class-name}} extends ParentAction

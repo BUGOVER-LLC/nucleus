@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
 
-use Container\{{section-name}}\{{container-name}}\Actions\GetAll{{models}}Action;
-use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\GetAll{{models}}Request;
+use Container\{{section-name}}\{{container-name}}\Action\GetAll{{models}}Action;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\GetAll{{models}}Request;
 use Ship\Parents\Controller\WebController;
 
 class {{class-name}} extends WebController

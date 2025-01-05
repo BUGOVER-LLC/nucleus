@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Container\{{section-name}}\{{container-name}}\Task;
 
-use Container\{{section-name}}\{{container-name}}\Data\Repositories\{{model}}Repository;
+use Container\{{section-name}}\{{container-name}}\Data\Repository\{{model}}Repository;
 use Ship\Exceptions\DeleteResourceFailedException;
 use Ship\Exceptions\NotFoundException;
 use Ship\Parents\Task\Task as ParentTask;

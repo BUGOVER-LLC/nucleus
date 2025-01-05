@@ -2,7 +2,7 @@
 
 namespace Container\{{section-name}}\{{container-name}}\UI\API\Tests\Functional;
 
-use Container\{{section-name}}\{{container-name}}\Models\{{model}};
+use Container\{{section-name}}\{{container-name}}\Model\{{model}};
 use Container\{{section-name}}\{{container-name}}\UI\API\Tests\ApiTestCase;
 use Illuminate\Testing\Fluent\AssertableJson;
 

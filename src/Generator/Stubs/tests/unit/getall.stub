@@ -2,8 +2,8 @@
 
 namespace Container\{{section-name}}\{{container-name}}\Tests\Unit;
 
-use Container\{{section-name}}\{{container-name}}\Models\{{model}};
-use Container\{{section-name}}\{{container-name}}\Tasks\GetAll{{models}}Task;
+use Container\{{section-name}}\{{container-name}}\Model\{{model}};
+use Container\{{section-name}}\{{container-name}}\Task\GetAll{{models}}Task;
 use Container\{{section-name}}\{{container-name}}\Tests\TestCase;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 

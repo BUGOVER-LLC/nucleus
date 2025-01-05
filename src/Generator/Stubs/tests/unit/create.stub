@@ -2,7 +2,7 @@
 
 namespace Container\{{section-name}}\{{container-name}}\Tests\Unit;
 
-use Container\{{section-name}}\{{container-name}}\Tasks\Create{{model}}Task;
+use Container\{{section-name}}\{{container-name}}\Task\Create{{model}}Task;
 use Container\{{section-name}}\{{container-name}}\Tests\TestCase;
 use Ship\Exceptions\CreateResourceFailedException;
 

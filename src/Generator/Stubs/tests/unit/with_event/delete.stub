@@ -2,9 +2,9 @@
 
 namespace Container\{{section-name}}\{{container-name}}\Tests\Unit;
 
-use Container\{{section-name}}\{{container-name}}\Events\{{event}};
-use Container\{{section-name}}\{{container-name}}\Models\{{model}};
-use Container\{{section-name}}\{{container-name}}\Tasks\Delete{{model}}Task;
+use Container\{{section-name}}\{{container-name}}\Event\{{event}};
+use Container\{{section-name}}\{{container-name}}\Model\{{model}};
+use Container\{{section-name}}\{{container-name}}\Task\Delete{{model}}Task;
 use Container\{{section-name}}\{{container-name}}\Tests\TestCase;
 use Ship\Exceptions\NotFoundException;
 use Illuminate\Support\Facades\Event;

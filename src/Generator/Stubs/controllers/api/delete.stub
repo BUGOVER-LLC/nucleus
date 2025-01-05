@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
 
-use Container\{{section-name}}\{{container-name}}\Actions\Delete{{model}}Action;
-use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Delete{{model}}Request;
+use Container\{{section-name}}\{{container-name}}\Action\Delete{{model}}Action;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Delete{{model}}Request;
 use Ship\Exceptions\DeleteResourceFailedException;
 use Ship\Exceptions\NotFoundException;
 use Ship\Parents\Controller\{{base-controller}};

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Container\{{section-name}}\{{container-name}}\Task;
 
 use Nucleus\Exceptions\CoreInternalErrorException;
-use Container\{{section-name}}\{{container-name}}\Data\Repositories\{{model}}Repository;
+use Container\{{section-name}}\{{container-name}}\Data\Repository\{{model}}Repository;
 use Ship\Parents\Task\Task as ParentTask;
 
 class {{class-name}} extends ParentTask

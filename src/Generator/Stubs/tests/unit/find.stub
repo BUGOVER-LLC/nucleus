@@ -2,8 +2,8 @@
 
 namespace Container\{{section-name}}\{{container-name}}\Tests\Unit;
 
-use Container\{{section-name}}\{{container-name}}\Models\{{model}};
-use Container\{{section-name}}\{{container-name}}\Tasks\Find{{model}}ByIdTask;
+use Container\{{section-name}}\{{container-name}}\Model\{{model}};
+use Container\{{section-name}}\{{container-name}}\Task\Find{{model}}ByIdTask;
 use Container\{{section-name}}\{{container-name}}\Tests\TestCase;
 use Ship\Exceptions\NotFoundException;
 

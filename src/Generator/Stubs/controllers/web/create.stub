@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
 
-use Container\{{section-name}}\{{container-name}}\Actions\Create{{model}}Action;
-use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Create{{model}}Request;
-use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Store{{model}}Request;
+use Container\{{section-name}}\{{container-name}}\Action\Create{{model}}Action;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Create{{model}}Request;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Store{{model}}Request;
 use Ship\Parents\Controller\WebController;
 
 class {{class-name}} extends WebController

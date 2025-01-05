@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
 
-use Container\{{section-name}}\{{container-name}}\Actions\Create{{model}}Action;
-use Container\{{section-name}}\{{container-name}}\Actions\Delete{{model}}Action;
-use Container\{{section-name}}\{{container-name}}\Actions\Find{{model}}ByIdAction;
-use Container\{{section-name}}\{{container-name}}\Actions\GetAll{{models}}Action;
-use Container\{{section-name}}\{{container-name}}\Actions\Update{{model}}Action;
-use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Create{{model}}Request;
-use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Delete{{model}}Request;
-use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Edit{{model}}Request;
-use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Find{{model}}ByIdRequest;
-use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\GetAll{{models}}Request;
-use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Store{{model}}Request;
-use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Update{{model}}Request;
+use Container\{{section-name}}\{{container-name}}\Action\Create{{model}}Action;
+use Container\{{section-name}}\{{container-name}}\Action\Delete{{model}}Action;
+use Container\{{section-name}}\{{container-name}}\Action\Find{{model}}ByIdAction;
+use Container\{{section-name}}\{{container-name}}\Action\GetAll{{models}}Action;
+use Container\{{section-name}}\{{container-name}}\Action\Update{{model}}Action;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Create{{model}}Request;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Delete{{model}}Request;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Edit{{model}}Request;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Find{{model}}ByIdRequest;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\GetAll{{models}}Request;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Store{{model}}Request;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Update{{model}}Request;
 use Ship\Parents\Controller\WebController;
 
 class {{class-name}} extends WebController

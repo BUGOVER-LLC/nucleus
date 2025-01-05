@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Container\{{section-name}}\{{container-name}}\Action;
 
-use Container\{{section-name}}\{{container-name}}\Models\{{model}};
-use Container\{{section-name}}\{{container-name}}\Tasks\Find{{model}}ByIdTask;
-use Container\{{section-name}}\{{container-name}}\UI\{{ui}}\Requests\Find{{model}}ByIdRequest;
+use Container\{{section-name}}\{{container-name}}\Model\{{model}};
+use Container\{{section-name}}\{{container-name}}\Task\Find{{model}}ByIdTask;
+use Container\{{section-name}}\{{container-name}}\UI\{{ui}}\Request\Find{{model}}ByIdRequest;
 use Ship\Exceptions\NotFoundException;
 use Ship\Parents\Action\Action as ParentAction;
 

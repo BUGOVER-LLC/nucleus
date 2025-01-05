@@ -11,7 +11,7 @@ trait FactoryLocatorTrait
     protected static function newFactory(): ?Factory
     {
         $separator = '\\';
-        $containersFactoriesPath = $separator . 'Data' . $separator . 'Factories' . $separator;
+        $containersFactoriesPath = $separator . 'Data' . $separator . 'Factory' . $separator;
         $fullPathSections = explode($separator, static::class);
         $sectionName = $fullPathSections[2];
         $containerName = $fullPathSections[3];

@@ -2,7 +2,7 @@
 
 namespace Container\{{section-name}}\{{container-name}}\Tests\Unit;
 
-use Container\{{section-name}}\{{container-name}}\Models\{{model}};
+use Container\{{section-name}}\{{container-name}}\Model\{{model}};
 use Container\{{section-name}}\{{container-name}}\Tests\TestCase;
 
 /**
