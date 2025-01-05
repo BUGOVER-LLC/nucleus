@@ -15,7 +15,7 @@ trait CommandsLoaderTrait
      */
     public function loadCommandsFromContainers($containerPath): void
     {
-        $containerCommandsDirectory = $containerPath . '/UI/CLI/Commands';
+        $containerCommandsDirectory = $containerPath . '/UI/CLI/Command';
         $this->loadTheConsoles($containerCommandsDirectory);
     }
 
@@ -54,7 +54,7 @@ trait CommandsLoaderTrait
      */
     public function loadCommandsFromShip(): void
     {
-        $shipCommandsDirectory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Commands';
+        $shipCommandsDirectory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Command';
         $this->loadTheConsoles($shipCommandsDirectory);
     }
 
@@ -63,7 +63,7 @@ trait CommandsLoaderTrait
      */
     public function loadCommandsFromCore(): void
     {
-        $coreCommandsDirectory = __DIR__ . '/../Commands';
+        $coreCommandsDirectory = __DIR__ . '/../Command';
         $this->loadTheConsoles($coreCommandsDirectory);
     }
 }

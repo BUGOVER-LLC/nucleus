@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\Tasks;
+namespace Container\{{section-name}}\{{container-name}}\Task;
 
-use Containers\{{section-name}}\{{container-name}}\Data\Repositories\{{model}}Repository;
-use Containers\{{section-name}}\{{container-name}}\Models\{{model}};
+use Container\{{section-name}}\{{container-name}}\Data\Repositories\{{model}}Repository;
+use Container\{{section-name}}\{{container-name}}\Models\{{model}};
 use Ship\Exceptions\NotFoundException;
-use Ship\Parents\Tasks\Task as ParentTask;
+use Ship\Parents\Task\Task as ParentTask;
 use Exception;
 use Closure;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace Containers\{{section-name}}\{{container-name}}\Tests\Unit;
+namespace Container\{{section-name}}\{{container-name}}\Tests\Unit;
 
-use Containers\{{section-name}}\{{container-name}}\Events\{{event}};
-use Containers\{{section-name}}\{{container-name}}\Models\{{model}};
-use Containers\{{section-name}}\{{container-name}}\Tasks\Find{{model}}ByIdTask;
-use Containers\{{section-name}}\{{container-name}}\Tests\TestCase;
+use Container\{{section-name}}\{{container-name}}\Events\{{event}};
+use Container\{{section-name}}\{{container-name}}\Models\{{model}};
+use Container\{{section-name}}\{{container-name}}\Tasks\Find{{model}}ByIdTask;
+use Container\{{section-name}}\{{container-name}}\Tests\TestCase;
 use Ship\Exceptions\NotFoundException;
 use Illuminate\Support\Facades\Event;
 

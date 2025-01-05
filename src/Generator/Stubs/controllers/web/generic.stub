@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controllers;
+namespace Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
 
-use Ship\Parents\Controllers\{{base-controller}};
+use Ship\Parents\Controller\{{base-controller}};
 
 class {{class-name}} extends {{base-controller}}
 {

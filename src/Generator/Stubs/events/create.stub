@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\Events;
+namespace Container\{{section-name}}\{{container-name}}\Event;
 
-use Containers\{{section-name}}\{{container-name}}\Models\{{model}};
-use Ship\Parents\Events\Event as ParentEvent;
+use Container\{{section-name}}\{{container-name}}\Models\{{model}};
+use Ship\Parents\Event\Event as ParentEvent;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\PrivateChannel;
 

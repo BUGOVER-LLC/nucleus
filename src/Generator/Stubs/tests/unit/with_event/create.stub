@@ -1,10 +1,10 @@
 <?php
 
-namespace Containers\{{section-name}}\{{container-name}}\Tests\Unit;
+namespace Container\{{section-name}}\{{container-name}}\Tests\Unit;
 
-use Containers\{{section-name}}\{{container-name}}\Events\{{event}};
-use Containers\{{section-name}}\{{container-name}}\Tasks\Create{{model}}Task;
-use Containers\{{section-name}}\{{container-name}}\Tests\TestCase;
+use Container\{{section-name}}\{{container-name}}\Events\{{event}};
+use Container\{{section-name}}\{{container-name}}\Tasks\Create{{model}}Task;
+use Container\{{section-name}}\{{container-name}}\Tests\TestCase;
 use Ship\Exceptions\CreateResourceFailedException;
 use Illuminate\Support\Facades\Event;
 

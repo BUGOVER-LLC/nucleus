@@ -1,10 +1,10 @@
 <?php
 
-namespace Containers\{{section-name}}\{{container-name}}\Tests\Unit;
+namespace Container\{{section-name}}\{{container-name}}\Tests\Unit;
 
-use Containers\{{section-name}}\{{container-name}}\Models\{{model}};
-use Containers\{{section-name}}\{{container-name}}\Tasks\Update{{model}}Task;
-use Containers\{{section-name}}\{{container-name}}\Tests\TestCase;
+use Container\{{section-name}}\{{container-name}}\Models\{{model}};
+use Container\{{section-name}}\{{container-name}}\Tasks\Update{{model}}Task;
+use Container\{{section-name}}\{{container-name}}\Tests\TestCase;
 use Ship\Exceptions\NotFoundException;
 
 /**

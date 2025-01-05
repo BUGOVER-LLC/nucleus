@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests;
+namespace Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request;
 
-use Ship\Parents\Requests\Request as ParentRequest;
+use Ship\Parents\Request\Request as ParentRequest;
 
 class {{class-name}} extends ParentRequest
 {

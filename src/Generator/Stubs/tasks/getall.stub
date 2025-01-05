@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\Tasks;
+namespace Container\{{section-name}}\{{container-name}}\Task;
 
 use Nucleus\Exceptions\CoreInternalErrorException;
-use Containers\{{section-name}}\{{container-name}}\Data\Repositories\{{model}}Repository;
-use Ship\Parents\Tasks\Task as ParentTask;
+use Container\{{section-name}}\{{container-name}}\Data\Repositories\{{model}}Repository;
+use Ship\Parents\Task\Task as ParentTask;
 
 class {{class-name}} extends ParentTask
 {

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\Actions;
+namespace Container\{{section-name}}\{{container-name}}\Action;
 
 use Nucleus\Exceptions\CoreInternalErrorException;
-use Containers\{{section-name}}\{{container-name}}\Tasks\GetAll{{models}}Task;
-use Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Requests\GetAll{{models}}Request;
-use Ship\Parents\Actions\Action as ParentAction;
+use Container\{{section-name}}\{{container-name}}\Tasks\GetAll{{models}}Task;
+use Container\{{section-name}}\{{container-name}}\UI\{{ui}}\Requests\GetAll{{models}}Request;
+use Ship\Parents\Action\Action as ParentAction;
 
 class {{class-name}} extends ParentAction
 {

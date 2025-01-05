@@ -1,8 +1,8 @@
 <?php
 
-namespace Containers\{{section-name}}\{{container-name}}\Data\Factories;
+namespace Container\{{section-name}}\{{container-name}}\Data\Factories;
 
-use Containers\{{section-name}}\{{container-name}}\Models\{{model}};
+use Container\{{section-name}}\{{container-name}}\Models\{{model}};
 use Ship\Parents\Factories\Factory as ParentFactory;
 
 class {{class-name}} extends ParentFactory

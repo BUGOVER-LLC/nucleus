@@ -13,7 +13,7 @@ trait ConfigsLoaderTrait
      */
     public function loadConfigsFromShip(): void
     {
-        $ship_configs_directory = config('app.path') . 'Ship/Configs';
+        $ship_configs_directory = config('app.path') . 'Ship/Config';
         $this->loadConfigs($ship_configs_directory);
     }
 
@@ -41,7 +41,7 @@ trait ConfigsLoaderTrait
      */
     public function loadConfigsFromContainers($container_path): void
     {
-        $container_configs_directory = $container_path . DIRECTORY_SEPARATOR . 'Configs';
+        $container_configs_directory = $container_path . DIRECTORY_SEPARATOR . 'Config';
         $this->loadConfigs($container_configs_directory);
     }
 }

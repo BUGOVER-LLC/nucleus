@@ -37,7 +37,7 @@ class ServiceProviderGenerator extends GeneratorCommand implements ComponentsGen
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/Providers/*';
+    protected string $pathStructure = '{section-name}/{container-name}/Provider/*';
     /**
      * The structure of the file name.
      */

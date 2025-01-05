@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\Providers;
+namespace Container\{{section-name}}\{{container-name}}\Provider;
 
-use Ship\Parents\Providers\EventServiceProvider as ParentEventServiceProvider;
+use Ship\Parents\Provider\EventServiceProvider as ParentEventServiceProvider;
 
 /**
  * The Main Service Provider of this container, it will be automatically registered in the framework.

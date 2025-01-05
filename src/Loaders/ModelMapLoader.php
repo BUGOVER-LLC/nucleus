@@ -17,7 +17,7 @@ trait ModelMapLoader
      */
     private function loadModelMapsFromContainers(string $container_path): void
     {
-        $container_models_directory = $container_path . DIRECTORY_SEPARATOR . 'Models';
+        $container_models_directory = $container_path . DIRECTORY_SEPARATOR . 'Model';
         $this->loadModels($container_models_directory);
     }
 
@@ -49,7 +49,7 @@ trait ModelMapLoader
      */
     private function loadModelsMapFormShip(): void
     {
-        $ship_models_directory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Models';
+        $ship_models_directory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Model';
         $this->loadModels($ship_models_directory);
     }
 }

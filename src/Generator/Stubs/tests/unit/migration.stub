@@ -1,8 +1,8 @@
 <?php
 
-namespace Containers\{{section-name}}\{{container-name}}\Tests\Unit;
+namespace Container\{{section-name}}\{{container-name}}\Tests\Unit;
 
-use Containers\{{section-name}}\{{container-name}}\Tests\TestCase;
+use Container\{{section-name}}\{{container-name}}\Tests\TestCase;
 use Illuminate\Support\Facades\Schema;
 
 /**

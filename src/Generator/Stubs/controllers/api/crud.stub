@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controllers;
+namespace Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
 
 use Nucleus\Exceptions\CoreInternalErrorException;
 use Nucleus\Exceptions\InvalidResourceException;
-use Containers\{{section-name}}\{{container-name}}\Actions\Create{{model}}Action;
-use Containers\{{section-name}}\{{container-name}}\Actions\Delete{{model}}Action;
-use Containers\{{section-name}}\{{container-name}}\Actions\Find{{model}}ByIdAction;
-use Containers\{{section-name}}\{{container-name}}\Actions\GetAll{{models}}Action;
-use Containers\{{section-name}}\{{container-name}}\Actions\Update{{model}}Action;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Create{{model}}Request;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Delete{{model}}Request;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Find{{model}}ByIdRequest;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\GetAll{{models}}Request;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Update{{model}}Request;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resources\{{model}}Resource;
+use Container\{{section-name}}\{{container-name}}\Actions\Create{{model}}Action;
+use Container\{{section-name}}\{{container-name}}\Actions\Delete{{model}}Action;
+use Container\{{section-name}}\{{container-name}}\Actions\Find{{model}}ByIdAction;
+use Container\{{section-name}}\{{container-name}}\Actions\GetAll{{models}}Action;
+use Container\{{section-name}}\{{container-name}}\Actions\Update{{model}}Action;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Create{{model}}Request;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Delete{{model}}Request;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Find{{model}}ByIdRequest;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\GetAll{{models}}Request;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Update{{model}}Request;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resources\{{model}}Resource;
 use Ship\Exceptions\CreateResourceFailedException;
 use Ship\Exceptions\DeleteResourceFailedException;
 use Ship\Exceptions\NotFoundException;
 use Ship\Exceptions\UpdateResourceFailedException;
-use Ship\Parents\Controllers\{{base-controller}};
+use Ship\Parents\Controller\{{base-controller}};
 use Illuminate\Http\JsonResponse;
 
 class {{class-name}} extends {{base-controller}}

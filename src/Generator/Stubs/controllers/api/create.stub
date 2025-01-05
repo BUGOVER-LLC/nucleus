@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controllers;
+namespace Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
 
 use Nucleus\Exceptions\IncorrectIdException;
 use Nucleus\Exceptions\InvalidResourceException;
-use Containers\{{section-name}}\{{container-name}}\Actions\Create{{model}}Action;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Create{{model}}Request;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resource\{{model}}Resource;
+use Container\{{section-name}}\{{container-name}}\Actions\Create{{model}}Action;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Create{{model}}Request;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resource\{{model}}Resource;
 use Ship\Exceptions\CreateResourceFailedException;
-use Ship\Parents\Controllers\{{base-controller}};
+use Ship\Parents\Controller\{{base-controller}};
 use Illuminate\Http\JsonResponse;
 use OpenApi\Attributes\JsonContent;
 use OpenApi\Attributes\Post;

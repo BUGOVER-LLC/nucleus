@@ -11,7 +11,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Containers\\{{section-name}}\\{{container-name}}\\": "/"
+      "App\\Container\\{{section-name}}\\{{container-name}}\\": "/"
     }
   },
   "extra": {
@@ -22,7 +22,7 @@
     },
     "laravel": {
       "providers": [
-        "Containers\\{{section-name}}\\{{container-name}}\\Providers\\MainServiceProvider"
+        "App\\Container\\{{section-name}}\\{{container-name}}\\Provider\\MainServiceProvider"
       ]
     }
   }

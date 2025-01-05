@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\Actions;
+namespace Container\{{section-name}}\{{container-name}}\Action;
 
-use Containers\{{section-name}}\{{container-name}}\Models\{{model}};
-use Containers\{{section-name}}\{{container-name}}\Tasks\Find{{model}}ByIdTask;
-use Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Requests\Find{{model}}ByIdRequest;
+use Container\{{section-name}}\{{container-name}}\Models\{{model}};
+use Container\{{section-name}}\{{container-name}}\Tasks\Find{{model}}ByIdTask;
+use Container\{{section-name}}\{{container-name}}\UI\{{ui}}\Requests\Find{{model}}ByIdRequest;
 use Ship\Exceptions\NotFoundException;
-use Ship\Parents\Actions\Action as ParentAction;
+use Ship\Parents\Action\Action as ParentAction;
 
 class {{class-name}} extends ParentAction
 {

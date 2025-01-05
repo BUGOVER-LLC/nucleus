@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controllers;
+namespace Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
 
-use Containers\{{section-name}}\{{container-name}}\Actions\Delete{{model}}Action;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Delete{{model}}Request;
-use Ship\Parents\Controllers\WebController;
+use Container\{{section-name}}\{{container-name}}\Actions\Delete{{model}}Action;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Delete{{model}}Request;
+use Ship\Parents\Controller\WebController;
 
 class {{class-name}} extends WebController
 {

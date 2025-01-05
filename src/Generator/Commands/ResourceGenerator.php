@@ -88,7 +88,7 @@ class ResourceGenerator extends GeneratorCommand implements ComponentsGenerator
         ];
 
         if ($full) {
-            $obj = 'Containers\\' . $this->sectionName . '\\' . $this->containerName . '\\Models\\' . $model;
+            $obj = 'Container\\' . $this->sectionName . '\\' . $this->containerName . '\\Models\\' . $model;
             $obj = new $obj();
             $columns = Schema::getColumnListing($obj->getTable());
 

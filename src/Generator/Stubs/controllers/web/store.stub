@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controllers;
+namespace Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
 
-use Containers\{{section-name}}\{{container-name}}\Actions\Create{{model}}Action;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Create{{model}}Request;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Store{{model}}Request;
-use Ship\Parents\Controllers\WebController;
+use Container\{{section-name}}\{{container-name}}\Actions\Create{{model}}Action;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Create{{model}}Request;
+use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Store{{model}}Request;
+use Ship\Parents\Controller\WebController;
 
 class {{class-name}} extends WebController
 {

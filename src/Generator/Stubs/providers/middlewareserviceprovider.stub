@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\Providers;
+namespace Container\{{section-name}}\{{container-name}}\Provider;
 
-use Ship\Parents\Providers\MiddlewareServiceProvider as ParentMiddlewareServiceProvider;
+use Ship\Parents\Provider\MiddlewareServiceProvider as ParentMiddlewareServiceProvider;
 
 class {{class-name}} extends ParentMiddlewareServiceProvider
 {
