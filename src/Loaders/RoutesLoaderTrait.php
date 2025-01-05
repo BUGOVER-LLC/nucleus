@@ -38,26 +38,23 @@ trait RoutesLoaderTrait
     {
         // Build the container api routes path
         $api_routes_path = $container_path . '/UI/API/Routes';
-        // Build the namespace from the path
-        $controller_namespace = $container_path . '\\UI\API\Controllers';
 
         if (File::isDirectory($api_routes_path)) {
             $files = File::allFiles($api_routes_path);
             $files = Arr::sort($files, fn($file) => $file->getFilename());
 
             foreach ($files as $file) {
-                $this->loadApiRoute($file, $controller_namespace);
+                $this->loadApiRoute($file);
             }
         }
     }
 
     /**
      * @param $file
-     * @param $controllerNamespace
      */
-    private function loadApiRoute($file, $controllerNamespace): void
+    private function loadApiRoute($file): void
     {
-        $routeGroupArray = $this->getRouteGroup($file, $controllerNamespace);
+        $routeGroupArray = $this->getRouteGroup($file);
 
         Route::group($routeGroupArray, function ($router) use ($file) {
             require $file->getPathname();
@@ -66,17 +63,13 @@ trait RoutesLoaderTrait
 
     /**
      * @param      $endpointFileOrPrefixString
-     * @param null $controllerNamespace
-     *
      * @return  array
      */
-    public function getRouteGroup($endpointFileOrPrefixString, $controllerNamespace = null): array
+    public function getRouteGroup($endpointFileOrPrefixString): array
     {
         return [
-            'namespace' => $controllerNamespace,
             'middleware' => $this->getMiddlewares(),
             'domain' => $this->getApiUrl(),
-            // If $endpointFileOrPrefixString is a file then get the version name from the file name, else if string use that string as prefix
             'prefix' => \is_string(
                 $endpointFileOrPrefixString
             ) ? $endpointFileOrPrefixString : $this->getApiVersionPrefix($endpointFileOrPrefixString),
@@ -177,27 +170,24 @@ trait RoutesLoaderTrait
     {
         // build the container web routes path
         $web_routes_path = $container_path . DIRECTORY_SEPARATOR . 'UI' . DIRECTORY_SEPARATOR . 'WEB' . DIRECTORY_SEPARATOR . 'Routes';
-        // build the namespace from the path
-        $controller_namespace = str_replace(['/', '\\'], '\\', $container_path) . '\\UI\WEB\Controllers';
 
         if (File::isDirectory($web_routes_path)) {
             $files = File::allFiles($web_routes_path);
             $files = Arr::sort($files, fn($file) => $file->getFilename());
 
             foreach ($files as $file) {
-                $this->loadWebRoute($file, $controller_namespace);
+                $this->loadWebRoute($file);
             }
         }
     }
 
     /**
      * @param $file
-     * @param $controller_namespace
      */
-    private function loadWebRoute($file, $controller_namespace): void
+    private function loadWebRoute($file): void
     {
         Route::group(
-            ['namespace' => $controller_namespace, 'middleware' => ['web']],
+            ['middleware' => ['web']],
             fn($router) => require $file->getPathname()
         );
     }
