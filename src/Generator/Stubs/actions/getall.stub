@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\Action;
+namespace App\Containers\{{section-name}}\{{container-name}}\Action;
 
 use Nucleus\Exceptions\CoreInternalErrorException;
-use Containers\{{section-name}}\{{container-name}}\Task\GetAll{{models}}Task;
-use Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Request\GetAll{{models}}Request;
+use App\Containers\{{section-name}}\{{container-name}}\Task\GetAll{{models}}Task;
+use App\Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Request\GetAll{{models}}Request;
 use Ship\Parent\Action\Action as ParentAction;
 
 class {{class-name}} extends ParentAction

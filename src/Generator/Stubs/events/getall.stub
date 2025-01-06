@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\Event;
+namespace App\Containers\{{section-name}}\{{container-name}}\Event;
 
-use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
+use App\Containers\{{section-name}}\{{container-name}}\Model\{{model}};
 use Ship\Parent\Event\Event as ParentEvent;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\PrivateChannel;

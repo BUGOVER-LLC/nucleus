@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\Middleware;
+namespace App\Containers\{{section-name}}\{{container-name}}\Middleware;
 
 use Ship\Parent\Middlewares\Middleware as ParentMiddleware;
 use Closure;

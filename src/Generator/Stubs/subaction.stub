@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\Action;
+namespace App\Containers\{{section-name}}\{{container-name}}\Action;
 
 use Ship\Parent\Action\SubAction as ParentSubAction;
 

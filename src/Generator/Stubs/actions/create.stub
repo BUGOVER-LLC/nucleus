@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\Action;
+namespace App\Containers\{{section-name}}\{{container-name}}\Action;
 
 use Nucleus\Exceptions\IncorrectIdException;
-use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
-use Containers\{{section-name}}\{{container-name}}\Task\Create{{model}}Task;
-use Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Request\Create{{model}}Request;
+use App\Containers\{{section-name}}\{{container-name}}\Model\{{model}};
+use App\Containers\{{section-name}}\{{container-name}}\Task\Create{{model}}Task;
+use App\Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Request\Create{{model}}Request;
 use Ship\Exception\CreateResourceFailedException;
 use Ship\Parent\Action\Action as ParentAction;
 

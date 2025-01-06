@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
+namespace App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
 
-use Containers\{{section-name}}\{{container-name}}\Action\Find{{model}}ByIdAction;
-use Containers\{{section-name}}\{{container-name}}\Action\Update{{model}}Action;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Edit{{model}}Request;
-use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Update{{model}}Request;
+use App\Containers\{{section-name}}\{{container-name}}\Action\Find{{model}}ByIdAction;
+use App\Containers\{{section-name}}\{{container-name}}\Action\Update{{model}}Action;
+use App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Edit{{model}}Request;
+use App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Update{{model}}Request;
 use Ship\Parent\Controller\WebController;
 
 class {{class-name}} extends WebController

@@ -1,9 +1,9 @@
 <?php
 
-namespace Containers\{{section-name}}\{{container-name}}\Tests\Unit;
+namespace App\Containers\{{section-name}}\{{container-name}}\Tests\Unit;
 
-use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
-use Containers\{{section-name}}\{{container-name}}\Tests\TestCase;
+use App\Containers\{{section-name}}\{{container-name}}\Model\{{model}};
+use App\Containers\{{section-name}}\{{container-name}}\Tests\TestCase;
 
 /**
  * Class {{class-name}}.

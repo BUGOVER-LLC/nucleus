@@ -1,11 +1,11 @@
 <?php
 
-namespace Containers\{{section-name}}\{{container-name}}\Tests\Unit;
+namespace App\Containers\{{section-name}}\{{container-name}}\Tests\Unit;
 
-use Containers\{{section-name}}\{{container-name}}\Event\{{event}};
-use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
-use Containers\{{section-name}}\{{container-name}}\Task\GetAll{{models}}Task;
-use Containers\{{section-name}}\{{container-name}}\Tests\TestCase;
+use App\Containers\{{section-name}}\{{container-name}}\Event\{{event}};
+use App\Containers\{{section-name}}\{{container-name}}\Model\{{model}};
+use App\Containers\{{section-name}}\{{container-name}}\Task\GetAll{{models}}Task;
+use App\Containers\{{section-name}}\{{container-name}}\Tests\TestCase;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Event;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\Job;
+namespace App\Containers\{{section-name}}\{{container-name}}\Job;
 
 use Ship\Parent\Jobs\Job as ParentJob;
 
