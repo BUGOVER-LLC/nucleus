@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Containers\{{section-name}}\{{container-name}}\UI\API\Resource;
+namespace Containers\{{section-name}}\{{container-name}}\UI\API\Resource;
 
-use App\Containers\{{section-name}}\{{container-name}}\Model\{{model}};
+use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
 use Ship\Parent\Resource\Resource as ParentResource;
 
 class {{class-name}} extends ParentResource

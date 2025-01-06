@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
+namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
 
 use Nucleus\Exceptions\InvalidResourceException;
-use App\Containers\{{section-name}}\{{container-name}}\Action\Find{{model}}ByIdAction;
-use App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Find{{model}}ByIdRequest;
-use App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resource\{{model}}Resource;
+use Containers\{{section-name}}\{{container-name}}\Action\Find{{model}}ByIdAction;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Find{{model}}ByIdRequest;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resource\{{model}}Resource;
 use Ship\Exception\NotFoundException;
 use Ship\Parent\Controller\{{base-controller}};
 

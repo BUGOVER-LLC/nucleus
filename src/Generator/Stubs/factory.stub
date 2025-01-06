@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Containers\{{section-name}}\{{container-name}}\Data\Factory;
+namespace Containers\{{section-name}}\{{container-name}}\Data\Factory;
 
-use App\Containers\{{section-name}}\{{container-name}}\Model\{{model}};
+use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
 use Ship\Parent\Factory\Factory as ParentFactory;
 
 class {{class-name}} extends ParentFactory

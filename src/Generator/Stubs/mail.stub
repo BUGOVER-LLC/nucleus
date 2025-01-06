@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Containers\{{section-name}}\{{container-name}}\Mail;
+namespace Containers\{{section-name}}\{{container-name}}\Mail;
 
-use App\Containers\AppSection\User\Model\User;
+use Containers\AppSection\User\Model\User;
 use Ship\Parent\Mails\Mail as ParentMail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

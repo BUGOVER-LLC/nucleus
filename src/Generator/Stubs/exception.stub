@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Containers\{{section-name}}\{{container-name}}\Exception;
+namespace Containers\{{section-name}}\{{container-name}}\Exception;
 
 use Ship\Parent\Exceptions\Exception as ParentException;
 use Symfony\Component\HttpFoundation\Response;

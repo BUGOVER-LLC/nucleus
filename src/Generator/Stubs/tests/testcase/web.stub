@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\{{section-name}}\{{container-name}}\UI\WEB\Tests;
+namespace Containers\{{section-name}}\{{container-name}}\UI\WEB\Tests;
 
 use Ship\Parent\Tests\PhpUnit\TestCase as ShipTestCase;
 

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
+namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
 
 use Nucleus\Exceptions\IncorrectIdException;
 use Nucleus\Exceptions\InvalidResourceException;
-use App\Containers\{{section-name}}\{{container-name}}\Action\Create{{model}}Action;
-use App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Create{{model}}Request;
-use App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resource\{{model}}Resource;
+use Containers\{{section-name}}\{{container-name}}\Action\Create{{model}}Action;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Create{{model}}Request;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resource\{{model}}Resource;
 use Ship\Exception\CreateResourceFailedException;
 use Ship\Parent\Controller\{{base-controller}};
 use Illuminate\Http\JsonResponse;

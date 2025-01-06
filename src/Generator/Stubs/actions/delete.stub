@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Containers\{{section-name}}\{{container-name}}\Action;
+namespace Containers\{{section-name}}\{{container-name}}\Action;
 
-use App\Containers\{{section-name}}\{{container-name}}\Task\Delete{{model}}Task;
-use App\Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Request\Delete{{model}}Request;
+use Containers\{{section-name}}\{{container-name}}\Task\Delete{{model}}Task;
+use Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Request\Delete{{model}}Request;
 use Ship\Exception\DeleteResourceFailedException;
 use Ship\Exception\NotFoundException;
 use Ship\Parent\Action\Action as ParentAction;

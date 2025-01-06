@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Containers\{{section-name}}\{{container-name}}\Listener;
+namespace Containers\{{section-name}}\{{container-name}}\Listener;
 
-use App\Containers\{{section-name}}\{{container-name}}\Event\{{model}};
+use Containers\{{section-name}}\{{container-name}}\Event\{{model}};
 use Ship\Parent\Listener\Listener as ParentListener;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

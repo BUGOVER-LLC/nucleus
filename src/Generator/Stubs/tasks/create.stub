@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Containers\{{section-name}}\{{container-name}}\Task;
+namespace Containers\{{section-name}}\{{container-name}}\Task;
 
-use App\Containers\{{section-name}}\{{container-name}}\Data\Repository\{{model}}Repository;
-use App\Containers\{{section-name}}\{{container-name}}\Model\{{model}};
+use Containers\{{section-name}}\{{container-name}}\Data\Repository\{{model}}Repository;
+use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
 use Ship\Exception\CreateResourceFailedException;
 use Ship\Parent\Task\Task as ParentTask;
 use Exception;
