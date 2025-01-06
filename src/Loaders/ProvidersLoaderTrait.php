@@ -27,7 +27,7 @@ trait ProvidersLoaderTrait
     }
 
     /**
-     * @param $directory
+     * @param string $directory
      * @return void
      */
     private function loadProviders(string $directory): void

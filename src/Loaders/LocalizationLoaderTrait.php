@@ -25,9 +25,9 @@ trait LocalizationLoaderTrait
     }
 
     /**
-     * @param $directory
-     * @param $containerName
-     * @param $sectionName
+     * @param string $directory
+     * @param string $containerName
+     * @param string|null $sectionName
      * @return void
      */
     private function loadLocals(string $directory, string $containerName, ?string $sectionName = null): void

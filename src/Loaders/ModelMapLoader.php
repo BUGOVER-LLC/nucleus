@@ -36,7 +36,7 @@ trait ModelMapLoader
             foreach ($files as $modelFile) {
                 $modelClass = Nuclear::getClassFullNameFromFile($modelFile->getPathname());
                 $instance = (new $modelClass());
-                if ($instance instanceof EntityContract && property_exists($instance, 'map') && $instance->getMap()) {
+                if ($instance instanceof EntityContract && property_exists($instance, 'map')) {
                     $result[$instance->getMap()] = $modelFile;
                 }
             }

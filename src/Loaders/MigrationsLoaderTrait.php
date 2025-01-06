@@ -16,7 +16,7 @@ trait MigrationsLoaderTrait
     }
 
     /**
-     * @param $directory
+     * @param string $directory
      * @return void
      */
     private function loadMigrations(string $directory): void

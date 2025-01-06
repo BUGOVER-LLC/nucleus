@@ -12,15 +12,15 @@ trait ViewsLoaderTrait
 {
     public function loadViewsFromContainers(string $containerPath): void
     {
-        $container_view_directory = $containerPath . '/UI/WEB/Views/';
-        $container_mail_templates_directory = $containerPath . '/Mails/Templates/';
+        $containerViewDirectory = $containerPath . '/UI/WEB/Views/';
+        $containerMailTemplatesDirectory = $containerPath . '/Mails/Templates/';
 
-        $container_name = basename($containerPath);
-        $path_parts = explode(DIRECTORY_SEPARATOR, $containerPath);
-        $section_name = $path_parts[(int) count($path_parts) - 2];
+        $containerName = basename($containerPath);
+        $pathParts = explode(DIRECTORY_SEPARATOR, $containerPath);
+        $sectionName = $pathParts[(int) count($pathParts) - 2];
 
-        $this->loadViews($container_view_directory, $container_name, $section_name);
-        $this->loadViews($container_mail_templates_directory, $container_name, $section_name);
+        $this->loadViews($containerViewDirectory, $containerName, $sectionName);
+        $this->loadViews($containerMailTemplatesDirectory, $containerName, $sectionName);
     }
 
     private function loadViews(string $directory, string $container_name, ?string $section_name = null): void
@@ -30,11 +30,11 @@ trait ViewsLoaderTrait
         }
     }
 
-    private function buildViewNamespace(?string $section_name, string $container_name): string
+    private function buildViewNamespace(?string $sectionName, string $containerName): string
     {
-        return $section_name
-            ? (Str::camel($section_name) . '@' . Str::camel($container_name))
-            : Str::camel($container_name);
+        return $sectionName
+            ? (Str::camel($sectionName) . '@' . Str::camel($containerName))
+            : Str::camel($containerName);
     }
 
     /**

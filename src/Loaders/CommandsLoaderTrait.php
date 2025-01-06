@@ -7,6 +7,7 @@ namespace Nucleus\Loaders;
 use Illuminate\Support\Facades\File;
 use Nucleus\Foundation\Facades\Nuclear;
 use Nucleus\Foundation\Nuclear as MainNuclear;
+use SplFileInfo;
 
 trait CommandsLoaderTrait
 {
@@ -21,7 +22,7 @@ trait CommandsLoaderTrait
     }
 
     /**
-     * @param $directory
+     * @param string $directory
      * @return void
      */
     private function loadTheConsoles(string $directory): void
@@ -33,8 +34,6 @@ trait CommandsLoaderTrait
                 // Do not load route files
                 if (!$this->isRouteFile($consoleFile)) {
                     $consoleClass = Nuclear::getClassFullNameFromFile($consoleFile->getPathname());
-                    // When user from the Main Service Provider, which extends Laravel
-                    // service provider you get access to `$this->commands`
                     $this->commands([$consoleClass]);
                 }
             }
@@ -42,10 +41,10 @@ trait CommandsLoaderTrait
     }
 
     /**
-     * @param $consoleFile
+     * @param SplFileInfo $consoleFile
      * @return bool
      */
-    private function isRouteFile(string $consoleFile): bool
+    private function isRouteFile(SplFileInfo $consoleFile): bool
     {
         return 'closures.php' === $consoleFile->getFilename();
     }
