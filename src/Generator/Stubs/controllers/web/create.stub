@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
+namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
 
-use Container\{{section-name}}\{{container-name}}\Action\Create{{model}}Action;
-use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Create{{model}}Request;
-use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Store{{model}}Request;
+use Containers\{{section-name}}\{{container-name}}\Action\Create{{model}}Action;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Create{{model}}Request;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Store{{model}}Request;
 use Ship\Parents\Controller\WebController;
 
 class {{class-name}} extends WebController

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Container\{{section-name}}\{{container-name}}\Model;
+namespace Containers\{{section-name}}\{{container-name}}\Model;
 
 use Ship\Parents\Model\Model as ParentModel;
 use Nucleus\Attributes\ModelEntity;
@@ -10,6 +10,10 @@ use Nucleus\Attributes\ModelEntity;
 #[ModelEntity()]
 class {{class-name}} extends ParentModel
 {
+    protected $table = '';
+
+    protected $primaryKey = '';
+
     protected $fillable = [
 
     ];

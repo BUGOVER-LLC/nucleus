@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Container\{{section-name}}\{{container-name}}\Task;
+namespace Containers\{{section-name}}\{{container-name}}\Task;
 
-use Container\{{section-name}}\{{container-name}}\Data\Repository\{{model}}Repository;
-use Container\{{section-name}}\{{container-name}}\Model\{{model}};
+use Containers\{{section-name}}\{{container-name}}\Data\Repository\{{model}}Repository;
+use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
 use Ship\Exceptions\NotFoundException;
 use Ship\Exceptions\UpdateResourceFailedException;
 use Ship\Parents\Task\Task as ParentTask;

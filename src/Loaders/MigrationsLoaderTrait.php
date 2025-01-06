@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\File;
 
 trait MigrationsLoaderTrait
 {
-    public function loadMigrationsFromContainers($containerPath): void
+    public function loadMigrationsFromContainers(string $containerPath): void
     {
         $container_migration_directory = $containerPath . '/Data/Migrations';
         $this->loadMigrations($container_migration_directory);
@@ -18,7 +18,7 @@ trait MigrationsLoaderTrait
      * @param $directory
      * @return void
      */
-    private function loadMigrations($directory): void
+    private function loadMigrations(string $directory): void
     {
         if (File::isDirectory($directory)) {
             $this->loadMigrationsFrom($directory);

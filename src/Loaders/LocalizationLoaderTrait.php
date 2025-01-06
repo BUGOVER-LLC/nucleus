@@ -13,7 +13,7 @@ trait LocalizationLoaderTrait
      * @param $containerPath
      * @return void
      */
-    public function loadLocalsFromContainers($containerPath): void
+    public function loadLocalsFromContainers(string $containerPath): void
     {
         $containerLocaleDirectory = $containerPath . '/Languages';
         $containerName = basename($containerPath);
@@ -29,7 +29,7 @@ trait LocalizationLoaderTrait
      * @param $sectionName
      * @return void
      */
-    private function loadLocals($directory, $containerName, $sectionName = null): void
+    private function loadLocals(string $directory, string $containerName, ?string $sectionName = null): void
     {
         if (File::isDirectory($directory)) {
             $this->loadTranslationsFrom($directory, $this->buildLocaleNamespace($sectionName, $containerName));

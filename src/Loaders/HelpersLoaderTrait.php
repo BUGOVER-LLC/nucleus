@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\File;
 
 trait HelpersLoaderTrait
 {
-    public function loadHelpersFromContainers($containerPath): void
+    public function loadHelpersFromContainers(string $containerPath): void
     {
         $containerHelpersDirectory = $containerPath . '/Helpers';
         $this->loadHelpers($containerHelpersDirectory);
     }
 
-    private function loadHelpers($helpersFolder): void
+    private function loadHelpers(string $helpersFolder): void
     {
         if (File::isDirectory($helpersFolder)) {
             $files = File::files($helpersFolder);

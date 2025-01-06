@@ -1,8 +1,8 @@
 <?php
 
-namespace Container\{{section-name}}\{{container-name}}\UI\API\Tests\Functional;
+namespace Containers\{{section-name}}\{{container-name}}\UI\API\Tests\Functional;
 
-use Container\{{section-name}}\{{container-name}}\UI\API\Tests\ApiTestCase;
+use Containers\{{section-name}}\{{container-name}}\UI\API\Tests\ApiTestCase;
 use Illuminate\Testing\Fluent\AssertableJson;
 
 /**

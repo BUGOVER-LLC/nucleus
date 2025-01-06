@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Container\{{section-name}}\{{container-name}}\Task;
+namespace Containers\{{section-name}}\{{container-name}}\Task;
 
 use Ship\Parents\Task\Task as ParentTask;
 use Closure;

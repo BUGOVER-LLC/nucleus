@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Container\{{section-name}}\{{container-name}}\Provider;
+namespace Containers\{{section-name}}\{{container-name}}\Provider;
 
 use Ship\Parents\Provider\MainServiceProvider as ParentMainServiceProvider;
 

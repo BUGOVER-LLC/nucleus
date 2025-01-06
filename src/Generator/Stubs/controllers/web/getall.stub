@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
+namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
 
-use Container\{{section-name}}\{{container-name}}\Action\GetAll{{models}}Action;
-use Container\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\GetAll{{models}}Request;
+use Containers\{{section-name}}\{{container-name}}\Action\GetAll{{models}}Action;
+use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\GetAll{{models}}Request;
 use Ship\Parents\Controller\WebController;
 
 class {{class-name}} extends WebController

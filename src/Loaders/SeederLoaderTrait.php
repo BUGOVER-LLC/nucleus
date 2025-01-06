@@ -34,7 +34,7 @@ trait SeederLoaderTrait
         foreach (Nuclear::getSectionNames() as $section_name) {
             foreach (Nuclear::getSectionContainerNames($section_name) as $container_name) {
                 $containers_directories[] = base_path(
-                    config('app.path') . 'Container/' . $section_name . '/' . $container_name . $this->seedersPath
+                    config('app.path') . 'Containers/' . $section_name . '/' . $container_name . $this->seedersPath
                 );
             }
         }

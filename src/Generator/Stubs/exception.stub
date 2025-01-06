@@ -1,6 +1,8 @@
 <?php
 
-namespace Container\{{section-name}}\{{container-name}}\Exception;
+declare(strict_types=1);
+
+namespace Containers\{{section-name}}\{{container-name}}\Exception;
 
 use Ship\Parents\Exceptions\Exception as ParentException;
 use Symfony\Component\HttpFoundation\Response;

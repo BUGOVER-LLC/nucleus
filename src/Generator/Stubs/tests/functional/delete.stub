@@ -1,9 +1,9 @@
 <?php
 
-namespace Container\{{section-name}}\{{container-name}}\UI\API\Tests\Functional;
+namespace Containers\{{section-name}}\{{container-name}}\UI\API\Tests\Functional;
 
-use Container\{{section-name}}\{{container-name}}\Model\{{model}};
-use Container\{{section-name}}\{{container-name}}\UI\API\Tests\ApiTestCase;
+use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
+use Containers\{{section-name}}\{{container-name}}\UI\API\Tests\ApiTestCase;
 
 /**
  * Class {{class-name}}.

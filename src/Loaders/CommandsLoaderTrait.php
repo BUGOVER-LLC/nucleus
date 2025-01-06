@@ -13,7 +13,7 @@ trait CommandsLoaderTrait
      * @param $containerPath
      * @return void
      */
-    public function loadCommandsFromContainers($containerPath): void
+    public function loadCommandsFromContainers(string $containerPath): void
     {
         $containerCommandsDirectory = $containerPath . '/UI/CLI/Command';
         $this->loadTheConsoles($containerCommandsDirectory);
@@ -23,7 +23,7 @@ trait CommandsLoaderTrait
      * @param $directory
      * @return void
      */
-    private function loadTheConsoles($directory): void
+    private function loadTheConsoles(string $directory): void
     {
         if (File::isDirectory($directory)) {
             $files = File::allFiles($directory);
@@ -44,7 +44,7 @@ trait CommandsLoaderTrait
      * @param $consoleFile
      * @return bool
      */
-    private function isRouteFile($consoleFile): bool
+    private function isRouteFile(string $consoleFile): bool
     {
         return 'closures.php' === $consoleFile->getFilename();
     }

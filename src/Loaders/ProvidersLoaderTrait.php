@@ -19,7 +19,7 @@ trait ProvidersLoaderTrait
      *
      * @param $containerPath
      */
-    public function loadOnlyMainProvidersFromContainers($containerPath): void
+    public function loadOnlyMainProvidersFromContainers(string $containerPath): void
     {
         $container_providers_directory = $containerPath . '/Provider';
         $this->loadProviders($container_providers_directory);
@@ -29,7 +29,7 @@ trait ProvidersLoaderTrait
      * @param $directory
      * @return void
      */
-    private function loadProviders($directory): void
+    private function loadProviders(string $directory): void
     {
         $main_service_provider_name_start_with = 'Main';
 
@@ -55,7 +55,7 @@ trait ProvidersLoaderTrait
      * @param $provider_full_name
      * @return void
      */
-    private function loadProvider($provider_full_name): void
+    private function loadProvider(string $provider_full_name): void
     {
         App::register($provider_full_name);
     }
@@ -85,8 +85,8 @@ trait ProvidersLoaderTrait
      */
     public function loadOnlyVendorProviderFromShip(): void
     {
-        if (File::exists(app_path('Container\Vendor\Provider\MainServiceProvider.php'))) {
-            $this->loadProvider('Container\Vendor\Provider\MainServiceProvider');
+        if (File::exists(app_path('Containers\Vendor\Provider\MainServiceProvider.php'))) {
+            $this->loadProvider('Containers\Vendor\Provider\MainServiceProvider');
         }
     }
 }

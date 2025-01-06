@@ -21,7 +21,7 @@ trait ConfigsLoaderTrait
      * @param $config_folder
      * @return void
      */
-    private function loadConfigs($config_folder): void
+    private function loadConfigs(string $config_folder): void
     {
         if (File::isDirectory($config_folder)) {
             $files = File::files($config_folder);
@@ -39,7 +39,7 @@ trait ConfigsLoaderTrait
      * @param $container_path
      * @return void
      */
-    public function loadConfigsFromContainers($container_path): void
+    public function loadConfigsFromContainers(string $container_path): void
     {
         $container_configs_directory = $container_path . DIRECTORY_SEPARATOR . 'Config';
         $this->loadConfigs($container_configs_directory);

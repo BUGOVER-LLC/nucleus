@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Container\{{section-name}}\{{container-name}}\Notification;
+namespace Containers\{{section-name}}\{{container-name}}\Notification;
 
 use Ship\Parents\Notifications\Notification as ParentNotification;
 

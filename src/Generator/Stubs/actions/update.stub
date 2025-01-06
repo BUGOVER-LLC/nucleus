@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Container\{{section-name}}\{{container-name}}\Action;
+namespace Containers\{{section-name}}\{{container-name}}\Action;
 
 use Nucleus\Exceptions\IncorrectIdException;
-use Container\{{section-name}}\{{container-name}}\Model\{{model}};
-use Container\{{section-name}}\{{container-name}}\Task\Update{{model}}Task;
-use Container\{{section-name}}\{{container-name}}\UI\{{ui}}\Request\Update{{model}}Request;
+use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
+use Containers\{{section-name}}\{{container-name}}\Task\Update{{model}}Task;
+use Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Request\Update{{model}}Request;
 use Ship\Exceptions\NotFoundException;
 use Ship\Exceptions\UpdateResourceFailedException;
 use Ship\Parents\Action\Action as ParentAction;
