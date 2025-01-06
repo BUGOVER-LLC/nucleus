@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Containers\{{section-name}}\{{container-name}}\Data\Seeder;
 
-use Ship\Parent\Seeders\Seeder as ParentSeeder;
+use Ship\Parent\Seeder\Seeder as ParentSeeder;
 
 class {{class-name}} extends ParentSeeder
 {
