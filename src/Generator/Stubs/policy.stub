@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Containers\{{section-name}}\{{container-name}}\Policy;
 
-use Ship\Parents\Policies\Policy as ParentPolicy;
+use Ship\Parent\Policies\Policy as ParentPolicy;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class {{class-name}} extends ParentPolicy

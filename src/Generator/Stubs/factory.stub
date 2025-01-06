@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Containers\{{section-name}}\{{container-name}}\Data\Factory;
 
 use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
-use Ship\Parents\Factories\Factory as ParentFactory;
+use Ship\Parent\Factories\Factory as ParentFactory;
 
 class {{class-name}} extends ParentFactory
 {

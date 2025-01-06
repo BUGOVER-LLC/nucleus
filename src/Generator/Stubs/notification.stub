@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Containers\{{section-name}}\{{container-name}}\Notification;
 
-use Ship\Parents\Notifications\Notification as ParentNotification;
+use Ship\Parent\Notifications\Notification as ParentNotification;
 
 class {{class-name}} extends ParentNotification
 {

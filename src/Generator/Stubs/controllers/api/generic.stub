@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controller;
 
-use Ship\Parents\Controller\{{base-controller}};
+use Ship\Parent\Controller\{{base-controller}};
 
 class {{class-name}} extends {{base-controller}}
 {

@@ -18,7 +18,7 @@ trait ConfigsLoaderTrait
     }
 
     /**
-     * @param $config_folder
+     * @param string $config_folder
      * @return void
      */
     private function loadConfigs(string $config_folder): void
@@ -36,7 +36,7 @@ trait ConfigsLoaderTrait
     }
 
     /**
-     * @param $container_path
+     * @param string $container_path
      * @return void
      */
     public function loadConfigsFromContainers(string $container_path): void

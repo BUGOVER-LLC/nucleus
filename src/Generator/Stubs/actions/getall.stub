@@ -7,7 +7,7 @@ namespace Containers\{{section-name}}\{{container-name}}\Action;
 use Nucleus\Exceptions\CoreInternalErrorException;
 use Containers\{{section-name}}\{{container-name}}\Task\GetAll{{models}}Task;
 use Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Request\GetAll{{models}}Request;
-use Ship\Parents\Action\Action as ParentAction;
+use Ship\Parent\Action\Action as ParentAction;
 
 class {{class-name}} extends ParentAction
 {

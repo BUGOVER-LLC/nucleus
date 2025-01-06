@@ -9,7 +9,7 @@ use Containers\{{section-name}}\{{container-name}}\Event\{{event}};
 use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
 use Ship\Exceptions\NotFoundException;
 use Ship\Exceptions\UpdateResourceFailedException;
-use Ship\Parents\Task\Task as ParentTask;
+use Ship\Parent\Task\Task as ParentTask;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 

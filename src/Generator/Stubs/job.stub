@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Containers\{{section-name}}\{{container-name}}\Job;
 
-use Ship\Parents\Jobs\Job as ParentJob;
+use Ship\Parent\Jobs\Job as ParentJob;
 
  class {{class-name}} extends ParentJob
  {

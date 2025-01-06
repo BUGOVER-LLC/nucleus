@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Containers\{{section-name}}\{{container-name}}\Action;
 
-use Ship\Parents\Action\Action as ParentAction;
+use Ship\Parent\Action\Action as ParentAction;
 
 class {{class-name}} extends ParentAction
 {

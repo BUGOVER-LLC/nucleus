@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Containers\{{section-name}}\{{container-name}}\Model;
 
-use Ship\Parents\Model\Model as ParentModel;
+use Ship\Parent\Model\Model as ParentModel;
 use Nucleus\Attributes\ModelEntity;
 
 #[ModelEntity()]

@@ -21,7 +21,7 @@ use Ship\Exceptions\CreateResourceFailedException;
 use Ship\Exceptions\DeleteResourceFailedException;
 use Ship\Exceptions\NotFoundException;
 use Ship\Exceptions\UpdateResourceFailedException;
-use Ship\Parents\Controller\{{base-controller}};
+use Ship\Parent\Controller\{{base-controller}};
 use Illuminate\Http\JsonResponse;
 
 class {{class-name}} extends {{base-controller}}

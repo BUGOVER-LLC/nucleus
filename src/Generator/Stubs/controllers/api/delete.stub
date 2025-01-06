@@ -8,7 +8,7 @@ use Containers\{{section-name}}\{{container-name}}\Action\Delete{{model}}Action;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Delete{{model}}Request;
 use Ship\Exceptions\DeleteResourceFailedException;
 use Ship\Exceptions\NotFoundException;
-use Ship\Parents\Controller\{{base-controller}};
+use Ship\Parent\Controller\{{base-controller}};
 use Illuminate\Http\JsonResponse;
 
 class {{class-name}} extends {{base-controller}}

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Containers\{{section-name}}\{{container-name}}\Task;
 
-use Ship\Parents\Task\Task as ParentTask;
+use Ship\Parent\Task\Task as ParentTask;
 use Closure;
 
 class {{class-name}} extends ParentTask

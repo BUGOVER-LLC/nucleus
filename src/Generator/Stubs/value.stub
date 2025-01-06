@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Containers\{{section-name}}\{{container-name}}\Value;
 
-use Ship\Parents\Values\Value as ParentValue;
+use Ship\Parent\Values\Value as ParentValue;
 
 class {{class-name}} extends ParentValue
 {

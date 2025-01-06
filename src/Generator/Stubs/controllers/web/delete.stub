@@ -6,7 +6,7 @@ namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\C
 
 use Containers\{{section-name}}\{{container-name}}\Action\Delete{{model}}Action;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Delete{{model}}Request;
-use Ship\Parents\Controller\WebController;
+use Ship\Parent\Controller\WebController;
 
 class {{class-name}} extends WebController
 {

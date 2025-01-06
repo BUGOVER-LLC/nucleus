@@ -8,7 +8,7 @@ use Containers\{{section-name}}\{{container-name}}\Action\Find{{model}}ByIdActio
 use Containers\{{section-name}}\{{container-name}}\Action\Update{{model}}Action;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Edit{{model}}Request;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Update{{model}}Request;
-use Ship\Parents\Controller\WebController;
+use Ship\Parent\Controller\WebController;
 
 class {{class-name}} extends WebController
 {

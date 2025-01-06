@@ -6,7 +6,7 @@ namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\C
 
 use Containers\{{section-name}}\{{container-name}}\Action\GetAll{{models}}Action;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\GetAll{{models}}Request;
-use Ship\Parents\Controller\WebController;
+use Ship\Parent\Controller\WebController;
 
 class {{class-name}} extends WebController
 {

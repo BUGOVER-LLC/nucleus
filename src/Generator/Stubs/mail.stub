@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Containers\{{section-name}}\{{container-name}}\Mail;
 
 use Containers\AppSection\User\Model\User;
-use Ship\Parents\Mails\Mail as ParentMail;
+use Ship\Parent\Mails\Mail as ParentMail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

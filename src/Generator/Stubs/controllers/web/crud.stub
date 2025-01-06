@@ -16,7 +16,7 @@ use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\GetAll{{models}}Request;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Store{{model}}Request;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Update{{model}}Request;
-use Ship\Parents\Controller\WebController;
+use Ship\Parent\Controller\WebController;
 
 class {{class-name}} extends WebController
 {

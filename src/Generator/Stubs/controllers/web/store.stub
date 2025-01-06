@@ -7,7 +7,7 @@ namespace Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\C
 use Containers\{{section-name}}\{{container-name}}\Action\Create{{model}}Action;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Create{{model}}Request;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Store{{model}}Request;
-use Ship\Parents\Controller\WebController;
+use Ship\Parent\Controller\WebController;
 
 class {{class-name}} extends WebController
 {

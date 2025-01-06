@@ -9,7 +9,7 @@ use Containers\{{section-name}}\{{container-name}}\Action\Find{{model}}ByIdActio
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Find{{model}}ByIdRequest;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resource\{{model}}Resource;
 use Ship\Exceptions\NotFoundException;
-use Ship\Parents\Controller\{{base-controller}};
+use Ship\Parent\Controller\{{base-controller}};
 
 class {{class-name}} extends {{base-controller}}
 {
