@@ -1,6 +1,6 @@
 {
   "name": "bugover/ship",
-  "version": "1.9.4",
+  "version": "1.9.5",
   "type": "library",
   "description": "Core package for Porto architecture.",
   "keywords": [

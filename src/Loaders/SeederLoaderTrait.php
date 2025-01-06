@@ -60,8 +60,7 @@ trait SeederLoaderTrait
                 $files = File::allFiles($directory);
 
                 foreach ($files as $seederClass) {
-                    if (File::isFile($seederClass)) {
-                        // do not seed the classes now, just store them in a collection and w
+                    if ($seederClass->isFile()) {
                         $seedersClasses->push(
                             Nuclear::getClassFullNameFromFile(
                                 $seederClass->getPathname()

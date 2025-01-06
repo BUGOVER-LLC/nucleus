@@ -38,8 +38,7 @@ trait ProvidersLoaderTrait
             $files = File::allFiles($directory);
 
             foreach ($files as $file) {
-                // Check if this is the Main Service Provider
-                $fileExists = File::isFile($file) && Str::startsWith(
+                $fileExists = $file->isFile() && Str::startsWith(
                     $file->getFilename(),
                     $main_service_provider_name_start_with
                 );
@@ -78,7 +77,7 @@ trait ProvidersLoaderTrait
      */
     public function loadOnlyShipProviderFromShip(): void
     {
-        $this->loadProvider(MainNuclear::SHIP_NAME . '/Provider/ShipProvider');
+        $this->loadProvider(MainNuclear::SHIP_NAME . '\Provider\ShipProvider');
     }
 
     /**
@@ -86,8 +85,8 @@ trait ProvidersLoaderTrait
      */
     public function loadOnlyVendorProviderFromShip(): void
     {
-        if (File::exists(app_path(MainNuclear::CONTAINERS_DIRECTORY_NAME . '/Vendor/Provider/MainServiceProvider.php'))) {
-            $this->loadProvider(MainNuclear::CONTAINERS_DIRECTORY_NAME . '/Vendor/Provider/MainServiceProvider');
+        if (File::exists(app_path(MainNuclear::CONTAINERS_DIRECTORY_NAME . '\Vendor\Provider\MainServiceProvider.php'))) {
+            $this->loadProvider(MainNuclear::CONTAINERS_DIRECTORY_NAME . '\Vendor\Provider\MainServiceProvider');
         }
     }
 }
