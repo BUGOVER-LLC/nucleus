@@ -90,6 +90,8 @@ class ContainerGenerator extends GeneratorCommand implements ComponentsGenerator
             ]);
         }
 
+        $this->call('nucleus:dump-autoload');
+
         return [
             'path-parameters' => [
                 'section-name' => $this->sectionName,

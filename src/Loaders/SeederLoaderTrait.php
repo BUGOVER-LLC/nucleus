@@ -48,9 +48,9 @@ trait SeederLoaderTrait
     /**
      * @param array $directories
      * @param Collection $seeders_classes
-     * @return mixed
+     * @return Collection
      */
-    private function findSeedersClasses(array $directories, Collection $seeders_classes): mixed
+    private function findSeedersClasses(array $directories, Collection $seeders_classes): Collection
     {
         foreach ($directories as $directory) {
             if (File::isDirectory($directory)) {
