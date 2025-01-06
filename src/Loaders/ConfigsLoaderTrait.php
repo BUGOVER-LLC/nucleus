@@ -42,7 +42,7 @@ trait ConfigsLoaderTrait
      */
     public function loadConfigsFromContainers(string $containerPath): void
     {
-        $container_configs_directory = $containerPath . DIRECTORY_SEPARATOR . 'Config';
-        $this->loadConfigs($container_configs_directory);
+        $containerConfigsDirectory = $containerPath . DIRECTORY_SEPARATOR . 'Config';
+        $this->loadConfigs($containerConfigsDirectory);
     }
 }
