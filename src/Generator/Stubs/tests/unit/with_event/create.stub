@@ -5,7 +5,7 @@ namespace Containers\{{section-name}}\{{container-name}}\Tests\Unit;
 use Containers\{{section-name}}\{{container-name}}\Event\{{event}};
 use Containers\{{section-name}}\{{container-name}}\Task\Create{{model}}Task;
 use Containers\{{section-name}}\{{container-name}}\Tests\TestCase;
-use Ship\Exceptions\CreateResourceFailedException;
+use Ship\Exception\CreateResourceFailedException;
 use Illuminate\Support\Facades\Event;
 
 /**

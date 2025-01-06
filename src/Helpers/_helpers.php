@@ -1067,9 +1067,9 @@ if (!function_exists('json_validate')) {
      * @return bool
      * @throws JsonException
      */
-    function json_validate($json, $throw = false): bool
+    function json_validate($json, bool $throw = false): bool
     {
-        $result = json_decode($json, false, 512, JSON_THROW_ON_ERROR);
+        json_decode($json, false, 512, JSON_THROW_ON_ERROR);
         $errorCode = json_last_error();
         $valid = JSON_ERROR_NONE === $errorCode;
 

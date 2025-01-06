@@ -7,7 +7,7 @@ namespace Containers\{{section-name}}\{{container-name}}\Task;
 use Containers\{{section-name}}\{{container-name}}\Data\Repository\{{model}}Repository;
 use Containers\{{section-name}}\{{container-name}}\Event\{{event}};
 use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
-use Ship\Exceptions\NotFoundException;
+use Ship\Exception\NotFoundException;
 use Ship\Parent\Task\Task as ParentTask;
 use Exception;
 

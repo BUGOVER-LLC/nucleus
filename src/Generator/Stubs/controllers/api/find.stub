@@ -8,7 +8,7 @@ use Nucleus\Exceptions\InvalidResourceException;
 use Containers\{{section-name}}\{{container-name}}\Action\Find{{model}}ByIdAction;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Find{{model}}ByIdRequest;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resource\{{model}}Resource;
-use Ship\Exceptions\NotFoundException;
+use Ship\Exception\NotFoundException;
 use Ship\Parent\Controller\{{base-controller}};
 
 class {{class-name}} extends {{base-controller}}

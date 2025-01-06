@@ -4,7 +4,7 @@ namespace Containers\{{section-name}}\{{container-name}}\Tests\Unit;
 
 use Containers\{{section-name}}\{{container-name}}\Task\Create{{model}}Task;
 use Containers\{{section-name}}\{{container-name}}\Tests\TestCase;
-use Ship\Exceptions\CreateResourceFailedException;
+use Ship\Exception\CreateResourceFailedException;
 
 /**
  * Class {{class-name}}.

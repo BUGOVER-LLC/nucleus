@@ -7,7 +7,7 @@ namespace Containers\{{section-name}}\{{container-name}}\Action;
 use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
 use Containers\{{section-name}}\{{container-name}}\Task\Find{{model}}ByIdTask;
 use Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Request\Find{{model}}ByIdRequest;
-use Ship\Exceptions\NotFoundException;
+use Ship\Exception\NotFoundException;
 use Ship\Parent\Action\Action as ParentAction;
 
 class {{class-name}} extends ParentAction

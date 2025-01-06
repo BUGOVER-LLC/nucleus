@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Containers\{{section-name}}\{{container-name}}\Task;
 
 use Containers\{{section-name}}\{{container-name}}\Data\Repository\{{model}}Repository;
-use Ship\Exceptions\DeleteResourceFailedException;
-use Ship\Exceptions\NotFoundException;
+use Ship\Exception\DeleteResourceFailedException;
+use Ship\Exception\NotFoundException;
 use Ship\Parent\Task\Task as ParentTask;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;

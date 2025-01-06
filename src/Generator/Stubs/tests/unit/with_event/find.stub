@@ -6,7 +6,7 @@ use Containers\{{section-name}}\{{container-name}}\Event\{{event}};
 use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
 use Containers\{{section-name}}\{{container-name}}\Task\Find{{model}}ByIdTask;
 use Containers\{{section-name}}\{{container-name}}\Tests\TestCase;
-use Ship\Exceptions\NotFoundException;
+use Ship\Exception\NotFoundException;
 use Illuminate\Support\Facades\Event;
 
 /**

@@ -5,7 +5,7 @@ namespace Containers\{{section-name}}\{{container-name}}\Tests\Unit;
 use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
 use Containers\{{section-name}}\{{container-name}}\Task\Update{{model}}Task;
 use Containers\{{section-name}}\{{container-name}}\Tests\TestCase;
-use Ship\Exceptions\NotFoundException;
+use Ship\Exception\NotFoundException;
 
 /**
  * Class {{class-name}}.

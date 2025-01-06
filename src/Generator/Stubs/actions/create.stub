@@ -8,7 +8,7 @@ use Nucleus\Exceptions\IncorrectIdException;
 use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
 use Containers\{{section-name}}\{{container-name}}\Task\Create{{model}}Task;
 use Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Request\Create{{model}}Request;
-use Ship\Exceptions\CreateResourceFailedException;
+use Ship\Exception\CreateResourceFailedException;
 use Ship\Parent\Action\Action as ParentAction;
 
 class {{class-name}} extends ParentAction

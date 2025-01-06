@@ -6,8 +6,8 @@ namespace Containers\{{section-name}}\{{container-name}}\Action;
 
 use Containers\{{section-name}}\{{container-name}}\Task\Delete{{model}}Task;
 use Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Request\Delete{{model}}Request;
-use Ship\Exceptions\DeleteResourceFailedException;
-use Ship\Exceptions\NotFoundException;
+use Ship\Exception\DeleteResourceFailedException;
+use Ship\Exception\NotFoundException;
 use Ship\Parent\Action\Action as ParentAction;
 
 class {{class-name}} extends ParentAction

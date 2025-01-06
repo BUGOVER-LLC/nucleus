@@ -9,7 +9,7 @@ use Nucleus\Exceptions\InvalidResourceException;
 use Containers\{{section-name}}\{{container-name}}\Action\Create{{model}}Action;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Request\Create{{model}}Request;
 use Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Resource\{{model}}Resource;
-use Ship\Exceptions\CreateResourceFailedException;
+use Ship\Exception\CreateResourceFailedException;
 use Ship\Parent\Controller\{{base-controller}};
 use Illuminate\Http\JsonResponse;
 use OpenApi\Attributes\JsonContent;

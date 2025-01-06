@@ -8,8 +8,8 @@ use Nucleus\Exceptions\IncorrectIdException;
 use Containers\{{section-name}}\{{container-name}}\Model\{{model}};
 use Containers\{{section-name}}\{{container-name}}\Task\Update{{model}}Task;
 use Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Request\Update{{model}}Request;
-use Ship\Exceptions\NotFoundException;
-use Ship\Exceptions\UpdateResourceFailedException;
+use Ship\Exception\NotFoundException;
+use Ship\Exception\UpdateResourceFailedException;
 use Ship\Parent\Action\Action as ParentAction;
 
 class {{class-name}} extends ParentAction
