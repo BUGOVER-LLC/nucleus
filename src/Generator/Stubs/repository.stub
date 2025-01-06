@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Containers\{{section-name}}\{{container-name}}\Data\Repository;
 
 use Ship\Parent\Repository\Repository as AbstractRepository;
-use Illuminate\Contracts\Containers\Containers;
+use Illuminate\Contracts\Container\Container;
 
 class {{class-name}} extends AbstractRepository
 {
