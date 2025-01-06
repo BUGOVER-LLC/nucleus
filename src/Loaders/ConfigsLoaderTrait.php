@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Nucleus\Loaders;
 
 use Illuminate\Support\Facades\File;
+use Nucleus\Foundation\Nuclear as MainNuclear;
 
 trait ConfigsLoaderTrait
 {
@@ -13,7 +14,7 @@ trait ConfigsLoaderTrait
      */
     public function loadConfigsFromShip(): void
     {
-        $ship_configs_directory = config('app.path') . 'Ship/Config';
+        $ship_configs_directory = config('app.path') . MainNuclear::SHIP_NAME . '/Config';
         $this->loadConfigs($ship_configs_directory);
     }
 

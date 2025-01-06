@@ -6,6 +6,7 @@ namespace Nucleus\Loaders;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Nucleus\Foundation\Nuclear as MainNuclear;
 
 trait ViewsLoaderTrait
 {
@@ -43,7 +44,7 @@ trait ViewsLoaderTrait
     {
         $ship_mail_templates_directory = config(
             'app.path'
-        ) . 'Ship' . DIRECTORY_SEPARATOR . 'Mails' . DIRECTORY_SEPARATOR . 'Templates' . DIRECTORY_SEPARATOR;
-        $this->loadViews($ship_mail_templates_directory, 'ship'); // Ship views accessible via `ship::`.
+        ) . MainNuclear::SHIP_NAME . DIRECTORY_SEPARATOR . 'Mails' . DIRECTORY_SEPARATOR . 'Templates' . DIRECTORY_SEPARATOR;
+        $this->loadViews($ship_mail_templates_directory, 'ship');
     }
 }

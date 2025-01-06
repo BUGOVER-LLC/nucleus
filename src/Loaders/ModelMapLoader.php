@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\File;
 use Nucleus\Contract\EntityContract;
 use Nucleus\Foundation\Facades\Nuclear;
+use Nucleus\Foundation\Nuclear as MainNuclear;
 
 trait ModelMapLoader
 {
@@ -49,7 +50,7 @@ trait ModelMapLoader
      */
     private function loadModelsMapFormShip(): void
     {
-        $ship_models_directory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Model';
+        $ship_models_directory = config('app.path') . MainNuclear::SHIP_NAME . DIRECTORY_SEPARATOR . 'Model';
         $this->loadModels($ship_models_directory);
     }
 }

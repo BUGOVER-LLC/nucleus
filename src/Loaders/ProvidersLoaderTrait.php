@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Nucleus\Foundation\Facades\Nuclear;
+use Nucleus\Foundation\Nuclear as MainNuclear;
 
 trait ProvidersLoaderTrait
 {
@@ -77,7 +78,7 @@ trait ProvidersLoaderTrait
      */
     public function loadOnlyShipProviderFromShip(): void
     {
-        $this->loadProvider('Ship\Provider\ShipProvider');
+        $this->loadProvider(MainNuclear::SHIP_NAME . '/Provider/ShipProvider');
     }
 
     /**
@@ -85,8 +86,8 @@ trait ProvidersLoaderTrait
      */
     public function loadOnlyVendorProviderFromShip(): void
     {
-        if (File::exists(app_path('Containers\Vendor\Provider\MainServiceProvider.php'))) {
-            $this->loadProvider('Containers\Vendor\Provider\MainServiceProvider');
+        if (File::exists(app_path(MainNuclear::CONTAINERS_DIRECTORY_NAME . '/Vendor/Provider/MainServiceProvider.php'))) {
+            $this->loadProvider(MainNuclear::CONTAINERS_DIRECTORY_NAME . '/Vendor/Provider/MainServiceProvider');
         }
     }
 }

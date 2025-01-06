@@ -6,6 +6,7 @@ namespace Nucleus\Loaders;
 
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Facades\File;
+use Nucleus\Foundation\Nuclear as MainNuclear;
 
 trait HelpersLoaderTrait
 {
@@ -31,7 +32,7 @@ trait HelpersLoaderTrait
 
     public function loadHelpersFromShip(): void
     {
-        $shipHelpersDirectory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Helpers';
+        $shipHelpersDirectory = config('app.path') . MainNuclear::SHIP_NAME . DIRECTORY_SEPARATOR . 'Helpers';
         $this->loadHelpers($shipHelpersDirectory);
     }
 }

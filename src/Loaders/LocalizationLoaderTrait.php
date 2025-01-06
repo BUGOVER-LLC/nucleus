@@ -6,6 +6,7 @@ namespace Nucleus\Loaders;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Nucleus\Foundation\Nuclear as MainNuclear;
 
 trait LocalizationLoaderTrait
 {
@@ -54,7 +55,7 @@ trait LocalizationLoaderTrait
      */
     public function loadLocalsFromShip(): void
     {
-        $shipLocaleDirectory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Languages';
+        $shipLocaleDirectory = config('app.path') . MainNuclear::SHIP_NAME . DIRECTORY_SEPARATOR . 'Languages';
         $this->loadLocals($shipLocaleDirectory, 'ship');
     }
 }

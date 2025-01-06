@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static array getSectionNames()
  * @method static array getSectionContainerPaths(string $sectionName)
  * @method static void verifyClassExist(string $className)
+ * @const SHIP_NAME
+ * @const VERSION
  *
  * @see \Nucleus\Foundation\Nuclear
  */

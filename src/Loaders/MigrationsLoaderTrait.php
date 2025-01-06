@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Nucleus\Loaders;
 
 use Illuminate\Support\Facades\File;
+use Nucleus\Foundation\Nuclear as MainNuclear;
 
 trait MigrationsLoaderTrait
 {
@@ -30,7 +31,7 @@ trait MigrationsLoaderTrait
      */
     public function loadMigrationsFromShip(): void
     {
-        $ship_migration_directory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Migrations';
+        $ship_migration_directory = config('app.path') . MainNuclear::SHIP_NAME . DIRECTORY_SEPARATOR . 'Migrations';
         $this->loadMigrations($ship_migration_directory);
     }
 }

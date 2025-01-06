@@ -11,10 +11,10 @@ use function is_array;
 
 class Nuclear
 {
-    public const string VERSION = '1.7.3';
-    private const string SHIP_NAME = 'Ship';
-    private const string CONTAINERS_DIRECTORY_NAME = 'Containers';
-    private const string SECTION_DIRECTORY_PREFIX = 'Section';
+    public const string VERSION = '1.9.4';
+    public const string SHIP_NAME = 'Ship';
+    public const string CONTAINERS_DIRECTORY_NAME = 'Containers';
+    public const string SECTION_DIRECTORY_PREFIX = 'Section';
 
     /**
      * @return array

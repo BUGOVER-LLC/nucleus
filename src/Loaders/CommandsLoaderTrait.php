@@ -6,6 +6,7 @@ namespace Nucleus\Loaders;
 
 use Illuminate\Support\Facades\File;
 use Nucleus\Foundation\Facades\Nuclear;
+use Nucleus\Foundation\Nuclear as MainNuclear;
 
 trait CommandsLoaderTrait
 {
@@ -54,7 +55,7 @@ trait CommandsLoaderTrait
      */
     public function loadCommandsFromShip(): void
     {
-        $shipCommandsDirectory = config('app.path') . 'Ship' . DIRECTORY_SEPARATOR . 'Command';
+        $shipCommandsDirectory = config('app.path') . MainNuclear::SHIP_NAME . DIRECTORY_SEPARATOR . 'Command';
         $this->loadTheConsoles($shipCommandsDirectory);
     }
 

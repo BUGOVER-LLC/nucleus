@@ -164,15 +164,15 @@ trait RoutesLoaderTrait
     /**
      * Register the Containers WEB routes files
      *
-     * @param $container_path
+     * @param $containerPath
      */
-    private function loadWebContainerRoutes($container_path): void
+    private function loadWebContainerRoutes($containerPath): void
     {
         // build the container web routes path
-        $web_routes_path = $container_path . DIRECTORY_SEPARATOR . 'UI' . DIRECTORY_SEPARATOR . 'WEB' . DIRECTORY_SEPARATOR . 'Routes';
+        $webRoutesPath = $containerPath . DIRECTORY_SEPARATOR . 'UI' . DIRECTORY_SEPARATOR . 'WEB' . DIRECTORY_SEPARATOR . 'Routes';
 
-        if (File::isDirectory($web_routes_path)) {
-            $files = File::allFiles($web_routes_path);
+        if (File::isDirectory($webRoutesPath)) {
+            $files = File::allFiles($webRoutesPath);
             $files = Arr::sort($files, fn($file) => $file->getFilename());
 
             foreach ($files as $file) {
