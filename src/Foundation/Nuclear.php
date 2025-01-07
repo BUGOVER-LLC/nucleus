@@ -175,13 +175,13 @@ class Nuclear
      */
     public function getAllContainerNames(): array
     {
-        $containers_names = [];
+        $containersNames = [];
 
         foreach ($this->getAllContainerPaths() as $containersPath) {
-            $containers_names[] = basename($containersPath);
+            $containersNames[] = basename($containersPath);
         }
 
-        return $containers_names;
+        return $containersNames;
     }
 
     /**
@@ -189,31 +189,31 @@ class Nuclear
      */
     public function getAllContainerPaths(): array
     {
-        $section_or_container_names = $this->getSectionNames();
-        $container_section_paths = [];
+        $sectionOrContainerNames = $this->getSectionNames();
+        $containerSectionPaths = [];
 
-        foreach ($section_or_container_names as $container_section_name) {
+        foreach ($sectionOrContainerNames as $container_section_name) {
             $contains = Str::contains($container_section_name, self::SECTION_DIRECTORY_PREFIX) && Str::endsWith(
                 $container_section_name,
                 'Section'
             );
 
             if ($contains) {
-                $section_container_paths = $this->getSectionContainerPaths($container_section_name);
-                foreach ($section_container_paths as $containerPath) {
-                    $container_section_paths[] = $containerPath;
+                $sectionContainerPaths = $this->getSectionContainerPaths($container_section_name);
+                foreach ($sectionContainerPaths as $containerPath) {
+                    $containerSectionPaths[] = $containerPath;
                 }
             } else {
-                $section_container_paths = $this->getContainerPaths();
-                foreach ($section_container_paths as $section_container_path) {
-                    if (!Str::endsWith($section_container_path, self::SECTION_DIRECTORY_PREFIX)) {
-                        $container_section_paths[] = $section_container_path;
+                $sectionContainerPaths = $this->getContainerPaths();
+                foreach ($sectionContainerPaths as $sectionContainerPath) {
+                    if (!Str::endsWith($sectionContainerPath, self::SECTION_DIRECTORY_PREFIX)) {
+                        $containerSectionPaths[] = $sectionContainerPath;
                     }
                 }
             }
         }
 
-        return $container_section_paths;
+        return $containerSectionPaths;
     }
 
     /**

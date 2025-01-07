@@ -12,7 +12,7 @@ class ContainerInstaller extends LibraryInstaller
 {
     private const string CONTAINER_NAME = 'ship-container';
 
-    private const string CONTAINER_PATH = 'app/Containers/Vendor/';
+    private const string CONTAINER_PATH = '/Containers/Vendor/';
 
     /**
      * {@inheritDoc}
@@ -21,14 +21,16 @@ class ContainerInstaller extends LibraryInstaller
      */
     public function getInstallPath(PackageInterface $package): string
     {
-        $container_name = $package->getPrettyName();
+        $containerName = $package->getPrettyName();
         $extras = json_decode(json_encode($package->getExtra(), JSON_THROW_ON_ERROR), false, 512, JSON_THROW_ON_ERROR);
 
         if (isset($extras->ship->container->name)) {
-            $container_name = $extras->ship->container->name;
+            $containerName = $extras->ship->container->name;
         }
 
-        return self::CONTAINER_PATH . $container_name;
+        $containerPath = app_path() . self::CONTAINER_PATH;
+
+        return $containerPath . $containerName;
     }
 
     /**

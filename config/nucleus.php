@@ -5,19 +5,9 @@ declare(strict_types=1);
 return [
     /*
     |--------------------------------------------------------------------------
-    | Container Name
+    | In development state STRICT MODE enable please, and level 3,2,1
     |--------------------------------------------------------------------------
-    |
-    | This value is the name of your application. This value is used when the
-    | framework needs to place the application's name in a notification or
-    | any other location as required by the application or its packages.
-    |
     */
-    'container_name' => 'Containers',
-
-    /**
-     * In development state STRICT_MODE enable please, and level 3,2,1
-     */
     'strict' => env('STRICT_MODE', true),
     'strict_level' => env('STRICT_LEVEL', 1),
 
