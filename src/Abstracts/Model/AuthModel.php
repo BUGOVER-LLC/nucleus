@@ -6,17 +6,19 @@ namespace Nucleus\Abstracts\Model;
 
 use Illuminate\Foundation\Auth\User as LaravelAuthenticatableUser;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 use Nucleus\Attributes\ModelEntity;
 use Nucleus\Contract\EntityContract;
-use Nucleus\Traits\HasResourceKeyTrait;
-use Nucleus\Traits\ModelTrait;
+use Nucleus\Contract\EntityMapContract;
+use Nucleus\Contract\HasResourceKey;
+use Nucleus\Traits\EntityTrait;
 
 #[ModelEntity()]
-abstract class AuthModel extends LaravelAuthenticatableUser implements EntityContract
+abstract class AuthModel extends LaravelAuthenticatableUser implements EntityContract, EntityMapContract, HasResourceKey
 {
-    use HasResourceKeyTrait;
-    use ModelTrait;
+    use EntityTrait;
     use Notifiable;
+    use HasApiTokens;
 
     public const null|string UPDATED_AT = 'updatedAt';
     public const string CREATED_AT = 'createdAt';
@@ -36,4 +38,14 @@ abstract class AuthModel extends LaravelAuthenticatableUser implements EntityCon
      * @var string
      */
     protected $dateFormat = 'Y-m-d H:i:s';
+
+    /**
+     * @var string
+     */
+    protected string $map = '';
+
+    /**
+     * @var string
+     */
+    protected string $resourceKey = '';
 }

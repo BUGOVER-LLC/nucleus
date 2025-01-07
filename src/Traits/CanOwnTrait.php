@@ -32,7 +32,7 @@ trait CanOwnTrait
 
         throw_if(
             null === $ownerKey,
-            (new CoreInternalErrorException())->withErrors(['foreign_key_name' => 'Foreign key name is invalid.'])
+            (new CoreInternalErrorException())->withErrors(['foreignKeyName' => 'Foreign key name is invalid.'])
         );
 
         return $ownerKey == ($localKey ?? $this->getKey());
