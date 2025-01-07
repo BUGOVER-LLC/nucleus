@@ -9,27 +9,8 @@ use Ship\Parent\Resource\Resource as ParentResource;
 
 class {{class-name}} extends ParentResource
 {
-    protected array $defaultIncludes = [
-
-    ];
-
-    protected array $availableIncludes = [
-
-    ];
-
-    public function transform({{model}} ${{_model}}): array
+    public function toSchema(Request $request): Schema|string
     {
-        $response = [
-            {{attributes}}
-        ];
-
-        return $this->ifAdmin([
-            'real_id' => ${{_model}}->id,
-            'created_at' => ${{_model}}->created_at,
-            'updated_at' => ${{_model}}->updated_at,
-            'readable_created_at' => ${{_model}}->created_at->diffForHumans(),
-            'readable_updated_at' => ${{_model}}->updated_at->diffForHumans(),
-            // 'deleted_at' => ${{_model}}->deleted_at,
-        ], $response);
+        // TODO: Implement toSchema() method.
     }
 }

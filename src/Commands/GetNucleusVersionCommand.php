@@ -12,7 +12,7 @@ class GetNucleusVersionCommand extends ConsoleCommand
     /**
      * The name and signature of the console command.
      */
-    protected $signature = 'nucleus';
+    protected $signature = 'nucleus:version';
 
     /**
      * The console command description.

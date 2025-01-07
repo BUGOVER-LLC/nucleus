@@ -13,13 +13,13 @@ use Nucleus\Foundation\Nuclear as MainNuclear;
 trait ModelMapLoader
 {
     /**
-     * @param string $container_path
+     * @param string $containerPath
      * @return void
      */
-    private function loadModelMapsFromContainers(string $container_path): void
+    private function loadModelMapsFromContainers(string $containerPath): void
     {
-        $container_models_directory = $container_path . DIRECTORY_SEPARATOR . 'Model';
-        $this->loadModels($container_models_directory);
+        $containerModelsDirectory = $containerPath . DIRECTORY_SEPARATOR . 'Model';
+        $this->loadModels($containerModelsDirectory);
     }
 
     /**
@@ -50,7 +50,7 @@ trait ModelMapLoader
      */
     private function loadModelsMapFormShip(): void
     {
-        $ship_models_directory = config('app.path') . MainNuclear::SHIP_NAME . DIRECTORY_SEPARATOR . 'Model';
-        $this->loadModels($ship_models_directory);
+        $shipModelsDirectory = config('app.path') . MainNuclear::SHIP_NAME . DIRECTORY_SEPARATOR . 'Model';
+        $this->loadModels($shipModelsDirectory);
     }
 }
