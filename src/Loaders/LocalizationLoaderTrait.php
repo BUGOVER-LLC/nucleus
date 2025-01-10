@@ -11,7 +11,7 @@ use Nucleus\Foundation\Nuclear as MainNuclear;
 trait LocalizationLoaderTrait
 {
     /**
-     * @param $containerPath
+     * @param string $containerPath
      * @return void
      */
     public function loadLocalsFromContainers(string $containerPath): void
