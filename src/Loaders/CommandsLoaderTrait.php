@@ -12,7 +12,7 @@ use SplFileInfo;
 trait CommandsLoaderTrait
 {
     /**
-     * @param $containerPath
+     * @param string $containerPath
      * @return void
      */
     public function loadCommandsFromContainers(string $containerPath): void

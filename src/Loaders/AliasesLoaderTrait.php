@@ -10,7 +10,7 @@ trait AliasesLoaderTrait
 {
     public function loadAliases(): void
     {
-        foreach ($this->aliases ?? [] as $aliasKey => $aliasValue) {
+        foreach ($this->aliases as $aliasKey => $aliasValue) {
             if (class_exists($aliasValue)) {
                 $this->loadAlias($aliasKey, $aliasValue);
             }
@@ -18,8 +18,8 @@ trait AliasesLoaderTrait
     }
 
     /**
-     * @param $aliasKey
-     * @param $aliasValue
+     * @param string $aliasKey
+     * @param string $aliasValue
      */
     private function loadAlias(string $aliasKey, string $aliasValue): void
     {

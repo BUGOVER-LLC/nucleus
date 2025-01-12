@@ -12,12 +12,18 @@ use Nucleus\Foundation\Nuclear as MainNuclear;
 
 trait ModelMapLoader
 {
+    private static array $loadedModels = [];
+
     /**
      * @param string $containerPath
      * @return void
      */
     private function loadModelMapsFromContainers(string $containerPath): void
     {
+        if (!empty(self::$loadedModels)) {
+            return;
+        }
+
         $containerModelsDirectory = $containerPath . DIRECTORY_SEPARATOR . 'Model';
         $this->loadModels($containerModelsDirectory);
     }
@@ -37,12 +43,12 @@ trait ModelMapLoader
                 $modelClass = Nuclear::getClassFullNameFromFile($modelFile->getPathname());
                 $instance = (new $modelClass());
                 if ($instance instanceof EntityContract && property_exists($instance, 'map')) {
-                    $result[$instance->getMap()] = $modelFile;
+                    self::$loadedModels[$instance->getMap()] = $modelFile;
                 }
             }
         }
 
-        Relation::morphMap($result);
+        Relation::morphMap(self::$loadedModels);
     }
 
     /**

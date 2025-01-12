@@ -18,7 +18,7 @@ trait ProvidersLoaderTrait
      * loaded from the `boot()` function on the parent of the Main
      * Service Providers.
      *
-     * @param $containerPath
+     * @param string $containerPath
      */
     public function loadOnlyMainProvidersFromContainers(string $containerPath): void
     {
@@ -52,12 +52,12 @@ trait ProvidersLoaderTrait
     }
 
     /**
-     * @param $provider_full_name
+     * @param string $providerFullName
      * @return void
      */
-    private function loadProvider(string $provider_full_name): void
+    private function loadProvider(string $providerFullName): void
     {
-        App::register($provider_full_name);
+        App::register($providerFullName);
     }
 
     /**

@@ -6,8 +6,9 @@ namespace Nucleus\Abstracts\Provider;
 
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Nucleus\Loaders\MiddlewaresLoaderTrait;
+use Illuminate\Support\ServiceProvider as LaravelAppServiceProvider;
 
-abstract class MiddlewareServiceProvider extends MainServiceProvider
+abstract class MiddlewareServiceProvider extends LaravelAppServiceProvider
 {
     use MiddlewaresLoaderTrait;
 

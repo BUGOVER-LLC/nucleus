@@ -15,10 +15,18 @@ trait MiddlewaresLoaderTrait
      */
     public function loadMiddlewares(): void
     {
-        $this->registerMiddleware($this->middlewares);
-        $this->registerMiddlewareGroups($this->middlewareGroups);
-        $this->registerMiddlewarePriority($this->middlewarePriority);
-        $this->registerRouteMiddleware($this->routeMiddleware);
+        if (!empty($this->middlewares)) {
+            $this->registerMiddleware($this->middlewares);
+        }
+        if (!empty($this->middlewareGroups)) {
+            $this->registerMiddlewareGroups($this->middlewareGroups);
+        }
+        if (!empty($this->middlewarePriority)) {
+            $this->registerMiddlewarePriority($this->middlewarePriority);
+        }
+        if (!empty($this->routeMiddleware)) {
+            $this->registerRouteMiddleware($this->routeMiddleware);
+        }
     }
 
     /**
