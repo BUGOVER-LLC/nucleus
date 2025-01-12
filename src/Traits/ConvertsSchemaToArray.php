@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Nucleus\Traits;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
-use Nucleus\Abstracts\Schema\Schema;
+use Ship\Parent\Resource\Resource as ParentResource;
+use Ship\Parent\Schema\Schema;
 
 trait ConvertsSchemaToArray
 {
