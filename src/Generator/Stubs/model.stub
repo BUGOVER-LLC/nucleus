@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Containers\{{section-name}}\{{container-name}}\Model;
+namespace Containers\{{section-name}}\{{container-name}}\Domain\Model;
 
 use Ship\Parent\Model\Model as ParentModel;
 use Nucleus\Attributes\ModelEntity;

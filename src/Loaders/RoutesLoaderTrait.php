@@ -21,9 +21,9 @@ trait RoutesLoaderTrait
      */
     public function runRoutesAutoLoader(): void
     {
-        $containers_paths = Nuclear::getAllContainerPaths();
+        $containersPaths = Nuclear::getAllContainerPaths();
 
-        foreach ($containers_paths as $container_path) {
+        foreach ($containersPaths as $container_path) {
             $this->loadApiContainerRoutes($container_path);
             $this->loadWebContainerRoutes($container_path);
         }
@@ -37,11 +37,11 @@ trait RoutesLoaderTrait
     private function loadApiContainerRoutes(string $container_path): void
     {
         // Build the container api routes path
-        $api_routes_path = $container_path . '/UI/API/Routes';
+        $apiRoutesPath = $container_path . '/UI/API/Routes';
 
-        if (File::isDirectory($api_routes_path)) {
-            $files = File::allFiles($api_routes_path);
-            $files = Arr::sort($files, fn($file) => $file->getFilename());
+        if (File::isDirectory($apiRoutesPath)) {
+            $files = File::allFiles($apiRoutesPath);
+            $files = Arr::sort($files, static fn($file) => $file->getFilename());
 
             foreach ($files as $file) {
                 $this->loadApiRoute($file);
@@ -94,11 +94,11 @@ trait RoutesLoaderTrait
     {
         $rateLimitMiddleware = null;
 
-        if (Config::get('nucleus.php.api.throttle.enabled')) {
+        if (Config::get('nucleus.api.throttle.enabled')) {
             RateLimiter::for('api', static function (Request $request) {
                 return Limit::perMinutes(
-                    Config::get('nucleus.php.api.throttle.expires'),
-                    Config::get('nucleus.php.api.throttle.attempts')
+                    Config::get('nucleus.api.throttle.expires'),
+                    Config::get('nucleus.api.throttle.attempts')
                 )->by($request->user()?->id ?: $request->ip());
             });
 
@@ -113,7 +113,7 @@ trait RoutesLoaderTrait
      */
     private function getApiUrl()
     {
-        return Config::get('nucleus.php.api.url');
+        return Config::get('nucleus.api.url');
     }
 
     /**
@@ -123,8 +123,8 @@ trait RoutesLoaderTrait
      */
     private function getApiVersionPrefix($file): string
     {
-        return Config::get('nucleus.php.api.prefix') . (Config::get(
-            'nucleus.php.api.enable_version_prefix'
+        return Config::get('nucleus.api.prefix') . (Config::get(
+            'nucleus.api.enable_version_prefix'
         ) ? $this->getRouteFileVersionFromFileName($file) : '');
     }
 
@@ -141,14 +141,14 @@ trait RoutesLoaderTrait
 
         end($fileNameWithoutExtensionExploded);
 
-        $api_version = prev($fileNameWithoutExtensionExploded);
+        $apiVersion = prev($fileNameWithoutExtensionExploded);
 
         // Skip versioning the API's root route
-        if ('ApisRoot' === $api_version) {
-            $api_version = '';
+        if ('ApisRoot' === $apiVersion) {
+            $apiVersion = '';
         }
 
-        return $api_version;
+        return $apiVersion;
     }
 
     /**

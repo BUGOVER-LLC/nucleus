@@ -35,7 +35,7 @@ class ValueGenerator extends GeneratorCommand implements ComponentsGenerator
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/Value/*';
+    protected string $pathStructure = '{section-name}/{container-name}/Domain/Value/*';
     /**
      * The structure of the file name.
      */
