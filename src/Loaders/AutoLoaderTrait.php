@@ -18,6 +18,7 @@ trait AutoLoaderTrait
     use AliasesLoaderTrait;
     use HelpersLoaderTrait;
     use ModelMapLoader;
+    use EnvLoaderTrait;
 
     /**
      * To be used from the `boot` function of the main service provider.
@@ -54,8 +55,9 @@ trait AutoLoaderTrait
         $this->loadOnlyVendorProviderFromShip();
 
         foreach (Nuclear::getAllContainerPaths() as $container_path) {
+            $this->loadEnvFromContainers($container_path);
             $this->loadConfigsFromContainers($container_path);
-            $this->loadOnlyMainProvidersFromContainers($container_path);
+            $this->loadOnlyMainProviderFromContainers($container_path);
         }
     }
 }

@@ -20,7 +20,7 @@ trait ProvidersLoaderTrait
      *
      * @param string $containerPath
      */
-    public function loadOnlyMainProvidersFromContainers(string $containerPath): void
+    public function loadOnlyMainProviderFromContainers(string $containerPath): void
     {
         $container_providers_directory = $containerPath . '/Provider';
         $this->loadProviders($container_providers_directory);
