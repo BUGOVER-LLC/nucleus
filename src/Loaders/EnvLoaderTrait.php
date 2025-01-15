@@ -22,6 +22,7 @@ trait EnvLoaderTrait
     /**
      * @param string $directory
      * @return void
+     * @readonly true
      */
     private function loadEnv(string $directory): void
     {
@@ -29,7 +30,7 @@ trait EnvLoaderTrait
             $env_file = $directory . '.env';
 
             if (file_exists($env_file)) {
-                $dotenv = Dotenv::createUnsafeImmutable(
+                $dotenv = Dotenv::createImmutable(
                     [
                         $directory,
                     ],
