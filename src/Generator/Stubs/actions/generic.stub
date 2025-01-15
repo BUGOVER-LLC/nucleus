@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Containers\{{section-name}}\{{container-name}}\Action;
 
 use Ship\Parent\Action\Action as ParentAction;
+use Ship\Parent\DTO\DTO as ParentDto;
 
 class {{class-name}} extends ParentAction
 {
-    public function run()
+    public function run(ParentDto $dto)
     {
-        // $var = app(Task::class)->run($arg1, $arg2);
     }
 }
