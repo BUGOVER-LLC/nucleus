@@ -71,6 +71,6 @@ class ConfigurationGenerator extends GeneratorCommand implements ComponentsGener
      */
     public function getDefaultFileName(): string
     {
-        return Str::snake($this->sectionName, '-') . '-' . Str::snake($this->containerName, '-');
+        return Str::snake($this->sectionName) . '_' . Str::snake($this->containerName);
     }
 }
