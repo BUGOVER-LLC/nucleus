@@ -14,7 +14,7 @@ trait ConfigsLoaderTrait
      */
     public function loadConfigsFromShip(): void
     {
-        $shipConfigsDirectory = config('app.path') . MainNuclear::SHIP_NAME . '/Config';
+        $shipConfigsDirectory = config('app.path') . MainNuclear::SHIP_NAME . '/config';
         $this->loadConfigs($shipConfigsDirectory);
     }
 
@@ -42,7 +42,7 @@ trait ConfigsLoaderTrait
      */
     public function loadConfigsFromContainers(string $containerPath): void
     {
-        $containerConfigsDirectory = $containerPath . DIRECTORY_SEPARATOR . 'Config';
+        $containerConfigsDirectory = $containerPath . DIRECTORY_SEPARATOR . 'config';
         $this->loadConfigs($containerConfigsDirectory);
     }
 }
