@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Nucleus\Traits;
 
 use Illuminate\Http\Request;
-use Ship\Parent\Resource\Resource as ParentResource;
+use Illuminate\Support\Collection;
 use Ship\Parent\Schema\Schema;
 
-trait ConvertsSchemaToArray
+trait ConvertSchemaToArray
 {
     private static mixed $additionalData;
 

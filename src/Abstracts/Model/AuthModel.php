@@ -20,9 +20,9 @@ abstract class AuthModel extends LaravelAuthenticatableUser implements EntityCon
     use Notifiable;
     use HasApiTokens;
 
-    public const null|string UPDATED_AT = 'updatedAt';
-    public const string CREATED_AT = 'createdAt';
-    public const string DELETED_AT = 'deletedAt';
+    public const null|string UPDATED_AT = 'updated_at';
+    public const string CREATED_AT = 'created_at';
+    public const string DELETED_AT = 'deleted_at';
 
     /**
      * @var bool

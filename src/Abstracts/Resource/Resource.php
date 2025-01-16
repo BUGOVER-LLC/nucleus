@@ -7,7 +7,7 @@ namespace Nucleus\Abstracts\Resource;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Collection;
-use Nucleus\Traits\ConvertsSchemaToArray;
+use Nucleus\Traits\ConvertSchemaToArray;
 
 /**
  * Class BaseResource
@@ -32,7 +32,7 @@ use Nucleus\Traits\ConvertsSchemaToArray;
  */
 abstract class Resource extends JsonResource
 {
-    use ConvertsSchemaToArray;
+    use ConvertSchemaToArray;
 
     /**
      * @var string

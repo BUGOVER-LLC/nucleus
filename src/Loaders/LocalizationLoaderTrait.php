@@ -16,7 +16,7 @@ trait LocalizationLoaderTrait
      */
     public function loadLocalsFromContainers(string $containerPath): void
     {
-        $containerLocaleDirectory = $containerPath . '/Languages';
+        $containerLocaleDirectory = $containerPath . '/languages';
         $containerName = basename($containerPath);
         $pathParts = explode(DIRECTORY_SEPARATOR, $containerPath);
         $sectionName = $pathParts[(int) count($pathParts) - 2];
@@ -45,9 +45,9 @@ trait LocalizationLoaderTrait
      */
     private function buildLocaleNamespace(?string $sectionName, string $containerName): string
     {
-        return $sectionName ? (Str::camel($sectionName) . '@' . Str::camel($containerName)) : Str::camel(
-            $containerName
-        );
+        return $sectionName
+            ? (Str::snake($sectionName) . '@' . Str::snake($containerName))
+            : Str::snake($containerName);
     }
 
     /**
@@ -55,7 +55,7 @@ trait LocalizationLoaderTrait
      */
     public function loadLocalsFromShip(): void
     {
-        $shipLocaleDirectory = config('app.path') . MainNuclear::SHIP_NAME . DIRECTORY_SEPARATOR . 'Languages';
+        $shipLocaleDirectory = config('app.path') . MainNuclear::SHIP_NAME . DIRECTORY_SEPARATOR . 'languages';
         $this->loadLocals($shipLocaleDirectory, 'ship');
     }
 }

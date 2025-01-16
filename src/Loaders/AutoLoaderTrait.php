@@ -35,13 +35,13 @@ trait AutoLoaderTrait
         $this->loadModelsMapFormShip();
 
         // Iterate over all the containers folders and autoload most of the components.
-        foreach (Nuclear::getAllContainerPaths() as $container_path) {
-            $this->loadMigrationsFromContainers($container_path);
-            $this->loadLocalsFromContainers($container_path);
-            $this->loadViewsFromContainers($container_path);
-            $this->loadHelpersFromContainers($container_path);
-            $this->loadCommandsFromContainers($container_path);
-            $this->loadModelMapsFromContainers($container_path);
+        foreach (Nuclear::getAllContainerPaths() as $containerPath) {
+            $this->loadMigrationsFromContainers($containerPath);
+            $this->loadLocalsFromContainers($containerPath);
+            $this->loadViewsFromContainers($containerPath);
+            $this->loadHelpersFromContainers($containerPath);
+            $this->loadCommandsFromContainers($containerPath);
+            $this->loadModelMapsFromContainers($containerPath);
         }
     }
 
@@ -54,10 +54,10 @@ trait AutoLoaderTrait
         $this->loadOnlyShipProviderFromShip();
         $this->loadOnlyVendorProviderFromShip();
 
-        foreach (Nuclear::getAllContainerPaths() as $container_path) {
-            $this->loadEnvFromContainers($container_path);
-            $this->loadConfigsFromContainers($container_path);
-            $this->loadOnlyMainProviderFromContainers($container_path);
+        foreach (Nuclear::getAllContainerPaths() as $containerPath) {
+            $this->loadEnvFromContainers($containerPath);
+            $this->loadConfigsFromContainers($containerPath);
+            $this->loadOnlyMainProviderFromContainers($containerPath);
         }
     }
 }

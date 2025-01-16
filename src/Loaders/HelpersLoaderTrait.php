@@ -12,7 +12,7 @@ trait HelpersLoaderTrait
 {
     public function loadHelpersFromContainers(string $containerPath): void
     {
-        $containerHelpersDirectory = $containerPath . '/Helpers';
+        $containerHelpersDirectory = $containerPath . '/helpers';
         $this->loadHelpers($containerHelpersDirectory);
     }
 
@@ -32,7 +32,7 @@ trait HelpersLoaderTrait
 
     public function loadHelpersFromShip(): void
     {
-        $shipHelpersDirectory = config('app.path') . MainNuclear::SHIP_NAME . DIRECTORY_SEPARATOR . 'Helpers';
+        $shipHelpersDirectory = config('app.path') . MainNuclear::SHIP_NAME . DIRECTORY_SEPARATOR . 'helpers';
         $this->loadHelpers($shipHelpersDirectory);
     }
 }
