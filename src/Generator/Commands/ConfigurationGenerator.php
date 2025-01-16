@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Generator\Commands;
 
 use Illuminate\Support\Str;
@@ -34,7 +36,7 @@ class ConfigurationGenerator extends GeneratorCommand implements ComponentsGener
     /**
      * The structure of the file path.
      */
-    protected string $pathStructure = '{section-name}/{container-name}/Config/*';
+    protected string $pathStructure = '{section-name}/{container-name}/config/*';
     /**
      * The structure of the file name.
      */
@@ -69,6 +71,6 @@ class ConfigurationGenerator extends GeneratorCommand implements ComponentsGener
      */
     public function getDefaultFileName(): string
     {
-        return Str::camel($this->sectionName) . '-' . Str::camel($this->containerName);
+        return Str::snake($this->sectionName, '-') . '-' . Str::snake($this->containerName, '-');
     }
 }

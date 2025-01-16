@@ -23,9 +23,9 @@ trait RoutesLoaderTrait
     {
         $containersPaths = Nuclear::getAllContainerPaths();
 
-        foreach ($containersPaths as $container_path) {
-            $this->loadApiContainerRoutes($container_path);
-            $this->loadWebContainerRoutes($container_path);
+        foreach ($containersPaths as $containerPath) {
+            $this->loadApiContainerRoutes($containerPath);
+            $this->loadWebContainerRoutes($containerPath);
         }
     }
 

@@ -48,8 +48,8 @@ class ComposerGenerator extends GeneratorCommand implements ComponentsGenerator
 
     #[\Override] public function getUserInputs(): ?array
     {
-        $_sectionName = Str::kebab($this->sectionName);
-        $_containerName = Str::kebab($this->containerName);
+        $section_name = Str::kebab($this->sectionName);
+        $container_name = Str::kebab($this->containerName);
 
         return [
             'path-parameters' => [
@@ -57,9 +57,9 @@ class ComposerGenerator extends GeneratorCommand implements ComponentsGenerator
                 'container-name' => $this->containerName,
             ],
             'stub-parameters' => [
-                '_section-name' => $_sectionName,
+                '_section-name' => $section_name,
                 'section-name' => $this->sectionName,
-                '_container-name' => $_containerName,
+                '_container-name' => $container_name,
                 'container-name' => $this->containerName,
                 'class-name' => $this->fileName,
             ],

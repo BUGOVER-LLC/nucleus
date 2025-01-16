@@ -257,9 +257,9 @@ abstract class GeneratorCommand extends Command
      * @param $path
      * @return string
      */
-    protected function getFilePath($path): string
+    protected function getFilePath(string $path): string
     {
-        $path = self::getRootPath()
+        $root_path = self::getRootPath()
             ? DIRECTORY_SEPARATOR . str_replace(
                 '\\',
                 '/',
@@ -272,10 +272,10 @@ abstract class GeneratorCommand extends Command
             ) . '.' . $this->getDefaultFileExtension();
 
         // Try to create directory
-        $this->createDirectory($path);
+        $this->createDirectory($root_path);
 
         // Return full path
-        return $path;
+        return $root_path;
     }
 
     /**

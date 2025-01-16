@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Nucleus\Generator\Commands;
 
-use Illuminate\Support\Pluralizer;
 use Illuminate\Support\Str;
 use Nucleus\Generator\GeneratorCommand;
 use Nucleus\Generator\Interfaces\ComponentsGenerator;
@@ -80,7 +79,7 @@ class RouteGenerator extends GeneratorCommand implements ComponentsGenerator
         $url = Str::lower($this->checkParameterOrAsk('url', 'Enter the endpoint URI (foo/bar/{id})'));
         $url = ltrim($url, '/');
 
-        $controllerName = $this->checkParameterOrAsk(
+        $controller_name = $this->checkParameterOrAsk(
             'controller',
             'Enter the controller name',
             Str::studly($operation) . 'Controller'
@@ -115,7 +114,7 @@ class RouteGenerator extends GeneratorCommand implements ComponentsGenerator
                 'doc-http-verb' => Str::upper($verb),
                 'route-name' => $routeName,
                 'auth-middleware' => Str::lower($ui),
-                'controller-name' => $controllerName,
+                'controller-name' => $controller_name,
             ],
             'file-parameters' => [
                 'endpoint-name' => $this->fileName,

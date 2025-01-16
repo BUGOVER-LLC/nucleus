@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\File;
 trait EnvLoaderTrait
 {
     /**
-     * @param string $container_path
+     * @param string $containerPath
      * @return void
      */
-    public function loadEnvFromContainers(string $container_path): void
+    public function loadEnvFromContainers(string $containerPath): void
     {
-        $container_env_directory = $container_path . '/';
-        $this->loadEnv($container_env_directory);
+        $containerEnvDirectory = $containerPath . '/';
+        $this->loadEnv($containerEnvDirectory);
     }
 
     /**

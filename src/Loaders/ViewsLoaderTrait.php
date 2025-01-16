@@ -12,8 +12,8 @@ trait ViewsLoaderTrait
 {
     public function loadViewsFromContainers(string $containerPath): void
     {
-        $containerViewDirectory = $containerPath . '/UI/WEB/Views/';
-        $containerMailTemplatesDirectory = $containerPath . '/Mails/Templates/';
+        $containerViewDirectory = $containerPath . '/UI/WEB/views/';
+        $containerMailTemplatesDirectory = $containerPath . '/Mails/templates/';
 
         $containerName = basename($containerPath);
         $pathParts = explode(DIRECTORY_SEPARATOR, $containerPath);
@@ -44,7 +44,7 @@ trait ViewsLoaderTrait
     {
         $ship_mail_templates_directory = config(
             'app.path'
-        ) . MainNuclear::SHIP_NAME . DIRECTORY_SEPARATOR . 'Mails' . DIRECTORY_SEPARATOR . 'Templates' . DIRECTORY_SEPARATOR;
+        ) . MainNuclear::SHIP_NAME . DIRECTORY_SEPARATOR . 'Mails' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
         $this->loadViews($ship_mail_templates_directory, 'ship');
     }
 }

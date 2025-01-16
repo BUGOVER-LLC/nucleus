@@ -58,7 +58,7 @@ if (!function_exists('get_request_attribute')) {
      * @param string $key
      * @return mixed|null
      */
-    function get_request_attribute(string $key = '')
+    function get_request_attribute(string $key = ''): mixed
     {
         $params = app('request')->attributes->all();
 

@@ -55,7 +55,7 @@ class MigrationGenerator extends GeneratorCommand implements ComponentsGenerator
 
     public function getUserInputs(): ?array
     {
-        $tableName = Str::lower(
+        $table_name = Str::lower(
             $this->checkParameterOrAsk(
                 'tablename',
                 'Enter the name of the database table',
@@ -63,7 +63,7 @@ class MigrationGenerator extends GeneratorCommand implements ComponentsGenerator
             )
         );
 
-        $connectionName = $this->checkParameterOrAsk(
+        $connection_name = $this->checkParameterOrAsk(
             'connectionname',
             'Enter the name of the database connection',
             config('database.default')
@@ -78,12 +78,12 @@ class MigrationGenerator extends GeneratorCommand implements ComponentsGenerator
         $folder = $this->getFilePath($folder);
         $folder = rtrim($folder, $this->parsedFileName . '.' . $this->getDefaultFileExtension());
 
-        $migrationName = $this->fileName . '.' . $this->getDefaultFileExtension();
+        $migration_name = $this->fileName . '.' . $this->getDefaultFileExtension();
 
         // Get the content of this folder
         $files = File::allFiles($folder);
         foreach ($files as $file) {
-            if (Str::endsWith($file->getFilename(), $migrationName)) {
+            if (Str::endsWith($file->getFilename(), $migration_name)) {
                 $exists = true;
             }
         }
@@ -103,8 +103,8 @@ class MigrationGenerator extends GeneratorCommand implements ComponentsGenerator
                 '_container-name' => Str::lower($this->containerName),
                 'container-name' => $this->containerName,
                 'class-name' => Str::studly($this->fileName),
-                'table-name' => $tableName,
-                'connection' => $connectionName,
+                'table-name' => $table_name,
+                'connection' => $connection_name,
             ],
             'file-parameters' => [
                 'date' => Carbon::now()->format('Y_m_d_His'),
@@ -118,7 +118,7 @@ class MigrationGenerator extends GeneratorCommand implements ComponentsGenerator
      */
     public function getDefaultFileName(): string
     {
-        return 'create' . Str::ucfirst(Pluralizer::plural($this->containerName)) . 'Table';
+        return 'create_' . Str::snake(Pluralizer::plural($this->containerName)) . '_table';
     }
 
     /**
