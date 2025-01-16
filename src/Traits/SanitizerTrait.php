@@ -25,21 +25,21 @@ trait SanitizerTrait
     {
         $data = $this->all();
 
-        $input_as_array = [];
-        $fields_with_defaultValue = [];
+        $inputAsArray = [];
+        $fieldsWithDefaultValue = [];
 
         foreach ($fields as $key => $value) {
             if (is_string($key)) {
-                $fields_with_defaultValue[$key] = $value;
-                Arr::set($input_as_array, $key, $value);
+                $fieldsWithDefaultValue[$key] = $value;
+                Arr::set($inputAsArray, $key, $value);
             } else {
-                Arr::set($input_as_array, $value, true);
+                Arr::set($inputAsArray, $value, true);
             }
         }
 
-        $data = $this->recursiveArrayIntersectKey($data, $input_as_array);
+        $data = $this->recursiveArrayIntersectKey($data, $inputAsArray);
 
-        foreach ($fields_with_defaultValue as $key => $value) {
+        foreach ($fieldsWithDefaultValue as $key => $value) {
             $data = Arr::add($data, $key, $value);
         }
 

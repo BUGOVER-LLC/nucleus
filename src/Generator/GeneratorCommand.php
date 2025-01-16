@@ -223,7 +223,7 @@ abstract class GeneratorCommand extends Command
      * @param $str
      * @return string
      */
-    protected function removeSpecialChars($str): string
+    protected function removeSpecialChars(array|string $str): string|array|null
     {
         // remove everything that is NOT a character or digit
         return preg_replace('/[^A-Za-z0-9]/', '', $str);
@@ -233,10 +233,10 @@ abstract class GeneratorCommand extends Command
      * Checks, if the data from the generator contains path, stub and file-parameters.
      * Adds empty arrays, if they are missing
      *
-     * @param $data
-     * @return mixed
+     * @param array|object $data
+     * @return array|object
      */
-    private function sanitizeUserData($data): mixed
+    private function sanitizeUserData(array|object $data): array|object
     {
         if (!array_key_exists('path-parameters', $data)) {
             $data['path-parameters'] = [];
@@ -254,12 +254,12 @@ abstract class GeneratorCommand extends Command
     }
 
     /**
-     * @param $path
+     * @param string $path
      * @return string
      */
     protected function getFilePath(string $path): string
     {
-        $root_path = self::getRootPath()
+        $rootPath = self::getRootPath()
             ? DIRECTORY_SEPARATOR . str_replace(
                 '\\',
                 '/',
@@ -272,10 +272,10 @@ abstract class GeneratorCommand extends Command
             ) . '.' . $this->getDefaultFileExtension();
 
         // Try to create directory
-        $this->createDirectory($root_path);
+        $this->createDirectory($rootPath);
 
         // Return full path
-        return $root_path;
+        return $rootPath;
     }
 
     /**
