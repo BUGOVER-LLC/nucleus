@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nucleus\Generator\Commands;
 
+use Illuminate\Support\Pluralizer;
 use Illuminate\Support\Str;
 use Nucleus\Generator\GeneratorCommand;
 use Nucleus\Generator\Interfaces\ComponentsGenerator;
@@ -120,5 +123,14 @@ class RouteGenerator extends GeneratorCommand implements ComponentsGenerator
                 'documentation-type' => $doctype,
             ],
         ];
+    }
+
+
+    /**
+     * Get the default file name for this component to be generated.
+     */
+    public function getDefaultFileName(): string
+    {
+        return Str::lcfirst($this->fileType);
     }
 }

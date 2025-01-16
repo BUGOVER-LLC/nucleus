@@ -118,7 +118,7 @@ class MigrationGenerator extends GeneratorCommand implements ComponentsGenerator
      */
     public function getDefaultFileName(): string
     {
-        return 'create_' . Str::snake(Pluralizer::plural($this->containerName)) . '_table';
+        return 'create' . Str::ucfirst(Pluralizer::plural($this->containerName)) . 'Table';
     }
 
     /**

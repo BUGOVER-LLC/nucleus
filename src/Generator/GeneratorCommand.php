@@ -210,11 +210,11 @@ abstract class GeneratorCommand extends Command
     }
 
     /**
-     * Get the default file name for this component to be generated
+     * Get the default file name for this component to be generated.
      */
     protected function getDefaultFileName(): string
     {
-        return 'Default' . Str::ucfirst($this->fileType);
+        return Str::ucfirst($this->fileType);
     }
 
     /**
